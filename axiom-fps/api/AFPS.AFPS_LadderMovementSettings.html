@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_LadderMovementSettings </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_LadderMovementSettings ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_LadderMovementSettings">
+
+
+
+  <h1 id="AFPS_AFPS_LadderMovementSettings" data-uid="AFPS.AFPS_LadderMovementSettings" class="text-break">Class AFPS_LadderMovementSettings</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Object</span></div>
+    <div class="level2"><span class="xref">ScriptableObject</span></div>
+    <div class="level3"><span class="xref">AFPS_LadderMovementSettings</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">ScriptableObject.SetDirty()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ScriptableObject.CreateInstance(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">ScriptableObject.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.CreateInstance&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetEntityId()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_LadderMovementSettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CreateAssetMenu(fileName = &quot;New Ladder Movement Settings&quot;, menuName = &quot;AFPS/Movement/Ladder Movement Settings&quot;, order = 6)]
+public class AFPS_LadderMovementSettings : ScriptableObject</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_cameraViewDirectionAffectsForwardBehaviour.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.cameraViewDirectionAffectsForwardBehaviour%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L44">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_cameraViewDirectionAffectsForwardBehaviour" data-uid="AFPS.AFPS_LadderMovementSettings.cameraViewDirectionAffectsForwardBehaviour">cameraViewDirectionAffectsForwardBehaviour</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Behaviour&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderClimbBehaviourIsLoose&quot; })]
+[Tooltip(&quot;Whether (if enableForwardToMoveUpLadder is true)&quot;)]
+public bool cameraViewDirectionAffectsForwardBehaviour</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_enableForwardToClimbLadders.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.enableForwardToClimbLadders%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_enableForwardToClimbLadders" data-uid="AFPS.AFPS_LadderMovementSettings.enableForwardToClimbLadders">enableForwardToClimbLadders</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Behaviour&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderClimbBehaviourIsLoose&quot; })]
+[Tooltip(&quot;Whether moving forwards on a ladder (if within angle limit) climbs the ladder&quot;)]
+public bool enableForwardToClimbLadders</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_enableLadderInteraction.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.enableLadderInteraction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L12">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_enableLadderInteraction" data-uid="AFPS.AFPS_LadderMovementSettings.enableLadderInteraction">enableLadderInteraction</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+public bool enableLadderInteraction</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderAngleLimit.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderAngleLimit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L49">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderAngleLimit" data-uid="AFPS.AFPS_LadderMovementSettings.ladderAngleLimit">ladderAngleLimit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Behaviour&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderClimbBehaviourIsLoose&quot; })]
+[Tooltip(&quot;For loose and loose with snapping only; The max angle between the player and the ladder that W moves the player up the ladder &quot;)]
+public float ladderAngleLimit</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderAwayDisconnectForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderAwayDisconnectForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L79">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderAwayDisconnectForce" data-uid="AFPS.AFPS_LadderMovementSettings.ladderAwayDisconnectForce">ladderAwayDisconnectForce</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Jump - Disconnect&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderJumpBehaviourIsDisconnect&quot; })]
+[Tooltip(&quot;How much force to add to the player away from the ladder when disconnecting&quot;)]
+public float ladderAwayDisconnectForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderBoost.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderBoost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L76">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderBoost" data-uid="AFPS.AFPS_LadderMovementSettings.ladderBoost">ladderBoost</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Jump - Boost&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderJumpBehaviourIsBoost&quot; })]
+[Tooltip(&quot;How much to add to the ladder position when boosting&quot;)]
+public float ladderBoost</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderBoostTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderBoostTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L74">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderBoostTime" data-uid="AFPS.AFPS_LadderMovementSettings.ladderBoostTime">ladderBoostTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Jump - Boost&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderJumpBehaviourIsBoost&quot; })]
+[Tooltip(&quot;How much time before you can boost again&quot;)]
+public float ladderBoostTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbAnimationVelocityThreshold.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbAnimationVelocityThreshold%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L71">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbAnimationVelocityThreshold" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbAnimationVelocityThreshold">ladderClimbAnimationVelocityThreshold</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Min(0)]
+[Tooltip(&quot;Minimum upward velocity (units/sec) required to play the arms climbing animation while on a ladder. At or below this the player is treated as idle/static on the ladder and the climbing animation is suppressed.&quot;)]
+public float ladderClimbAnimationVelocityThreshold</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbBehaviour.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbBehaviour%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L15">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbBehaviour" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbBehaviour">ladderClimbBehaviour</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+public LadderClimbBehaviour ladderClimbBehaviour</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.LadderClimbBehaviour.html">LadderClimbBehaviour</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbPower.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbPower%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L86">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbPower" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbPower">ladderClimbPower</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;PID Controllers&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;What to multiply the ladder climbing controller by&quot;)]
+public float ladderClimbPower</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L62">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbSpeed" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbSpeed">ladderClimbSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;How fast the player climbs the ladder&quot;)]
+public float ladderClimbSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbingPID.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbingPID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L88">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbingPID" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbingPID">ladderClimbingPID</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;PID Controllers&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;The PID controller that moves the player to the positions dictated by the climb speed and fall speed&quot;)]
+public PIDController ladderClimbingPID</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PIDController</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderCrouchForceFallSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderCrouchForceFallSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L55">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderCrouchForceFallSpeed" data-uid="AFPS.AFPS_LadderMovementSettings.ladderCrouchForceFallSpeed">ladderCrouchForceFallSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;Whether crouching uses ladderForceFallSpeed instead of multiplying with ladderFallSpeed&quot;)]
+public bool ladderCrouchForceFallSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderCrouchingFallSpeedAffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderCrouchingFallSpeedAffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L57">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderCrouchingFallSpeedAffect" data-uid="AFPS.AFPS_LadderMovementSettings.ladderCrouchingFallSpeedAffect">ladderCrouchingFallSpeedAffect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[HideIf(&quot;ladderCrouchForceFallSpeed&quot;)]
+[Tooltip(&quot;How much crouching affects the falling speed&quot;)]
+public float ladderCrouchingFallSpeedAffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderDisconnectTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderDisconnectTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L83">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderDisconnectTime" data-uid="AFPS.AFPS_LadderMovementSettings.ladderDisconnectTime">ladderDisconnectTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Jump - Disconnect&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderJumpBehaviourIsDisconnect&quot; })]
+[Tooltip(&quot;How long to disable ladder snapping when disconnecting from the ladder&quot;)]
+public float ladderDisconnectTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderDrag.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderDrag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L60">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderDrag" data-uid="AFPS.AFPS_LadderMovementSettings.ladderDrag">ladderDrag</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;The drag of the player while on a ladder&quot;)]
+public float ladderDrag</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderFallSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderFallSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderFallSpeed" data-uid="AFPS.AFPS_LadderMovementSettings.ladderFallSpeed">ladderFallSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;How fast the player falls while on a ladder with no inputs&quot;)]
+public float ladderFallSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderForceFallSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderForceFallSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L68">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderForceFallSpeed" data-uid="AFPS.AFPS_LadderMovementSettings.ladderForceFallSpeed">ladderForceFallSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;How fast the player falls on a ladder with inputs&quot;)]
+public float ladderForceFallSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviour.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviour%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L17">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviour" data-uid="AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviour">ladderJumpBehaviour</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+public LadderJumpBehaviour ladderJumpBehaviour</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.LadderJumpBehaviour.html">LadderJumpBehaviour</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderMovementSpeedMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderMovementSpeedMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L52">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderMovementSpeedMultiplier" data-uid="AFPS.AFPS_LadderMovementSettings.ladderMovementSpeedMultiplier">ladderMovementSpeedMultiplier</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Behaviour&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderClimbBehaviourIsLoose&quot; })]
+[Tooltip(&quot;How much to multiply the player&#39;s base movement by while on a ladder; Only for loose climb behavior&quot;)]
+public float ladderMovementSpeedMultiplier</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderPause.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderPause%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L64">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderPause" data-uid="AFPS.AFPS_LadderMovementSettings.ladderPause">ladderPause</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Climb Physics&quot;)]
+[ShowIf(&quot;enableLadderInteraction&quot;)]
+[Tooltip(&quot;How long to pause when no keys are pressed before going down at the pause speed&quot;)]
+public float ladderPause</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderSnappingPower.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderSnappingPower%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L91">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderSnappingPower" data-uid="AFPS.AFPS_LadderMovementSettings.ladderSnappingPower">ladderSnappingPower</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;PID Controllers&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderSnapping&quot; })]
+[Tooltip(&quot;How much to multiply the ladder snapping controllers by&quot;)]
+public float ladderSnappingPower</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderUpDisconnectForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderUpDisconnectForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L81">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderUpDisconnectForce" data-uid="AFPS.AFPS_LadderMovementSettings.ladderUpDisconnectForce">ladderUpDisconnectForce</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Jump - Disconnect&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderJumpBehaviourIsDisconnect&quot; })]
+[Tooltip(&quot;How much force to add to the player upwards when disconnecting (negative value for downwards)&quot;)]
+public float ladderUpDisconnectForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderXSnappingPID.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderXSnappingPID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L93">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderXSnappingPID" data-uid="AFPS.AFPS_LadderMovementSettings.ladderXSnappingPID">ladderXSnappingPID</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;PID Controllers&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderSnapping&quot; })]
+[Tooltip(&quot;The PID controller that determins the X movement for snapping to the ladder&#39;s designated position; Not for loose climb behavior&quot;)]
+public PIDController ladderXSnappingPID</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PIDController</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderZSnappingPID.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderZSnappingPID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L95">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderZSnappingPID" data-uid="AFPS.AFPS_LadderMovementSettings.ladderZSnappingPID">ladderZSnappingPID</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;PID Controllers&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;enableLadderInteraction&quot;, &quot;ladderSnapping&quot; })]
+[Tooltip(&quot;The PID controller that determins the Z movement for snapping to the ladder&#39;s designated position; Not for loose climb behavior&quot;)]
+public PIDController ladderZSnappingPID</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PIDController</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderClimbBehaviourIsLoose.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderClimbBehaviourIsLoose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L19">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_LadderMovementSettings_ladderClimbBehaviourIsLoose_" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbBehaviourIsLoose*"></a>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderClimbBehaviourIsLoose" data-uid="AFPS.AFPS_LadderMovementSettings.ladderClimbBehaviourIsLoose">ladderClimbBehaviourIsLoose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool ladderClimbBehaviourIsLoose()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsBoost.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsBoost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L31">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsBoost_" data-uid="AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsBoost*"></a>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsBoost" data-uid="AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsBoost">ladderJumpBehaviourIsBoost()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool ladderJumpBehaviourIsBoost()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsDisconnect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsDisconnect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L37">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsDisconnect_" data-uid="AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsDisconnect*"></a>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderJumpBehaviourIsDisconnect" data-uid="AFPS.AFPS_LadderMovementSettings.ladderJumpBehaviourIsDisconnect">ladderJumpBehaviourIsDisconnect()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool ladderJumpBehaviourIsDisconnect()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings_ladderSnapping.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings.ladderSnapping%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L25">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_LadderMovementSettings_ladderSnapping_" data-uid="AFPS.AFPS_LadderMovementSettings.ladderSnapping*"></a>
+  <h4 id="AFPS_AFPS_LadderMovementSettings_ladderSnapping" data-uid="AFPS.AFPS_LadderMovementSettings.ladderSnapping">ladderSnapping()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool ladderSnapping()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_LadderMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_LadderMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Movement System/AFPS_LadderMovementSettings.cs/#L7" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

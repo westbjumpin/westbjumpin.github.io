@@ -1,0 +1,3226 @@
+{
+  "source_base_path": "C:/Projects/Axiom FPS/Movement-FPS-Asset/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ADS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ADS.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ADS",
+      "Summary": "<p sourcefile=\"api/AFPS.ADS.yml\" sourcestartlinenumber=\"1\">FireWeaponBase-derived ADS handler: Fire() records aim intent and a per-frame reconcile blends the aim-down-sights state (pos/rot/FOV/spread plus crosshair/scope UI). Always CanFireNow=false (no recoil kick).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AI.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AI",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AI.yml\" sourcestartlinenumber=\"1\">Demo NavMesh AI: each Update steers NavMeshAgent toward the closest enemy agent.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AbilityPickup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AbilityPickup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AbilityPickup",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AbilityPickup.yml\" sourcestartlinenumber=\"1\">Pickup interactable that equips an ability into AFPS_AbilitySystem the same way\nAFPS_WeaponObject equips a weapon into AFPS_WeaponSystem.</p>\n<p sourcefile=\"api/AFPS.AFPS_AbilityPickup.yml\" sourcestartlinenumber=\"4\">Equip flow (mirrors AFPS_WeaponObject):\nInteract / collider pickup → <xref href=\"AFPS.AFPS_AbilityPickup.Pickup(AFPS.AFPS_InventorySystem)\" data-throw-if-not-resolved=\"false\"></xref> calls inventory.FindGridForItem with\nrequireExplicitCategory=true. If a single-slot grid matches, AddItemToGrid runs and we\nwire <code>onPlacedInEquipmentSlot</code> / <code>onRemovedFromEquipmentSlot</code> on the resulting\nAFPS_ItemObject. AddItemToGrid does not fire onPlacedInEquipmentSlot, so we explicitly\ncall <xref href=\"AFPS.AFPS_AbilitySystem.EquipAbility(System.Int32%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref> for the slot the grid maps to.</p>\n<p sourcefile=\"api/AFPS.AFPS_AbilityPickup.yml\" sourcestartlinenumber=\"11\">Later drags between equipment slots and the stash run through the wired listeners\n(drag-out → unequip; drag-in → equip). The slot index is looked up from\n<xref href=\"AFPS.AFPS_AbilitySystem.abilitySlotGrids\" data-throw-if-not-resolved=\"false\"></xref>, so any drag into a non-ability slot\n(e.g. the player rearranging into a generic stash grid) leaves AbilitySystem untouched.</p>\n<p sourcefile=\"api/AFPS.AFPS_AbilityPickup.yml\" sourcestartlinenumber=\"16\">Drop: reactivates the world GameObject, destroys the inventory ItemObject, unequips\nthe ability instance from AbilitySystem, throws via rigidbody. Listener is unwired\nfirst so the teardown-side onRemovedFromEquipmentSlot doesn't re-enter the handler.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AbilitySystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AbilitySystem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AbilitySystem",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AbilitySystem.yml\" sourcestartlinenumber=\"1\">Ability system. Holds up to <xref href=\"AFPS.AFPS_AbilitySystem.maxEquippedAbilities\" data-throw-if-not-resolved=\"false\"></xref> slots (mapped to the\nAbilityOne/Two/Three inputs). Two equip paths coexist:</p>\n<ol sourcefile=\"api/AFPS.AFPS_AbilitySystem.yml\" sourcestartlinenumber=\"3\">\n<li sourcefile=\"api/AFPS.AFPS_AbilitySystem.yml\" sourcestartlinenumber=\"3\">Inspector loadout — designer fills <xref href=\"AFPS.AFPS_AbilitySystem.abilities\" data-throw-if-not-resolved=\"false\"></xref> with AbilityHolder entries\nwhose <code>ability</code> field points at a scene-attached AbilityBase. Those abilities\nare equipped from the start and are not destroyed on any unequip path.</li>\n<li sourcefile=\"api/AFPS.AFPS_AbilitySystem.yml\" sourcestartlinenumber=\"6\">Pickup — AFPS_AbilityPickup calls <xref href=\"AFPS.AFPS_AbilitySystem.EquipAbility(System.Int32%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref> with a prefab. The system\ninstantiates a copy as a child, builds a runtime holder copying trigger defaults from\nthe prefab, and the unequip path destroys the instance.\nExtend by inheriting AbilityBase and overriding <code>ActivateAbility(bool pressed = true)</code>.\nExamples: Scripts/Abilities/Dash.cs, GrapplingHook.cs.</li>\n</ol>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Agent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Agent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Agent",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Agent.yml\" sourcestartlinenumber=\"1\">Identity component for any scene actor (player or AI): stores team affiliation and exposes team/ally query helpers used by <xref href=\"AFPS.AFPS_AgentManager\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AgentManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AgentManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AgentManager",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AgentManager.yml\" sourcestartlinenumber=\"1\">Singleton manager that registers all scene <xref href=\"AFPS.AFPS_Agent\" data-throw-if-not-resolved=\"false\"></xref> instances at startup and exposes spatial queries for closest agent by team, ally, and enemy relationships.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AmmoStateToggle.CountSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AmmoStateToggle.CountSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AmmoStateToggle.CountSource",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AmmoStateToggle.CountSource.yml\" sourcestartlinenumber=\"1\">Which value drives the toggle evaluation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AmmoStateToggle.ToggleEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AmmoStateToggle.ToggleEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AmmoStateToggle.ToggleEntry",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AmmoStateToggle.ToggleEntry.yml\" sourcestartlinenumber=\"1\">One target GameObject and the inclusive count range over which it is enabled.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AmmoStateToggle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AmmoStateToggle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AmmoStateToggle",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AmmoStateToggle.yml\" sourcestartlinenumber=\"1\">Decoupled, count-driven GameObject toggler for a weapon. Conceptually the world-space sibling\nof <xref href=\"AFPS.AFPS_Item\" data-throw-if-not-resolved=\"false\"></xref>'s sprite-by-count system: instead of swapping a sprite asset on an\ninventory icon, it enables/disables child GameObjects on the weapon model based on a live count.\nThe count comes either from <xref href=\"AFPS.AFPS_WeaponAmmo\" data-throw-if-not-resolved=\"false\"></xref> (CurrentMag / Reserve / sum) or\nstraight from the weapon item's stored contents — summed stack sizes (StoredStackSum) or the\nnumber of distinct stored entries (StoredItemCount), mirroring <xref href=\"AFPS.SpriteCountSource\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.AFPS_AmmoStateToggle.yml\" sourcestartlinenumber=\"8\">Semantics are cumulative ranges — every entry whose [minCount, maxCount] range contains the\ncurrent count is enabled simultaneously (e.g. one visible shell GameObject per loaded round,\nor a low-ammo warning light active only while the count is between two bounds). Pure\nSetActive toggling; no sprite assignment.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ArmAnimationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ArmAnimationSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ArmAnimationSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ArmsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ArmsController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ArmsController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AudioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AudioManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AudioManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Camera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Camera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Camera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Camera.yml\" sourcestartlinenumber=\"1\">First-person camera controller: processes look input, applies FOV scaling, headbob (sine or curve), hit-bob physics, wallrun/slide/movement tilt, ledge-hang yaw clamping, and vignette post-processing each LateUpdate.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Checkpoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Checkpoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Checkpoint",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Checkpoint.yml\" sourcestartlinenumber=\"1\">Trigger checkpoint that snapshots player HP and active status effects on first contact; <xref href=\"AFPS.AFPS_CheckpointManager.ResetToLastCheckpoint(AFPS.AFPS_Health)\" data-throw-if-not-resolved=\"false\"></xref> restores from the frozen state on death.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_CheckpointManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_CheckpointManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_CheckpointManager",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_CheckpointManager.yml\" sourcestartlinenumber=\"1\">Persistent singleton that tracks the last activated <xref href=\"AFPS.AFPS_Checkpoint\" data-throw-if-not-resolved=\"false\"></xref> and restores player position, HP, and status effects on death.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ClimbMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ClimbMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ClimbMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ColdEfect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ColdEfect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ColdEfect",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ColdEfect.yml\" sourcestartlinenumber=\"1\">Cold status side effect stub; override <xref href=\"AFPS.AFPS_ColdEfect.ExecuteStatus\" data-throw-if-not-resolved=\"false\"></xref> to implement slow/freeze logic.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Compass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Compass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Compass",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Compass.yml\" sourcestartlinenumber=\"1\">Drives the HUD compass: samples camera yaw each frame and pushes heading to UIManager\nwhich fans out to the active <xref href=\"AFPS.IHUDLayer\" data-throw-if-not-resolved=\"false\"></xref>. Renderer-agnostic — UGUI and\nUI Toolkit HUDs share the same heading feed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_CrosshairSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_CrosshairSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_CrosshairSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_CrouchAndSlideSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_CrouchAndSlideSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_CrouchAndSlideSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DamageNumberManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DamageNumberManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DamageNumberManager",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DamageNumberManager.yml\" sourcestartlinenumber=\"1\">Spawns world-space floating damage/heal numbers in response to <xref href=\"AFPS.AFPS_Health.OnDamageDealt\" data-throw-if-not-resolved=\"false\"></xref>.\nOnly renders hits dealt by the local player (instigator with an <xref href=\"AFPS.AFPS_Agent\" data-throw-if-not-resolved=\"false\"></xref> flagged\n<code>isPlayer</code>). Numbers are pooled <xref href=\"TMPro.TextMeshPro\" data-throw-if-not-resolved=\"false\"></xref> objects built procedurally (no prefab),\nbillboarded to <xref href=\"AFPS.AFPS_DamageNumberManager.cam\" data-throw-if-not-resolved=\"false\"></xref>, animated via the curves on <xref href=\"AFPS.AFPS_DamageNumberManager.settings\" data-throw-if-not-resolved=\"false\"></xref>. Rapid hits on the\nsame target inside the accumulation window merge into one growing number.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DamageNumberSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DamageNumberSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DamageNumberSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DamageNumberSettings.yml\" sourcestartlinenumber=\"1\">Preset driving <xref href=\"AFPS.AFPS_DamageNumberManager\" data-throw-if-not-resolved=\"false\"></xref>: world-space floating damage/heal numbers — text style, crit and heal colouring, rise/fade animation, and same-target accumulation. One asset can be shared by every weapon's hit feedback.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DragableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DragableObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DragableObject",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DragableObject.yml\" sourcestartlinenumber=\"1\">Physics-driven holdable object: PID controllers drive position and optionally rotation toward a camera-relative hold point each FixedUpdate; auto-releases when distance exceeds <code>disconnectDistance</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_EquipAnimationWeaponObjectSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_EquipAnimationWeaponObjectSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_EquipAnimationWeaponObjectSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Explosion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Explosion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Explosion",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Explosion.yml\" sourcestartlinenumber=\"1\">OverlapSphere explosion: LOS wall-check per collider, falloff-curve damage, self-damage/force toggles, and an optional self-destruct timer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ExplosionMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ExplosionMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ExplosionMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_FOVEffectsCameraSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_FOVEffectsCameraSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_FOVEffectsCameraSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Fluid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Fluid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Fluid",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Fluid.yml\" sourcestartlinenumber=\"1\">Trigger volume that writes fluid state into AFPS_Movement on enter/exit and applies linearDamping to non-player rigidbodies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_FluidMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_FluidMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_FluidMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_FootstepSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_FootstepSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_FootstepSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_GroundingAndSlopeMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_GroundingAndSlopeMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_GroundingAndSlopeMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HeadbobCameraSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HeadbobCameraSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HeadbobCameraSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Health.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Health.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Health",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Health.yml\" sourcestartlinenumber=\"1\">Core HP component: manages base HP and overheal pools, per-type damage resistances, status effect lifecycle, death/respawn flow via <xref href=\"AFPS.AFPS_CheckpointManager\" data-throw-if-not-resolved=\"false\"></xref>, and drives <xref href=\"AFPS.AFPS_UIManager\" data-throw-if-not-resolved=\"false\"></xref> health HUD.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HealthAffectArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HealthAffectArea.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HealthAffectArea",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HealthAffectArea.yml\" sourcestartlinenumber=\"1\">Trigger volume that applies a signed HP delta to any <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> occupant on an independent per-target timer, routing negative deltas through <xref href=\"AFPS.AFPS_Health.ApplyDamage(AFPS.DamageInfo)\" data-throw-if-not-resolved=\"false\"></xref> (typed) and positive through <xref href=\"AFPS.AFPS_Health.Heal(System.Single)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HealthBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HealthBar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HealthBar",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HealthBar.yml\" sourcestartlinenumber=\"1\">World-space health bar for the <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> on this object (or a parent). Builds a\nbillboarded UGUI bar (background + left-anchored fill) procedurally — no prefab or material to wire.\nThe fill tracks base HP (overheal excluded) and recolors by the discrete thresholds on\n<xref href=\"AFPS.AFPS_HealthBar.settings\" data-throw-if-not-resolved=\"false\"></xref>. Add this to any entity that should show a bar; the player typically uses the\nscreen HUD instead.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HealthBarSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HealthBarSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HealthBarSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HealthBarSettings.yml\" sourcestartlinenumber=\"1\">Shared preset for <xref href=\"AFPS.AFPS_HealthBar\" data-throw-if-not-resolved=\"false\"></xref>: bar dimensions, placement, background, and discrete per-threshold fill colors. One asset can drive every entity's bar.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HitBobCameraSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HitBobCameraSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HitBobCameraSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Hitbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Hitbox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Hitbox",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Hitbox.yml\" sourcestartlinenumber=\"1\">Per-collider damage relay for body-part criticals. Sits on a child collider of a character\n(head, torso, limb), scales incoming damage by <xref href=\"AFPS.AFPS_Hitbox.damageMultiplier\" data-throw-if-not-resolved=\"false\"></xref>, can optionally bypass\nthe owner's per-type resistance and the firing weapon's range falloff, tags the hit with <xref href=\"AFPS.AFPS_Hitbox.region\" data-throw-if-not-resolved=\"false\"></xref>\nfor crit styling, then forwards the result to the owning <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref>. Implements\n<xref href=\"AFPS.IDamageable\" data-throw-if-not-resolved=\"false\"></xref> so weapons can apply damage to the exact collider they hit without knowing\nwhether it is a hitbox or the body itself. Radius damage (<xref href=\"AFPS.AFPS_Explosion\" data-throw-if-not-resolved=\"false\"></xref>) targets\n<xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> directly and therefore never receives this multiplier.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Hitmarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Hitmarker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Hitmarker",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HitmarkerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HitmarkerSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HitmarkerSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_HorizontalMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_HorizontalMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_HorizontalMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InputManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InputManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InputManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Interactable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Interactable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Interactable",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Interactable.yml\" sourcestartlinenumber=\"1\">Base for anything the player can target and interact with. Holds only look-and-interact concerns:\nthe UI label, the held-press timer, and the Interact/EndInteract verbs.\nInventory pickup lives on AFPS_PickupInteractable.</p>\n<p sourcefile=\"api/AFPS.AFPS_Interactable.yml\" sourcestartlinenumber=\"5\">Off-switch API: set <code>interactable.enabled = false</code> to make AFPS_InteractionSystem ignore\nthis object entirely — no interaction box, no name/description UI, no Interact() callbacks.\nUseful while a dying object plays its death/explosion effect on a delay before Destroy().\nDisable also stops the host MonoBehaviour's Update/FixedUpdate (relevant for subclasses like\nAFPS_DragableObject which run physics per-frame).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InteractionCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InteractionCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InteractionCollider",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InteractionCollider.yml\" sourcestartlinenumber=\"1\">Trigger collider that auto-picks up <xref href=\"AFPS.AFPS_PickupInteractable\" data-throw-if-not-resolved=\"false\"></xref> objects with <code>PickupType.OnTouch</code> on overlap; non-pickup interactables are ignored and must be reached via the spherecast path in <xref href=\"AFPS.AFPS_InteractionSystem\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InteractionSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InteractionSystem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InteractionSystem",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InteractionSystem.yml\" sourcestartlinenumber=\"1\">Player interaction controller: runs dual spherecasts each Update (weapon and general layers), manages look-targeting UI, routes press/held-press events to <xref href=\"AFPS.AFPS_Interactable.Interact(AFPS.AFPS_InteractionSystem)\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"AFPS.AFPS_PickupInteractable.Pickup(AFPS.AFPS_InventorySystem)\" data-throw-if-not-resolved=\"false\"></xref>, and owns the active <xref href=\"AFPS.AFPS_DragableObject\" data-throw-if-not-resolved=\"false\"></xref> reference.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryGrid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryGrid",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryGrid.yml\" sourcestartlinenumber=\"1\">A single inventory grid panel: allocates a cell array, enforces category/size constraints, exposes weight and capacity queries, and sets <xref href=\"AFPS.AFPS_InventorySystem.gridOnMouse\" data-throw-if-not-resolved=\"false\"></xref> on pointer entry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryGridUIBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryGridUIBinding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryGridUIBinding",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryGridUIBinding.yml\" sourcestartlinenumber=\"1\">Per-grid UI Toolkit renderer. Coexists with UGUI renderer (hidden via CanvasGroup).\nOwns cellPixelSize (panel-space). On first layout: sets baseRes=Screen.size (disables system's adjustedCellSize scaling) and cellSize=cellPixelSize*panelScale (on-screen px).\nMultiple bindings cooperate — keep cellPixelSize uniform (last-write-wins otherwise).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventorySystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventorySystem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventorySystem",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventorySystem.yml\" sourcestartlinenumber=\"1\">Grid-based inventory system: manages item placement, stacking, rotation, swapping, drag-hold, right-click menus, and double-click consolidation across multiple <xref href=\"AFPS.AFPS_InventoryGrid\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryUIRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryUIRenderer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryUIRenderer",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryUIRenderer.yml\" sourcestartlinenumber=\"1\">Top-level UI Toolkit renderer. Hides the original UGUI inventory canvas\nand draws a &quot;held item&quot; mirror VisualElement that follows the mouse,\nmirroring inventorySystem.currentItem each frame (sprite, size, rotation).</p>\n<p sourcefile=\"api/AFPS.AFPS_InventoryUIRenderer.yml\" sourcestartlinenumber=\"5\">Pair with one AFPS_InventoryGridUIBinding per AFPS_InventoryGrid.\nAll coordinate conversions go through the binding's PanelPerScreen helper\nso the renderer is robust to PanelSettings scale-mode changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryWeightDisplay.PanelWeightGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryWeightDisplay.PanelWeightGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryWeightDisplay.PanelWeightGroup",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryWeightDisplay.PanelWeightGroup.yml\" sourcestartlinenumber=\"1\">Binds a named UXML Label to one or more grids whose weights are summed and formatted into it each frame.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryWeightDisplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryWeightDisplay.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryWeightDisplay",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryWeightDisplay.yml\" sourcestartlinenumber=\"1\">Binds UI Toolkit weight labels to live AFPS_InventoryGrid weights.\nPer-group: each PanelWeightGroup sums its grids into one Label. Top-bar: optional aggregate label.\nUses GetGridWeight (includes nested storage via GetTotalWeight).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Item.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Item.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Item",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemCategory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemCategory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemInteractable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemInteractable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemInteractable",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemInteractable.yml\" sourcestartlinenumber=\"1\">Plain (non-weapon) pickup interactable.\nInteract: base.Pickup → add to inventory, reparent + disable GO. Refused if no grid fits (no input consumed).\nDrop: base.Drop reactivates GO, then positions in front of camera and launches with dropForce + dropTorque.\nUse AFPS_WeaponObject for equip-on-pickup weapon behavior.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemMenu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemMenu",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemMenuController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemMenuController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemMenuController",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemMenuController.yml\" sourcestartlinenumber=\"1\">UGUI IItemMenuRenderer. Wraps CreateItemMenu/DestroyCurrentItemMenu so InventorySystem dispatches uniformly across UGUI and UI Toolkit.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemMenuUIToolkit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemMenuUIToolkit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemMenuUIToolkit",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemMenuUIToolkit.yml\" sourcestartlinenumber=\"1\">UI Toolkit IItemMenuRenderer. Spawns a floating VisualElement menu with one Button per AFPS_ItemMenu entry.\nPer-button logic is delegated: each prefab (UGUI ItemMenuButtonBase) is instantiated off-screen, SetItem+OnPress, then destroyed — Consume/Drop/Use/etc. work unchanged.\nSelf-registers as activeItemMenu in Initialize, overriding the UGUI controller. Mirrors IHUDLayer pattern.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ItemObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ItemObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ItemObject",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemObject.yml\" sourcestartlinenumber=\"1\">Runtime UI representation of an inventory item: manages grid position, rotation, stack count, sprite display, storage sub-items, and equipment-slot event callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Ladder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Ladder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Ladder",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Ladder.yml\" sourcestartlinenumber=\"1\">Climbable ladder surface: sets AFPS_Movement.currentLadder via trigger overlap or explicit Interact depending on useInteractionSystem.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_LadderMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_LadderMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_LadderMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MantleAndVaultMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MantleAndVaultMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MantleAndVaultMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovePosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovePosition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovePosition",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovePosition.yml\" sourcestartlinenumber=\"1\">Each LateUpdate snaps this transform's position to target.position + offset.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MoveRotation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MoveRotation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MoveRotation",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MoveRotation.yml\" sourcestartlinenumber=\"1\">Each LateUpdate copies target.rotation onto this transform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Movement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Movement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Movement",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Movement.yml\" sourcestartlinenumber=\"1\">Core FPS player controller: PID hover-float, Air strafing, wallrun, multi-jump, climb, ledge hang, mantle/vault, ladder, slide, sprint, stamina, fluid, and moving-platform rider support.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovementEffectsCameraSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovementEffectsCameraSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovementEffectsCameraSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovingPlatform.State.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovingPlatform.State.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovingPlatform.State",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovingPlatform.State.yml\" sourcestartlinenumber=\"1\">Internal FSM state; exposed read-only via Inspector debug group.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovingPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovingPlatform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovingPlatform",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovingPlatform.yml\" sourcestartlinenumber=\"1\">Kinematic rigidbody platform: interpolates between waypoints or spins as a rotator, carries riders via per-frame delta, and supports dwell, ping-pong, loop, and elevator EndModes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PickupInteractable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PickupInteractable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PickupInteractable",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PickupInteractable.yml\" sourcestartlinenumber=\"1\">Abstract base for interactables that route through the inventory system on pickup.\nConcrete subclasses: AFPS_ItemInteractable (generic item w/ physical drop), AFPS_WeaponObject (equip-on-pickup).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.IInventoryActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.IInventoryActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.IInventoryActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.IInventoryActions.yml\" sourcestartlinenumber=\"1\">Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;Inventory&quot; which allows adding and removing callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.IPlayerActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.IPlayerActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.IPlayerActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.IPlayerActions.yml\" sourcestartlinenumber=\"1\">Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;Player&quot; which allows adding and removing callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.IUIActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.IUIActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.IUIActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.IUIActions.yml\" sourcestartlinenumber=\"1\">Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;UI&quot; which allows adding and removing callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.InventoryActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.InventoryActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.InventoryActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.InventoryActions.yml\" sourcestartlinenumber=\"1\">Provides access to input actions defined in input action map &quot;Inventory&quot;.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.PlayerActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.PlayerActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.PlayerActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.PlayerActions.yml\" sourcestartlinenumber=\"1\">Provides access to input actions defined in input action map &quot;Player&quot;.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.UIActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.UIActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions.UIActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.UIActions.yml\" sourcestartlinenumber=\"1\">Provides access to input actions defined in input action map &quot;UI&quot;.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerActions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerActions",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerActions.yml\" sourcestartlinenumber=\"1\">Provides programmatic access to <xref href=\"UnityEngine.InputSystem.InputActionAsset\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"UnityEngine.InputSystem.InputActionMap\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"UnityEngine.InputSystem.InputAction\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"UnityEngine.InputSystem.InputControlScheme\" data-throw-if-not-resolved=\"false\"></xref> instances defined in asset &quot;Assets/Axiom FPS/AFPS_PlayerActions.inputactions&quot;.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerSoundManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerSoundManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerSoundManager",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerSoundManager.yml\" sourcestartlinenumber=\"1\">Routes movement events (jump, air-jump, land, sprint, slide, footsteps) to AudioSources; footstep interval scales inversely with speed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RecoilChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RecoilChannel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RecoilChannel",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RecoilChannel.yml\" sourcestartlinenumber=\"1\">One recoil output channel: baseKick + jitter per-shot, plus the solver config that drives recovery for this channel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RecoilController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RecoilController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RecoilController",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RecoilController.yml\" sourcestartlinenumber=\"1\">Drives camera-rotation, weapon-rotation, and weapon-position recoil for the weapon this is attached to.\nWrites to AFPS_WeaponObject.recoilQuaternion / .recoilPos and AFPS_Camera.recoilQuaternion — the same\nfields AFPS_WeaponSystem.Update() and AFPS_Camera.LateUpdate() compose into final transforms.</p>\n<p sourcefile=\"api/AFPS.AFPS_RecoilController.yml\" sourcestartlinenumber=\"5\">Maintains an independent solver triplet + pattern/momentum tracker PER profile, so a weapon with\nmultiple fire scripts (each with its own AFPS_RecoilProfile) doesn't lose mid-decay spring state\nwhen fire modes switch. ApplyToHost sums every cached profile's current outputs each frame.</p>\n<p sourcefile=\"api/AFPS.AFPS_RecoilController.yml\" sourcestartlinenumber=\"9\">On a weapon swap, the outgoing controller keeps ticking its camera-channel springs until they\ndecay below CamDecayEpsilonSqr — so in-flight camera recoil decays smoothly through the swap\ninstead of snapping to zero. Weapon-mesh channels (rotation + position) reset immediately since\nthe mesh is no longer visible. A static frame marker coordinates the shared camera field write\nso the decaying outgoing controller and the active incoming controller compose multiplicatively\nrather than race-overwriting each other.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RecoilPatternStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RecoilPatternStep.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RecoilPatternStep",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RecoilPatternStep.yml\" sourcestartlinenumber=\"1\">One row of a Scripted pattern — explicit per-shot deltas for all three channels.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RecoilProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RecoilProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RecoilProfile",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RecoilProfile.yml\" sourcestartlinenumber=\"1\">Authoring asset for per-weapon recoil: three independent channels (camera rotation, weapon rotation, weapon position), Procedural or Scripted pattern mode, and momentum build/cap.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RecoilSolverConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RecoilSolverConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RecoilSolverConfig",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RecoilSolverConfig.yml\" sourcestartlinenumber=\"1\">Serializable config blob consumed by RecoilSolverFactory: solver type, spring Raw/Tuned parameters, lerp speeds, curve shape, and recovery mode/delay.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SlotWeaponObjectSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SlotWeaponObjectSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SlotWeaponObjectSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SpreadPellet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SpreadPellet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SpreadPellet",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SpreadPellet.yml\" sourcestartlinenumber=\"1\">One authored pellet for a Fixed pattern — a normalized offset within the spread disc.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SpreadProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SpreadProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SpreadProfile",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SpreadProfile.yml\" sourcestartlinenumber=\"1\">Authoring asset for per-weapon bullet spread. Defines a spread cone (maxSpreadAngle) plus how\nindividual pellets are placed inside it: Random (uniform / gaussian / ring distribution) or\nFixed (hand-authored deterministic pellet layout). Fire scripts call ApplySpread() per pellet;\nthere is no runtime state — spread is computed fresh each shot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SprintMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SprintMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SprintMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StaminaMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StaminaMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StaminaMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatsADSSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatsADSSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatsADSSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatsProjectileFireSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatsProjectileFireSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatsProjectileFireSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatsProjectileSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatsProjectileSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatsProjectileSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatsRaycastFireSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatsRaycastFireSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatsRaycastFireSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatsWeaponObjectSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatsWeaponObjectSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatsWeaponObjectSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusEffect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusEffect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusEffect",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusEffect.yml\" sourcestartlinenumber=\"1\">ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, and optional chained effects. At runtime <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)\" data-throw-if-not-resolved=\"false\"></xref> instantiates a <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> from this template.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusOtherEffect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusOtherEffect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusOtherEffect",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusOtherEffect.yml\" sourcestartlinenumber=\"1\">Base for non-HP side effects paired with a <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> tick (e.g. slow, freeze, knockback). Override <xref href=\"AFPS.AFPS_StatusOtherEffect.ExecuteStatus\" data-throw-if-not-resolved=\"false\"></xref> to implement behavior.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StoredContents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StoredContents.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StoredContents",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StoredContents.yml\" sourcestartlinenumber=\"1\">World-side carrier of nested storage. Written by Drop before UI ItemObject is destroyed; read by Pickup after the new one is created.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Team.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Team.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Team",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Trigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Trigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Trigger",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Trigger.yml\" sourcestartlinenumber=\"1\">Unity trigger volume that routes OnTriggerEnter/Exit to UnityEvents based on TriggerType (any collision, any agent, or player-only).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_UIImpulse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_UIImpulse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_UIImpulse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_UIManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_UIManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_UISway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_UISway.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_UISway",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_UIToolkitSway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_UIToolkitSway.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_UIToolkitSway",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_UIToolkitSway.yml\" sourcestartlinenumber=\"1\">UI Toolkit port of AFPS_UISway. Drives style.translate on the named VisualElement\nin lieu of RectTransform.anchoredPosition. Attach beside the UIDocument.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_VerticalMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_VerticalMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_VerticalMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_VignetteFlash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_VignetteFlash.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_VignetteFlash",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WallInteractionMovementSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WallInteractionMovementSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WallInteractionMovementSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_Weapon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_Weapon.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_Weapon",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Weapon.yml\" sourcestartlinenumber=\"1\">Identity card for a weapon type: HUD display name, category label, icon sprite, and linked AFPS_Item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponAmmo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponAmmo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponAmmo",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAmmo.yml\" sourcestartlinenumber=\"1\">One ammo pool per weapon. In Magazine mode the loaded mag is an AFPS_ItemObject inside\nthe weapon's storedItems; bullets are stacked AFPS_ItemObjects inside that mag's\nstoredItems (LIFO fire order, mixed ammo allowed).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponBob.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponBob.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponBob",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponBob.yml\" sourcestartlinenumber=\"1\">Velocity-scaled sine-wave weapon bob: writes bobPos/bobQuaternion to AFPS_WeaponObject each frame, with idle/grounded/sliding state gates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponBump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponBump.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponBump",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponBump.yml\" sourcestartlinenumber=\"1\">Weapon bump: a camera-forward raycast engages a pos/rot offset (bumpPositionChange/bumpRotationChange) while wall-touching, reconciled toward engaged/cleared every frame so it can't strand offset; also gates canFire while wall-touching.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponObject",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponObject.yml\" sourcestartlinenumber=\"1\">Core weapon component: manages fire-type pipeline (Automatic/Burst/Single/Charge/OnPressAndRelease), equip/drop/inventory wiring, transform offset composition, and input subscription lifecycle.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponSway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponSway.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponSway",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponSway.yml\" sourcestartlinenumber=\"1\">Camera-input-driven weapon sway: lerps/slerps/smoothdamps rotation and position offsets into AFPS_WeaponObject.swayQuaternion/swayPos.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponSystem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponSystem",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponSystem.yml\" sourcestartlinenumber=\"1\">Slot-based weapon manager: equip/unequip, switch (number key/cycle/scroll/last), compose transform offsets from all weapon sub-systems, and sync HUD icons each frame.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponTilt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponTilt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponTilt",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponTilt.yml\" sourcestartlinenumber=\"1\">State-machine-driven weapon tilt: resolves the stance from AFPS_WeaponObject.movement.currentMovementState each frame and continuously blends pos/rot toward it. No one-shot tweens or lockouts, so the offset can never be stranded.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponTiltSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponTiltSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponTiltSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponTiltSettings.yml\" sourcestartlinenumber=\"1\">Maps each MovementState to a WeaponTiltStanceSetting; drives AFPS_WeaponTilt position/rotation transitions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AbilityBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AbilityBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AbilityBase",
+      "Summary": "<p sourcefile=\"api/AFPS.AbilityBase.yml\" sourcestartlinenumber=\"1\">Base for all abilities. Subclass and override <xref href=\"AFPS.AbilityBase.ActivateAbility(System.Boolean)\" data-throw-if-not-resolved=\"false\"></xref> for\npress/release abilities or <xref href=\"AFPS.AbilityBase.ActivateAbility(System.Single)\" data-throw-if-not-resolved=\"false\"></xref> for charge abilities.</p>\n<p sourcefile=\"api/AFPS.AbilityBase.yml\" sourcestartlinenumber=\"4\">Lifecycle: at runtime the prefab is either pre-placed on the player (legacy / inspector\nloadout path) or instantiated by <xref href=\"AFPS.AFPS_AbilitySystem.EquipAbility(System.Int32%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref> as a child\nof the system when the player equips a matching pickup. Either way, Awake binds to the\nplayer references on the host GameObject — so the script MUST live on, or under, a\nGameObject that carries AFPS_Movement / AFPS_PlayerSoundManager.</p>\n<p sourcefile=\"api/AFPS.AbilityBase.yml\" sourcestartlinenumber=\"10\">Trigger-defaults: the fields in the &quot;Trigger Defaults&quot; group below are the per-prefab\nauthored defaults that the pickup-driven equip path copies into the runtime\n<xref href=\"AFPS.AbilityHolder\" data-throw-if-not-resolved=\"false\"></xref>. They have no effect for inspector-pre-equipped holders\n(those carry their own copy of the same fields on AbilityHolder itself).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AbilityHolder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AbilityHolder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AbilityHolder",
+      "Summary": "<p sourcefile=\"api/AFPS.AbilityHolder.yml\" sourcestartlinenumber=\"1\">Runtime state for a single equipped ability slot: holds the live AbilityBase instance, trigger configuration, cooldown timer, and burst/charge bookkeeping.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AmmoStorageMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AmmoStorageMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AmmoStorageMode",
+      "Summary": "<p sourcefile=\"api/AFPS.AmmoStorageMode.yml\" sourcestartlinenumber=\"1\">Determines how ammo is tracked: Simple (direct int), Loose (inventory item count), Magazine (physical mag item in storedItems), or Infinite.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ArmAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ArmAnimation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ArmAnimation",
+      "Summary": "<p sourcefile=\"api/AFPS.ArmAnimation.yml\" sourcestartlinenumber=\"1\">One arm animation clip: velocity-speed scaling flag, repeat toggle, and the AnimationClip to play.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Consume.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Consume.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Consume",
+      "Summary": "<p sourcefile=\"api/AFPS.Consume.yml\" sourcestartlinenumber=\"1\">Decrements item stack by 1; destroys GO when stack reaches 0.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Crosshair.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Crosshair.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Crosshair",
+      "Summary": "<p sourcefile=\"api/AFPS.Crosshair.yml\" sourcestartlinenumber=\"1\">Per-state crosshair definition: sprite, size/rotation/color, LeanTween transition timings, and velocity-driven scale parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.CrouchHoldSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.CrouchHoldSetting.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.CrouchHoldSetting",
+      "Summary": "<p sourcefile=\"api/AFPS.CrouchHoldSetting.yml\" sourcestartlinenumber=\"1\">Whether crouching activates on press (toggle) or requires hold.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.CurveRecoilSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.CurveRecoilSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.CurveRecoilSolver",
+      "Summary": "<p sourcefile=\"api/AFPS.CurveRecoilSolver.yml\" sourcestartlinenumber=\"1\">Plays the configured AnimationCurve scaled by the most recent kick magnitude. Best for hand-authored, predictable patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DamageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DamageInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DamageInfo",
+      "Summary": "<p sourcefile=\"api/AFPS.DamageInfo.yml\" sourcestartlinenumber=\"1\">Immutable payload passed to <xref href=\"AFPS.IDamageable.ApplyDamage(AFPS.DamageInfo)\" data-throw-if-not-resolved=\"false\"></xref>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DamageNumberEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DamageNumberEvent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DamageNumberEvent",
+      "Summary": "<p sourcefile=\"api/AFPS.DamageNumberEvent.yml\" sourcestartlinenumber=\"1\">Fired by <xref href=\"AFPS.AFPS_Health.OnDamageDealt\" data-throw-if-not-resolved=\"false\"></xref> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <xref href=\"AFPS.DamageNumberEvent.isHeal\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"AFPS.DamageNumberEvent.hitBoneTag\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DamageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DamageType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DamageType",
+      "Summary": "<p sourcefile=\"api/AFPS.DamageType.yml\" sourcestartlinenumber=\"1\">Classifies incoming damage for resistance lookups, status-effect sourcing, and analytics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DamageTypeResistance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DamageTypeResistance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DamageTypeResistance",
+      "Summary": "<p sourcefile=\"api/AFPS.DamageTypeResistance.yml\" sourcestartlinenumber=\"1\">Maps a <xref href=\"AFPS.DamageType\" data-throw-if-not-resolved=\"false\"></xref> to a damage multiplier; values below 1 reduce damage, above 1 increase it, negative values convert damage to healing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Dash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Dash.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Dash",
+      "Summary": "<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"1\">Applies an impulse force along the player's current movement vector; magnitude differs based on <xref href=\"AFPS.AFPS_Movement.grounded\" data-throw-if-not-resolved=\"false\"></xref> state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Destroy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Destroy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Destroy",
+      "Summary": "<p sourcefile=\"api/AFPS.Destroy.yml\" sourcestartlinenumber=\"1\">Removes the item from the inventory grid (clearing cell refs) and destroys its GO.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DoubleClickBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DoubleClickBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DoubleClickBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.DoubleClickBehaviour.yml\" sourcestartlinenumber=\"1\">Scope of the stack-consolidation sweep triggered by double-click on a held item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DragableRotationMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DragableRotationMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DragableRotationMode",
+      "Summary": "<p sourcefile=\"api/AFPS.DragableRotationMode.yml\" sourcestartlinenumber=\"1\">Controls how the rotation PID target is resolved while a <xref href=\"AFPS.AFPS_DragableObject\" data-throw-if-not-resolved=\"false\"></xref> is held.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Drop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Drop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Drop",
+      "Summary": "<p sourcefile=\"api/AFPS.Drop.yml\" sourcestartlinenumber=\"1\">Drops the item into the world: calls connectedInteractable.Drop(), clears inventory references, and destroys the UI GO.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EndMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EndMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EndMode",
+      "Summary": "<p sourcefile=\"api/AFPS.EndMode.yml\" sourcestartlinenumber=\"1\">Behaviour when the platform reaches the final waypoint: stop, reverse, loop, or elevator-return.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EquipmentSlotEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EquipmentSlotEvent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EquipmentSlotEvent",
+      "Summary": "<p sourcefile=\"api/AFPS.EquipmentSlotEvent.yml\" sourcestartlinenumber=\"1\">Typed UnityEvent fired when an item enters or leaves a single-item equipment slot grid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FireDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FireDirection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FireDirection",
+      "Summary": "<p sourcefile=\"api/AFPS.FireDirection.yml\" sourcestartlinenumber=\"1\">Target direction for fire ray: camera forward or nearest agent by relation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FirePosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FirePosition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FirePosition",
+      "Summary": "<p sourcefile=\"api/AFPS.FirePosition.yml\" sourcestartlinenumber=\"1\">Origin point for fire ray: camera position or muzzle transform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FireType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FireType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FireType",
+      "Summary": "<p sourcefile=\"api/AFPS.FireType.yml\" sourcestartlinenumber=\"1\">Per-fire-script firing mode: Automatic (held), Burst, Single (per-press), OnPressAndRelease, or Charge (hold-to-fire).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FireTypeSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FireTypeSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FireTypeSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.FireTypeSettings.yml\" sourcestartlinenumber=\"1\">Runtime config for one fire mode: type, fire rate, burst sub-rate/count, charge time, and per-mode timers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FireWeaponBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FireWeaponBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FireWeaponBase",
+      "Summary": "<p sourcefile=\"api/AFPS.FireWeaponBase.yml\" sourcestartlinenumber=\"1\">Abstract fire-script base: override Fire/CanFireNow/FireDelay/DropLogic/PickupLogic/Initialize/Deinitialize; AFPS_WeaponObject drives the pipeline.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.FluidMovementType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.FluidMovementType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.FluidMovementType",
+      "Summary": "<p sourcefile=\"api/AFPS.FluidMovementType.yml\" sourcestartlinenumber=\"1\">Controls fluid locomotion model: Default uses orientation-forward ground move, Swim uses camera-forward, NoSwim applies land movement + jump.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.GrapplingHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.GrapplingHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.GrapplingHook",
+      "Summary": "<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"1\">High-velocity, momentum-driven grapple</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"3\">On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the\nanchor with an eased &quot;windup&quot; pull that ramps to full force, and is constrained to an\ninextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular\nswing force for player-driven arcs. The rope conserves and compounds kinetic energy, so\nreleasing slingshots the player forward with the accumulated momentum.</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"9\">Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past\nit), looks too far away from the anchor, or drives face-on into a solid obstacle. The grapple is\nreleased by letting go of the button</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"13\">All physics is applied through <xref href=\"UnityEngine.Rigidbody\" data-throw-if-not-resolved=\"false\"></xref> forces — the transform is never moved\ndirectly — and both <code>Update</code> and <code>FixedUpdate</code> are written to avoid managed\nallocations (no Debug.Log, no allocating physics queries, struct-only math).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.HeadbobMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.HeadbobMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.HeadbobMode",
+      "Summary": "<p sourcefile=\"api/AFPS.HeadbobMode.yml\" sourcestartlinenumber=\"1\">Authoring mode: Sine uses frequency/amplitude math, Curve uses per-axis AnimationCurves.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.HealthThreshold.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.HealthThreshold.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.HealthThreshold",
+      "Summary": "<p sourcefile=\"api/AFPS.HealthThreshold.yml\" sourcestartlinenumber=\"1\">One color stop for the health bar fill, keyed by HP fraction (0..1).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.HeldItemRevertFallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.HeldItemRevertFallback.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.HeldItemRevertFallback",
+      "Summary": "<p sourcefile=\"api/AFPS.HeldItemRevertFallback.yml\" sourcestartlinenumber=\"1\">What to do with a held item when the inventory closes and the slot it came from is now\noccupied by something else (e.g. immediately after a single-slot swap). See\nAFPS_InventorySystem.RevertItemPosition / HandleSingleSlotRevertConflict.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.IDamageable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.IDamageable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.IDamageable",
+      "Summary": "<p sourcefile=\"api/AFPS.IDamageable.yml\" sourcestartlinenumber=\"1\">Contract for any entity that can receive typed damage and report death state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.IHUDLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.IHUDLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.IHUDLayer",
+      "Summary": "<p sourcefile=\"api/AFPS.IHUDLayer.yml\" sourcestartlinenumber=\"1\">Renderer-agnostic HUD contract. UGUI and UI Toolkit both implement it; AFPS_UIManager\ncalls these as one-way pushes. Implementations must tolerate null args and out-of-order\ncalls (e.g. SetAmmo before SetWeaponInfo on a fresh equip).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.IItemMenuRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.IItemMenuRenderer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.IItemMenuRenderer",
+      "Summary": "<p sourcefile=\"api/AFPS.IItemMenuRenderer.yml\" sourcestartlinenumber=\"1\">Renderer-agnostic right-click item menu. Implemented by UGUI\n(<xref href=\"AFPS.AFPS_ItemMenuController\" data-throw-if-not-resolved=\"false\"></xref>) and UI Toolkit\n(<xref href=\"AFPS.AFPS_ItemMenuUIToolkit\" data-throw-if-not-resolved=\"false\"></xref>). Inventory dispatches via a single\n<code>activeItemMenu</code> reference — same pattern as <xref href=\"AFPS.IHUDLayer\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.IRecoilSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.IRecoilSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.IRecoilSolver",
+      "Summary": "<p sourcefile=\"api/AFPS.IRecoilSolver.yml\" sourcestartlinenumber=\"1\">Stateful per-channel motion driver. Pure math; safe to instantiate outside MonoBehaviour for editor previews.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Input.AFPS_InputDeviceWatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Input.AFPS_InputDeviceWatcher.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Input.AFPS_InputDeviceWatcher",
+      "Summary": "<p sourcefile=\"api/AFPS.Input.AFPS_InputDeviceWatcher.yml\" sourcestartlinenumber=\"1\">Event-driven last-used-device tracker; fires <xref href=\"AFPS.Input.AFPS_InputDeviceWatcher.Changed\" data-throw-if-not-resolved=\"false\"></xref> whenever the active device family switches. No per-frame polling — hooks <code>InputSystem.onEvent</code> at subsystem registration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Input.ActiveInputDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Input.ActiveInputDevice.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Input.ActiveInputDevice",
+      "Summary": "<p sourcefile=\"api/AFPS.Input.ActiveInputDevice.yml\" sourcestartlinenumber=\"1\">Identifies the last-used input device family, used for device-aware UI and sensitivity routing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Input.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Input",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.InventoryCell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.InventoryCell.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.InventoryCell",
+      "Summary": "<p sourcefile=\"api/AFPS.InventoryCell.yml\" sourcestartlinenumber=\"1\">Single grid cell: tracks maximum item input size and the <xref href=\"AFPS.AFPS_ItemObject\" data-throw-if-not-resolved=\"false\"></xref> currently occupying this cell (null = empty).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.InventoryType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.InventoryType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.InventoryType",
+      "Summary": "<p sourcefile=\"api/AFPS.InventoryType.yml\" sourcestartlinenumber=\"1\">Determines the visual/interaction mode of the inventory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ItemMenuButtonBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ItemMenuButtonBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ItemMenuButtonBase",
+      "Summary": "<p sourcefile=\"api/AFPS.ItemMenuButtonBase.yml\" sourcestartlinenumber=\"1\">Abstract base for right-click context menu buttons: holds item + inventory refs and optionally auto-dismisses the menu on press.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.JumpHoldSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.JumpHoldSetting.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.JumpHoldSetting",
+      "Summary": "<p sourcefile=\"api/AFPS.JumpHoldSetting.yml\" sourcestartlinenumber=\"1\">Whether jumping fires on button press or on button hold.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.LadderClimbBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.LadderClimbBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.LadderClimbBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.LadderClimbBehaviour.yml\" sourcestartlinenumber=\"1\">Input model for vertical ladder movement: forward-key-driven, loose PID with snap, or fully loose.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.LadderJumpBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.LadderJumpBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.LadderJumpBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.LadderJumpBehaviour.yml\" sourcestartlinenumber=\"1\">Action taken when jump is pressed while on a ladder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.LadderReconnectBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.LadderReconnectBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.LadderReconnectBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.LadderReconnectBehaviour.yml\" sourcestartlinenumber=\"1\">Constraint on when the player can re-attach to a ladder after leaving it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.LerpRecoilSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.LerpRecoilSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.LerpRecoilSolver",
+      "Summary": "<p sourcefile=\"api/AFPS.LerpRecoilSolver.yml\" sourcestartlinenumber=\"1\">Two-phase chase: speed up to target, then speed back to zero. Cheapest solver — no allocation, branchless tick.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MagazineDisplayEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MagazineDisplayEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MagazineDisplayEntry",
+      "Summary": "<p sourcefile=\"api/AFPS.MagazineDisplayEntry.yml\" sourcestartlinenumber=\"1\">One row in the Tarkov-style HUD magazine display.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.BindingSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.BindingSlot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.BindingSlot",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.BindingSlot.yml\" sourcestartlinenumber=\"1\">Primary or secondary binding index within a scheme group.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.ControlSchemeSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.ControlSchemeSlot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.ControlSchemeSlot",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.ControlSchemeSlot.yml\" sourcestartlinenumber=\"1\">Identifies the control scheme slot for a binding (KBM vs Gamepad).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.ControlsTabView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.ControlsTabView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.ControlsTabView",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.ControlsTabView.yml\" sourcestartlinenumber=\"1\">Controls tab inside OptionsPanel. Owns the keybindings list UI, scheme switcher,\nreset controls, and the interactive rebind flow. State lives in KeybindingsService;\nthis view is presentation only.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.GameSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.GameSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.GameSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.IMenuState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.IMenuState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.IMenuState",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.IMenuState.yml\" sourcestartlinenumber=\"1\">Menu screen contract: named view that can be entered and exited by MenuStateMachine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.InventoryNavMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.InventoryNavMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.InventoryNavMode",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.InventoryNavMode.yml\" sourcestartlinenumber=\"1\">Gamepad navigation mode for the inventory UI: grid-snap jumps cell-to-cell, VirtualPointer drives a synthetic mouse cursor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.KeybindingOverrideRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.KeybindingOverrideRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.KeybindingOverrideRecord",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.KeybindingOverrideRecord.yml\" sourcestartlinenumber=\"1\">Persisted binding override: action name, scheme group string, slot index, and override path.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.KeybindingOverridesData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.KeybindingOverridesData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.KeybindingOverridesData",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.KeybindingOverridesData.yml\" sourcestartlinenumber=\"1\">JSON root for persisted binding overrides; deserialized by KeybindingsService.LoadFromJson.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.KeybindingsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.KeybindingsService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.KeybindingsService",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.KeybindingsService.yml\" sourcestartlinenumber=\"1\">Static rebinding facade over the Player action map. Owns the dual-mapping (Primary/Secondary)\nschema and the persistence format. Does NOT own the InputActionAsset itself —\nAFPS_InputManager owns it. The Player map is the only rebindable scope; Inventory/UI maps\nare excluded by design (menu plumbing).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.LevelDatabase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.LevelDatabase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.LevelDatabase",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.LevelEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.LevelEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.LevelEntry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.LevelLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.LevelLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.LevelLoader",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.LevelLoader.yml\" sourcestartlinenumber=\"1\">Stateless helper that async-loads a LevelEntry's scene via SceneManager.LoadSceneAsync.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.LevelSelectView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.LevelSelectView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.LevelSelectView",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.LevelSelectView.yml\" sourcestartlinenumber=\"1\">Level-select view: procedurally builds a card grid from LevelDatabase; card clicks raise MenuEvents.RaiseLevel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.MainMenuController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.MainMenuController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.MainMenuController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.MainView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.MainView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.MainView",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.MainView.yml\" sourcestartlinenumber=\"1\">Main-menu root view: wires Play, Options, and Exit buttons to MenuEvents; disposes subscriptions on Dispose.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.MenuEvents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.MenuEvents.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.MenuEvents",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.MenuEvents.yml\" sourcestartlinenumber=\"1\">Static event bus for main-menu navigation: views raise events, MainMenuController/PauseMenuController subscribe and drive the MenuStateMachine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.MenuStateMachine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.MenuStateMachine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.MenuStateMachine",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.MenuStateMachine.yml\" sourcestartlinenumber=\"1\">Push-down automaton for menu navigation: Go pushes history, Back pops to prior state; Enter/Exit callbacks drive visibility transitions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.OptionsView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.OptionsView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.OptionsView",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.OptionsView.yml\" sourcestartlinenumber=\"1\">Tabbed options view (Video/Audio/Gameplay/Controls): binds UI Toolkit sliders/dropdowns to GameSettings, applies via SettingsService, and owns a ControlsTabView child.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.PauseMenuController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.PauseMenuController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.PauseMenuController",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.PauseMenuController.yml\" sourcestartlinenumber=\"1\">In-game pause menu. UIDocument toggled via AFPS_UIManager.pauseMenu SetActive.\nReuses OptionsPanel.uxml for parity with the main menu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.QualityPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.QualityPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.QualityPreset",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.QualityPreset.yml\" sourcestartlinenumber=\"1\">Graphics quality tier mapped to QualitySettings.SetQualityLevel index.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.RebindableEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.RebindableEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.RebindableEntry",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.RebindableEntry.yml\" sourcestartlinenumber=\"1\">Display metadata for one rebindable action: actionName (Input System key), UI label, and category group header.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.SceneReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.SceneReference.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.SceneReference",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.SceneReference.yml\" sourcestartlinenumber=\"1\">Serializable scene pointer: stores SceneAsset in-editor, bakes path/name strings for runtime (build-safe, no SceneAsset dependency at runtime).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.SettingsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.SettingsService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.SettingsService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.ViewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.ViewState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu.ViewState",
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.ViewState.yml\" sourcestartlinenumber=\"1\">IMenuState backed by a VisualElement: toggles view--hidden/view--active USS classes on Enter/Exit and defers focus to the first selectable button.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MainMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MainMenu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MainMenu",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MotionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MotionMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MotionMode",
+      "Summary": "<p sourcefile=\"api/AFPS.MotionMode.yml\" sourcestartlinenumber=\"1\">Selects between waypoint interpolation and constant-rotation (rotator) modes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.MovementState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.MovementState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.MovementState",
+      "Summary": "<p sourcefile=\"api/AFPS.MovementState.yml\" sourcestartlinenumber=\"1\">Priority-ordered locomotion state exposed for animation, camera, and weapon systems to read each frame.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.OverrideSlotBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.OverrideSlotBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.OverrideSlotBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.OverrideSlotBehaviour.yml\" sourcestartlinenumber=\"1\">What happens to the existing weapon when a new weapon targets its occupied slot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.PartialMagBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.PartialMagBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.PartialMagBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.PartialMagBehaviour.yml\" sourcestartlinenumber=\"1\">On reload-eject: destroy remaining rounds in the mag or return them to inventory with the mag.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.PickupType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.PickupType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.PickupType",
+      "Summary": "<p sourcefile=\"api/AFPS.PickupType.yml\" sourcestartlinenumber=\"1\">Determines pickup trigger mode: collider-entered auto-pickup vs explicit player interaction.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Projectile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Projectile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Projectile",
+      "Summary": "<p sourcefile=\"api/AFPS.Projectile.yml\" sourcestartlinenumber=\"1\">In-flight projectile: FixedUpdate bounce-raycast + custom gravity, collision/trigger damage with friendly-fire filter, optional destroy-timer, and re-entrancy guard.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ProjectileFire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ProjectileFire.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ProjectileFire",
+      "Summary": "<p sourcefile=\"api/AFPS.ProjectileFire.yml\" sourcestartlinenumber=\"1\">Instantiates a projectile prefab at fire position/direction, applies launch force/torque, consumes AFPS_WeaponAmmo, and routes hitmarker/VFX/SFX.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RandomAudioClipContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RandomAudioClipContainer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RandomAudioClipContainer",
+      "Summary": "<p sourcefile=\"api/AFPS.RandomAudioClipContainer.yml\" sourcestartlinenumber=\"1\">Clip array + min/max volume range for PlayOneShot; workaround for Unity's RandomAudioContainer being incompatible with PlayOneShot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RaycastFire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RaycastFire.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RaycastFire",
+      "Summary": "<p sourcefile=\"api/AFPS.RaycastFire.yml\" sourcestartlinenumber=\"1\">Hitscan fire: per-pellet raycast with spread, optional bounce and pierce chains, damage falloff curve, friendly-fire filter, and optional fire delay via LeanTween.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RecoilChannelId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RecoilChannelId.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RecoilChannelId",
+      "Summary": "<p sourcefile=\"api/AFPS.RecoilChannelId.yml\" sourcestartlinenumber=\"1\">Identifies which of the three per-shot channels SampleChannel is being asked for.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RecoilPatternMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RecoilPatternMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RecoilPatternMode",
+      "Summary": "<p sourcefile=\"api/AFPS.RecoilPatternMode.yml\" sourcestartlinenumber=\"1\">Procedural: per-shot baseKick ± jitter. Scripted: ordered patternSteps array, wraps at end.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RecoilRecoveryMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RecoilRecoveryMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RecoilRecoveryMode",
+      "Summary": "<p sourcefile=\"api/AFPS.RecoilRecoveryMode.yml\" sourcestartlinenumber=\"1\">Target recovery behavior: AutoZero (snaps to 0 after delay), Continuous (accumulates, never auto-returns), Hold (freezes at last kick position).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RecoilSolverFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RecoilSolverFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RecoilSolverFactory",
+      "Summary": "<p sourcefile=\"api/AFPS.RecoilSolverFactory.yml\" sourcestartlinenumber=\"1\">Instantiates the correct IRecoilSolver (Spring/Lerp/Curve) from an AFPS_RecoilSolverConfig.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RecoilSolverType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RecoilSolverType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RecoilSolverType",
+      "Summary": "<p sourcefile=\"api/AFPS.RecoilSolverType.yml\" sourcestartlinenumber=\"1\">Motion solver implementation: Spring (closed-form, dt-independent), Lerp (two-phase chase), or Curve (AnimationCurve playback).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ReloadBlockingStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ReloadBlockingStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ReloadBlockingStates",
+      "Summary": "<p sourcefile=\"api/AFPS.ReloadBlockingStates.yml\" sourcestartlinenumber=\"1\">Movement states during which reloading is blocked. A [Flags] field so several can be combined.\nEach value maps to a <xref href=\"AFPS.MovementState\" data-throw-if-not-resolved=\"false\"></xref>: while the player is in any selected state a\nreload can't start, a pending reload-hold is cancelled, and an in-progress reload is aborted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RemoveStoredItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RemoveStoredItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RemoveStoredItem",
+      "Summary": "<p sourcefile=\"api/AFPS.RemoveStoredItem.yml\" sourcestartlinenumber=\"1\">Pops the last stored item from a container and makes it currentItem; hand must be empty.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RightClickNoItemBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RightClickNoItemBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RightClickNoItemBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.RightClickNoItemBehaviour.yml\" sourcestartlinenumber=\"1\">Action taken when right-clicking a grid cell while no item is currently held.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RightClickWithItemBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RightClickWithItemBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RightClickWithItemBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.RightClickWithItemBehaviour.yml\" sourcestartlinenumber=\"1\">Action taken when right-clicking while an item is currently held.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpeedMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpeedMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpeedMode",
+      "Summary": "<p sourcefile=\"api/AFPS.SpeedMode.yml\" sourcestartlinenumber=\"1\">Controls whether segment traversal time is derived from a constant speed or a fixed duration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Split.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Split.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Split",
+      "Summary": "<p sourcefile=\"api/AFPS.Split.yml\" sourcestartlinenumber=\"1\">Splits the item's stack in half via inventory.SplitStack.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpreadDistribution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpreadDistribution.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpreadDistribution",
+      "Summary": "<p sourcefile=\"api/AFPS.SpreadDistribution.yml\" sourcestartlinenumber=\"1\">Shape of the random point cloud inside the spread cone.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpreadMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpreadMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpreadMode",
+      "Summary": "<p sourcefile=\"api/AFPS.SpreadMode.yml\" sourcestartlinenumber=\"1\">Random = each pellet sampled from a distribution within the cone; Fixed = each pellet reads an authored offset, wraps at the end.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpringAuthoringMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpringAuthoringMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpringAuthoringMode",
+      "Summary": "<p sourcefile=\"api/AFPS.SpringAuthoringMode.yml\" sourcestartlinenumber=\"1\">Raw: author stiffness/damping/mass directly. Tuned: author settleTime+dampingRatio; k/c/m derived via ω₀=4/settleTime formula.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpringRecoilSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpringRecoilSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpringRecoilSolver",
+      "Summary": "<p sourcefile=\"api/AFPS.SpringRecoilSolver.yml\" sourcestartlinenumber=\"1\">Three independent closed-form springs (one per axis). Allocation-free per tick and stable at any dt.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpriteCountSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpriteCountSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpriteCountSource",
+      "Summary": "<p sourcefile=\"api/AFPS.SpriteCountSource.yml\" sourcestartlinenumber=\"1\">Selects which count drives sprite/HUD icon swaps: own stack size, stored item count, or summed stored stack sizes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.StatusEffect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.StatusEffect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.StatusEffect",
+      "Summary": "<p sourcefile=\"api/AFPS.StatusEffect.yml\" sourcestartlinenumber=\"1\">Runtime instance of a status effect: tracks build-up accumulation, remaining apply time, reapply timer, and HP/overheal deltas per tick. Instantiated from <xref href=\"AFPS.AFPS_StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> via <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.StoredItemDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.StoredItemDescriptor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.StoredItemDescriptor",
+      "Summary": "<p sourcefile=\"api/AFPS.StoredItemDescriptor.yml\" sourcestartlinenumber=\"1\">Serializable snapshot of one stored item: data reference, stack size, and recursively nested contents.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.StoredItemLocationData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.StoredItemLocationData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.StoredItemLocationData",
+      "Summary": "<p sourcefile=\"api/AFPS.StoredItemLocationData.yml\" sourcestartlinenumber=\"1\">Return value from <xref href=\"AFPS.AFPS_InventorySystem.FindFreePositionInGrid(AFPS.AFPS_ItemObject%2cAFPS.AFPS_InventoryGrid)\" data-throw-if-not-resolved=\"false\"></xref>: the found cell position and rotation index (0=unrotated, 1=rotated).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Throw.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Throw.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Throw",
+      "Summary": "<p sourcefile=\"api/AFPS.Throw.yml\" sourcestartlinenumber=\"1\">Stub throw button: delegates entirely to base.OnPress(); extend OnPress to add throw logic.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.TriggerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.TriggerType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.TriggerType",
+      "Summary": "<p sourcefile=\"api/AFPS.TriggerType.yml\" sourcestartlinenumber=\"1\">Determines what event starts the platform (or rotator) moving.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UGUIHUDLayer.MagSlotView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UGUIHUDLayer.MagSlotView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UGUIHUDLayer.MagSlotView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UGUIHUDLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UGUIHUDLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UGUIHUDLayer",
+      "Summary": "<p sourcefile=\"api/AFPS.UGUIHUDLayer.yml\" sourcestartlinenumber=\"1\">UGUI <xref href=\"AFPS.IHUDLayer\" data-throw-if-not-resolved=\"false\"></xref>. Owns the legacy Canvas-based HUD widgets and renders the\nfull <xref href=\"AFPS.IHUDLayer\" data-throw-if-not-resolved=\"false\"></xref> surface. Mirrors <xref href=\"AFPS.UIToolkitHUDLayer\" data-throw-if-not-resolved=\"false\"></xref>'s patterns:\nepsilon-gated change detection, null-guards, pool reuse. <code>TriggerImpulse</code> is a no-op —\nUGUI impulse is delivered by <xref href=\"AFPS.AFPS_UIImpulse\" data-throw-if-not-resolved=\"false\"></xref> components via BroadcastMessage.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UI.Inventory.AFPS_InventoryControllerNav.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UI.Inventory.AFPS_InventoryControllerNav.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UI.Inventory.AFPS_InventoryControllerNav",
+      "Summary": "<p sourcefile=\"api/AFPS.UI.Inventory.AFPS_InventoryControllerNav.yml\" sourcestartlinenumber=\"1\">Gamepad cursor for the inventory UI: drives a synthetic mouse position via InputState.Change + static OverridePosition, supporting both Virtual Pointer and Grid Snap nav modes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UI.Inventory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UI.Inventory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UI.Inventory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UIImpulseSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UIImpulseSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UIImpulseSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.UIImpulseSettings.yml\" sourcestartlinenumber=\"1\">Serializable impulse preset: peak scale, gain/hold/decay durations, and per-phase LeanTween easing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.UIToolkitHUDLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.UIToolkitHUDLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.UIToolkitHUDLayer",
+      "Summary": "<p sourcefile=\"api/AFPS.UIToolkitHUDLayer.yml\" sourcestartlinenumber=\"1\">UI Toolkit <xref href=\"AFPS.IHUDLayer\" data-throw-if-not-resolved=\"false\"></xref>. Sits beside the player UIDocument (Source Asset = HUD.uxml).\nElement refs are queried in Awake; each call mutates VisualElements.\nStrategy: scalar writes go direct; lists (HP segments, compass markers) use lazy pools\nreused across pushes to avoid alloc + layout thrash; smooth transitions are USS-driven\n(transition-property on .crosshair, .bar-fill, …) — no C# tweens here.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Use.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Use.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Use",
+      "Summary": "<p sourcefile=\"api/AFPS.Use.yml\" sourcestartlinenumber=\"1\">Stub use button: delegates entirely to base.OnPress(); extend OnPress to add use logic.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.WeaponSwayMovementType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.WeaponSwayMovementType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.WeaponSwayMovementType",
+      "Summary": "<p sourcefile=\"api/AFPS.WeaponSwayMovementType.yml\" sourcestartlinenumber=\"1\">Interpolation method used for weapon sway position and rotation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.WeaponTiltStanceSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.WeaponTiltStanceSetting.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.WeaponTiltStanceSetting",
+      "Summary": "<p sourcefile=\"api/AFPS.WeaponTiltStanceSetting.yml\" sourcestartlinenumber=\"1\">Per-stance position/rotation offset + duration and easing for weapon tilt transitions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MovementFPS.EditorTools.AssetOnboardingWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MovementFPS.EditorTools.AssetOnboardingWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MovementFPS.EditorTools.AssetOnboardingWindow",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MovementFPS.EditorTools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MovementFPS.EditorTools.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MovementFPS.EditorTools",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

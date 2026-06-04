@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Crosshair </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Crosshair ">
+    
+    <meta name="description" content="Per-state crosshair definition: sprite, size/rotation/color, LeanTween transition timings, and velocity-driven scale parameters.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.Crosshair">
+
+
+
+  <h1 id="AFPS_Crosshair" data-uid="AFPS.Crosshair" class="text-break">Class Crosshair</h1>
+  <div class="markdown level0 summary"><p>Per-state crosshair definition: sprite, size/rotation/color, LeanTween transition timings, and velocity-driven scale parameters.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Crosshair</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_Crosshair_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class Crosshair</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair__ctor_UnityEngine_Sprite_AFPS_MovementState_DentedPixel_LeanTweenType_DentedPixel_LeanTweenType_DentedPixel_LeanTweenType_UnityEngine_Vector2_System_Single_UnityEngine_Color_System_Single_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.%23ctor(UnityEngine.Sprite%2CAFPS.MovementState%2CDentedPixel.LeanTweenType%2CDentedPixel.LeanTweenType%2CDentedPixel.LeanTweenType%2CUnityEngine.Vector2%2CSystem.Single%2CUnityEngine.Color%2CSystem.Single%2CSystem.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L48">View Source</a>
+  </span>
+  <a id="AFPS_Crosshair__ctor_" data-uid="AFPS.Crosshair.#ctor*"></a>
+  <h4 id="AFPS_Crosshair__ctor_UnityEngine_Sprite_AFPS_MovementState_DentedPixel_LeanTweenType_DentedPixel_LeanTweenType_DentedPixel_LeanTweenType_UnityEngine_Vector2_System_Single_UnityEngine_Color_System_Single_System_Single_System_Single_System_Single_" data-uid="AFPS.Crosshair.#ctor(UnityEngine.Sprite,AFPS.MovementState,DentedPixel.LeanTweenType,DentedPixel.LeanTweenType,DentedPixel.LeanTweenType,UnityEngine.Vector2,System.Single,UnityEngine.Color,System.Single,System.Single,System.Single,System.Single)">Crosshair(Sprite, MovementState, LeanTweenType, LeanTweenType, LeanTweenType, Vector2, float, Color, float, float, float, float)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Crosshair(Sprite sprite, MovementState movementState, LeanTweenType sizeDeltaTweenType, LeanTweenType rotationTweenType, LeanTweenType colorTweenType, Vector2 sizeDelta, float rotation, Color color, float spriteTransitionTime, float rotationTransitionTime, float sizeDeltaTransitionTime, float colorTransitionTime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td><span class="parametername">sprite</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.MovementState.html">MovementState</a></td>
+        <td><span class="parametername">movementState</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td><span class="parametername">sizeDeltaTweenType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td><span class="parametername">rotationTweenType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td><span class="parametername">colorTweenType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td><span class="parametername">sizeDelta</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">rotation</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td><span class="parametername">color</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">spriteTransitionTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">rotationTransitionTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">sizeDeltaTransitionTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">colorTransitionTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_color.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.color%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L21">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_color" data-uid="AFPS.Crosshair.color">color</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color color</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_colorTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.colorTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L34">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_colorTransitionTime" data-uid="AFPS.Crosshair.colorTransitionTime">colorTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The time the sizeDelta of the crosshair takes to transition to another crosshair&quot;)]
+public float colorTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_colorTweenType.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.colorTweenType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L25">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_colorTweenType" data-uid="AFPS.Crosshair.colorTweenType">colorTweenType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LeanTweenType colorTweenType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_crosshairMaxVelocityScale.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.crosshairMaxVelocityScale%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L44">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_crosshairMaxVelocityScale" data-uid="AFPS.Crosshair.crosshairMaxVelocityScale">crosshairMaxVelocityScale</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Velocity Scale&quot;)]
+[ShowIf(&quot;enableCrosshairScaleWithVelocity&quot;)]
+[Tooltip(&quot;What to clamp the crosshair&#39;s velocity scaling at&quot;)]
+public float crosshairMaxVelocityScale</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_crosshairVelocityScaleMultiplier.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.crosshairVelocityScaleMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L42">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_crosshairVelocityScaleMultiplier" data-uid="AFPS.Crosshair.crosshairVelocityScaleMultiplier">crosshairVelocityScaleMultiplier</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Velocity Scale&quot;)]
+[ShowIf(&quot;enableCrosshairScaleWithVelocity&quot;)]
+[Tooltip(&quot;What to multiply the velocity&#39;s magnitude by for crosshair scaling&quot;)]
+public float crosshairVelocityScaleMultiplier</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_crosshairVelocityScaleSmoothSpeed.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.crosshairVelocityScaleSmoothSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_crosshairVelocityScaleSmoothSpeed" data-uid="AFPS.Crosshair.crosshairVelocityScaleSmoothSpeed">crosshairVelocityScaleSmoothSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Velocity Scale&quot;)]
+[ShowIf(&quot;enableCrosshairScaleWithVelocity&quot;)]
+[Tooltip(&quot;The speed at which to smooth the crosshair&#39;s velocity scaling with&quot;)]
+public float crosshairVelocityScaleSmoothSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_enableCrosshairScaleWithVelocity.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.enableCrosshairScaleWithVelocity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L37">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_enableCrosshairScaleWithVelocity" data-uid="AFPS.Crosshair.enableCrosshairScaleWithVelocity">enableCrosshairScaleWithVelocity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Velocity Scale&quot;)]
+[Tooltip(&quot;Whether to enable the crosshair scaling whith the player&#39;s velocity&quot;)]
+public bool enableCrosshairScaleWithVelocity</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_rotation.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.rotation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L20">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_rotation" data-uid="AFPS.Crosshair.rotation">rotation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float rotation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_rotationTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.rotationTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L32">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_rotationTransitionTime" data-uid="AFPS.Crosshair.rotationTransitionTime">rotationTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The time the rotation of the crosshair takes to transition to another crosshair&quot;)]
+public float rotationTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_rotationTweenType.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.rotationTweenType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L24">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_rotationTweenType" data-uid="AFPS.Crosshair.rotationTweenType">rotationTweenType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LeanTweenType rotationTweenType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_sizeDelta.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.sizeDelta%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L19">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_sizeDelta" data-uid="AFPS.Crosshair.sizeDelta">sizeDelta</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The base sizeDelta of the crosshair&quot;)]
+public Vector2 sizeDelta</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_sizeDeltaTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.sizeDeltaTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L30">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_sizeDeltaTransitionTime" data-uid="AFPS.Crosshair.sizeDeltaTransitionTime">sizeDeltaTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The time the sizeDelta of the crosshair takes to transition to another crosshair&quot;)]
+public float sizeDeltaTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_sizeDeltaTweenType.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.sizeDeltaTweenType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L23">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_sizeDeltaTweenType" data-uid="AFPS.Crosshair.sizeDeltaTweenType">sizeDeltaTweenType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LeanTweenType sizeDeltaTweenType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_sprite.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.sprite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L16">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_sprite" data-uid="AFPS.Crosshair.sprite">sprite</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The sprite to represent the crosshair&quot;)]
+public Sprite sprite</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_spriteTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.spriteTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L28">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_spriteTransitionTime" data-uid="AFPS.Crosshair.spriteTransitionTime">spriteTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;How long the sprite itself changes to another crosshair&quot;)]
+public float spriteTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair_useYVelocityOnly.md&amp;value=---%0Auid%3A%20AFPS.Crosshair.useYVelocityOnly%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L39">View Source</a>
+  </span>
+  <h4 id="AFPS_Crosshair_useYVelocityOnly" data-uid="AFPS.Crosshair.useYVelocityOnly">useYVelocityOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Velocity Scale&quot;)]
+[ShowIf(&quot;enableCrosshairScaleWithVelocity&quot;)]
+[Tooltip(&quot;Whether or not to only use the y velocity for scaling calculations&quot;)]
+public bool useYVelocityOnly</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Crosshair.md&amp;value=---%0Auid%3A%20AFPS.Crosshair%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/HUD/AFPS_CrosshairSettings.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

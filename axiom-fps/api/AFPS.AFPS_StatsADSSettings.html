@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_StatsADSSettings </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_StatsADSSettings ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_StatsADSSettings">
+
+
+
+  <h1 id="AFPS_AFPS_StatsADSSettings" data-uid="AFPS.AFPS_StatsADSSettings" class="text-break">Class AFPS_StatsADSSettings</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Object</span></div>
+    <div class="level2"><span class="xref">ScriptableObject</span></div>
+    <div class="level3"><span class="xref">AFPS_StatsADSSettings</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">ScriptableObject.SetDirty()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ScriptableObject.CreateInstance(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">ScriptableObject.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.CreateInstance&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetEntityId()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_StatsADSSettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CreateAssetMenu(fileName = &quot;New Stats ADS Settings&quot;, menuName = &quot;AFPS/Weapon/Fire Weapon Examples/Stats ADS Settings&quot;, order = 3)]
+public class AFPS_StatsADSSettings : ScriptableObject</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsPosTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsPosTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L33">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsPosTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.adsPosTransitionBackTime">adsPosTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Position Transition&quot;)]
+[Tooltip(&quot;How long it takes to transition back from the ADS position to the normal position&quot;)]
+public float adsPosTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsPosTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsPosTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L37">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsPosTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.adsPosTransitionBackType">adsPosTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Position Transition&quot;)]
+[Tooltip(&quot;The easing type for transitioning back from the ADS position&quot;)]
+public LeanTweenType adsPosTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsPosTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsPosTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L31">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsPosTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.adsPosTransitionTime">adsPosTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Position Transition&quot;)]
+[Tooltip(&quot;How long it takes to transition from the normal position to the ADS position&quot;)]
+public float adsPosTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsPosTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsPosTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L35">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsPosTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.adsPosTransitionType">adsPosTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Position Transition&quot;)]
+[Tooltip(&quot;The easing type for transitioning to the ADS position&quot;)]
+public LeanTweenType adsPosTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsRotTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsRotTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L42">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsRotTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.adsRotTransitionBackTime">adsRotTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Rotation Transition&quot;)]
+[Tooltip(&quot;How long it takes to transition back from the ADS rotation to the normal rotation&quot;)]
+public float adsRotTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsRotTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsRotTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsRotTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.adsRotTransitionBackType">adsRotTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Rotation Transition&quot;)]
+[Tooltip(&quot;The easing type for transitioning back from the ADS rotation&quot;)]
+public LeanTweenType adsRotTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsRotTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsRotTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L40">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsRotTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.adsRotTransitionTime">adsRotTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Rotation Transition&quot;)]
+[Tooltip(&quot;How long it takes to transition from the normal rotation to the ADS rotation&quot;)]
+public float adsRotTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsRotTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsRotTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L44">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsRotTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.adsRotTransitionType">adsRotTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Rotation Transition&quot;)]
+[Tooltip(&quot;The easing type for transitioning to the ADS rotation&quot;)]
+public LeanTweenType adsRotTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsSensitivityMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsSensitivityMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L19">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsSensitivityMultiplier" data-uid="AFPS.AFPS_StatsADSSettings.adsSensitivityMultiplier">adsSensitivityMultiplier</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+public float adsSensitivityMultiplier</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_adsSpreadMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.adsSpreadMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L26">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_adsSpreadMultiplier" data-uid="AFPS.AFPS_StatsADSSettings.adsSpreadMultiplier">adsSpreadMultiplier</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movement&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;What to multiply random bullet spread by when ADS is active. 0 = perfect accuracy, 1 = full hip-fire spread.&quot;)]
+public float adsSpreadMultiplier</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_allowWeaponTilt.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.allowWeaponTilt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L12">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_allowWeaponTilt" data-uid="AFPS.AFPS_StatsADSSettings.allowWeaponTilt">allowWeaponTilt</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[Tooltip(&quot;Whether to turn off position and rotation changes caused by AFPS_WeaponTilt&quot;)]
+public bool allowWeaponTilt</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_camFOVAffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.camFOVAffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L27">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_camFOVAffect" data-uid="AFPS.AFPS_StatsADSSettings.camFOVAffect">camFOVAffect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movement&quot;)]
+public float camFOVAffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_camFOVTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.camFOVTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L54">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_camFOVTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.camFOVTransitionBackTime">camFOVTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Camera FOV&quot;)]
+public float camFOVTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_camFOVTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.camFOVTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L56">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_camFOVTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.camFOVTransitionBackType">camFOVTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Camera FOV&quot;)]
+public LeanTweenType camFOVTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_camFOVTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.camFOVTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L53">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_camFOVTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.camFOVTransitionTime">camFOVTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Camera FOV&quot;)]
+public float camFOVTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_camFOVTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.camFOVTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L55">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_camFOVTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.camFOVTransitionType">camFOVTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Camera FOV&quot;)]
+public LeanTweenType camFOVTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L49">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionBackTime">crosshairOpacityTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Opacity&quot;)]
+public float crosshairOpacityTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L51">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionBackType">crosshairOpacityTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Opacity&quot;)]
+public LeanTweenType crosshairOpacityTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L48">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionTime">crosshairOpacityTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Opacity&quot;)]
+public float crosshairOpacityTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L50">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_crosshairOpacityTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.crosshairOpacityTransitionType">crosshairOpacityTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Crosshair Opacity&quot;)]
+public LeanTweenType crosshairOpacityTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_enableCrosshairWithADS.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.enableCrosshairWithADS%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L14">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_enableCrosshairWithADS" data-uid="AFPS.AFPS_StatsADSSettings.enableCrosshairWithADS">enableCrosshairWithADS</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[Tooltip(&quot;Whether crosshair is enabled when ADSing&quot;)]
+public bool enableCrosshairWithADS</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_enableSprintInterruptDuringADS.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.enableSprintInterruptDuringADS%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L16">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_enableSprintInterruptDuringADS" data-uid="AFPS.AFPS_StatsADSSettings.enableSprintInterruptDuringADS">enableSprintInterruptDuringADS</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[Tooltip(&quot;Whether sprint is interrupted while ADSing&quot;)]
+public bool enableSprintInterruptDuringADS</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_playerSpeedAffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.playerSpeedAffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L22">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_playerSpeedAffect" data-uid="AFPS.AFPS_StatsADSSettings.playerSpeedAffect">playerSpeedAffect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movement&quot;)]
+[Tooltip(&quot;What to multiply the player&#39;s speed by when ADS is active&quot;)]
+public float playerSpeedAffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L64">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionBackTime">scopeGroupOpacityTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public float scopeGroupOpacityTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionBackType">scopeGroupOpacityTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public LeanTweenType scopeGroupOpacityTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L63">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionTime">scopeGroupOpacityTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public float scopeGroupOpacityTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L65">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeGroupOpacityTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.scopeGroupOpacityTransitionType">scopeGroupOpacityTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public LeanTweenType scopeGroupOpacityTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeWeaponModelDisableBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeWeaponModelDisableBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L68">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeWeaponModelDisableBackTime" data-uid="AFPS.AFPS_StatsADSSettings.scopeWeaponModelDisableBackTime">scopeWeaponModelDisableBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public float scopeWeaponModelDisableBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_scopeWeaponModelDisableTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.scopeWeaponModelDisableTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L67">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_scopeWeaponModelDisableTime" data-uid="AFPS.AFPS_StatsADSSettings.scopeWeaponModelDisableTime">scopeWeaponModelDisableTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Scope UI&quot;)]
+public float scopeWeaponModelDisableTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_sprintInterruptTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.sprintInterruptTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L18">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_sprintInterruptTime" data-uid="AFPS.AFPS_StatsADSSettings.sprintInterruptTime">sprintInterruptTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;General&quot;)]
+[ShowIf(&quot;enableSprintInterruptDuringADS&quot;)]
+[Tooltip(&quot;How long sprinting is interrupted after stopping ADS&quot;)]
+public float sprintInterruptTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponCamFOVAffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponCamFOVAffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L28">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponCamFOVAffect" data-uid="AFPS.AFPS_StatsADSSettings.weaponCamFOVAffect">weaponCamFOVAffect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movement&quot;)]
+public float weaponCamFOVAffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionBackTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionBackTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L59">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionBackTime" data-uid="AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionBackTime">weaponCamFOVTransitionBackTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Weapon Camera FOV&quot;)]
+public float weaponCamFOVTransitionBackTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionBackType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionBackType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L61">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionBackType" data-uid="AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionBackType">weaponCamFOVTransitionBackType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Weapon Camera FOV&quot;)]
+public LeanTweenType weaponCamFOVTransitionBackType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L58">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionTime" data-uid="AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionTime">weaponCamFOVTransitionTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Weapon Camera FOV&quot;)]
+public float weaponCamFOVTransitionTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L60">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponCamFOVTransitionType" data-uid="AFPS.AFPS_StatsADSSettings.weaponCamFOVTransitionType">weaponCamFOVTransitionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Weapon Camera FOV&quot;)]
+public LeanTweenType weaponCamFOVTransitionType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LeanTweenType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings_weaponMovementAffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings.weaponMovementAffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L24">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatsADSSettings_weaponMovementAffect" data-uid="AFPS.AFPS_StatsADSSettings.weaponMovementAffect">weaponMovementAffect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movement&quot;)]
+[Tooltip(&quot;What to multiply the weapon&#39;s movements by when ADS is active&quot;)]
+public float weaponMovementAffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatsADSSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatsADSSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Weapon System/Fire Weapon Examples/AFPS_StatsADSSettings.cs/#L7" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

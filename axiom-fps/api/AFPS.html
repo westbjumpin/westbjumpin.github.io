@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace AFPS </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace AFPS ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS">
+
+  <h1 id="AFPS" data-uid="AFPS" class="text-break">Namespace AFPS</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="AFPS.ADS.html">ADS</a></h4>
+      <section><p>FireWeaponBase-derived ADS handler: Fire() records aim intent and a per-frame reconcile blends the aim-down-sights state (pos/rot/FOV/spread plus crosshair/scope UI). Always CanFireNow=false (no recoil kick).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AI.html">AFPS_AI</a></h4>
+      <section><p>Demo NavMesh AI: each Update steers NavMeshAgent toward the closest enemy agent.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AbilityPickup.html">AFPS_AbilityPickup</a></h4>
+      <section><p>Pickup interactable that equips an ability into AFPS_AbilitySystem the same way
+AFPS_WeaponObject equips a weapon into AFPS_WeaponSystem.</p>
+<p>Equip flow (mirrors AFPS_WeaponObject):
+Interact / collider pickup → <a class="xref" href="AFPS.AFPS_AbilityPickup.html#AFPS_AFPS_AbilityPickup_Pickup_AFPS_AFPS_InventorySystem_">Pickup(AFPS_InventorySystem)</a> calls inventory.FindGridForItem with
+requireExplicitCategory=true. If a single-slot grid matches, AddItemToGrid runs and we
+wire <code>onPlacedInEquipmentSlot</code> / <code>onRemovedFromEquipmentSlot</code> on the resulting
+AFPS_ItemObject. AddItemToGrid does not fire onPlacedInEquipmentSlot, so we explicitly
+call <a class="xref" href="AFPS.AFPS_AbilitySystem.html#AFPS_AFPS_AbilitySystem_EquipAbility_System_Int32_UnityEngine_GameObject_">EquipAbility(int, GameObject)</a> for the slot the grid maps to.</p>
+<p>Later drags between equipment slots and the stash run through the wired listeners
+(drag-out → unequip; drag-in → equip). The slot index is looked up from
+<a class="xref" href="AFPS.AFPS_AbilitySystem.html#AFPS_AFPS_AbilitySystem_abilitySlotGrids">abilitySlotGrids</a>, so any drag into a non-ability slot
+(e.g. the player rearranging into a generic stash grid) leaves AbilitySystem untouched.</p>
+<p>Drop: reactivates the world GameObject, destroys the inventory ItemObject, unequips
+the ability instance from AbilitySystem, throws via rigidbody. Listener is unwired
+first so the teardown-side onRemovedFromEquipmentSlot doesn't re-enter the handler.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AbilitySystem.html">AFPS_AbilitySystem</a></h4>
+      <section><p>Ability system. Holds up to <a class="xref" href="AFPS.AFPS_AbilitySystem.html#AFPS_AFPS_AbilitySystem_maxEquippedAbilities">maxEquippedAbilities</a> slots (mapped to the
+AbilityOne/Two/Three inputs). Two equip paths coexist:</p>
+<ol>
+<li>Inspector loadout — designer fills <span class="xref">AFPS.AFPS_AbilitySystem.abilities</span> with AbilityHolder entries
+whose <code>ability</code> field points at a scene-attached AbilityBase. Those abilities
+are equipped from the start and are not destroyed on any unequip path.</li>
+<li>Pickup — AFPS_AbilityPickup calls <a class="xref" href="AFPS.AFPS_AbilitySystem.html#AFPS_AFPS_AbilitySystem_EquipAbility_System_Int32_UnityEngine_GameObject_">EquipAbility(int, GameObject)</a> with a prefab. The system
+instantiates a copy as a child, builds a runtime holder copying trigger defaults from
+the prefab, and the unequip path destroys the instance.
+Extend by inheriting AbilityBase and overriding <code>ActivateAbility(bool pressed = true)</code>.
+Examples: Scripts/Abilities/Dash.cs, GrapplingHook.cs.</li>
+</ol>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Agent.html">AFPS_Agent</a></h4>
+      <section><p>Identity component for any scene actor (player or AI): stores team affiliation and exposes team/ally query helpers used by <a class="xref" href="AFPS.AFPS_AgentManager.html">AFPS_AgentManager</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AgentManager.html">AFPS_AgentManager</a></h4>
+      <section><p>Singleton manager that registers all scene <a class="xref" href="AFPS.AFPS_Agent.html">AFPS_Agent</a> instances at startup and exposes spatial queries for closest agent by team, ally, and enemy relationships.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AmmoStateToggle.html">AFPS_AmmoStateToggle</a></h4>
+      <section><p>Decoupled, count-driven GameObject toggler for a weapon. Conceptually the world-space sibling
+of <a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a>'s sprite-by-count system: instead of swapping a sprite asset on an
+inventory icon, it enables/disables child GameObjects on the weapon model based on a live count.
+The count comes either from <a class="xref" href="AFPS.AFPS_WeaponAmmo.html">AFPS_WeaponAmmo</a> (CurrentMag / Reserve / sum) or
+straight from the weapon item's stored contents — summed stack sizes (StoredStackSum) or the
+number of distinct stored entries (StoredItemCount), mirroring <a class="xref" href="AFPS.SpriteCountSource.html">SpriteCountSource</a>.</p>
+<p>Semantics are cumulative ranges — every entry whose [minCount, maxCount] range contains the
+current count is enabled simultaneously (e.g. one visible shell GameObject per loaded round,
+or a low-ammo warning light active only while the count is between two bounds). Pure
+SetActive toggling; no sprite assignment.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_AmmoStateToggle.ToggleEntry.html">AFPS_AmmoStateToggle.ToggleEntry</a></h4>
+      <section><p>One target GameObject and the inclusive count range over which it is enabled.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ArmAnimationSettings.html">AFPS_ArmAnimationSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_ArmsController.html">AFPS_ArmsController</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_AudioManager.html">AFPS_AudioManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Camera.html">AFPS_Camera</a></h4>
+      <section><p>First-person camera controller: processes look input, applies FOV scaling, headbob (sine or curve), hit-bob physics, wallrun/slide/movement tilt, ledge-hang yaw clamping, and vignette post-processing each LateUpdate.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Checkpoint.html">AFPS_Checkpoint</a></h4>
+      <section><p>Trigger checkpoint that snapshots player HP and active status effects on first contact; <a class="xref" href="AFPS.AFPS_CheckpointManager.html#AFPS_AFPS_CheckpointManager_ResetToLastCheckpoint_AFPS_AFPS_Health_">ResetToLastCheckpoint(AFPS_Health)</a> restores from the frozen state on death.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_CheckpointManager.html">AFPS_CheckpointManager</a></h4>
+      <section><p>Persistent singleton that tracks the last activated <a class="xref" href="AFPS.AFPS_Checkpoint.html">AFPS_Checkpoint</a> and restores player position, HP, and status effects on death.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ClimbMovementSettings.html">AFPS_ClimbMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_ColdEfect.html">AFPS_ColdEfect</a></h4>
+      <section><p>Cold status side effect stub; override <a class="xref" href="AFPS.AFPS_ColdEfect.html#AFPS_AFPS_ColdEfect_ExecuteStatus">ExecuteStatus()</a> to implement slow/freeze logic.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Compass.html">AFPS_Compass</a></h4>
+      <section><p>Drives the HUD compass: samples camera yaw each frame and pushes heading to UIManager
+which fans out to the active <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a>. Renderer-agnostic — UGUI and
+UI Toolkit HUDs share the same heading feed.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_CrosshairSettings.html">AFPS_CrosshairSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_CrouchAndSlideSettings.html">AFPS_CrouchAndSlideSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_DamageNumberManager.html">AFPS_DamageNumberManager</a></h4>
+      <section><p>Spawns world-space floating damage/heal numbers in response to <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDamageDealt">OnDamageDealt</a>.
+Only renders hits dealt by the local player (instigator with an <a class="xref" href="AFPS.AFPS_Agent.html">AFPS_Agent</a> flagged
+<code>isPlayer</code>). Numbers are pooled <span class="xref">TMPro.TextMeshPro</span> objects built procedurally (no prefab),
+billboarded to <span class="xref">AFPS.AFPS_DamageNumberManager.cam</span>, animated via the curves on <span class="xref">AFPS.AFPS_DamageNumberManager.settings</span>. Rapid hits on the
+same target inside the accumulation window merge into one growing number.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_DamageNumberSettings.html">AFPS_DamageNumberSettings</a></h4>
+      <section><p>Preset driving <a class="xref" href="AFPS.AFPS_DamageNumberManager.html">AFPS_DamageNumberManager</a>: world-space floating damage/heal numbers — text style, crit and heal colouring, rise/fade animation, and same-target accumulation. One asset can be shared by every weapon's hit feedback.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_DragableObject.html">AFPS_DragableObject</a></h4>
+      <section><p>Physics-driven holdable object: PID controllers drive position and optionally rotation toward a camera-relative hold point each FixedUpdate; auto-releases when distance exceeds <code>disconnectDistance</code>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_EquipAnimationWeaponObjectSettings.html">AFPS_EquipAnimationWeaponObjectSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Explosion.html">AFPS_Explosion</a></h4>
+      <section><p>OverlapSphere explosion: LOS wall-check per collider, falloff-curve damage, self-damage/force toggles, and an optional self-destruct timer.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ExplosionMovementSettings.html">AFPS_ExplosionMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_FOVEffectsCameraSettings.html">AFPS_FOVEffectsCameraSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Fluid.html">AFPS_Fluid</a></h4>
+      <section><p>Trigger volume that writes fluid state into AFPS_Movement on enter/exit and applies linearDamping to non-player rigidbodies.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_FluidMovementSettings.html">AFPS_FluidMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_FootstepSettings.html">AFPS_FootstepSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_GroundingAndSlopeMovementSettings.html">AFPS_GroundingAndSlopeMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_HeadbobCameraSettings.html">AFPS_HeadbobCameraSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a></h4>
+      <section><p>Core HP component: manages base HP and overheal pools, per-type damage resistances, status effect lifecycle, death/respawn flow via <a class="xref" href="AFPS.AFPS_CheckpointManager.html">AFPS_CheckpointManager</a>, and drives <a class="xref" href="AFPS.AFPS_UIManager.html">AFPS_UIManager</a> health HUD.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_HealthAffectArea.html">AFPS_HealthAffectArea</a></h4>
+      <section><p>Trigger volume that applies a signed HP delta to any <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> occupant on an independent per-target timer, routing negative deltas through <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a> (typed) and positive through <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_Heal_System_Single_">Heal(float)</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_HealthBar.html">AFPS_HealthBar</a></h4>
+      <section><p>World-space health bar for the <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> on this object (or a parent). Builds a
+billboarded UGUI bar (background + left-anchored fill) procedurally — no prefab or material to wire.
+The fill tracks base HP (overheal excluded) and recolors by the discrete thresholds on
+<span class="xref">AFPS.AFPS_HealthBar.settings</span>. Add this to any entity that should show a bar; the player typically uses the
+screen HUD instead.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_HealthBarSettings.html">AFPS_HealthBarSettings</a></h4>
+      <section><p>Shared preset for <a class="xref" href="AFPS.AFPS_HealthBar.html">AFPS_HealthBar</a>: bar dimensions, placement, background, and discrete per-threshold fill colors. One asset can drive every entity's bar.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_HitBobCameraSettings.html">AFPS_HitBobCameraSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Hitbox.html">AFPS_Hitbox</a></h4>
+      <section><p>Per-collider damage relay for body-part criticals. Sits on a child collider of a character
+(head, torso, limb), scales incoming damage by <span class="xref">AFPS.AFPS_Hitbox.damageMultiplier</span>, can optionally bypass
+the owner's per-type resistance and the firing weapon's range falloff, tags the hit with <span class="xref">AFPS.AFPS_Hitbox.region</span>
+for crit styling, then forwards the result to the owning <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a>. Implements
+<a class="xref" href="AFPS.IDamageable.html">IDamageable</a> so weapons can apply damage to the exact collider they hit without knowing
+whether it is a hitbox or the body itself. Radius damage (<a class="xref" href="AFPS.AFPS_Explosion.html">AFPS_Explosion</a>) targets
+<a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> directly and therefore never receives this multiplier.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Hitmarker.html">AFPS_Hitmarker</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_HitmarkerSettings.html">AFPS_HitmarkerSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_HorizontalMovementSettings.html">AFPS_HorizontalMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_InputManager.html">AFPS_InputManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Interactable.html">AFPS_Interactable</a></h4>
+      <section><p>Base for anything the player can target and interact with. Holds only look-and-interact concerns:
+the UI label, the held-press timer, and the Interact/EndInteract verbs.
+Inventory pickup lives on AFPS_PickupInteractable.</p>
+<p>Off-switch API: set <code>interactable.enabled = false</code> to make AFPS_InteractionSystem ignore
+this object entirely — no interaction box, no name/description UI, no Interact() callbacks.
+Useful while a dying object plays its death/explosion effect on a delay before Destroy().
+Disable also stops the host MonoBehaviour's Update/FixedUpdate (relevant for subclasses like
+AFPS_DragableObject which run physics per-frame).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InteractionCollider.html">AFPS_InteractionCollider</a></h4>
+      <section><p>Trigger collider that auto-picks up <a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a> objects with <code>PickupType.OnTouch</code> on overlap; non-pickup interactables are ignored and must be reached via the spherecast path in <a class="xref" href="AFPS.AFPS_InteractionSystem.html">AFPS_InteractionSystem</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InteractionSystem.html">AFPS_InteractionSystem</a></h4>
+      <section><p>Player interaction controller: runs dual spherecasts each Update (weapon and general layers), manages look-targeting UI, routes press/held-press events to <a class="xref" href="AFPS.AFPS_Interactable.html#AFPS_AFPS_Interactable_Interact_AFPS_AFPS_InteractionSystem_">Interact(AFPS_InteractionSystem)</a> or <a class="xref" href="AFPS.AFPS_PickupInteractable.html#AFPS_AFPS_PickupInteractable_Pickup_AFPS_AFPS_InventorySystem_">Pickup(AFPS_InventorySystem)</a>, and owns the active <a class="xref" href="AFPS.AFPS_DragableObject.html">AFPS_DragableObject</a> reference.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></h4>
+      <section><p>A single inventory grid panel: allocates a cell array, enforces category/size constraints, exposes weight and capacity queries, and sets <a class="xref" href="AFPS.AFPS_InventorySystem.html#AFPS_AFPS_InventorySystem_gridOnMouse">gridOnMouse</a> on pointer entry.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventoryGridUIBinding.html">AFPS_InventoryGridUIBinding</a></h4>
+      <section><p>Per-grid UI Toolkit renderer. Coexists with UGUI renderer (hidden via CanvasGroup).
+Owns cellPixelSize (panel-space). On first layout: sets baseRes=Screen.size (disables system's adjustedCellSize scaling) and cellSize=cellPixelSize*panelScale (on-screen px).
+Multiple bindings cooperate — keep cellPixelSize uniform (last-write-wins otherwise).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventorySystem.html">AFPS_InventorySystem</a></h4>
+      <section><p>Grid-based inventory system: manages item placement, stacking, rotation, swapping, drag-hold, right-click menus, and double-click consolidation across multiple <a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a> instances.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventoryUIRenderer.html">AFPS_InventoryUIRenderer</a></h4>
+      <section><p>Top-level UI Toolkit renderer. Hides the original UGUI inventory canvas
+and draws a &quot;held item&quot; mirror VisualElement that follows the mouse,
+mirroring inventorySystem.currentItem each frame (sprite, size, rotation).</p>
+<p>Pair with one AFPS_InventoryGridUIBinding per AFPS_InventoryGrid.
+All coordinate conversions go through the binding's PanelPerScreen helper
+so the renderer is robust to PanelSettings scale-mode changes.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventoryWeightDisplay.html">AFPS_InventoryWeightDisplay</a></h4>
+      <section><p>Binds UI Toolkit weight labels to live AFPS_InventoryGrid weights.
+Per-group: each PanelWeightGroup sums its grids into one Label. Top-bar: optional aggregate label.
+Uses GetGridWeight (includes nested storage via GetTotalWeight).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_InventoryWeightDisplay.PanelWeightGroup.html">AFPS_InventoryWeightDisplay.PanelWeightGroup</a></h4>
+      <section><p>Binds a named UXML Label to one or more grids whose weights are summed and formatted into it each frame.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemCategory.html">AFPS_ItemCategory</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemInteractable.html">AFPS_ItemInteractable</a></h4>
+      <section><p>Plain (non-weapon) pickup interactable.
+Interact: base.Pickup → add to inventory, reparent + disable GO. Refused if no grid fits (no input consumed).
+Drop: base.Drop reactivates GO, then positions in front of camera and launches with dropForce + dropTorque.
+Use AFPS_WeaponObject for equip-on-pickup weapon behavior.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemMenu.html">AFPS_ItemMenu</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemMenuController.html">AFPS_ItemMenuController</a></h4>
+      <section><p>UGUI IItemMenuRenderer. Wraps CreateItemMenu/DestroyCurrentItemMenu so InventorySystem dispatches uniformly across UGUI and UI Toolkit.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemMenuUIToolkit.html">AFPS_ItemMenuUIToolkit</a></h4>
+      <section><p>UI Toolkit IItemMenuRenderer. Spawns a floating VisualElement menu with one Button per AFPS_ItemMenu entry.
+Per-button logic is delegated: each prefab (UGUI ItemMenuButtonBase) is instantiated off-screen, SetItem+OnPress, then destroyed — Consume/Drop/Use/etc. work unchanged.
+Self-registers as activeItemMenu in Initialize, overriding the UGUI controller. Mirrors IHUDLayer pattern.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></h4>
+      <section><p>Runtime UI representation of an inventory item: manages grid position, rotation, stack count, sprite display, storage sub-items, and equipment-slot event callbacks.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Ladder.html">AFPS_Ladder</a></h4>
+      <section><p>Climbable ladder surface: sets AFPS_Movement.currentLadder via trigger overlap or explicit Interact depending on useInteractionSystem.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_LadderMovementSettings.html">AFPS_LadderMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_MantleAndVaultMovementSettings.html">AFPS_MantleAndVaultMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_MovePosition.html">AFPS_MovePosition</a></h4>
+      <section><p>Each LateUpdate snaps this transform's position to target.position + offset.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_MoveRotation.html">AFPS_MoveRotation</a></h4>
+      <section><p>Each LateUpdate copies target.rotation onto this transform.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a></h4>
+      <section><p>Core FPS player controller: PID hover-float, Air strafing, wallrun, multi-jump, climb, ledge hang, mantle/vault, ladder, slide, sprint, stamina, fluid, and moving-platform rider support.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_MovementEffectsCameraSettings.html">AFPS_MovementEffectsCameraSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_MovingPlatform.html">AFPS_MovingPlatform</a></h4>
+      <section><p>Kinematic rigidbody platform: interpolates between waypoints or spins as a rotator, carries riders via per-frame delta, and supports dwell, ping-pong, loop, and elevator EndModes.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a></h4>
+      <section><p>Abstract base for interactables that route through the inventory system on pickup.
+Concrete subclasses: AFPS_ItemInteractable (generic item w/ physical drop), AFPS_WeaponObject (equip-on-pickup).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.html">AFPS_PlayerActions</a></h4>
+      <section><p>Provides programmatic access to <span class="xref">UnityEngine.InputSystem.InputActionAsset</span>, <span class="xref">UnityEngine.InputSystem.InputActionMap</span>, <span class="xref">UnityEngine.InputSystem.InputAction</span> and <span class="xref">UnityEngine.InputSystem.InputControlScheme</span> instances defined in asset &quot;Assets/Axiom FPS/AFPS_PlayerActions.inputactions&quot;.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerSoundManager.html">AFPS_PlayerSoundManager</a></h4>
+      <section><p>Routes movement events (jump, air-jump, land, sprint, slide, footsteps) to AudioSources; footstep interval scales inversely with speed.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_RecoilController.html">AFPS_RecoilController</a></h4>
+      <section><p>Drives camera-rotation, weapon-rotation, and weapon-position recoil for the weapon this is attached to.
+Writes to AFPS_WeaponObject.recoilQuaternion / .recoilPos and AFPS_Camera.recoilQuaternion — the same
+fields AFPS_WeaponSystem.Update() and AFPS_Camera.LateUpdate() compose into final transforms.</p>
+<p>Maintains an independent solver triplet + pattern/momentum tracker PER profile, so a weapon with
+multiple fire scripts (each with its own AFPS_RecoilProfile) doesn't lose mid-decay spring state
+when fire modes switch. ApplyToHost sums every cached profile's current outputs each frame.</p>
+<p>On a weapon swap, the outgoing controller keeps ticking its camera-channel springs until they
+decay below CamDecayEpsilonSqr — so in-flight camera recoil decays smoothly through the swap
+instead of snapping to zero. Weapon-mesh channels (rotation + position) reset immediately since
+the mesh is no longer visible. A static frame marker coordinates the shared camera field write
+so the decaying outgoing controller and the active incoming controller compose multiplicatively
+rather than race-overwriting each other.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_RecoilProfile.html">AFPS_RecoilProfile</a></h4>
+      <section><p>Authoring asset for per-weapon recoil: three independent channels (camera rotation, weapon rotation, weapon position), Procedural or Scripted pattern mode, and momentum build/cap.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_SlotWeaponObjectSettings.html">AFPS_SlotWeaponObjectSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_SpreadProfile.html">AFPS_SpreadProfile</a></h4>
+      <section><p>Authoring asset for per-weapon bullet spread. Defines a spread cone (maxSpreadAngle) plus how
+individual pellets are placed inside it: Random (uniform / gaussian / ring distribution) or
+Fixed (hand-authored deterministic pellet layout). Fire scripts call ApplySpread() per pellet;
+there is no runtime state — spread is computed fresh each shot.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_SprintMovementSettings.html">AFPS_SprintMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StaminaMovementSettings.html">AFPS_StaminaMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatsADSSettings.html">AFPS_StatsADSSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatsProjectileFireSettings.html">AFPS_StatsProjectileFireSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatsProjectileSettings.html">AFPS_StatsProjectileSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatsRaycastFireSettings.html">AFPS_StatsRaycastFireSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatsWeaponObjectSettings.html">AFPS_StatsWeaponObjectSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a></h4>
+      <section><p>ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, and optional chained effects. At runtime <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_">GiveNewStatusEffect(AFPS_StatusEffect)</a> instantiates a <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> from this template.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_StatusOtherEffect.html">AFPS_StatusOtherEffect</a></h4>
+      <section><p>Base for non-HP side effects paired with a <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> tick (e.g. slow, freeze, knockback). Override <a class="xref" href="AFPS.AFPS_StatusOtherEffect.html#AFPS_AFPS_StatusOtherEffect_ExecuteStatus">ExecuteStatus()</a> to implement behavior.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_StoredContents.html">AFPS_StoredContents</a></h4>
+      <section><p>World-side carrier of nested storage. Written by Drop before UI ItemObject is destroyed; read by Pickup after the new one is created.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_Team.html">AFPS_Team</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Trigger.html">AFPS_Trigger</a></h4>
+      <section><p>Unity trigger volume that routes OnTriggerEnter/Exit to UnityEvents based on TriggerType (any collision, any agent, or player-only).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_UIImpulse.html">AFPS_UIImpulse</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_UIManager.html">AFPS_UIManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_UISway.html">AFPS_UISway</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_UIToolkitSway.html">AFPS_UIToolkitSway</a></h4>
+      <section><p>UI Toolkit port of AFPS_UISway. Drives style.translate on the named VisualElement
+in lieu of RectTransform.anchoredPosition. Attach beside the UIDocument.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_VerticalMovementSettings.html">AFPS_VerticalMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_VignetteFlash.html">AFPS_VignetteFlash</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_WallInteractionMovementSettings.html">AFPS_WallInteractionMovementSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.AFPS_Weapon.html">AFPS_Weapon</a></h4>
+      <section><p>Identity card for a weapon type: HUD display name, category label, icon sprite, and linked AFPS_Item.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponAmmo.html">AFPS_WeaponAmmo</a></h4>
+      <section><p>One ammo pool per weapon. In Magazine mode the loaded mag is an AFPS_ItemObject inside
+the weapon's storedItems; bullets are stacked AFPS_ItemObjects inside that mag's
+storedItems (LIFO fire order, mixed ammo allowed).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponBob.html">AFPS_WeaponBob</a></h4>
+      <section><p>Velocity-scaled sine-wave weapon bob: writes bobPos/bobQuaternion to AFPS_WeaponObject each frame, with idle/grounded/sliding state gates.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponBump.html">AFPS_WeaponBump</a></h4>
+      <section><p>Weapon bump: a camera-forward raycast engages a pos/rot offset (bumpPositionChange/bumpRotationChange) while wall-touching, reconciled toward engaged/cleared every frame so it can't strand offset; also gates canFire while wall-touching.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponObject.html">AFPS_WeaponObject</a></h4>
+      <section><p>Core weapon component: manages fire-type pipeline (Automatic/Burst/Single/Charge/OnPressAndRelease), equip/drop/inventory wiring, transform offset composition, and input subscription lifecycle.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponSway.html">AFPS_WeaponSway</a></h4>
+      <section><p>Camera-input-driven weapon sway: lerps/slerps/smoothdamps rotation and position offsets into AFPS_WeaponObject.swayQuaternion/swayPos.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponSystem.html">AFPS_WeaponSystem</a></h4>
+      <section><p>Slot-based weapon manager: equip/unequip, switch (number key/cycle/scroll/last), compose transform offsets from all weapon sub-systems, and sync HUD icons each frame.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponTilt.html">AFPS_WeaponTilt</a></h4>
+      <section><p>State-machine-driven weapon tilt: resolves the stance from AFPS_WeaponObject.movement.currentMovementState each frame and continuously blends pos/rot toward it. No one-shot tweens or lockouts, so the offset can never be stranded.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_WeaponTiltSettings.html">AFPS_WeaponTiltSettings</a></h4>
+      <section><p>Maps each MovementState to a WeaponTiltStanceSetting; drives AFPS_WeaponTilt position/rotation transitions.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AbilityBase.html">AbilityBase</a></h4>
+      <section><p>Base for all abilities. Subclass and override <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Boolean_">ActivateAbility(bool)</a> for
+press/release abilities or <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Single_">ActivateAbility(float)</a> for charge abilities.</p>
+<p>Lifecycle: at runtime the prefab is either pre-placed on the player (legacy / inspector
+loadout path) or instantiated by <a class="xref" href="AFPS.AFPS_AbilitySystem.html#AFPS_AFPS_AbilitySystem_EquipAbility_System_Int32_UnityEngine_GameObject_">EquipAbility(int, GameObject)</a> as a child
+of the system when the player equips a matching pickup. Either way, Awake binds to the
+player references on the host GameObject — so the script MUST live on, or under, a
+GameObject that carries AFPS_Movement / AFPS_PlayerSoundManager.</p>
+<p>Trigger-defaults: the fields in the &quot;Trigger Defaults&quot; group below are the per-prefab
+authored defaults that the pickup-driven equip path copies into the runtime
+<a class="xref" href="AFPS.AbilityHolder.html">AbilityHolder</a>. They have no effect for inspector-pre-equipped holders
+(those carry their own copy of the same fields on AbilityHolder itself).</p>
+</section>
+      <h4><a class="xref" href="AFPS.AbilityHolder.html">AbilityHolder</a></h4>
+      <section><p>Runtime state for a single equipped ability slot: holds the live AbilityBase instance, trigger configuration, cooldown timer, and burst/charge bookkeeping.</p>
+</section>
+      <h4><a class="xref" href="AFPS.ArmAnimation.html">ArmAnimation</a></h4>
+      <section><p>One arm animation clip: velocity-speed scaling flag, repeat toggle, and the AnimationClip to play.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Consume.html">Consume</a></h4>
+      <section><p>Decrements item stack by 1; destroys GO when stack reaches 0.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Crosshair.html">Crosshair</a></h4>
+      <section><p>Per-state crosshair definition: sprite, size/rotation/color, LeanTween transition timings, and velocity-driven scale parameters.</p>
+</section>
+      <h4><a class="xref" href="AFPS.CurveRecoilSolver.html">CurveRecoilSolver</a></h4>
+      <section><p>Plays the configured AnimationCurve scaled by the most recent kick magnitude. Best for hand-authored, predictable patterns.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DamageTypeResistance.html">DamageTypeResistance</a></h4>
+      <section><p>Maps a <a class="xref" href="AFPS.DamageType.html">DamageType</a> to a damage multiplier; values below 1 reduce damage, above 1 increase it, negative values convert damage to healing.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Dash.html">Dash</a></h4>
+      <section><p>Applies an impulse force along the player's current movement vector; magnitude differs based on <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_grounded">grounded</a> state.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Destroy.html">Destroy</a></h4>
+      <section><p>Removes the item from the inventory grid (clearing cell refs) and destroys its GO.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Drop.html">Drop</a></h4>
+      <section><p>Drops the item into the world: calls connectedInteractable.Drop(), clears inventory references, and destroys the UI GO.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EquipmentSlotEvent.html">EquipmentSlotEvent</a></h4>
+      <section><p>Typed UnityEvent fired when an item enters or leaves a single-item equipment slot grid.</p>
+</section>
+      <h4><a class="xref" href="AFPS.FireTypeSettings.html">FireTypeSettings</a></h4>
+      <section><p>Runtime config for one fire mode: type, fire rate, burst sub-rate/count, charge time, and per-mode timers.</p>
+</section>
+      <h4><a class="xref" href="AFPS.FireWeaponBase.html">FireWeaponBase</a></h4>
+      <section><p>Abstract fire-script base: override Fire/CanFireNow/FireDelay/DropLogic/PickupLogic/Initialize/Deinitialize; AFPS_WeaponObject drives the pipeline.</p>
+</section>
+      <h4><a class="xref" href="AFPS.GrapplingHook.html">GrapplingHook</a></h4>
+      <section><p>High-velocity, momentum-driven grapple</p>
+<p>On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the
+anchor with an eased &quot;windup&quot; pull that ramps to full force, and is constrained to an
+inextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular
+swing force for player-driven arcs. The rope conserves and compounds kinetic energy, so
+releasing slingshots the player forward with the accumulated momentum.</p>
+<p>Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past
+it), looks too far away from the anchor, or drives face-on into a solid obstacle. The grapple is
+released by letting go of the button</p>
+<p>All physics is applied through <span class="xref">UnityEngine.Rigidbody</span> forces — the transform is never moved
+directly — and both <code>Update</code> and <code>FixedUpdate</code> are written to avoid managed
+allocations (no Debug.Log, no allocating physics queries, struct-only math).</p>
+</section>
+      <h4><a class="xref" href="AFPS.InventoryCell.html">InventoryCell</a></h4>
+      <section><p>Single grid cell: tracks maximum item input size and the <a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a> currently occupying this cell (null = empty).</p>
+</section>
+      <h4><a class="xref" href="AFPS.ItemMenuButtonBase.html">ItemMenuButtonBase</a></h4>
+      <section><p>Abstract base for right-click context menu buttons: holds item + inventory refs and optionally auto-dismisses the menu on press.</p>
+</section>
+      <h4><a class="xref" href="AFPS.LerpRecoilSolver.html">LerpRecoilSolver</a></h4>
+      <section><p>Two-phase chase: speed up to target, then speed back to zero. Cheapest solver — no allocation, branchless tick.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Projectile.html">Projectile</a></h4>
+      <section><p>In-flight projectile: FixedUpdate bounce-raycast + custom gravity, collision/trigger damage with friendly-fire filter, optional destroy-timer, and re-entrancy guard.</p>
+</section>
+      <h4><a class="xref" href="AFPS.ProjectileFire.html">ProjectileFire</a></h4>
+      <section><p>Instantiates a projectile prefab at fire position/direction, applies launch force/torque, consumes AFPS_WeaponAmmo, and routes hitmarker/VFX/SFX.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RandomAudioClipContainer.html">RandomAudioClipContainer</a></h4>
+      <section><p>Clip array + min/max volume range for PlayOneShot; workaround for Unity's RandomAudioContainer being incompatible with PlayOneShot.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RaycastFire.html">RaycastFire</a></h4>
+      <section><p>Hitscan fire: per-pellet raycast with spread, optional bounce and pierce chains, damage falloff curve, friendly-fire filter, and optional fire delay via LeanTween.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RecoilSolverFactory.html">RecoilSolverFactory</a></h4>
+      <section><p>Instantiates the correct IRecoilSolver (Spring/Lerp/Curve) from an AFPS_RecoilSolverConfig.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RemoveStoredItem.html">RemoveStoredItem</a></h4>
+      <section><p>Pops the last stored item from a container and makes it currentItem; hand must be empty.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Split.html">Split</a></h4>
+      <section><p>Splits the item's stack in half via inventory.SplitStack.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpringRecoilSolver.html">SpringRecoilSolver</a></h4>
+      <section><p>Three independent closed-form springs (one per axis). Allocation-free per tick and stable at any dt.</p>
+</section>
+      <h4><a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a></h4>
+      <section><p>Runtime instance of a status effect: tracks build-up accumulation, remaining apply time, reapply timer, and HP/overheal deltas per tick. Instantiated from <a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a> via <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_">GiveNewStatusEffect(AFPS_StatusEffect)</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.StoredItemDescriptor.html">StoredItemDescriptor</a></h4>
+      <section><p>Serializable snapshot of one stored item: data reference, stack size, and recursively nested contents.</p>
+</section>
+      <h4><a class="xref" href="AFPS.StoredItemLocationData.html">StoredItemLocationData</a></h4>
+      <section><p>Return value from <a class="xref" href="AFPS.AFPS_InventorySystem.html#AFPS_AFPS_InventorySystem_FindFreePositionInGrid_AFPS_AFPS_ItemObject_AFPS_AFPS_InventoryGrid_">FindFreePositionInGrid(AFPS_ItemObject, AFPS_InventoryGrid)</a>: the found cell position and rotation index (0=unrotated, 1=rotated).</p>
+</section>
+      <h4><a class="xref" href="AFPS.Throw.html">Throw</a></h4>
+      <section><p>Stub throw button: delegates entirely to base.OnPress(); extend OnPress to add throw logic.</p>
+</section>
+      <h4><a class="xref" href="AFPS.UGUIHUDLayer.html">UGUIHUDLayer</a></h4>
+      <section><p>UGUI <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a>. Owns the legacy Canvas-based HUD widgets and renders the
+full <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a> surface. Mirrors <a class="xref" href="AFPS.UIToolkitHUDLayer.html">UIToolkitHUDLayer</a>'s patterns:
+epsilon-gated change detection, null-guards, pool reuse. <code>TriggerImpulse</code> is a no-op —
+UGUI impulse is delivered by <a class="xref" href="AFPS.AFPS_UIImpulse.html">AFPS_UIImpulse</a> components via BroadcastMessage.</p>
+</section>
+      <h4><a class="xref" href="AFPS.UIImpulseSettings.html">UIImpulseSettings</a></h4>
+      <section><p>Serializable impulse preset: peak scale, gain/hold/decay durations, and per-phase LeanTween easing.</p>
+</section>
+      <h4><a class="xref" href="AFPS.UIToolkitHUDLayer.html">UIToolkitHUDLayer</a></h4>
+      <section><p>UI Toolkit <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a>. Sits beside the player UIDocument (Source Asset = HUD.uxml).
+Element refs are queried in Awake; each call mutates VisualElements.
+Strategy: scalar writes go direct; lists (HP segments, compass markers) use lazy pools
+reused across pushes to avoid alloc + layout thrash; smooth transitions are USS-driven
+(transition-property on .crosshair, .bar-fill, …) — no C# tweens here.</p>
+</section>
+      <h4><a class="xref" href="AFPS.Use.html">Use</a></h4>
+      <section><p>Stub use button: delegates entirely to base.OnPress(); extend OnPress to add use logic.</p>
+</section>
+      <h4><a class="xref" href="AFPS.WeaponTiltStanceSetting.html">WeaponTiltStanceSetting</a></h4>
+      <section><p>Per-stance position/rotation offset + duration and easing for weapon tilt transitions.</p>
+</section>
+    <h3 id="structs">
+Structs
+</h3>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.InventoryActions.html">AFPS_PlayerActions.InventoryActions</a></h4>
+      <section><p>Provides access to input actions defined in input action map &quot;Inventory&quot;.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.PlayerActions.html">AFPS_PlayerActions.PlayerActions</a></h4>
+      <section><p>Provides access to input actions defined in input action map &quot;Player&quot;.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.UIActions.html">AFPS_PlayerActions.UIActions</a></h4>
+      <section><p>Provides access to input actions defined in input action map &quot;UI&quot;.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_RecoilChannel.html">AFPS_RecoilChannel</a></h4>
+      <section><p>One recoil output channel: baseKick + jitter per-shot, plus the solver config that drives recovery for this channel.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_RecoilPatternStep.html">AFPS_RecoilPatternStep</a></h4>
+      <section><p>One row of a Scripted pattern — explicit per-shot deltas for all three channels.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_RecoilSolverConfig.html">AFPS_RecoilSolverConfig</a></h4>
+      <section><p>Serializable config blob consumed by RecoilSolverFactory: solver type, spring Raw/Tuned parameters, lerp speeds, curve shape, and recovery mode/delay.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_SpreadPellet.html">AFPS_SpreadPellet</a></h4>
+      <section><p>One authored pellet for a Fixed pattern — a normalized offset within the spread disc.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DamageInfo.html">DamageInfo</a></h4>
+      <section><p>Immutable payload passed to <a class="xref" href="AFPS.IDamageable.html#AFPS_IDamageable_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DamageNumberEvent.html">DamageNumberEvent</a></h4>
+      <section><p>Fired by <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDamageDealt">OnDamageDealt</a> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_isHeal">isHeal</a> and <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_hitBoneTag">hitBoneTag</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.HealthThreshold.html">HealthThreshold</a></h4>
+      <section><p>One color stop for the health bar fill, keyed by HP fraction (0..1).</p>
+</section>
+      <h4><a class="xref" href="AFPS.MagazineDisplayEntry.html">MagazineDisplayEntry</a></h4>
+      <section><p>One row in the Tarkov-style HUD magazine display.</p>
+</section>
+      <h4><a class="xref" href="AFPS.UGUIHUDLayer.MagSlotView.html">UGUIHUDLayer.MagSlotView</a></h4>
+      <section></section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.IInventoryActions.html">AFPS_PlayerActions.IInventoryActions</a></h4>
+      <section><p>Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;Inventory&quot; which allows adding and removing callbacks.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.IPlayerActions.html">AFPS_PlayerActions.IPlayerActions</a></h4>
+      <section><p>Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;Player&quot; which allows adding and removing callbacks.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_PlayerActions.IUIActions.html">AFPS_PlayerActions.IUIActions</a></h4>
+      <section><p>Interface to implement callback methods for all input action callbacks associated with input actions defined by &quot;UI&quot; which allows adding and removing callbacks.</p>
+</section>
+      <h4><a class="xref" href="AFPS.IDamageable.html">IDamageable</a></h4>
+      <section><p>Contract for any entity that can receive typed damage and report death state.</p>
+</section>
+      <h4><a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a></h4>
+      <section><p>Renderer-agnostic HUD contract. UGUI and UI Toolkit both implement it; AFPS_UIManager
+calls these as one-way pushes. Implementations must tolerate null args and out-of-order
+calls (e.g. SetAmmo before SetWeaponInfo on a fresh equip).</p>
+</section>
+      <h4><a class="xref" href="AFPS.IItemMenuRenderer.html">IItemMenuRenderer</a></h4>
+      <section><p>Renderer-agnostic right-click item menu. Implemented by UGUI
+(<a class="xref" href="AFPS.AFPS_ItemMenuController.html">AFPS_ItemMenuController</a>) and UI Toolkit
+(<a class="xref" href="AFPS.AFPS_ItemMenuUIToolkit.html">AFPS_ItemMenuUIToolkit</a>). Inventory dispatches via a single
+<code>activeItemMenu</code> reference — same pattern as <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a>.</p>
+</section>
+      <h4><a class="xref" href="AFPS.IRecoilSolver.html">IRecoilSolver</a></h4>
+      <section><p>Stateful per-channel motion driver. Pure math; safe to instantiate outside MonoBehaviour for editor previews.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="AFPS.AFPS_AmmoStateToggle.CountSource.html">AFPS_AmmoStateToggle.CountSource</a></h4>
+      <section><p>Which value drives the toggle evaluation.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AFPS_MovingPlatform.State.html">AFPS_MovingPlatform.State</a></h4>
+      <section><p>Internal FSM state; exposed read-only via Inspector debug group.</p>
+</section>
+      <h4><a class="xref" href="AFPS.AmmoStorageMode.html">AmmoStorageMode</a></h4>
+      <section><p>Determines how ammo is tracked: Simple (direct int), Loose (inventory item count), Magazine (physical mag item in storedItems), or Infinite.</p>
+</section>
+      <h4><a class="xref" href="AFPS.CrouchHoldSetting.html">CrouchHoldSetting</a></h4>
+      <section><p>Whether crouching activates on press (toggle) or requires hold.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DamageType.html">DamageType</a></h4>
+      <section><p>Classifies incoming damage for resistance lookups, status-effect sourcing, and analytics.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DoubleClickBehaviour.html">DoubleClickBehaviour</a></h4>
+      <section><p>Scope of the stack-consolidation sweep triggered by double-click on a held item.</p>
+</section>
+      <h4><a class="xref" href="AFPS.DragableRotationMode.html">DragableRotationMode</a></h4>
+      <section><p>Controls how the rotation PID target is resolved while a <a class="xref" href="AFPS.AFPS_DragableObject.html">AFPS_DragableObject</a> is held.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EndMode.html">EndMode</a></h4>
+      <section><p>Behaviour when the platform reaches the final waypoint: stop, reverse, loop, or elevator-return.</p>
+</section>
+      <h4><a class="xref" href="AFPS.FireDirection.html">FireDirection</a></h4>
+      <section><p>Target direction for fire ray: camera forward or nearest agent by relation.</p>
+</section>
+      <h4><a class="xref" href="AFPS.FirePosition.html">FirePosition</a></h4>
+      <section><p>Origin point for fire ray: camera position or muzzle transform.</p>
+</section>
+      <h4><a class="xref" href="AFPS.FireType.html">FireType</a></h4>
+      <section><p>Per-fire-script firing mode: Automatic (held), Burst, Single (per-press), OnPressAndRelease, or Charge (hold-to-fire).</p>
+</section>
+      <h4><a class="xref" href="AFPS.FluidMovementType.html">FluidMovementType</a></h4>
+      <section><p>Controls fluid locomotion model: Default uses orientation-forward ground move, Swim uses camera-forward, NoSwim applies land movement + jump.</p>
+</section>
+      <h4><a class="xref" href="AFPS.HeadbobMode.html">HeadbobMode</a></h4>
+      <section><p>Authoring mode: Sine uses frequency/amplitude math, Curve uses per-axis AnimationCurves.</p>
+</section>
+      <h4><a class="xref" href="AFPS.HeldItemRevertFallback.html">HeldItemRevertFallback</a></h4>
+      <section><p>What to do with a held item when the inventory closes and the slot it came from is now
+occupied by something else (e.g. immediately after a single-slot swap). See
+AFPS_InventorySystem.RevertItemPosition / HandleSingleSlotRevertConflict.</p>
+</section>
+      <h4><a class="xref" href="AFPS.InventoryType.html">InventoryType</a></h4>
+      <section><p>Determines the visual/interaction mode of the inventory system.</p>
+</section>
+      <h4><a class="xref" href="AFPS.JumpHoldSetting.html">JumpHoldSetting</a></h4>
+      <section><p>Whether jumping fires on button press or on button hold.</p>
+</section>
+      <h4><a class="xref" href="AFPS.LadderClimbBehaviour.html">LadderClimbBehaviour</a></h4>
+      <section><p>Input model for vertical ladder movement: forward-key-driven, loose PID with snap, or fully loose.</p>
+</section>
+      <h4><a class="xref" href="AFPS.LadderJumpBehaviour.html">LadderJumpBehaviour</a></h4>
+      <section><p>Action taken when jump is pressed while on a ladder.</p>
+</section>
+      <h4><a class="xref" href="AFPS.LadderReconnectBehaviour.html">LadderReconnectBehaviour</a></h4>
+      <section><p>Constraint on when the player can re-attach to a ladder after leaving it.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MotionMode.html">MotionMode</a></h4>
+      <section><p>Selects between waypoint interpolation and constant-rotation (rotator) modes.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MovementState.html">MovementState</a></h4>
+      <section><p>Priority-ordered locomotion state exposed for animation, camera, and weapon systems to read each frame.</p>
+</section>
+      <h4><a class="xref" href="AFPS.OverrideSlotBehaviour.html">OverrideSlotBehaviour</a></h4>
+      <section><p>What happens to the existing weapon when a new weapon targets its occupied slot.</p>
+</section>
+      <h4><a class="xref" href="AFPS.PartialMagBehaviour.html">PartialMagBehaviour</a></h4>
+      <section><p>On reload-eject: destroy remaining rounds in the mag or return them to inventory with the mag.</p>
+</section>
+      <h4><a class="xref" href="AFPS.PickupType.html">PickupType</a></h4>
+      <section><p>Determines pickup trigger mode: collider-entered auto-pickup vs explicit player interaction.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RecoilChannelId.html">RecoilChannelId</a></h4>
+      <section><p>Identifies which of the three per-shot channels SampleChannel is being asked for.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RecoilPatternMode.html">RecoilPatternMode</a></h4>
+      <section><p>Procedural: per-shot baseKick ± jitter. Scripted: ordered patternSteps array, wraps at end.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RecoilRecoveryMode.html">RecoilRecoveryMode</a></h4>
+      <section><p>Target recovery behavior: AutoZero (snaps to 0 after delay), Continuous (accumulates, never auto-returns), Hold (freezes at last kick position).</p>
+</section>
+      <h4><a class="xref" href="AFPS.RecoilSolverType.html">RecoilSolverType</a></h4>
+      <section><p>Motion solver implementation: Spring (closed-form, dt-independent), Lerp (two-phase chase), or Curve (AnimationCurve playback).</p>
+</section>
+      <h4><a class="xref" href="AFPS.ReloadBlockingStates.html">ReloadBlockingStates</a></h4>
+      <section><p>Movement states during which reloading is blocked. A [Flags] field so several can be combined.
+Each value maps to a <a class="xref" href="AFPS.MovementState.html">MovementState</a>: while the player is in any selected state a
+reload can't start, a pending reload-hold is cancelled, and an in-progress reload is aborted.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RightClickNoItemBehaviour.html">RightClickNoItemBehaviour</a></h4>
+      <section><p>Action taken when right-clicking a grid cell while no item is currently held.</p>
+</section>
+      <h4><a class="xref" href="AFPS.RightClickWithItemBehaviour.html">RightClickWithItemBehaviour</a></h4>
+      <section><p>Action taken when right-clicking while an item is currently held.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpeedMode.html">SpeedMode</a></h4>
+      <section><p>Controls whether segment traversal time is derived from a constant speed or a fixed duration.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpreadDistribution.html">SpreadDistribution</a></h4>
+      <section><p>Shape of the random point cloud inside the spread cone.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpreadMode.html">SpreadMode</a></h4>
+      <section><p>Random = each pellet sampled from a distribution within the cone; Fixed = each pellet reads an authored offset, wraps at the end.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpringAuthoringMode.html">SpringAuthoringMode</a></h4>
+      <section><p>Raw: author stiffness/damping/mass directly. Tuned: author settleTime+dampingRatio; k/c/m derived via ω₀=4/settleTime formula.</p>
+</section>
+      <h4><a class="xref" href="AFPS.SpriteCountSource.html">SpriteCountSource</a></h4>
+      <section><p>Selects which count drives sprite/HUD icon swaps: own stack size, stored item count, or summed stored stack sizes.</p>
+</section>
+      <h4><a class="xref" href="AFPS.TriggerType.html">TriggerType</a></h4>
+      <section><p>Determines what event starts the platform (or rotator) moving.</p>
+</section>
+      <h4><a class="xref" href="AFPS.WeaponSwayMovementType.html">WeaponSwayMovementType</a></h4>
+      <section><p>Interpolation method used for weapon sway position and rotation.</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

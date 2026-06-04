@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IItemMenuRenderer </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IItemMenuRenderer ">
+    
+    <meta name="description" content="Renderer-agnostic right-click item menu. Implemented by UGUI () and UI Toolkit (). Inventory dispatches via a single activeItemMenu reference — same pattern as .">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.IItemMenuRenderer">
+
+
+
+  <h1 id="AFPS_IItemMenuRenderer" data-uid="AFPS.IItemMenuRenderer" class="text-break">Interface IItemMenuRenderer</h1>
+  <div class="markdown level0 summary"><p>Renderer-agnostic right-click item menu. Implemented by UGUI
+(<a class="xref" href="AFPS.AFPS_ItemMenuController.html">AFPS_ItemMenuController</a>) and UI Toolkit
+(<a class="xref" href="AFPS.AFPS_ItemMenuUIToolkit.html">AFPS_ItemMenuUIToolkit</a>). Inventory dispatches via a single
+<code>activeItemMenu</code> reference — same pattern as <a class="xref" href="AFPS.IHUDLayer.html">IHUDLayer</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_IItemMenuRenderer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IItemMenuRenderer</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_IItemMenuRenderer_IsOpen.md&amp;value=---%0Auid%3A%20AFPS.IItemMenuRenderer.IsOpen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/IItemMenuRenderer.cs/#L23">View Source</a>
+  </span>
+  <a id="AFPS_IItemMenuRenderer_IsOpen_" data-uid="AFPS.IItemMenuRenderer.IsOpen*"></a>
+  <h4 id="AFPS_IItemMenuRenderer_IsOpen" data-uid="AFPS.IItemMenuRenderer.IsOpen">IsOpen</h4>
+  <div class="markdown level1 summary"><p>True while visible. Callers gate other input (e.g. inventory clicks) on this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsOpen { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_IItemMenuRenderer_Hide.md&amp;value=---%0Auid%3A%20AFPS.IItemMenuRenderer.Hide%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/IItemMenuRenderer.cs/#L20">View Source</a>
+  </span>
+  <a id="AFPS_IItemMenuRenderer_Hide_" data-uid="AFPS.IItemMenuRenderer.Hide*"></a>
+  <h4 id="AFPS_IItemMenuRenderer_Hide" data-uid="AFPS.IItemMenuRenderer.Hide">Hide()</h4>
+  <div class="markdown level1 summary"><p>Close menu and tear down buttons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Hide()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_IItemMenuRenderer_Show_AFPS_AFPS_ItemObject_UnityEngine_Vector2_.md&amp;value=---%0Auid%3A%20AFPS.IItemMenuRenderer.Show(AFPS.AFPS_ItemObject%2CUnityEngine.Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/IItemMenuRenderer.cs/#L17">View Source</a>
+  </span>
+  <a id="AFPS_IItemMenuRenderer_Show_" data-uid="AFPS.IItemMenuRenderer.Show*"></a>
+  <h4 id="AFPS_IItemMenuRenderer_Show_AFPS_AFPS_ItemObject_UnityEngine_Vector2_" data-uid="AFPS.IItemMenuRenderer.Show(AFPS.AFPS_ItemObject,UnityEngine.Vector2)">Show(AFPS_ItemObject, Vector2)</h4>
+  <div class="markdown level1 summary"><p>Open menu for <code class="paramref">item</code> anchored at <code class="paramref">screenPosition</code>
+(screen pixels, bottom-left origin — matches inventory <code>mousePosition</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Show(AFPS_ItemObject item, Vector2 screenPosition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td><span class="parametername">screenPosition</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_IItemMenuRenderer_TryActivateAt_UnityEngine_Vector2_.md&amp;value=---%0Auid%3A%20AFPS.IItemMenuRenderer.TryActivateAt(UnityEngine.Vector2)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/IItemMenuRenderer.cs/#L32">View Source</a>
+  </span>
+  <a id="AFPS_IItemMenuRenderer_TryActivateAt_" data-uid="AFPS.IItemMenuRenderer.TryActivateAt*"></a>
+  <h4 id="AFPS_IItemMenuRenderer_TryActivateAt_UnityEngine_Vector2_" data-uid="AFPS.IItemMenuRenderer.TryActivateAt(UnityEngine.Vector2)">TryActivateAt(Vector2)</h4>
+  <div class="markdown level1 summary"><p>Activate the button under <code class="paramref">screenPosition</code> if one exists. Used by the
+controller path: virtual cursor never fires native PointerClick on either renderer,
+so the inventory has to dispatch the synthetic click via this hook. Return true if a
+button was hit (caller leaves the menu alone — handlers Hide() themselves), false if
+the click was outside any button (caller dismisses the menu).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool TryActivateAt(Vector2 screenPosition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td><span class="parametername">screenPosition</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_IItemMenuRenderer.md&amp;value=---%0Auid%3A%20AFPS.IItemMenuRenderer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/IItemMenuRenderer.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

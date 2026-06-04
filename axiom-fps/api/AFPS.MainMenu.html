@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace AFPS.MainMenu </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace AFPS.MainMenu ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.MainMenu">
+
+  <h1 id="AFPS_MainMenu" data-uid="AFPS.MainMenu" class="text-break">Namespace AFPS.MainMenu</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="AFPS.MainMenu.ControlsTabView.html">ControlsTabView</a></h4>
+      <section><p>Controls tab inside OptionsPanel. Owns the keybindings list UI, scheme switcher,
+reset controls, and the interactive rebind flow. State lives in KeybindingsService;
+this view is presentation only.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.GameSettings.html">GameSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.MainMenu.KeybindingOverrideRecord.html">KeybindingOverrideRecord</a></h4>
+      <section><p>Persisted binding override: action name, scheme group string, slot index, and override path.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.KeybindingOverridesData.html">KeybindingOverridesData</a></h4>
+      <section><p>JSON root for persisted binding overrides; deserialized by KeybindingsService.LoadFromJson.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.KeybindingsService.html">KeybindingsService</a></h4>
+      <section><p>Static rebinding facade over the Player action map. Owns the dual-mapping (Primary/Secondary)
+schema and the persistence format. Does NOT own the InputActionAsset itself —
+AFPS_InputManager owns it. The Player map is the only rebindable scope; Inventory/UI maps
+are excluded by design (menu plumbing).</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.LevelDatabase.html">LevelDatabase</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.MainMenu.LevelEntry.html">LevelEntry</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.MainMenu.LevelLoader.html">LevelLoader</a></h4>
+      <section><p>Stateless helper that async-loads a LevelEntry's scene via SceneManager.LoadSceneAsync.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.LevelSelectView.html">LevelSelectView</a></h4>
+      <section><p>Level-select view: procedurally builds a card grid from LevelDatabase; card clicks raise MenuEvents.RaiseLevel.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.MainMenuController.html">MainMenuController</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.MainMenu.MainView.html">MainView</a></h4>
+      <section><p>Main-menu root view: wires Play, Options, and Exit buttons to MenuEvents; disposes subscriptions on Dispose.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.MenuEvents.html">MenuEvents</a></h4>
+      <section><p>Static event bus for main-menu navigation: views raise events, MainMenuController/PauseMenuController subscribe and drive the MenuStateMachine.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.MenuStateMachine.html">MenuStateMachine</a></h4>
+      <section><p>Push-down automaton for menu navigation: Go pushes history, Back pops to prior state; Enter/Exit callbacks drive visibility transitions.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.OptionsView.html">OptionsView</a></h4>
+      <section><p>Tabbed options view (Video/Audio/Gameplay/Controls): binds UI Toolkit sliders/dropdowns to GameSettings, applies via SettingsService, and owns a ControlsTabView child.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.PauseMenuController.html">PauseMenuController</a></h4>
+      <section><p>In-game pause menu. UIDocument toggled via AFPS_UIManager.pauseMenu SetActive.
+Reuses OptionsPanel.uxml for parity with the main menu.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.SceneReference.html">SceneReference</a></h4>
+      <section><p>Serializable scene pointer: stores SceneAsset in-editor, bakes path/name strings for runtime (build-safe, no SceneAsset dependency at runtime).</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.SettingsService.html">SettingsService</a></h4>
+      <section></section>
+      <h4><a class="xref" href="AFPS.MainMenu.ViewState.html">ViewState</a></h4>
+      <section><p>IMenuState backed by a VisualElement: toggles view--hidden/view--active USS classes on Enter/Exit and defers focus to the first selectable button.</p>
+</section>
+    <h3 id="structs">
+Structs
+</h3>
+      <h4><a class="xref" href="AFPS.MainMenu.RebindableEntry.html">RebindableEntry</a></h4>
+      <section><p>Display metadata for one rebindable action: actionName (Input System key), UI label, and category group header.</p>
+</section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="AFPS.MainMenu.IMenuState.html">IMenuState</a></h4>
+      <section><p>Menu screen contract: named view that can be entered and exited by MenuStateMachine.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="AFPS.MainMenu.BindingSlot.html">BindingSlot</a></h4>
+      <section><p>Primary or secondary binding index within a scheme group.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.ControlSchemeSlot.html">ControlSchemeSlot</a></h4>
+      <section><p>Identifies the control scheme slot for a binding (KBM vs Gamepad).</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.InventoryNavMode.html">InventoryNavMode</a></h4>
+      <section><p>Gamepad navigation mode for the inventory UI: grid-snap jumps cell-to-cell, VirtualPointer drives a synthetic mouse cursor.</p>
+</section>
+      <h4><a class="xref" href="AFPS.MainMenu.QualityPreset.html">QualityPreset</a></h4>
+      <section><p>Graphics quality tier mapped to QualitySettings.SetQualityLevel index.</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2949 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_InventorySystem </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_InventorySystem ">
+    
+    <meta name="description" content="Grid-based inventory system: manages item placement, stacking, rotation, swapping, drag-hold, right-click menus, and double-click consolidation across multiple  instances.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_InventorySystem">
+
+
+
+  <h1 id="AFPS_AFPS_InventorySystem" data-uid="AFPS.AFPS_InventorySystem" class="text-break">Class AFPS_InventorySystem</h1>
+  <div class="markdown level0 summary"><p>Grid-based inventory system: manages item placement, stacking, rotation, swapping, drag-hold, right-click menus, and double-click consolidation across multiple <a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a> instances.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Object</span></div>
+    <div class="level2"><span class="xref">Component</span></div>
+    <div class="level3"><span class="xref">Behaviour</span></div>
+    <div class="level4"><span class="xref">MonoBehaviour</span></div>
+    <div class="level5"><span class="xref">AFPS_InventorySystem</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">MonoBehaviour.IsInvoking()</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.CancelInvoke()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.Invoke(string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.InvokeRepeating(string, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.CancelInvoke(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.IsInvoking(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine_Auto(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StopCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopCoroutine(Coroutine)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StopCoroutine(string)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopAllCoroutines()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.useGUILayout</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.didStart</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.didAwake</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.runInEditMode</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.enabled</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.isActiveAndEnabled</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponent(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.TryGetComponent(Type, out Component)</a>
+    </div>
+    <div>
+      <span class="xref">Component.TryGetComponent&lt;T&gt;(out T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.GetComponent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponentsInChildren&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type, List&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponents&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponents&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentIndex()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.CompareTag(string)</a>
+    </div>
+    <div>
+      <span class="xref">Component.CompareTag(TagHandle)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <span class="xref">Component.transform</span>
+    </div>
+    <div>
+      <span class="xref">Component.transformHandle</span>
+    </div>
+    <div>
+      <span class="xref">Component.gameObject</span>
+    </div>
+    <div>
+      <span class="xref">Component.tag</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetEntityId()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_InventorySystem_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;AFPS/Inventory System/AFPS Inventory System&quot;)]
+public class AFPS_InventorySystem : MonoBehaviour</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_abilitySystemRef.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.abilitySystemRef%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L113">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_abilitySystemRef" data-uid="AFPS.AFPS_InventorySystem.abilitySystemRef">abilitySystemRef</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_AbilitySystem abilitySystemRef</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_AbilitySystem.html">AFPS_AbilitySystem</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_activeItemMenu.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.activeItemMenu%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L118">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_activeItemMenu" data-uid="AFPS.AFPS_InventorySystem.activeItemMenu">activeItemMenu</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public IItemMenuRenderer activeItemMenu</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.IItemMenuRenderer.html">IItemMenuRenderer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_allGrids.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.allGrids%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L160">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_allGrids" data-uid="AFPS.AFPS_InventorySystem.allGrids">allGrids</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public List&lt;AFPS_InventoryGrid&gt; allGrids</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_autoStoreOnPickup.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.autoStoreOnPickup%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L132">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_autoStoreOnPickup" data-uid="AFPS.AFPS_InventorySystem.autoStoreOnPickup">autoStoreOnPickup</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Storage&quot;)]
+[Tooltip(&quot;On pickup, route items into eligible storage containers already in the inventory before placing them loosely in a grid (container-first). Honors each container&#39;s CanStore rules; partially fills containers and places any remainder in a grid.&quot;)]
+public bool autoStoreOnPickup</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_baseRes.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.baseRes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L135">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_baseRes" data-uid="AFPS.AFPS_InventorySystem.baseRes">baseRes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Grid Settings&quot;)]
+public Vector2 baseRes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_cellSize.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.cellSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L137">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_cellSize" data-uid="AFPS.AFPS_InventorySystem.cellSize">cellSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Grid Settings&quot;)]
+[Tooltip(&quot;The rect size of each cell&quot;)]
+public Vector2 cellSize</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_currentItem.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.currentItem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L169">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_currentItem" data-uid="AFPS.AFPS_InventorySystem.currentItem">currentItem</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_ItemObject currentItem</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_gridOnMouse.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.gridOnMouse%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L162">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_gridOnMouse" data-uid="AFPS.AFPS_InventorySystem.gridOnMouse">gridOnMouse</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_InventoryGrid gridOnMouse</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_heldItemRevertFallback.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.heldItemRevertFallback%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L156">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_heldItemRevertFallback" data-uid="AFPS.AFPS_InventorySystem.heldItemRevertFallback">heldItemRevertFallback</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Held Item Revert&quot;)]
+[Tooltip(&quot;Behavior when the inventory closes while the player is holding an item AND the slot the item came from has since been filled by something else (e.g. after a single-slot swap). The default StayHeld is the least invasive — see HeldItemRevertFallback for the alternatives.&quot;)]
+public HeldItemRevertFallback heldItemRevertFallback</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.HeldItemRevertFallback.html">HeldItemRevertFallback</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_inventoryType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.inventoryType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L96">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_inventoryType" data-uid="AFPS.AFPS_InventorySystem.inventoryType">inventoryType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Inventory&quot;)]
+public InventoryType inventoryType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.InventoryType.html">InventoryType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_itemMenuController.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.itemMenuController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L126">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_itemMenuController" data-uid="AFPS.AFPS_InventorySystem.itemMenuController">itemMenuController</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;References&quot;)]
+[Tooltip(&quot;Controls the right click menu&quot;)]
+public AFPS_ItemMenuController itemMenuController</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemMenuController.html">AFPS_ItemMenuController</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_itemPrefab.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.itemPrefab%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L122">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_itemPrefab" data-uid="AFPS.AFPS_InventorySystem.itemPrefab">itemPrefab</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;References&quot;)]
+[Required(null)]
+[Tooltip(&quot;The base prefab for items; Don&#39;t change, should be set already&quot;)]
+public GameObject itemPrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_maxCarryWeight.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.maxCarryWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L101">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_maxCarryWeight" data-uid="AFPS.AFPS_InventorySystem.maxCarryWeight">maxCarryWeight</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Inventory&quot;)]
+[Tooltip(&quot;Maximum carry weight summed across playerInventoryGrids. A pickup that would push the total over this is refused. 0 = no limit.&quot;)]
+public float maxCarryWeight</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_maxStorageSerializationDepth.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.maxStorageSerializationDepth%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L129">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_maxStorageSerializationDepth" data-uid="AFPS.AFPS_InventorySystem.maxStorageSerializationDepth">maxStorageSerializationDepth</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Storage&quot;)]
+[Tooltip(&quot;Max recursion depth when serializing nested stored items onto a dropped world object. -1 = unlimited; 0 = only top-level stored items are preserved.&quot;)]
+public int maxStorageSerializationDepth</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_mousePosition.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.mousePosition%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L172">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_mousePosition" data-uid="AFPS.AFPS_InventorySystem.mousePosition">mousePosition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public Vector3 mousePosition</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_playerInventoryGrids.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.playerInventoryGrids%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L98">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_playerInventoryGrids" data-uid="AFPS.AFPS_InventorySystem.playerInventoryGrids">playerInventoryGrids</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Inventory&quot;)]
+public AFPS_InventoryGrid[] playerInventoryGrids</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_rotationAnimationSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.rotationAnimationSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L153">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_rotationAnimationSpeed" data-uid="AFPS.AFPS_InventorySystem.rotationAnimationSpeed">rotationAnimationSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Rotation Settings&quot;)]
+public float rotationAnimationSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_selectedItem.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.selectedItem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L166">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_selectedItem" data-uid="AFPS.AFPS_InventorySystem.selectedItem">selectedItem</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_ItemObject selectedItem</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_standaloneMode.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.standaloneMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L104">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_standaloneMode" data-uid="AFPS.AFPS_InventorySystem.standaloneMode">standaloneMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Inventory&quot;)]
+[Tooltip(&quot;Enable ONLY for standalone/test scenes that have no AFPS_UIManager driving the inventory. On Start this unlocks the cursor and enables the Inventory input map so clicks reach the inventory. Leave OFF in normal gameplay — the UIManager owns cursor + action-map switching, and having both on would fight over it.&quot;)]
+public bool standaloneMode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_weaponSystemRef.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.weaponSystemRef%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L107">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventorySystem_weaponSystemRef" data-uid="AFPS.AFPS_InventorySystem.weaponSystemRef">weaponSystemRef</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_WeaponSystem weaponSystemRef</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_WeaponSystem.html">AFPS_WeaponSystem</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_AddItem_AFPS_AFPS_Item_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.AddItem(AFPS.AFPS_Item)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L942">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_AddItem_" data-uid="AFPS.AFPS_InventorySystem.AddItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_AddItem_AFPS_AFPS_Item_" data-uid="AFPS.AFPS_InventorySystem.AddItem(AFPS.AFPS_Item)">AddItem(AFPS_Item)</h4>
+  <div class="markdown level1 summary"><p>Adds itemData to inventory: stacks onto matching items first, else places in first free footprint (any orientation) across allGrids.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddItem(AFPS_Item itemData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_AddItemToGrid_AFPS_AFPS_Item_AFPS_AFPS_InventoryGrid_AFPS_AFPS_PickupInteractable_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.AddItemToGrid(AFPS.AFPS_Item%2CAFPS.AFPS_InventoryGrid%2CAFPS.AFPS_PickupInteractable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1148">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_AddItemToGrid_" data-uid="AFPS.AFPS_InventorySystem.AddItemToGrid*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_AddItemToGrid_AFPS_AFPS_Item_AFPS_AFPS_InventoryGrid_AFPS_AFPS_PickupInteractable_" data-uid="AFPS.AFPS_InventorySystem.AddItemToGrid(AFPS.AFPS_Item,AFPS.AFPS_InventoryGrid,AFPS.AFPS_PickupInteractable)">AddItemToGrid(AFPS_Item, AFPS_InventoryGrid, AFPS_PickupInteractable)</h4>
+  <div class="markdown level1 summary"><p>Adds itemData to a specific grid: top-off matching stacks, else place in first free footprint (base or rotated). Returns the touched item or null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject AddItemToGrid(AFPS_Item itemData, AFPS_InventoryGrid grid, AFPS_PickupInteractable interactable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td><span class="parametername">grid</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a></td>
+        <td><span class="parametername">interactable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_AddItemToGridWithAmount_AFPS_AFPS_Item_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32__AFPS_AFPS_PickupInteractable_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.AddItemToGridWithAmount(AFPS.AFPS_Item%2CAFPS.AFPS_InventoryGrid%2CSystem.Int32%2CSystem.Int32%40%2CAFPS.AFPS_PickupInteractable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1241">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_AddItemToGridWithAmount_" data-uid="AFPS.AFPS_InventorySystem.AddItemToGridWithAmount*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_AddItemToGridWithAmount_AFPS_AFPS_Item_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32__AFPS_AFPS_PickupInteractable_" data-uid="AFPS.AFPS_InventorySystem.AddItemToGridWithAmount(AFPS.AFPS_Item,AFPS.AFPS_InventoryGrid,System.Int32,System.Int32@,AFPS.AFPS_PickupInteractable)">AddItemToGridWithAmount(AFPS_Item, AFPS_InventoryGrid, int, out int, AFPS_PickupInteractable)</h4>
+  <div class="markdown level1 summary"><p>Stacked variant: distribute <code class="paramref">amount</code> across grid — top-off matching stacks first, then new stacks of min(remaining, stackCount).
+Returns first touched item; <code class="paramref">placed</code> reports actually placed. No rollback — pre-check capacity for all-or-nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject AddItemToGridWithAmount(AFPS_Item itemData, AFPS_InventoryGrid grid, int amount, out int placed, AFPS_PickupInteractable interactable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td><span class="parametername">grid</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">placed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a></td>
+        <td><span class="parametername">interactable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_AutoStoreIntoContainers_AFPS_AFPS_Item_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.AutoStoreIntoContainers(AFPS.AFPS_Item%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1421">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_AutoStoreIntoContainers_" data-uid="AFPS.AFPS_InventorySystem.AutoStoreIntoContainers*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_AutoStoreIntoContainers_AFPS_AFPS_Item_System_Int32_" data-uid="AFPS.AFPS_InventorySystem.AutoStoreIntoContainers(AFPS.AFPS_Item,System.Int32)">AutoStoreIntoContainers(AFPS_Item, int)</h4>
+  <div class="markdown level1 summary"><p>Commit: deposits up to <code class="paramref">amount</code> units of <code class="paramref">itemData</code> into eligible
+storage containers in the player's grids, creating stack objects as needed. Iterates containers in the
+same order and with the same per-container capacity as <a class="xref" href="AFPS.AFPS_InventorySystem.html#AFPS_AFPS_InventorySystem_GetContainerStoreableTotal_AFPS_AFPS_Item_System_Int32_">GetContainerStoreableTotal(AFPS_Item, int)</a>, so a
+prior probe of the unchanged inventory returns an identical figure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AutoStoreIntoContainers(AFPS_Item itemData, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>Units actually stored (0..amount).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_ClearItemReferences_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.ClearItemReferences(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1838">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_ClearItemReferences_" data-uid="AFPS.AFPS_InventorySystem.ClearItemReferences*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_ClearItemReferences_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.ClearItemReferences(AFPS.AFPS_ItemObject)">ClearItemReferences(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Clears item refs from every cell it occupies. Single-slot: clears all cells (item filled the slot).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearItemReferences(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_CountItem_AFPS_AFPS_Item_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.CountItem(AFPS.AFPS_Item)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1782">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_CountItem_" data-uid="AFPS.AFPS_InventorySystem.CountItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_CountItem_AFPS_AFPS_Item_" data-uid="AFPS.AFPS_InventorySystem.CountItem(AFPS.AFPS_Item)">CountItem(AFPS_Item)</h4>
+  <div class="markdown level1 summary"><p>Total number of items of <code class="paramref">itemData</code> across every grid in this inventory,
+summing <a class="xref" href="AFPS.AFPS_ItemObject.html#AFPS_AFPS_ItemObject_currentStackSize">currentStackSize</a> on each matching item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CountItem(AFPS_Item itemData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_CreateItem_AFPS_AFPS_Item_System_Int32_AFPS_AFPS_PickupInteractable_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.CreateItem(AFPS.AFPS_Item%2CSystem.Int32%2CAFPS.AFPS_PickupInteractable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1328">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_CreateItem_" data-uid="AFPS.AFPS_InventorySystem.CreateItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_CreateItem_AFPS_AFPS_Item_System_Int32_AFPS_AFPS_PickupInteractable_" data-uid="AFPS.AFPS_InventorySystem.CreateItem(AFPS.AFPS_Item,System.Int32,AFPS.AFPS_PickupInteractable)">CreateItem(AFPS_Item, int, AFPS_PickupInteractable)</h4>
+  <div class="markdown level1 summary"><p>Instantiates an item and assigns it as currentItem (held).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject CreateItem(AFPS_Item itemData, int rotateIndex = 0, AFPS_PickupInteractable interactable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">rotateIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a></td>
+        <td><span class="parametername">interactable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_ExistsItem_UnityEngine_Vector2Int_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.ExistsItem(UnityEngine.Vector2Int%2CAFPS.AFPS_InventoryGrid%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L879">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_ExistsItem_" data-uid="AFPS.AFPS_InventorySystem.ExistsItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_ExistsItem_UnityEngine_Vector2Int_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32_" data-uid="AFPS.AFPS_InventorySystem.ExistsItem(UnityEngine.Vector2Int,AFPS.AFPS_InventoryGrid,System.Int32,System.Int32)">ExistsItem(Vector2Int, AFPS_InventoryGrid, int, int)</h4>
+  <div class="markdown level1 summary"><p>True if any cell in the wxh footprint at cellPosition is occupied (or out of bounds).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExistsItem(Vector2Int cellPosition, AFPS_InventoryGrid grid, int width = 1, int height = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">cellPosition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td><span class="parametername">grid</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_FindFreePositionInGrid_AFPS_AFPS_ItemObject_AFPS_AFPS_InventoryGrid_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.FindFreePositionInGrid(AFPS.AFPS_ItemObject%2CAFPS.AFPS_InventoryGrid)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1698">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_FindFreePositionInGrid_" data-uid="AFPS.AFPS_InventorySystem.FindFreePositionInGrid*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_FindFreePositionInGrid_AFPS_AFPS_ItemObject_AFPS_AFPS_InventoryGrid_" data-uid="AFPS.AFPS_InventorySystem.FindFreePositionInGrid(AFPS.AFPS_ItemObject,AFPS.AFPS_InventoryGrid)">FindFreePositionInGrid(AFPS_ItemObject, AFPS_InventoryGrid)</h4>
+  <div class="markdown level1 summary"><p>Scans <code class="paramref">grid</code> for the first cell where <code class="paramref">item</code> fits (base or rotated orientation). Returns null if no footprint is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StoredItemLocationData FindFreePositionInGrid(AFPS_ItemObject item, AFPS_InventoryGrid grid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td><span class="parametername">grid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.StoredItemLocationData.html">StoredItemLocationData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_FindGridForItem_AFPS_AFPS_Item_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.FindGridForItem(AFPS.AFPS_Item%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1054">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_FindGridForItem_" data-uid="AFPS.AFPS_InventorySystem.FindGridForItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_FindGridForItem_AFPS_AFPS_Item_System_Boolean_" data-uid="AFPS.AFPS_InventorySystem.FindGridForItem(AFPS.AFPS_Item,System.Boolean)">FindGridForItem(AFPS_Item, bool)</h4>
+  <div class="markdown level1 summary"><p>Best-fit grid for itemData; null = refuse pickup.
+Filter: AcceptsCategory + (if requireExplicitCategory: IsExplicitCategoryMatch, no wildcards) + HasFootprintFor.
+Sort: ascending CategorySpecificity (specialist-first; wildcards last).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_InventoryGrid FindGridForItem(AFPS_Item itemData, bool requireExplicitCategory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">requireExplicitCategory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetCellAtMouseCoords.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetCellAtMouseCoords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1919">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoords_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoords*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoords" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoords">GetCellAtMouseCoords()</h4>
+  <div class="markdown level1 summary"><p>Cell index under mouse (no item). FloorToInt — cursor must be inside the cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetCellAtMouseCoords()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsOutsideBounds.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsOutsideBounds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1969">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsOutsideBounds_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsOutsideBounds*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsOutsideBounds" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsOutsideBounds">GetCellAtMouseCoordsOutsideBounds()</h4>
+  <div class="markdown level1 summary"><p>Mouse cell clamped to grid bounds (no item context).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetCellAtMouseCoordsOutsideBounds()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1937">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItem_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItem(AFPS.AFPS_ItemObject)">GetCellAtMouseCoordsWithItem(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Cell index for placing item under cursor (item's bottom-left). RoundToInt for sticky-snap feel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetCellAtMouseCoordsWithItem(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItemOutsideBounds_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItemOutsideBounds(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1953">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItemOutsideBounds_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItemOutsideBounds*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetCellAtMouseCoordsWithItemOutsideBounds_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.GetCellAtMouseCoordsWithItemOutsideBounds(AFPS.AFPS_ItemObject)">GetCellAtMouseCoordsWithItemOutsideBounds(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>As GetCellAtMouseCoordsWithItem but clamps to grid bounds (item fits inside grid).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetCellAtMouseCoordsWithItemOutsideBounds(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetClosestItemToPosition_System_Collections_Generic_List_AFPS_AFPS_ItemObject__UnityEngine_Vector2Int_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetClosestItemToPosition(System.Collections.Generic.List%7BAFPS.AFPS_ItemObject%7D%2CUnityEngine.Vector2Int)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L2038">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetClosestItemToPosition_" data-uid="AFPS.AFPS_InventorySystem.GetClosestItemToPosition*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetClosestItemToPosition_System_Collections_Generic_List_AFPS_AFPS_ItemObject__UnityEngine_Vector2Int_" data-uid="AFPS.AFPS_InventorySystem.GetClosestItemToPosition(System.Collections.Generic.List{AFPS.AFPS_ItemObject},UnityEngine.Vector2Int)">GetClosestItemToPosition(List&lt;AFPS_ItemObject&gt;, Vector2Int)</h4>
+  <div class="markdown level1 summary"><p>Closest item to position (by middle-index Euclidean distance).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject GetClosestItemToPosition(List&lt;AFPS_ItemObject&gt; itemList, Vector2Int position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a>&gt;</td>
+        <td><span class="parametername">itemList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetContainerStoreableTotal_AFPS_AFPS_Item_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetContainerStoreableTotal(AFPS.AFPS_Item%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1409">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetContainerStoreableTotal_" data-uid="AFPS.AFPS_InventorySystem.GetContainerStoreableTotal*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetContainerStoreableTotal_AFPS_AFPS_Item_System_Int32_" data-uid="AFPS.AFPS_InventorySystem.GetContainerStoreableTotal(AFPS.AFPS_Item,System.Int32)">GetContainerStoreableTotal(AFPS_Item, int)</h4>
+  <div class="markdown level1 summary"><p>Probe (no mutation): total units of <code class="paramref">itemData</code> (up to <code class="paramref">amount</code>)
+that storage containers already placed in the player's grids could absorb, honoring each container's
+CanStore rules (allowedStoredItems, maxItemCapacity, storedStackCountCapacity). Use to size a pickup's
+container-first split before committing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetContainerStoreableTotal(AFPS_Item itemData, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>Storeable unit count (0..amount).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetCurrentCarryWeight.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetCurrentCarryWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L907">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetCurrentCarryWeight_" data-uid="AFPS.AFPS_InventorySystem.GetCurrentCarryWeight*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetCurrentCarryWeight" data-uid="AFPS.AFPS_InventorySystem.GetCurrentCarryWeight">GetCurrentCarryWeight()</h4>
+  <div class="markdown level1 summary"><p>Current total carry weight: sum of GetGridWeight() (incl. nested storage) across playerInventoryGrids.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetCurrentCarryWeight()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetItemAtMouseCoords.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetItemAtMouseCoords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1985">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetItemAtMouseCoords_" data-uid="AFPS.AFPS_InventorySystem.GetItemAtMouseCoords*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetItemAtMouseCoords" data-uid="AFPS.AFPS_InventorySystem.GetItemAtMouseCoords">GetItemAtMouseCoords()</h4>
+  <div class="markdown level1 summary"><p>Item under cursor, or null. Single-slot grids always return cell(0,0) (slot visual may exceed cellSize).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject GetItemAtMouseCoords()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetItemAtMouseCoordsWithItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetItemAtMouseCoordsWithItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L2005">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetItemAtMouseCoordsWithItem_" data-uid="AFPS.AFPS_InventorySystem.GetItemAtMouseCoordsWithItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetItemAtMouseCoordsWithItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.GetItemAtMouseCoordsWithItem(AFPS.AFPS_ItemObject)">GetItemAtMouseCoordsWithItem(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Item overlapping the held item's footprint (closest-to-cursor). Used for swap/stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AFPS_ItemObject GetItemAtMouseCoordsWithItem(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetItemMiddleIndexPosition_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetItemMiddleIndexPosition(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L2057">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetItemMiddleIndexPosition_" data-uid="AFPS.AFPS_InventorySystem.GetItemMiddleIndexPosition*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetItemMiddleIndexPosition_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.GetItemMiddleIndexPosition(AFPS.AFPS_ItemObject)">GetItemMiddleIndexPosition(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Item's middle cell index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetItemMiddleIndexPosition(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetMouseCoords.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetMouseCoords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L2063">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetMouseCoords_" data-uid="AFPS.AFPS_InventorySystem.GetMouseCoords*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetMouseCoords" data-uid="AFPS.AFPS_InventorySystem.GetMouseCoords">GetMouseCoords()</h4>
+  <div class="markdown level1 summary"><p>Mouse position in gridOnMouse-local coords.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetMouseCoords()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_GetMouseCoordsWithItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.GetMouseCoordsWithItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L2071">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_GetMouseCoordsWithItem_" data-uid="AFPS.AFPS_InventorySystem.GetMouseCoordsWithItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_GetMouseCoordsWithItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.GetMouseCoordsWithItem(AFPS.AFPS_ItemObject)">GetMouseCoordsWithItem(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Mouse coords shifted to the held item's bottom-left (so cursor stays centered on the item).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetMouseCoordsWithItem(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_IndexToInventoryPosition_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.IndexToInventoryPosition(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1907">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_IndexToInventoryPosition_" data-uid="AFPS.AFPS_InventorySystem.IndexToInventoryPosition*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_IndexToInventoryPosition_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.IndexToInventoryPosition(AFPS.AFPS_ItemObject)">IndexToInventoryPosition(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Cell index → local rectTransform position (centered on the item's footprint).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 IndexToInventoryPosition(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_IndexToInventoryPositionNoItem_UnityEngine_Vector2Int_UnityEngine_Vector2Int_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.IndexToInventoryPositionNoItem(UnityEngine.Vector2Int%2CUnityEngine.Vector2Int)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1913">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_IndexToInventoryPositionNoItem_" data-uid="AFPS.AFPS_InventorySystem.IndexToInventoryPositionNoItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_IndexToInventoryPositionNoItem_UnityEngine_Vector2Int_UnityEngine_Vector2Int_" data-uid="AFPS.AFPS_InventorySystem.IndexToInventoryPositionNoItem(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">IndexToInventoryPositionNoItem(Vector2Int, Vector2Int)</h4>
+  <div class="markdown level1 summary"><p>Cell index → local position, parameterized by size (no AFPS_ItemObject needed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 IndexToInventoryPositionNoItem(Vector2Int indexPos, Vector2Int size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">indexPos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_MoveItem_AFPS_AFPS_ItemObject_System_Boolean_System_Nullable_UnityEngine_Vector2Int__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.MoveItem(AFPS.AFPS_ItemObject%2CSystem.Boolean%2CSystem.Nullable%7BUnityEngine.Vector2Int%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L738">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_MoveItem_" data-uid="AFPS.AFPS_InventorySystem.MoveItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_MoveItem_AFPS_AFPS_ItemObject_System_Boolean_System_Nullable_UnityEngine_Vector2Int__" data-uid="AFPS.AFPS_InventorySystem.MoveItem(AFPS.AFPS_ItemObject,System.Boolean,System.Nullable{UnityEngine.Vector2Int})">MoveItem(AFPS_ItemObject, bool, Vector2Int?)</h4>
+  <div class="markdown level1 summary"><p>Places item at mouse cell (or overrideCellPos). Auto-rotates if only rotated orientation fits the grid's size limit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveItem(AFPS_ItemObject item, bool deselectItemInEnd = true, Vector2Int? overrideCellPos = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">deselectItemInEnd</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2Int</span>?</td>
+        <td><span class="parametername">overrideCellPos</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_OnDisable.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.OnDisable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L283">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_OnDisable_" data-uid="AFPS.AFPS_InventorySystem.OnDisable*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_OnDisable" data-uid="AFPS.AFPS_InventorySystem.OnDisable">OnDisable()</h4>
+  <div class="markdown level1 summary"><p>Unsubscribes inventory input actions. Also called by Unity on component disable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnDisable()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_OnEnable.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.OnEnable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L270">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_OnEnable_" data-uid="AFPS.AFPS_InventorySystem.OnEnable*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_OnEnable" data-uid="AFPS.AFPS_InventorySystem.OnEnable">OnEnable()</h4>
+  <div class="markdown level1 summary"><p>Subscribes inventory input actions (click, right-click, rotate). Also called by Unity on component enable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEnable()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_PlaceExistingItemInFirstFreeSpot_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.PlaceExistingItemInFirstFreeSpot(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1723">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_PlaceExistingItemInFirstFreeSpot_" data-uid="AFPS.AFPS_InventorySystem.PlaceExistingItemInFirstFreeSpot*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_PlaceExistingItemInFirstFreeSpot_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.PlaceExistingItemInFirstFreeSpot(AFPS.AFPS_ItemObject)">PlaceExistingItemInFirstFreeSpot(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Place an EXISTING object (preserves identity + storedItems) in first free slot across player grids.
+Used by mag-swap reload — AddItemToGrid would instantiate fresh and lose storedItems.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PlaceExistingItemInFirstFreeSpot(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_PlaceOneFromCurrentItemStack.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.PlaceOneFromCurrentItemStack%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L558">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_PlaceOneFromCurrentItemStack_" data-uid="AFPS.AFPS_InventorySystem.PlaceOneFromCurrentItemStack*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_PlaceOneFromCurrentItemStack" data-uid="AFPS.AFPS_InventorySystem.PlaceOneFromCurrentItemStack">PlaceOneFromCurrentItemStack()</h4>
+  <div class="markdown level1 summary"><p>Places one unit from currentItem's stack: into a storage container under the cursor if it accepts the
+item (container-first, mirroring the left-click store), else onto a matching stack, else onto an empty cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlaceOneFromCurrentItemStack()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_ReachedBoundary_UnityEngine_Vector2Int_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.ReachedBoundary(UnityEngine.Vector2Int%2CAFPS.AFPS_InventoryGrid%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1888">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_ReachedBoundary_" data-uid="AFPS.AFPS_InventorySystem.ReachedBoundary*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_ReachedBoundary_UnityEngine_Vector2Int_AFPS_AFPS_InventoryGrid_System_Int32_System_Int32_" data-uid="AFPS.AFPS_InventorySystem.ReachedBoundary(UnityEngine.Vector2Int,AFPS.AFPS_InventoryGrid,System.Int32,System.Int32)">ReachedBoundary(Vector2Int, AFPS_InventoryGrid, int, int)</h4>
+  <div class="markdown level1 summary"><p>True when the wxh footprint at <code class="paramref">cellPosition</code> extends outside <code class="paramref">grid</code>'s bounds or the grid is null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReachedBoundary(Vector2Int cellPosition, AFPS_InventoryGrid grid, int width = 1, int height = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">cellPosition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_InventoryGrid.html">AFPS_InventoryGrid</a></td>
+        <td><span class="parametername">grid</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_RebuildStoredItems_AFPS_AFPS_ItemObject_System_Collections_Generic_List_AFPS_StoredItemDescriptor__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.RebuildStoredItems(AFPS.AFPS_ItemObject%2CSystem.Collections.Generic.List%7BAFPS.StoredItemDescriptor%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1380">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_RebuildStoredItems_" data-uid="AFPS.AFPS_InventorySystem.RebuildStoredItems*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_RebuildStoredItems_AFPS_AFPS_ItemObject_System_Collections_Generic_List_AFPS_StoredItemDescriptor__" data-uid="AFPS.AFPS_InventorySystem.RebuildStoredItems(AFPS.AFPS_ItemObject,System.Collections.Generic.List{AFPS.StoredItemDescriptor})">RebuildStoredItems(AFPS_ItemObject, List&lt;StoredItemDescriptor&gt;)</h4>
+  <div class="markdown level1 summary"><p>Inverse of SerializeStoredItems: instantiate descriptors and StoreItem into container. Called by Pickup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RebuildStoredItems(AFPS_ItemObject container, List&lt;StoredItemDescriptor&gt; entries)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.StoredItemDescriptor.html">StoredItemDescriptor</a>&gt;</td>
+        <td><span class="parametername">entries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_RemoveItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.RemoveItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1767">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_RemoveItem_" data-uid="AFPS.AFPS_InventorySystem.RemoveItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_RemoveItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.RemoveItem(AFPS.AFPS_ItemObject)">RemoveItem(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Destroys the item GO and clears its grid cell references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveItem(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_RevertItemPosition_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.RevertItemPosition(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1502">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_RevertItemPosition_" data-uid="AFPS.AFPS_InventorySystem.RevertItemPosition*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_RevertItemPosition_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.RevertItemPosition(AFPS.AFPS_ItemObject)">RevertItemPosition(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Returns <code class="paramref">item</code> to its last known grid position on inventory close; handles single-slot conflicts via <a class="xref" href="AFPS.AFPS_InventorySystem.html#AFPS_AFPS_InventorySystem_heldItemRevertFallback">heldItemRevertFallback</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RevertItemPosition(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_RevertItemReferences_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.RevertItemReferences(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L864">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_RevertItemReferences_" data-uid="AFPS.AFPS_InventorySystem.RevertItemReferences*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_RevertItemReferences_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.RevertItemReferences(AFPS.AFPS_ItemObject)">RevertItemReferences(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Re-applies item references to all its occupied cells (used after a failed swap).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RevertItemReferences(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_SerializeStoredItems_System_Collections_Generic_List_AFPS_AFPS_ItemObject__System_Collections_Generic_List_AFPS_StoredItemDescriptor__System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.SerializeStoredItems(System.Collections.Generic.List%7BAFPS.AFPS_ItemObject%7D%2CSystem.Collections.Generic.List%7BAFPS.StoredItemDescriptor%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1360">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_SerializeStoredItems_" data-uid="AFPS.AFPS_InventorySystem.SerializeStoredItems*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_SerializeStoredItems_System_Collections_Generic_List_AFPS_AFPS_ItemObject__System_Collections_Generic_List_AFPS_StoredItemDescriptor__System_Int32_" data-uid="AFPS.AFPS_InventorySystem.SerializeStoredItems(System.Collections.Generic.List{AFPS.AFPS_ItemObject},System.Collections.Generic.List{AFPS.StoredItemDescriptor},System.Int32)">SerializeStoredItems(List&lt;AFPS_ItemObject&gt;, List&lt;StoredItemDescriptor&gt;, int)</h4>
+  <div class="markdown level1 summary"><p>Recursively flatten storedItems into descriptor tree (outEntries cleared first).
+maxDepth: -1=unlimited, 0=top-level only, N=N more levels. Used by Drop to persist storage onto the world GO.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeStoredItems(List&lt;AFPS_ItemObject&gt; storedItems, List&lt;StoredItemDescriptor&gt; outEntries, int maxDepth)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a>&gt;</td>
+        <td><span class="parametername">storedItems</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.StoredItemDescriptor.html">StoredItemDescriptor</a>&gt;</td>
+        <td><span class="parametername">outEntries</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">maxDepth</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_SetCurrentItem_AFPS_AFPS_ItemObject_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.SetCurrentItem(AFPS.AFPS_ItemObject%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L707">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_SetCurrentItem_" data-uid="AFPS.AFPS_InventorySystem.SetCurrentItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_SetCurrentItem_AFPS_AFPS_ItemObject_System_Boolean_" data-uid="AFPS.AFPS_InventorySystem.SetCurrentItem(AFPS.AFPS_ItemObject,System.Boolean)">SetCurrentItem(AFPS_ItemObject, bool)</h4>
+  <div class="markdown level1 summary"><p>Picks up an item as currentItem (held by cursor).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCurrentItem(AFPS_ItemObject item, bool clearItemReferences = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clearItemReferences</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_SplitStack_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.SplitStack(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L629">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_SplitStack_" data-uid="AFPS.AFPS_InventorySystem.SplitStack*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_SplitStack_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.SplitStack(AFPS.AFPS_ItemObject)">SplitStack(AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Splits an item's stack evenly into two stacks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SplitStack(AFPS_ItemObject item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_SumStoredContentsWeight_System_Collections_Generic_List_AFPS_StoredItemDescriptor__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.SumStoredContentsWeight(System.Collections.Generic.List%7BAFPS.StoredItemDescriptor%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L927">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_SumStoredContentsWeight_" data-uid="AFPS.AFPS_InventorySystem.SumStoredContentsWeight*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_SumStoredContentsWeight_System_Collections_Generic_List_AFPS_StoredItemDescriptor__" data-uid="AFPS.AFPS_InventorySystem.SumStoredContentsWeight(System.Collections.Generic.List{AFPS.StoredItemDescriptor})">SumStoredContentsWeight(List&lt;StoredItemDescriptor&gt;)</h4>
+  <div class="markdown level1 summary"><p>Recursively sums the weight of serialized stored contents (matches GetTotalWeight: data.weight * stackSize per descriptor).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SumStoredContentsWeight(List&lt;StoredItemDescriptor&gt; entries)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.StoredItemDescriptor.html">StoredItemDescriptor</a>&gt;</td>
+        <td><span class="parametername">entries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_SwapItem_AFPS_AFPS_ItemObject_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.SwapItem(AFPS.AFPS_ItemObject%2CAFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L827">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_SwapItem_" data-uid="AFPS.AFPS_InventorySystem.SwapItem*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_SwapItem_AFPS_AFPS_ItemObject_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_InventorySystem.SwapItem(AFPS.AFPS_ItemObject,AFPS.AFPS_ItemObject)">SwapItem(AFPS_ItemObject, AFPS_ItemObject)</h4>
+  <div class="markdown level1 summary"><p>Swaps currentItem with the overlap item under the cursor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SwapItem(AFPS_ItemObject overlapItem, AFPS_ItemObject oldCurrentItem)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">overlapItem</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
+        <td><span class="parametername">oldCurrentItem</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_TryConsume_AFPS_AFPS_Item_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.TryConsume(AFPS.AFPS_Item%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L1800">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_TryConsume_" data-uid="AFPS.AFPS_InventorySystem.TryConsume*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_TryConsume_AFPS_AFPS_Item_System_Int32_" data-uid="AFPS.AFPS_InventorySystem.TryConsume(AFPS.AFPS_Item,System.Int32)">TryConsume(AFPS_Item, int)</h4>
+  <div class="markdown level1 summary"><p>Remove up to <code class="paramref">amount</code> of <code class="paramref">itemData</code>: decrements stacks, destroys empties. Returns actually consumed (≤ amount).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TryConsume(AFPS_Item itemData, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td><span class="parametername">itemData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem_WouldExceedCarryWeight_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem.WouldExceedCarryWeight(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L920">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventorySystem_WouldExceedCarryWeight_" data-uid="AFPS.AFPS_InventorySystem.WouldExceedCarryWeight*"></a>
+  <h4 id="AFPS_AFPS_InventorySystem_WouldExceedCarryWeight_System_Single_" data-uid="AFPS.AFPS_InventorySystem.WouldExceedCarryWeight(System.Single)">WouldExceedCarryWeight(float)</h4>
+  <div class="markdown level1 summary"><p>True if adding <code class="paramref">incomingWeight</code> would push the carry total over maxCarryWeight. Always false when maxCarryWeight &lt;= 0 (no limit).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WouldExceedCarryWeight(float incomingWeight)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">incomingWeight</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventorySystem.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventorySystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventorySystem.cs/#L92" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
