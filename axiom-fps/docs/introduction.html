@@ -69,6 +69,81 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="introduction">Introduction</h1>
 
+<p>Axiom FPS is a modular first-person movement and combat framework for Unity 6
+built on the Universal Render Pipeline. It ships as a ready-to-play project with
+demo scenes, example weapons and props, and a set of systems that you can use
+together or pick from individually.</p>
+<h2 id="design-philosophy">Design philosophy</h2>
+<ul>
+<li><strong>Data-driven.</strong> Nearly every system is configured through ScriptableObject
+<em>presets</em> under <code>Assets/Axiom FPS/Presets/</code>. You tune movement feel, recoil
+patterns, camera effects, and balance from the Inspector — no recompiling.</li>
+<li><strong>Modular.</strong> Systems communicate through clear components and events, so you
+can drop in just the movement controller, or use the full stack.</li>
+<li><strong>Self-contained.</strong> All runtime code lives in the <code>AxiomFPS.Runtime</code> assembly
+(root namespace <code>AFPS</code>), and bundled third-party libraries are isolated in
+their own assemblies, so nothing collides with your project code.</li>
+</ul>
+<h2 id="the-systems">The systems</h2>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Movement</strong></td>
+<td>Grounded/air movement, sprint, crouch + slide, mantle, vault, climb, ladders, wall interaction, stamina, slope handling, and explosion knockback.</td>
+</tr>
+<tr>
+<td><strong>Camera</strong></td>
+<td>Headbob, FOV effects, hit-bob, and movement-driven camera motion.</td>
+</tr>
+<tr>
+<td><strong>Weapon</strong></td>
+<td>Hitscan and projectile weapons, recoil and spread profiles, weapon tilt/sway, and ammo handling.</td>
+</tr>
+<tr>
+<td><strong>Ability</strong></td>
+<td>Modular abilities (e.g. Dash, Grapple) via an ability holder.</td>
+</tr>
+<tr>
+<td><strong>Health</strong></td>
+<td>Damage, healing, damage types/resistances, and related events.</td>
+</tr>
+<tr>
+<td><strong>Inventory</strong></td>
+<td>Grid inventory with UI Toolkit and uGUI example renderers and item menus.</td>
+</tr>
+<tr>
+<td><strong>Interaction</strong></td>
+<td>A generic interactable framework for pickups, doors, draggables, and triggers.</td>
+</tr>
+<tr>
+<td><strong>Agent + Teams</strong></td>
+<td>Team/affiliation data for the player, enemies, and props.</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>Pre-configured Input Actions (<code>AFPS_PlayerActions</code>) built on Unity's Input System.</td>
+</tr>
+<tr>
+<td><strong>UI</strong></td>
+<td>UI Toolkit HUD plus a full main menu and pause menu.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="demo-scenes">Demo scenes</h2>
+<p>Found under <code>Assets/Axiom FPS/Scenes/</code>:</p>
+<ul>
+<li><strong>Firing Range</strong> — the main playground showcasing movement, weapons, and abilities.</li>
+<li><strong>Main Menu</strong> — the UI Toolkit main menu, options, and level select.</li>
+<li><strong>UGUI Inventory Example</strong> — the inventory implemented with uGUI, to show an
+alternative to the UI Toolkit HUD used in the main demo.</li>
+</ul>
+<p>Continue to <strong><a href="getting-started.html">Getting Started</a></strong> to install and run the demo.</p>
 
 </article>
           </div>

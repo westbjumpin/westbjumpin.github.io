@@ -69,6 +69,49 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Unity 6000.3 (Unity 6)</strong> or newer.</li>
+<li>A project using the <strong>Universal Render Pipeline (URP)</strong>. Axiom FPS ships URP
+materials, shaders, and render settings; it is <strong>not</strong> compatible with the
+Built-in pipeline or HDRP (materials will appear pink).</li>
+</ul>
+<p>All required Unity packages (Input System, URP, TextMeshPro, Visual Effect
+Graph, and others) are declared in the project manifest and resolve
+automatically on import.</p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Open or create a <strong>URP project</strong> in Unity 6.</li>
+<li>Import the Axiom FPS package.</li>
+<li>If prompted, accept any package-dependency installs and let Unity finish
+compiling.</li>
+<li>Open the onboarding window any time from <strong>Tools ▸ AFPS ▸ Get Started</strong>.</li>
+</ol>
+<h2 id="run-the-demo">Run the demo</h2>
+<ol>
+<li>Open <code>Assets/Axiom FPS/Scenes/Firing Range.unity</code>.</li>
+<li>Press <strong>Play</strong>.</li>
+<li>Move with <strong>WASD</strong>, look with the mouse, and use the on-screen HUD to learn
+the rest of the controls. Try sprinting, sliding, mantling, the abilities,
+and the example weapons.</li>
+</ol>
+<h2 id="tuning-the-feel">Tuning the feel</h2>
+<p>Almost everything is driven by ScriptableObject <strong>presets</strong> in
+<code>Assets/Axiom FPS/Presets/</code>. To adjust a system:</p>
+<ol>
+<li>Browse to the relevant preset (e.g. <code>Presets/Movement/Sprint</code>, or
+<code>Presets/Weapon System/Weapons/AK-47/Recoil Settings</code>).</li>
+<li>Edit the values in the Inspector.</li>
+<li>Enter Play mode to feel the change — no code changes required.</li>
+</ol>
+<h2 id="calling-axiom-fps-from-your-own-code">Calling Axiom FPS from your own code</h2>
+<p>All runtime types live in the <code>AxiomFPS.Runtime</code> assembly under the <code>AFPS</code>
+namespace. To reference them from your own scripts, add <code>AxiomFPS.Runtime</code> to
+the <strong>Assembly Definition References</strong> of your assembly definition. Browse the
+<strong><a href="../api/index.html">API Reference</a></strong> for the full list of public types.</p>
+<h2 id="getting-help">Getting help</h2>
+<p>Join the Discord at <a href="https://discord.gg/q97fmAYCRw">https://discord.gg/q97fmAYCRw</a> for support, questions, and
+to report issues.</p>
 
 </article>
           </div>
