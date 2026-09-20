@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_ADSPreviewOverlay </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_ADSPreviewOverlay ">
+    
+    <meta name="description" content="Scene view overlay for a running ADS preview. It exists because the preview outlives the selection: the moment you select anything other than the ADS component — a light, the aim point, a piece of level geometry — the inspector panel with the Stop button is gone, and the preview is still running with the cameras still zoomed. This gives it a home that doesn&#39;t depend on what&#39;s selected. Shows itself only while a preview is active, and hides again when it stops.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay">
+
+
+
+  <h1 id="AFPS_EditorTools_AFPS_ADSPreviewOverlay" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay" class="text-break">Class AFPS_ADSPreviewOverlay</h1>
+  <div class="markdown level0 summary"><p>Scene view overlay for a running ADS preview. It exists because the preview outlives the selection:
+the moment you select anything other than the ADS component — a light, the aim point, a piece of
+level geometry — the inspector panel with the Stop button is gone, and the preview is still running
+with the cameras still zoomed. This gives it a home that doesn't depend on what's selected.</p>
+<p>Shows itself only while a preview is active, and hides again when it stops.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Overlay</span></div>
+    <div class="level2"><span class="xref">AFPS_ADSPreviewOverlay</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Overlay.ussClassName</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.CreateContent(Layout)</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.Close()</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.RefreshPopup()</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.Undock()</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.containerWindow</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.id</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.collapsedIcon</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.layout</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.activeLayout</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.collapsed</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.displayName</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.displayed</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.rootVisualElement</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.isInToolbar</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.size</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.minSize</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.maxSize</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.defaultSize</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.floatingPosition</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.floating</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.layoutChanged</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.collapsedChanged</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.displayedChanged</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.floatingChanged</span>
+    </div>
+    <div>
+      <span class="xref">Overlay.floatingPositionChanged</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a>.<a class="xref" href="AFPS.EditorTools.html">EditorTools</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Editor.dll</h6>
+  <h5 id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Overlay(typeof(SceneView), &quot;afps-ads-preview&quot;, &quot;ADS Preview&quot;, false)]
+public class AFPS_ADSPreviewOverlay : Overlay</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewOverlay_CreatePanelContent.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewOverlay.CreatePanelContent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewOverlay.cs/#L41">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_CreatePanelContent_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.CreatePanelContent*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_CreatePanelContent" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.CreatePanelContent">CreatePanelContent()</h4>
+  <div class="markdown level1 summary"><p>Implement this method to return your visual element content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override VisualElement CreatePanelContent()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
+        <td><p>Visual element containing the content of your overlay.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">UnityEditor.Overlays.Overlay.CreatePanelContent()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnCreated.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnCreated%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewOverlay.cs/#L29">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnCreated_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnCreated*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnCreated" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnCreated">OnCreated()</h4>
+  <div class="markdown level1 summary"><p>OnCreated is invoked when an Overlay is instantiated in an Overlay Canvas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnCreated()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">UnityEditor.Overlays.Overlay.OnCreated()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnWillBeDestroyed.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnWillBeDestroyed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewOverlay.cs/#L36">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnWillBeDestroyed_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnWillBeDestroyed*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewOverlay_OnWillBeDestroyed" data-uid="AFPS.EditorTools.AFPS_ADSPreviewOverlay.OnWillBeDestroyed">OnWillBeDestroyed()</h4>
+  <div class="markdown level1 summary"><p>Called when an Overlay is about to be destroyed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnWillBeDestroyed()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">UnityEditor.Overlays.Overlay.OnWillBeDestroyed()</span></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewOverlay.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewOverlay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewOverlay.cs/#L17" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_ADSPose </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_ADSPose ">
+    
+    <meta name="description" content="Shared ADS pose math. The runtime pipeline ( / ) and the editor ADS preview both evaluate the aimed pose through here, so what a designer previews in the editor can&#39;t drift from what the player actually sees.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_ADSPose">
+
+
+
+  <h1 id="AFPS_AFPS_ADSPose" data-uid="AFPS.AFPS_ADSPose" class="text-break">Class AFPS_ADSPose</h1>
+  <div class="markdown level0 summary"><p>Shared ADS pose math. The runtime pipeline (<a class="xref" href="AFPS.AFPS_WeaponObject.html">AFPS_WeaponObject</a> / <a class="xref" href="AFPS.ADS.html">ADS</a>)
+and the editor ADS preview both evaluate the aimed pose through here, so what a designer previews
+in the editor can't drift from what the player actually sees.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">AFPS_ADSPose</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_ADSPose_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AFPS_ADSPose</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose_ComputeAimedOffsets_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Transform_UnityEngine_Vector3__UnityEngine_Vector3__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose.ComputeAimedOffsets(UnityEngine.Vector3%2CUnityEngine.Vector3%2CUnityEngine.Transform%2CUnityEngine.Vector3%40%2CUnityEngine.Vector3%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L49">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ADSPose_ComputeAimedOffsets_" data-uid="AFPS.AFPS_ADSPose.ComputeAimedOffsets*"></a>
+  <h4 id="AFPS_AFPS_ADSPose_ComputeAimedOffsets_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Transform_UnityEngine_Vector3__UnityEngine_Vector3__" data-uid="AFPS.AFPS_ADSPose.ComputeAimedOffsets(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Transform,UnityEngine.Vector3@,UnityEngine.Vector3@)">ComputeAimedOffsets(Vector3, Vector3, Transform, out Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>The offsets ADS blends toward at full aim. They're composed against the resting offsets so that
+at full aim the aim point lands exactly on the weapon system's origin (which sits on the camera
+in the stock rig) AND is oriented down the camera's forward axis.</p>
+<p>Both halves of the aim point's local transform are honoured. Rotating the aim point rotates the
+weapon by the inverse, which is how sight cant is corrected: point the aim point down the
+optic's true line of sight and the weapon tilts to match. An aim point with identity rotation
+reduces exactly to the previous behaviour (aimed rotation = identity, offset = -localPosition),
+so existing weapons are unaffected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ComputeAimedOffsets(Vector3 basePos, Vector3 baseRot, Transform adsPoint, out Vector3 adsPos, out Vector3 adsRot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">basePos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">baseRot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">adsPoint</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">adsPos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">adsRot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose_ComputeAimedOffsets_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Quaternion_UnityEngine_Vector3__UnityEngine_Vector3__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose.ComputeAimedOffsets(UnityEngine.Vector3%2CUnityEngine.Vector3%2CUnityEngine.Vector3%2CUnityEngine.Quaternion%2CUnityEngine.Vector3%40%2CUnityEngine.Vector3%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L75">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ADSPose_ComputeAimedOffsets_" data-uid="AFPS.AFPS_ADSPose.ComputeAimedOffsets*"></a>
+  <h4 id="AFPS_AFPS_ADSPose_ComputeAimedOffsets_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Quaternion_UnityEngine_Vector3__UnityEngine_Vector3__" data-uid="AFPS.AFPS_ADSPose.ComputeAimedOffsets(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3@,UnityEngine.Vector3@)">ComputeAimedOffsets(Vector3, Vector3, Vector3, Quaternion, out Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p><a class="xref" href="AFPS.AFPS_ADSPose.html#AFPS_AFPS_ADSPose_ComputeAimedOffsets_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Transform_UnityEngine_Vector3__UnityEngine_Vector3__">ComputeAimedOffsets(Vector3, Vector3, Transform, out Vector3, out Vector3)</a> against
+an aim pose that has already been resolved into weapon-root space. The runtime path uses this
+with the pose captured at Awake (see <a class="xref" href="AFPS.ADS.html">ADS</a>) so the aimed target can't drift with the
+animation phase the aim button happened to be pressed on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ComputeAimedOffsets(Vector3 basePos, Vector3 baseRot, Vector3 aimLocalPos, Quaternion aimLocalRot, out Vector3 adsPos, out Vector3 adsRot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">basePos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">baseRot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">aimLocalPos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">aimLocalRot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">adsPos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">adsRot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose_ComputeBase_AFPS_AFPS_WeaponSystem_AFPS_AFPS_EquipAnimationWeaponObjectSettings_UnityEngine_Vector3__UnityEngine_Vector3__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose.ComputeBase(AFPS.AFPS_WeaponSystem%2CAFPS.AFPS_EquipAnimationWeaponObjectSettings%2CUnityEngine.Vector3%40%2CUnityEngine.Vector3%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L20">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ADSPose_ComputeBase_" data-uid="AFPS.AFPS_ADSPose.ComputeBase*"></a>
+  <h4 id="AFPS_AFPS_ADSPose_ComputeBase_AFPS_AFPS_WeaponSystem_AFPS_AFPS_EquipAnimationWeaponObjectSettings_UnityEngine_Vector3__UnityEngine_Vector3__" data-uid="AFPS.AFPS_ADSPose.ComputeBase(AFPS.AFPS_WeaponSystem,AFPS.AFPS_EquipAnimationWeaponObjectSettings,UnityEngine.Vector3@,UnityEngine.Vector3@)">ComputeBase(AFPS_WeaponSystem, AFPS_EquipAnimationWeaponObjectSettings, out Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Resting (hip) local offsets for a weapon parented to <code class="paramref">weaponSystem</code>. Mirrors
+what <a class="xref" href="AFPS.AFPS_WeaponObject.html">AFPS_WeaponObject</a> writes into basePos/baseRot each frame, but takes the
+system and settings explicitly so the editor can evaluate it for a weapon that isn't equipped
+(weapons are only parented to the system at runtime, so an unequipped weapon has no basePos).
+Missing references degrade to a zero offset rather than throwing — the editor evaluates this
+against half-authored prefabs where the runtime path never would.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ComputeBase(AFPS_WeaponSystem weaponSystem, AFPS_EquipAnimationWeaponObjectSettings equipSettings, out Vector3 basePos, out Vector3 baseRot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_WeaponSystem.html">AFPS_WeaponSystem</a></td>
+        <td><span class="parametername">weaponSystem</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_EquipAnimationWeaponObjectSettings.html">AFPS_EquipAnimationWeaponObjectSettings</a></td>
+        <td><span class="parametername">equipSettings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">basePos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">baseRot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose_EvaluatePose_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Transform_System_Single_System_Single_UnityEngine_Vector3__UnityEngine_Quaternion__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose.EvaluatePose(UnityEngine.Vector3%2CUnityEngine.Vector3%2CUnityEngine.Transform%2CSystem.Single%2CSystem.Single%2CUnityEngine.Vector3%40%2CUnityEngine.Quaternion%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L163">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ADSPose_EvaluatePose_" data-uid="AFPS.AFPS_ADSPose.EvaluatePose*"></a>
+  <h4 id="AFPS_AFPS_ADSPose_EvaluatePose_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Transform_System_Single_System_Single_UnityEngine_Vector3__UnityEngine_Quaternion__" data-uid="AFPS.AFPS_ADSPose.EvaluatePose(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Transform,System.Single,System.Single,UnityEngine.Vector3@,UnityEngine.Quaternion@)">EvaluatePose(Vector3, Vector3, Transform, float, float, out Vector3, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Local pose at the given raw (un-eased) aim blends, with every procedural contribution
+(bob/sway/recoil/tilt/bump/equip) omitted — those are all zero at rest anyway, and are exactly
+what an editor preview can't reproduce. Position and rotation take separate blends because ADS
+drives them on independent transition timings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void EvaluatePose(Vector3 basePos, Vector3 baseRot, Transform adsPoint, float posBlend, float rotBlend, out Vector3 localPosition, out Quaternion localRotation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">basePos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">baseRot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">adsPoint</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">posBlend</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">rotBlend</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">localPosition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">localRotation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose_GetAimPointLocalPose_UnityEngine_Transform_UnityEngine_Transform_UnityEngine_Vector3__UnityEngine_Quaternion__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose.GetAimPointLocalPose(UnityEngine.Transform%2CUnityEngine.Transform%2CUnityEngine.Vector3%40%2CUnityEngine.Quaternion%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L99">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ADSPose_GetAimPointLocalPose_" data-uid="AFPS.AFPS_ADSPose.GetAimPointLocalPose*"></a>
+  <h4 id="AFPS_AFPS_ADSPose_GetAimPointLocalPose_UnityEngine_Transform_UnityEngine_Transform_UnityEngine_Vector3__UnityEngine_Quaternion__" data-uid="AFPS.AFPS_ADSPose.GetAimPointLocalPose(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Vector3@,UnityEngine.Quaternion@)">GetAimPointLocalPose(Transform, Transform, out Vector3, out Quaternion)</h4>
+  <div class="markdown level1 summary"><p>The aim point's pose expressed in <code class="paramref">weaponRoot</code>'s local space — i.e. relative to
+the transform AFPS_WeaponSystem writes the composed offsets onto. Collapses to the aim point's
+own localPosition/localRotation when it is a direct child of the root (every stock weapon), and
+stays correct when it is nested deeper. Degrades to identity on missing references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetAimPointLocalPose(Transform weaponRoot, Transform adsPoint, out Vector3 localPosition, out Quaternion localRotation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">weaponRoot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">adsPoint</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">localPosition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">localRotation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ADSPose.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ADSPose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_ADSPose.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>World Containers and Looting </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="World Containers and Looting ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="world-containers-and-looting">World Containers and Looting</h1>
+
+<p>Chests, crates, weapon lockers, wall stashes and lootable corpses all reduce to
+the same problem: show the player a second grid, let them drag between it and
+their own inventory, and make sure nothing in that second grid counts as theirs
+until they physically move it across.</p>
+<p><code>AFPS_ContainerInventory</code> solves that by reusing the inventory the player already
+knows. There is no separate loot screen and no separate item representation — a
+container binds its contents to the <strong>secondary grid</strong> in the inventory UI, and
+every interaction the player has already learned (drag, rotate, stack, split,
+right-click menu) works on loot unchanged.</p>
+<h2 id="the-pieces">The pieces</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Lives on</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AFPS_ContainerInventory</code></td>
+<td>The world object</td>
+<td>Declares grid size and access rules, owns the contents</td>
+</tr>
+<tr>
+<td><code>AFPS_ContainerUIController</code></td>
+<td>The player</td>
+<td>Owns the one pooled secondary grid and the UXML panel</td>
+</tr>
+<tr>
+<td><code>AFPS_ContainerLootTable</code></td>
+<td>ScriptableObject</td>
+<td>Weighted loot rolls</td>
+</tr>
+<tr>
+<td><code>AFPS_CorpseContainer</code></td>
+<td>A dying entity</td>
+<td>Turns death into a lootable body</td>
+</tr>
+<tr>
+<td><code>AFPS_InventoryDeathHandler</code></td>
+<td>The player</td>
+<td>Decides what death does to the player's own inventory</td>
+</tr>
+</tbody>
+</table>
+<p>Only one container is open at a time, and only one grid ever exists for them.
+The controller re-sizes and re-points that single grid at whichever container the
+player opened, so a 3×2 ammo box and a 10×6 corpse cost the same as one grid.</p>
+<h2 id="player-setup-once">Player setup (once)</h2>
+<p>The player prefab already ships with a disabled <strong>Secondary Grid</strong> GameObject
+carrying an <code>AFPS_InventoryGrid</code> and an <code>AFPS_InventoryGridUIBinding</code> bound to the
+<code>secondary-grid</code> UXML element. All that's missing is the controller:</p>
+<ol>
+<li>Add <code>AFPS_ContainerUIController</code> next to <code>AFPS_InventorySystem</code>.</li>
+<li>Point <strong>Inventory System</strong> at the inventory, <strong>Container Grid</strong> at the
+Secondary Grid object, <strong>UI Manager</strong> at the UI manager, and <strong>Document</strong> at
+the inventory <code>UIDocument</code>.</li>
+<li>Optionally set <strong>Player Health</strong> so an open container closes when the player
+dies.</li>
+</ol>
+<p>Leave <strong>Max Grid Size</strong> at 10×6 unless you've resized the panel — it clamps
+containers that ask for more space than the UXML has.</p>
+<blockquote>
+<p><strong>The container grid must not appear in the inventory system's Player Inventory
+Grids array.</strong> That array defines what the player owns: carry weight, pickup
+routing and ammo counts all read from it. The controller logs an error at Awake
+if the container grid is listed there, because the symptoms otherwise show up
+far from the cause — loot adding to carry weight, or world pickups silently
+disappearing into a hidden grid.</p>
+</blockquote>
+<h2 id="making-a-container">Making a container</h2>
+<p>Put <code>AFPS_ContainerInventory</code> on any object with a collider on the interaction
+layer.</p>
+<ul>
+<li><strong>Grid Size</strong> — the footprint the container presents. This is the whole point
+of a container: a small crate reads as a small grid.</li>
+<li><strong>Allowed Categories</strong> — empty accepts everything. Fill it for themed storage
+(an ammo crate that only takes Ammo).</li>
+<li><strong>Max Item Size Limit</strong> — refuses items whose base footprint is bigger than
+this, rotation-agnostic. <code>(0,0)</code> for no limit.</li>
+<li><strong>Starting Contents</strong> — hand-authored loot. The entries are
+<code>StoredItemDescriptor</code>s, the same shape used for nested storage everywhere
+else, so a chest can start with a backpack that already holds a loaded
+magazine.</li>
+</ul>
+<p>Set the inherited <strong>Interaction Verb</strong> to something like <code>Open</code>; adding the
+component sets that up for you.</p>
+<h3 id="loot-tables">Loot tables</h3>
+<p>Create one via <em>Create → AFPS → Inventory System → Container Loot Table</em>.</p>
+<p>Each entry has a <code>weight</code> (relative likelihood in the weighted draw), a
+<code>stackRange</code> (clamped to the item's own <code>stackCount</code>), a <code>chance</code>, and an
+optional nested <code>storedItems</code> list. Entries flagged <strong>Guaranteed</strong> are resolved
+in their own pass and don't consume one of the weighted picks — that's where the
+quest item or the always-present key goes.</p>
+<p><strong>Loot Timing</strong> decides when the roll happens:</p>
+<ul>
+<li><code>OnSpawn</code> — rolled in <code>Start</code>. Cheapest to reason about; combined with a
+non-negative <strong>Loot Seed</strong> the same container holds the same loot every session.</li>
+<li><code>FirstOpen</code> <em>(default)</em> — deferred until the player actually reaches it.</li>
+<li><code>EveryOpenWhenEmpty</code> — restocks. Vendor stashes and respawning supply crates.</li>
+</ul>
+<p>A roll produces descriptors, not objects. Nothing is instantiated until the
+container is first opened, so a level full of unvisited crates costs almost
+nothing.</p>
+<h3 id="locks">Locks</h3>
+<p>Set <strong>Locked</strong> and assign a <strong>Key Item</strong>. The player only needs to be <em>carrying</em>
+the key; opening consumes it when <strong>Consume Key On Unlock</strong> is set, and
+<strong>Relock On Close</strong> turns a consumed key into one-shot access. Interacting while
+locked fires <code>On Locked Interact</code> instead of opening — wire a sound or a prompt
+there. Leaving Key Item empty makes the lock scripted-only: nothing in the
+player's inventory will open it until some other system clears <code>locked</code>.</p>
+<h2 id="how-contents-survive-being-closed">How contents survive being closed</h2>
+<p>Contents are <strong>live <code>AFPS_ItemObject</code> instances</strong>, not a serialised snapshot.
+When the container closes, whatever is left in the grid is deactivated,
+re-parented under the container GameObject, and remembered along with the exact
+cell and rotation it was sitting in. Opening again re-seats each item where the
+player left it.</p>
+<p>That matters for three things a snapshot would lose:</p>
+<ul>
+<li><strong>Nested storage.</strong> A magazine looted half-loaded stays half-loaded.</li>
+<li><strong>The world object.</strong> An item that was originally picked up off the ground
+keeps its <code>connectedInteractable</code>, so dropping it later returns the original
+GameObject rather than spawning a copy.</li>
+<li><strong>Layout.</strong> Players arrange loot piles; re-flowing them on every open feels
+broken.</li>
+</ul>
+<p>If the container's declared grid size shrinks between opens, items whose cells no
+longer exist are re-placed in the first free spot instead of being dropped. If
+there genuinely isn't room, they stay parked and a warning names them.</p>
+<h3 id="dropping-items-that-never-had-a-world-object">Dropping items that never had a world object</h3>
+<p>Loot rolled from a table has no source GameObject to return to. Assign
+<strong>World Prefab</strong> on the <code>AFPS_Item</code> asset — a prefab with an
+<code>AFPS_ItemInteractable</code> (or <code>AFPS_WeaponObject</code>) whose <em>Item Type</em> points back at
+the same asset — and the Drop menu button will spawn it, carrying stack size and
+nested contents onto it exactly like a normal drop. Items with neither a source
+object nor a World Prefab are left in place, and Drop logs which asset needs the
+prefab.</p>
+<h2 id="moving-things-across">Moving things across</h2>
+<p>Three ways, all of them respecting category filters, footprint and carry weight:</p>
+<ul>
+<li><p><strong>Drag.</strong> Ordinary inventory drag between the two grids.</p>
+</li>
+<li><p><strong>Modifier + click.</strong> Hold the modifier set in the inventory system's
+<strong>Quick Transfer Modifier</strong> (Shift by default) and click an item to send it where
+it belongs. With a container open it resolves in priority order:</p>
+<ol>
+<li>Item <strong>in the container</strong> → into the player's storage.</li>
+<li>Item <strong>in an equipment slot</strong> → back into the player's storage, never straight
+into the container. Stripping gear and stashing it are separate decisions, and
+one click shouldn't make both.</li>
+<li>Item <strong>in the player's storage</strong> with a free slot claiming its category → equip it.</li>
+<li>Anything else → into the container.</li>
+</ol>
+<p>With no container open, the same gesture equips or files the item — see
+<a href="#shift-click-outside-a-container">Shift-click outside a container</a>.</p>
+</li>
+<li><p><strong>Take All.</strong> The <code>TAKE ALL</code> button in the container panel header. It moves
+large items first — transferring a 1×1 before a 2×4 can otherwise leave the big
+item homeless in an inventory that had room for both.</p>
+</li>
+</ul>
+<p>A gamepad has no modifier to chord with, so the same routing gets a button of its
+own: the <strong>Inventory/QuickTransfer</strong> action, bound to the left shoulder by default.
+It acts on whatever the controller cursor is over and follows the identical priority
+order, with or without a container open. Rebind it like any other action.</p>
+<p>The <code>Transfer</code> and <code>Equip</code> item-menu buttons do the same thing from the context menu
+if you would rather surface it there too.</p>
+<h3 id="when-a-transfer-is-refused">When a transfer is refused</h3>
+<p>Refusals are reported on the side that caused them. If the <em>player's</em> inventory has
+no room, the usual HUD warning flashes. If the <em>container</em> is the one refusing, the
+message appears across the bottom of its grid and names it — <code>AMMO CRATE IS FULL</code>, or
+<code>WEAPON RACK WON'T TAKE THAT</code> when its Allowed Categories reject the item. A generic
+&quot;inventory full&quot; would be misleading there, since the player's own inventory is fine.</p>
+<p>Both strings are on the controller (<strong>Container Full Message</strong> / <strong>Container Rejected
+Message</strong>, <code>{0}</code> = the container's title), along with <strong>Message Duration</strong>. Clear the
+<strong>Message Element Name</strong> field, or use a UXML without a <code>#secondary-message</code> label,
+and container refusals fall back to the HUD warning.</p>
+<h3 id="shift-click-outside-a-container">Shift-click outside a container</h3>
+<p>The same modifier (and the same gamepad button) works with no container open, and
+follows the same rules minus the container:</p>
+<ol>
+<li>Item <strong>in an equipment slot</strong> → back into the player's storage. Identical to rule 2
+above, so stripping gear reads the same whether or not a chest is in front of them.</li>
+<li>Otherwise → an equipment slot that claims its category, then a grid that
+<em>explicitly</em> claims it — an ammo pouch, a weapon rack.</li>
+</ol>
+<p>Wildcard grids are never targeted, so the gesture can't shuffle an item between
+general stashes for no reason. An item with no home simply stays put, silently; the
+click is consumed either way, so it never surprises the player by lifting something it
+couldn't place. The one refusal that <em>is</em> reported is a failed unequip, which means
+their storage is full and the gear stayed on.</p>
+<h3 id="carry-weight">Carry weight</h3>
+<p>Weight is enforced at the boundary, not on every move. An item already in the
+player's grids costs nothing extra to rearrange — gating that would leave an
+over-encumbered player unable to put their own item back down. An item crossing
+<strong>out of a container and into player storage</strong> is weighed, and refused with the
+usual HUD warning if it would break <code>maxCarryWeight</code>. Swaps subtract the weight
+of whatever they displace, so trading a heavy item for a lighter one always
+works.</p>
+<h2 id="lootable-corpses">Lootable corpses</h2>
+<p><code>AFPS_CorpseContainer</code> is the <strong>NPC</strong> side of body looting; the player's own body is
+<a href="#death-and-the-players-inventory"><code>AFPS_InventoryDeathHandler</code>'s job</a>, and the corpse
+container refuses to run on a player or alongside that component rather than dropping
+the same gear twice.</p>
+<p>It sits next to an <code>AFPS_ContainerInventory</code> on the entity
+and watches its <code>AFPS_Health</code>. While alive, the container component is disabled —
+which is the interaction system's documented off-switch, so a living enemy shows
+no interaction box, no prompt and no loot affordance without any extra wiring.</p>
+<p>On death it fills the container from its <strong>Death Loot Table</strong> and <strong>Carried
+Items</strong>, optionally adds whatever the entity had equipped (<strong>Include Equipped
+Weapons</strong>, which reads <code>AFPS_WeaponSystem.equippedWeapons</code> and needs each
+weapon's <em>Item Type</em> assigned), and enables the container.</p>
+<p><strong>Death Loot Seed</strong> is separate from the container's own seed and defaults to <code>-1</code>
+(random), so every body drops its own loot. Set a fixed value only for a scripted,
+one-of-a-kind corpse — it makes <em>every</em> instance of that prefab drop identically.</p>
+<p><strong>Lootable For Seconds</strong> closes the loot window after a delay; leave it at 0 for
+bodies that stay lootable. For bodies that should disappear once picked clean,
+set <strong>Destroy When Emptied</strong> on the container instead, with a <strong>Destroy Delay</strong>
+long enough for whatever <code>On Emptied</code> drives.</p>
+<blockquote>
+<p><strong>The collider matters.</strong> The interaction system reads the <code>AFPS_Interactable</code> on
+the collider it hits and does not walk up to parents (that is what <code>AFPS_Hitbox</code>
+exists for on the damage side). Whatever the player aims at must be on the same
+GameObject as the <code>AFPS_ContainerInventory</code> — a ragdoll's bone colliders are not.</p>
+</blockquote>
+<blockquote>
+<p><strong>Lifetime conflicts.</strong> <code>Lootable For Seconds</code> runs independently of anything else
+that removes the body, so a corpse wired to <code>DestroyHPGameobject</code> on <code>On Died</code>, or
+carrying an <code>AFPS_SpawnOnDeath</code> with <em>Destroy Owner On Death</em>, can vanish before the
+player reaches it. The component detects both and warns; turn off <strong>Warn On Lifetime
+Conflict</strong> if the combination is deliberate.</p>
+</blockquote>
+<h2 id="death-and-the-players-inventory">Death and the player's inventory</h2>
+<p>Nothing in the death system touches the inventory on its own, so by default a player
+respawns with everything. <code>AFPS_InventoryDeathHandler</code> on the player adds the other
+two options:</p>
+<ul>
+<li><strong>Keep</strong> <em>(default)</em> — untouched. Arcade and campaign games.</li>
+<li><strong>Drop To Container</strong> — everything moves into a lootable container, for the player
+(or anyone else) to loot back. Extraction shooters. <strong>Placement</strong> decides where that
+container is:
+<ul>
+<li><strong>Spawn At Death Position</strong> <em>(default)</em> — drop the container prefab on the ground.
+Works with any death setup.</li>
+<li><strong>Attach To Corpse</strong> — put the loot inside the body itself, so the player loots
+their own corpse. Needs an <code>AFPS_DeathBodyHandler</code> in <em>Spawn Corpse Prefab</em> mode
+whose prefab carries an <code>AFPS_ContainerInventory</code> (plus a collider on the
+interaction layer). If no corpse turns up, it warns and falls back to spawning the
+container — the inventory is never lost to a setup mistake.</li>
+</ul>
+</li>
+<li><strong>Destroy All</strong> — everything is lost. Roguelikes.</li>
+</ul>
+<p>It hooks <code>AFPS_Health.OnDied</code>, which fires before either respawn path runs, so the
+death position is still the player's real one rather than wherever they respawned.
+<code>OnDied</code> also fires <em>before</em> the death sequence spawns a body, so Attach To Corpse
+captures what the player was carrying at death and completes the move a frame later,
+once the corpse exists.</p>
+<p>Dropped items are the <strong>same objects</strong> the player was carrying, handed to the
+container through <code>AdoptItem</code> — stack sizes, rotation, nested storage and the world
+objects they were originally picked up from all survive, so looting your own grave
+returns exactly what you lost. Weapons in equipment slots fire their
+<code>onRemovedFromEquipmentSlot</code> callback on the way out, so they unequip cleanly.</p>
+<h3 id="exemptions">Exemptions</h3>
+<p><strong>Exempt Categories</strong> lists categories the player keeps regardless of policy — the
+secure-container idea: quest items, keys, insured gear. <strong>Exempt Equipment Slots</strong>
+keeps whatever is in single-item slots, so the player respawns still armed and only
+loses their bags.</p>
+<p>An item on the cursor when they die is included, <em>unless</em> it came out of an open
+container — that loot was never theirs, and the panel closing returns it.</p>
+<h3 id="sizing-the-drop">Sizing the drop</h3>
+<p><strong>Auto Size To Contents</strong> grows the spawned container's grid so a full inventory fits
+in as few visits as possible. It sizes against the player's <strong>Max Grid Size</strong> — the
+real display limit — rather than the prefab's own width, so a prefab authored as a
+small crate doesn't cap a full inventory into a fraction of the available space.
+Sizing is best-effort, working off total footprint area with headroom, since exact
+bin-packing isn't worth the cost.</p>
+<p>An inventory can still hold more than the panel can show. The overflow waits inside
+the container and drops into the grid <strong>as the player loots space free</strong>, without
+them having to close and reopen it. Nothing is lost, only staggered.</p>
+<p><strong>Snap To Ground</strong> raycasts down from the death position so dying mid-air doesn't
+leave a floating stash. The ray skips the player's own colliders, which are still
+standing at the death spot when it runs.</p>
+<p>The death position is <em>sampled every frame while the player is alive</em>, not read when
+the death fires. Respawn teleports the player, and whether that has already happened
+by the time a death listener runs depends on death-sequence and UnityEvent listener
+ordering — sampling makes the drop position the death position by construction, so a
+grave can never appear at the spawn point.</p>
+<h2 id="recolouring-an-icon-per-item">Recolouring an icon per item</h2>
+<p><code>AFPS_Item</code> has a <strong>Sprite Tint</strong> — a colour multiplied over the item's
+inventory icon everywhere it is drawn: the grid, the drag ghost, equipment slots,
+and the uGUI example. White, the default, leaves the sprite exactly as authored.</p>
+<p>It exists so one sprite can serve several items. The shipped VSK rifle's ammo is
+a tinted variant of the standard rifle round rather than a second piece of art,
+and the same trick covers rarity tiers, faction variants, or a greyed-out
+placeholder without a new texture per item.</p>
+<p>Anything drawing an item icon in your own UI should call
+<code>AFPS_ItemObject.GetDisplayTint()</code> rather than reading the sprite directly — it
+returns the item's tint, or white when the item has no data, which is what keeps
+every view agreeing.</p>
+<h2 id="closing-behaviour">Closing behaviour</h2>
+<p>There is no close button on the panel. While the inventory is open the interaction
+system refuses to fire at all, so the player can neither re-interact with the open
+container nor reach anything else in the world through the panel — which means the
+only ways out are the ones that make sense:</p>
+<ul>
+<li><strong>Closing the inventory</strong> (the toggle key) closes the container with it.</li>
+<li><strong>Walking away</strong>, past the container's <strong>Auto Close Distance</strong>.</li>
+<li><strong>Dying</strong>, when the controller's Player Health is assigned.</li>
+</ul>
+<p>By default walking away closes the <em>whole inventory</em>, not just the container panel —
+leaving the player standing in the world rather than staring at a half-empty loot
+screen. Turn off <strong>Close Inventory On Walk Away</strong> on the controller if you'd rather
+their own inventory stayed open where they left it.</p>
+<p>An item still on the cursor when the container closes is returned to the
+container first, so nothing is ever destroyed mid-drag. If the container has no
+room left for it, the inventory system's <strong>Held Item Revert Fallback</strong> decides
+what happens — and note that the spill-to-another-grid strategy never spills into
+a container, so the player can't accidentally gift an item to a chest they were
+walking away from.</p>
+<h2 id="events">Events</h2>
+<p><code>AFPS_ContainerInventory</code> exposes <code>On Opened</code>, <code>On Closed</code>, <code>On Emptied</code>,
+<code>On Locked Interact</code> and <code>On Unlocked</code> as UnityEvents for animation, audio and
+quest hooks. <code>On Opened</code> fires after the contents are visible; <code>On Closed</code> fires
+after they've been parked, so it's safe to animate the lid from either.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/inventory-containers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

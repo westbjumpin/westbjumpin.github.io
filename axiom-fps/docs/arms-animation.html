@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Movement Arms Animation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Movement Arms Animation ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="movement-arms-animation">Movement Arms Animation</h1>
+
+<p>The <strong>movement arms</strong> are the shared first-person arm rig used for climbing, ledge
+hangs, mantles, slides, crouching, running and swimming — the animations that
+read as the player's hands touching the world rather than holding a weapon. They
+are independent of whichever weapon is equipped, and independent of the per-weapon
+arms that come with an animated weapon rig (see
+<a href="weapon-animation-quick-start.html">Weapon Animation</a>).</p>
+<p><code>AFPS_ArmsController</code> drives them, and it works the same way the weapon animator
+does: one generated template controller, an override controller whose named slots
+you drop clips into, hashed IDs, no triggers, and continuous poses <strong>polled</strong> from
+the player's movement state rather than pushed in by callers.</p>
+<h2 id="upgrading-is-opt-in">Upgrading is opt-in</h2>
+<p>If your project uses the shipped <code>Arms.controller</code>, nothing changes. The component
+detects that the assigned controller isn't contract-shaped and runs in <strong>legacy
+mode</strong> — the original string parameters and triggers, byte-for-byte the behaviour
+you had before. Migrate when you want to.</p>
+<p>To migrate:</p>
+<ol>
+<li>Run <strong>Tools ▸ AFPS ▸ Generate Arms Animator Template</strong> once per project.</li>
+<li>Select the object with <code>AFPS_ArmsController</code> (the weapon-system root) and press
+<strong>Set Up Arms Animations</strong>. That creates an override controller from the
+template and assigns it to the arms Animator.</li>
+<li>Drag your existing arm clips into the named slots.</li>
+</ol>
+<p><code>Arms.controller</code> is left untouched, so reassigning it reverts you at any time.</p>
+<h2 id="slots">Slots</h2>
+<p><strong>Poses</strong> — continuous, polled from movement state, and looping:</p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Plays while</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idle</td>
+<td>default resting pose</td>
+</tr>
+<tr>
+<td>Walk</td>
+<td><code>Speed</code> above 0.2 m/s</td>
+</tr>
+<tr>
+<td>Run</td>
+<td>sprinting</td>
+</tr>
+<tr>
+<td>Crouch</td>
+<td>crouched</td>
+</tr>
+<tr>
+<td>Slide</td>
+<td>sliding</td>
+</tr>
+<tr>
+<td>Wallrun</td>
+<td>wallrunning</td>
+</tr>
+<tr>
+<td>Climb / Ladder</td>
+<td>climbing a wall <strong>or</strong> a ladder — ladders reuse the climb reach, as they always have</td>
+</tr>
+<tr>
+<td>Ledge Grab</td>
+<td>hanging from a ledge</td>
+</tr>
+<tr>
+<td>Swim Idle / Forward / Backward / Up / Down</td>
+<td>swimming; direction from input, exactly as for weapons</td>
+</tr>
+</tbody>
+</table>
+<p><strong>One-shots</strong> — played once and returning to rest:</p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Plays when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slide Start</td>
+<td>the movement state enters Sliding</td>
+</tr>
+<tr>
+<td>Mantle</td>
+<td>the movement state enters Mantle, or <code>Mantle()</code> is called</td>
+</tr>
+<tr>
+<td>Grab</td>
+<td><code>Grab()</code> is called — by <code>AFPS_InteractionSystem</code> on pickup and interaction</td>
+</tr>
+</tbody>
+</table>
+<p>Only Grab genuinely needs a caller: no movement state implies &quot;the player just
+picked something up&quot;. Slide Start and Mantle are now derived from the state
+changing, so they no longer depend on <code>AFPS_Movement</code> remembering to call in.</p>
+<h2 id="what-the-refactor-fixes">What the refactor fixes</h2>
+<ul>
+<li><strong>Dropped one-shots.</strong> <code>Grab</code> and <code>SlideStart</code> were Animator <em>triggers</em>. Showing
+the arms re-activates the GameObject, which rebinds the Animator and clears its
+parameters — a trigger set on that frame was silently discarded. Only <code>Mantle</code>
+had a hand-written workaround. The clip-slot path uses <code>CrossFade</code> with hashed
+IDs and holds any one-shot requested while the arms are hidden until they are
+back, so all three survive.</li>
+<li><strong>No string lookups per frame.</strong> Everything is a pre-hashed ID from
+<code>AFPS_ArmsAnimatorContract</code>, and unchanged parameters are never re-sent.</li>
+<li><strong>One source of truth for movement.</strong> The arms and the weapon read the <em>same</em>
+<code>AFPS_MovementAnimationSampler</code> snapshot, so they cannot disagree about whether
+the player is swimming, climbing or sprinting.</li>
+<li><strong>Empty slots never pop.</strong> As with weapons, a pose whose slot has no clip is
+never entered — entering an empty state with Write Defaults on snaps the rig to
+its bind pose.</li>
+</ul>
+<h2 id="arms-visibility">Arms visibility</h2>
+<p>Unchanged in either mode. The arms are shown when the equipped weapon's <strong>Use
+Arms</strong> is on, and forced visible during climb, ledge hang, and for
+<code>mantleArmsDuration</code> after a mantle. <code>MovementArmsForced</code> exposes that forced
+window.</p>
+<p>What an animated weapon actually keys off, though, is <code>SharedArmsVisible</code> — are
+the shared arms <em>on screen right now</em>, for any reason. <code>AFPS_WeaponAnimator</code>
+hides the weapon rig's own arm meshes for exactly as long as that is true, which
+is what stops the player seeing four arms. The forced flag alone was not enough:
+it is only one of the reasons the shared arms can be showing, so a weapon with
+<strong>Use Arms</strong> on drew both sets, and the weapon's arms came back a frame late on
+the way out.</p>
+<h2 id="extending">Extending</h2>
+<p>Same contract rules as the weapon system. Duplicate
+<code>ArmsAnimatorTemplate.controller</code>, add what you like, keep the state and parameter
+names, and base your override controller on your copy. <code>PlayAction(hash, fade)</code>
+crossfades any state you add to the Actions layer.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Never use Animator triggers in the arms graph, for the reason above: the arms
+object is switched on and off constantly as weapons change.</p>
+</div>
+<p><strong>States</strong> — Base: <code>Idle</code>, <code>Walk</code>, <code>Run</code>, <code>Crouch</code>, <code>Slide</code>, <code>Wallrun</code>, <code>Climb</code>,
+<code>LedgeGrab</code>, <code>SwimIdle</code>, <code>SwimForward</code>, <code>SwimBackward</code>, <code>SwimUp</code>, <code>SwimDown</code>.
+Actions: <code>None</code> (default, no motion), <code>SlideStart</code>, <code>Mantle</code>, <code>Grab</code>.</p>
+<p><strong>Parameters</strong> — <code>Speed</code> (float); <code>IsSprinting</code>, <code>IsCrouching</code>, <code>IsSliding</code>,
+<code>IsWallrunning</code>, <code>IsClimbing</code>, <code>IsLedgeGrabbing</code>, <code>IsSwimming</code> (bools);
+<code>SwimDirection</code> (int, 0 idle / 1 forward / 2 backward / 3 up / 4 down — the same
+values the weapon contract uses).</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>The arms don't animate after migrating.</strong> The template must be generated before
+the setup button can build an override controller from it. Check the validation
+box on the component.</p>
+<p><strong>A pose never plays.</strong> Its slot is empty, so the state is deliberately never
+entered. Fill it, or turn off <strong>Gate Locomotion To Filled Slots</strong> if you put the
+motion on the state directly in a duplicated controller.</p>
+<p><strong>The grab animation still gets dropped.</strong> You are in legacy mode — the inspector
+says so. That is the trigger bug; migrating fixes it.</p>
+<p><strong>Four arms during a climb.</strong> That is the weapon side: see
+<a href="weapon-animation-troubleshooting.html">Weapon Animation troubleshooting</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/arms-animation.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

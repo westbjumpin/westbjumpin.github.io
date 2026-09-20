@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Consume ">
     
-    <meta name="description" content="Decrements item stack by 1; destroys GO when stack reaches 0.">
+    <meta name="description" content="Spends one unit of the item and applies its effects to the player: healing, overheal, damage, and any number of status effects. Covers medkits, bandages, food, stimulants, drugs with a downside, and poison — all from the same button prefab, configured per item menu. The item is only spent when something actually happened, so a full-health player clicking a medkit doesn&#39;t waste it (turn off  if you&#39;d rather they could). Effects are applied through &#39;s normal paths, so damage numbers, the health HUD, resistances and kill attribution all behave exactly as they do for world damage.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,13 @@
 
 
   <h1 id="AFPS_Consume" data-uid="AFPS.Consume" class="text-break">Class Consume</h1>
-  <div class="markdown level0 summary"><p>Decrements item stack by 1; destroys GO when stack reaches 0.</p>
+  <div class="markdown level0 summary"><p>Spends one unit of the item and applies its effects to the player: healing, overheal, damage, and
+any number of status effects. Covers medkits, bandages, food, stimulants, drugs with a downside,
+and poison — all from the same button prefab, configured per item menu.</p>
+<p>The item is only spent when something actually happened, so a full-health player clicking a medkit
+doesn't waste it (turn off <a class="xref" href="AFPS.Consume.html#AFPS_Consume_requireEffect">requireEffect</a> if you'd rather they could).</p>
+<p>Effects are applied through <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a>'s normal paths, so damage numbers, the health
+HUD, resistances and kill attribution all behave exactly as they do for world damage.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -100,6 +106,12 @@
     </div>
     <div>
       <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_">ItemMenuButtonBase.SetItem(AFPS_ItemObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_ResolvePlayerHealth">ItemMenuButtonBase.ResolvePlayerHealth()</a>
+    </div>
+    <div>
+      <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SpendStack_System_Int32_">ItemMenuButtonBase.SpendStack(int)</a>
     </div>
     <div>
       <span class="xref">MonoBehaviour.IsInvoking()</span>
@@ -529,6 +541,399 @@
     <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;AFPS/Inventory System/AFPS Consume&quot;)]
 public class Consume : ItemMenuButtonBase</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_OnConsumed.md&amp;value=---%0Auid%3A%20AFPS.Consume.OnConsumed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_OnConsumed" data-uid="AFPS.Consume.OnConsumed">OnConsumed</h4>
+  <div class="markdown level1 summary"><p>Fired after a successful use, before the stack is spent. Carries the consumed item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Feedback&quot;)]
+[Tooltip(&quot;Fired after a successful use and before the stack is spent, so listeners can still read the item. Hook animations, screen effects, or quest counters here.&quot;)]
+public UnityEvent&lt;AFPS_ItemObject&gt; OnConsumed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEvent</span>&lt;<a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_OnRefused.md&amp;value=---%0Auid%3A%20AFPS.Consume.OnRefused%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L70">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_OnRefused" data-uid="AFPS.Consume.OnRefused">OnRefused</h4>
+  <div class="markdown level1 summary"><p>Fired when the use was refused because it would have done nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Feedback&quot;)]
+[Tooltip(&quot;Fired when the use was refused because nothing would have changed. Drive a &#39;you don&#39;t need that right now&#39; cue.&quot;)]
+public UnityEvent OnRefused</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEvent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_damageAmount.md&amp;value=---%0Auid%3A%20AFPS.Consume.damageAmount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L34">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_damageAmount" data-uid="AFPS.Consume.damageAmount">damageAmount</h4>
+  <div class="markdown level1 summary"><p>Damage dealt to the player — the downside of a stimulant, or a poisoned ration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Health&quot;)]
+[Tooltip(&quot;Damage dealt to the player. The downside half of a stimulant, or a poisoned ration. 0 = none.&quot;)]
+[Min(0)]
+public float damageAmount</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_damageType.md&amp;value=---%0Auid%3A%20AFPS.Consume.damageType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L38">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_damageType" data-uid="AFPS.Consume.damageType">damageType</h4>
+  <div class="markdown level1 summary"><p>Damage type used for <a class="xref" href="AFPS.Consume.html#AFPS_Consume_damageAmount">damageAmount</a>, so resistances and on-hit effects apply.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Health&quot;)]
+[ShowIf(&quot;HasDamage&quot;)]
+[Tooltip(&quot;Damage type used for the self-damage, so the player&#39;s resistances and the type&#39;s on-hit status effects apply. Leave empty for untyped damage.&quot;)]
+public AFPS_DamageType damageType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_healAmount.md&amp;value=---%0Auid%3A%20AFPS.Consume.healAmount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L26">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_healAmount" data-uid="AFPS.Consume.healAmount">healAmount</h4>
+  <div class="markdown level1 summary"><p>Base HP restored. Capped at max HP; use <a class="xref" href="AFPS.Consume.html#AFPS_Consume_overhealAmount">overhealAmount</a> to exceed it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Health&quot;)]
+[Tooltip(&quot;Base HP restored, capped at the player&#39;s max HP. 0 = no healing.&quot;)]
+[Min(0)]
+public float healAmount</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_overhealAmount.md&amp;value=---%0Auid%3A%20AFPS.Consume.overhealAmount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L30">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_overhealAmount" data-uid="AFPS.Consume.overhealAmount">overhealAmount</h4>
+  <div class="markdown level1 summary"><p>Overheal granted on top of the heal, for items that push past max HP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Health&quot;)]
+[Tooltip(&quot;Overheal granted on top of the heal, for items that push past max HP. Drains before base HP on incoming damage. 0 = none.&quot;)]
+[Min(0)]
+public float overhealAmount</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_requireEffect.md&amp;value=---%0Auid%3A%20AFPS.Consume.requireEffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L54">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_requireEffect" data-uid="AFPS.Consume.requireEffect">requireEffect</h4>
+  <div class="markdown level1 summary"><p>Refuse the use (and spend nothing) when nothing would change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Cost&quot;)]
+[Tooltip(&quot;Refuse the use when it would do nothing — a full-health player clicking a pure heal item. Off = the item is always spent.&quot;)]
+public bool requireEffect</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_stackCost.md&amp;value=---%0Auid%3A%20AFPS.Consume.stackCost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L50">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_stackCost" data-uid="AFPS.Consume.stackCost">stackCost</h4>
+  <div class="markdown level1 summary"><p>Units of the stack spent per use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Cost&quot;)]
+[Tooltip(&quot;Units spent per use. Almost always 1; raise it for items that are consumed several at a time.&quot;)]
+[Min(1)]
+public int stackCost</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_statusEffects.md&amp;value=---%0Auid%3A%20AFPS.Consume.statusEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L42">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_statusEffects" data-uid="AFPS.Consume.statusEffects">statusEffects</h4>
+  <div class="markdown level1 summary"><p>Status effects applied to the player, e.g. regeneration, adrenaline, poison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Status Effects&quot;)]
+[Tooltip(&quot;Status effects applied to the player on use — regeneration, adrenaline, poison, blurred vision. Each is applied through the normal status system, so stack caps and durations are honoured.&quot;)]
+public List&lt;AFPS_StatusEffect&gt; statusEffects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_statusEffectsToClear.md&amp;value=---%0Auid%3A%20AFPS.Consume.statusEffectsToClear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_statusEffectsToClear" data-uid="AFPS.Consume.statusEffectsToClear">statusEffectsToClear</h4>
+  <div class="markdown level1 summary"><p>Status effects cleared on use, e.g. a bandage stopping bleed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Status Effects&quot;)]
+[Tooltip(&quot;Status effects removed on use. A bandage that stops Bleeding, an antidote that clears Poison.&quot;)]
+public List&lt;AFPS_StatusEffect&gt; statusEffectsToClear</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_useSound.md&amp;value=---%0Auid%3A%20AFPS.Consume.useSound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L58">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_useSound" data-uid="AFPS.Consume.useSound">useSound</h4>
+  <div class="markdown level1 summary"><p>Sound played on a successful use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Feedback&quot;)]
+[Tooltip(&quot;Sound played at the player&#39;s position on a successful use. Leave empty for silent.&quot;)]
+public AudioClip useSound</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AudioClip</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_useSoundVolume.md&amp;value=---%0Auid%3A%20AFPS.Consume.useSoundVolume%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L62">View Source</a>
+  </span>
+  <h4 id="AFPS_Consume_useSoundVolume" data-uid="AFPS.Consume.useSoundVolume">useSoundVolume</h4>
+  <div class="markdown level1 summary"><p>Volume for <a class="xref" href="AFPS.Consume.html#AFPS_Consume_useSound">useSound</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Feedback&quot;)]
+[ShowIf(&quot;HasSound&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;Volume for the use sound.&quot;)]
+public float useSoundVolume</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -536,11 +941,11 @@ public class Consume : ItemMenuButtonBase</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume_OnPress.md&amp;value=---%0Auid%3A%20AFPS.Consume.OnPress%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L10">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L81">View Source</a>
   </span>
   <a id="AFPS_Consume_OnPress_" data-uid="AFPS.Consume.OnPress*"></a>
   <h4 id="AFPS_Consume_OnPress" data-uid="AFPS.Consume.OnPress">OnPress()</h4>
-  <div class="markdown level1 summary"><p>Decrements stack, updates text, removes the item (clearing grid cell refs) if empty, then calls base.</p>
+  <div class="markdown level1 summary"><p>Applies the configured effects to the player, spends the stack, then calls base.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -561,7 +966,7 @@ public class Consume : ItemMenuButtonBase</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Consume.md&amp;value=---%0Auid%3A%20AFPS.Consume%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Consume.cs/#L19" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

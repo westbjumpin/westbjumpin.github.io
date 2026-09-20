@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Changelog </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Changelog ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="changelog">Changelog</h1>
+
+<p>Changes to Axiom FPS, newest first.</p>
+<h2 id="latest-release">Latest release</h2>
+<h3 id="death-system">Death System</h3>
+<ul>
+<li>New death and respawn flow with death cameras (killer cam, orbit, follow body,
+freeze, keep first-person), respawn strategies (checkpoint, spawn point, reload
+scene, custom event), and death screens for both uGUI and UI Toolkit. All
+preset-driven. See <a href="death-system.html">Death and Respawn</a>.</li>
+</ul>
+<h3 id="damage-types">Damage Types</h3>
+<ul>
+<li>Damage kinds are now ScriptableObject assets instead of a fixed enum, each
+carrying a display name, UI colour, death-screen wording, and status effects to
+apply on hit. Ten presets included (Ballistic, Fire, Explosive, Poison, and
+more). See <a href="damage-and-status-effects.html">Damage Types and Status Effects</a>.</li>
+</ul>
+<h3 id="status-effects">Status Effects</h3>
+<ul>
+<li>Rebuilt on modular status behaviours covering damage over time, move speed,
+knockback, control lock, screen effects, and VFX. Over twenty presets included
+(Burn, Bleed, Poison, Frozen, Stun, Flashbang, Haste, Regeneration, and more).</li>
+<li>Added full-screen status overlays (frost, fire, blind/flashbang) and
+world-space status VFX that follow the affected character.</li>
+</ul>
+<h3 id="health">Health</h3>
+<ul>
+<li>Every death now raises a kill record naming the victim, killer, weapon, and
+damage type — ready for killfeeds, scoring, and on-death loot. Status-effect
+kills credit the original attacker.</li>
+</ul>
+<h3 id="movement">Movement</h3>
+<ul>
+<li>Added a reference-counted control lock over movement, look, and firing, so
+overlapping stuns and knockbacks release cleanly instead of fighting each
+other.</li>
+</ul>
+<h3 id="weapon-animations">Weapon Animations</h3>
+<ul>
+<li>New weapon animator drives Mecanim clips from the events weapons already raise
+(fire, reload, equip). Clip speed follows fire rate and reload duration, and
+weapons without an Animator behave exactly as before.</li>
+<li>Added a setup wizard, an animator template generator, placeholder clips for
+every state, and a custom inspector for wiring a weapon up. See
+<a href="weapon-animation-quick-start.html">Weapon Animation</a>.</li>
+</ul>
+<h3 id="movement-arms">Movement Arms</h3>
+<ul>
+<li>The shared first-person arm rig — used for climbing, ledge hangs, mantles,
+slides, crouching, running, and swimming — can now play animation clips through
+the same slot-and-contract system as the new weapon animator, with a template
+generator and one-button setup. Projects using the old arms controller keep
+working unchanged in a legacy mode. See
+<a href="arms-animation.html">Movement Arms Animation</a>.</li>
+</ul>
+<h3 id="ads">ADS</h3>
+<ul>
+<li>Added an editor preview that renders the aimed pose live in the Game view, plus
+a validation window that flags rig setup problems before you hit Play.</li>
+<li>The aimed pose is now evaluated by shared code used at runtime and in the
+editor, so what you preview cannot drift from what the player sees. See
+<a href="ads-tuning.html">Tuning ADS</a>.</li>
+</ul>
+<h3 id="abilities">Abilities</h3>
+<ul>
+<li>Dash overhauled — every tuning value moved into swappable presets, with
+selectable dash directions (input, aim, upward) and hover suppression so
+launches are not flattened. Realistic, Movement Shooter, and Old School presets
+included.</li>
+<li>Grappling Hook overhauled — attach rules, reel and momentum, pendulum tension,
+swing control, movable anchors, and auto-detach are now all preset-driven. Swap
+the preset to swap the whole feel. Realistic, Movement Shooter, and Old School
+presets included.</li>
+<li>Weapons can now fire an ability as their fire action.</li>
+</ul>
+<h3 id="inventory">Inventory</h3>
+<ul>
+<li>Added container inventories with weighted loot tables, rolled on spawn, on
+first open, or on every open while empty (for restocking stashes).</li>
+<li>Enemies and the player can now drop lootable bodies, carrying their loot table,
+carried items, and optionally their equipped weapons.</li>
+<li>Added a configurable policy for what happens to the player's inventory on death
+— keep everything, drop it into a lootable container at the death position, or
+destroy it.</li>
+<li>Added Equip, Transfer, and Unload item menu actions, plus item transfer between
+two open containers.</li>
+<li>Added a per-item Sprite Tint — a colour multiplied over the item's inventory
+icon in every view (grid, drag, equipment slots, and the uGUI example), so a
+shared sprite can be recoloured per item without new art. See
+<a href="inventory-containers.html">World Containers and Looting</a>.</li>
+</ul>
+<h3 id="interaction">Interaction</h3>
+<ul>
+<li>Weapon pickups support hold-to-swap when the target slot is full, with a verb
+prompt and hold-progress radial on the HUD.</li>
+<li>HUD prompts now render through a shared layer with both uGUI and UI Toolkit
+implementations.</li>
+</ul>
+<h3 id="props">Props</h3>
+<ul>
+<li>Added a spawn-on-death component so explosive props credit their kills to
+whoever set them off, including chain reactions and self-inflicted blasts.
+Wired into the Firing Range explosive barrels.</li>
+</ul>
+<h3 id="content">Content</h3>
+<ul>
+<li>Added the VSK rifle as a fully configured example weapon, with its own
+inventory item, a dedicated magazine, and a tinted variant of the rifle round
+for its ammo.</li>
+<li>Each weapon's tilt and descriptor presets now sit in that weapon's own folder
+alongside its stats, recoil, and fire settings, instead of separate shared
+folders.</li>
+</ul>
+<h3 id="fixes-and-improvements">Fixes and improvements</h3>
+<ul>
+<li>Fixed: weapon sway, bob, bump, and tilt were frame-rate dependent, so feel
+tuned on one machine was wrong on another. They are now frame-rate independent,
+and existing tuning values still read the same.</li>
+<li>Fixed: many various bugs relating to ADS, movement, and firing.</li>
+<li>Documented the URP and TextMeshPro setup steps that must be done before
+importing.</li>
+<li>Added a Requirements section to the onboarding window that checks your project
+and offers one-click fixes.</li>
+<li>Added a setup troubleshooting guide to the README and online docs.</li>
+<li>Completed the scripting API reference so every public type is documented, with
+engine and inspector-only members filtered out to keep it focused on the API
+you call.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/changelog.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

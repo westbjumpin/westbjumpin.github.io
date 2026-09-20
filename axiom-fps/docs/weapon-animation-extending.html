@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Extending the Weapon Animation System </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Extending the Weapon Animation System ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="extending-the-weapon-animation-system">Extending the Weapon Animation System</h1>
+
+<p>The Animator template is a convention, not a cage. There are three levels of
+extension, and most of what people want needs no C# at all.</p>
+<h2 id="the-naming-contract">The naming contract</h2>
+<p>Everything the runtime touches is addressed by name. Keep these names and the
+runtime keeps working, whatever else you add to the graph.</p>
+<p><strong>Layers</strong></p>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Name</th>
+<th>Blending</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>Base</code></td>
+<td>locomotion</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>Actions</code></td>
+<td>Override, weight 1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>States</strong> — Base: <code>Idle</code>, <code>Walk</code>, <code>Sprint</code>, <code>Slide</code>, <code>Wallrun</code>, <code>SwimIdle</code>,
+<code>SwimForward</code>, <code>SwimBackward</code>, <code>SwimUp</code>, <code>SwimDown</code>. Actions: <code>None</code> (default,
+<strong>no motion</strong>), <code>Equip</code>, <code>Fire</code>, <code>FireADS</code>, <code>Reload</code>, <code>ReloadEmpty</code>, <code>Inspect</code>,
+<code>Holster</code>.</p>
+<p><code>Slide</code> and <code>Wallrun</code> hang off <strong>Any State</strong> (with <em>Can Transition To Self</em> off)
+rather than being threaded into the Idle→Walk→Sprint chain, because either can
+begin from any point in it. Each has three exits — back to Sprint, Walk or Idle
+— so ending a slide into a sprint doesn't blend through the idle pose.</p>
+<p><code>Sprint</code>, <code>Slide</code> and <code>Wallrun</code> additionally require <code>IsADS</code> to be false, and
+each has an extra exit back to <code>Walk</code> on <code>IsADS</code> becoming true: these poses take
+the hands off the sights and would fight the procedural ADS pose. If you have
+authored an aimed sprint or slide, delete those <code>IsADS</code> conditions in your copy
+of the controller.</p>
+<p>The five swim states also hang off <strong>Any State</strong>, on <code>IsSwimming</code> plus a
+<code>SwimDirection</code> equality test, so changing direction needs no state-to-state
+transitions. They are <strong>not</strong> gated on <code>IsADS</code> — see the integration matrix for
+why.</p>
+<p><strong>Parameters</strong> — <code>Speed</code> (float), <code>IsSprinting</code>, <code>IsSliding</code>, <code>IsWallrunning</code>,
+<code>IsSwimming</code>, <code>IsADS</code>, <code>IsReloading</code> (bools), <code>SwimDirection</code> (int: 0 idle,
+1 forward, 2 backward, 3 up, 4 down), <code>ReloadSpeed</code>, <code>EquipSpeed</code>,
+<code>HolsterSpeed</code> (floats, bound as per-state speed multipliers).</p>
+<p>All of it lives in one place in code: <code>AFPS_WeaponAnimatorContract</code>.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><strong>Never use Animator triggers</strong> in a weapon graph. Switching weapons
+re-activates the model, which rebinds the Animator and clears its parameters —
+a trigger set on that frame is silently dropped, so the animation you most
+need (the draw) is the one most likely to go missing. The shipped runtime uses
+<code>Play</code>/<code>CrossFade</code> with hashed state IDs for exactly this reason. Drive your
+own states the same way, or from bool/float parameters.</p>
+</div>
+<h2 id="level-1--extend-the-graph-no-code">Level 1 — extend the graph (no code)</h2>
+<p>Duplicate <code>WeaponAnimatorTemplate.controller</code>, add whatever you like — blend
+trees for directional walk, a sub-state machine for a multi-stage reload,
+additive layers — then base your weapon's override controller on your copy
+instead of the shipped one. Keep the contract names above and every built-in
+behaviour keeps working.</p>
+<p>The inspector notices that you are on a non-shipped controller and says so as an
+<em>info</em> message, not an error.</p>
+<p>Regenerating the shipped template (<strong>Tools ▸ AFPS ▸ Generate Weapon Animator
+Template</strong>) rewrites only the shipped asset in place — it never touches your
+copy or any override controller, and it preserves asset GUIDs so existing
+weapons keep their slots.</p>
+<h2 id="level-2--call-the-playback-api">Level 2 — call the playback API</h2>
+<pre><code class="lang-csharp">// Any state on the Actions layer, entered exactly like the built-ins.
+static readonly int MeleeHash = Animator.StringToHash(&quot;Melee&quot;);
+
+myWeaponAnimator.PlayAction(MeleeHash, 0.05f);
+</code></pre>
+<p><code>PlayAction</code> is guarded the same way the internal handlers are, so it is safe to
+call while the weapon is being switched away or dropped.</p>
+<p>Also public: <code>PlayInspect()</code>, <code>HasClip(slot)</code>, <code>ClipLength(slot)</code>,
+<code>HolsterDuration</code>, <code>Animator</code>, and a <code>Has…Clip</code> property per slot.</p>
+<h2 id="level-3--subclass">Level 3 — subclass</h2>
+<p>Every event handler is <code>protected virtual</code>:</p>
+<pre><code class="lang-csharp">public class MyWeaponAnimator : AFPS_WeaponAnimator
+{
+    protected override void HandleFireEmitted(FireWeaponBase fireScript, bool released)
+    {
+        base.HandleFireEmitted(fireScript, released);   // keep the shipped fire clip
+        if (fireScript is ProjectileFire)
+            PlayAction(GrenadeThrowHash, 0.05f);
+    }
+}
+</code></pre>
+<p>Overridable: <code>HandleFireEmitted</code>, <code>HandleEquipStarted</code>, <code>HandleDeEquipStarted</code>,
+<code>HandleReloadStateChanged</code>. The custom inspector applies to subclasses too, so
+you keep the setup button, slot list and validation for free.</p>
+<h2 id="recipe-per-pool-reload-clips">Recipe: per-pool reload clips</h2>
+<p>Out of the box one designated ammo pool drives the reload clip. To animate a
+second pool (an underbarrel launcher, say) differently:</p>
+<ol>
+<li>Add a <code>LauncherReload</code> state to your duplicated controller, on the Actions
+layer, returning to <code>None</code> on exit time.</li>
+<li>Subclass and route the second pool:</li>
+</ol>
+<pre><code class="lang-csharp">static readonly int LauncherReloadHash = Animator.StringToHash(&quot;LauncherReload&quot;);
+
+protected override void HandleReloadStateChanged(AFPS_WeaponAmmo pool, bool started)
+{
+    // The designated pool keeps the shipped behaviour.
+    base.HandleReloadStateChanged(pool, started);
+
+    if (pool != launcherPool || !started)
+        return;
+
+    PlayAction(LauncherReloadHash, 0.1f);
+}
+</code></pre>
+<p>Assign <code>launcherPool</code> from <code>GetComponents&lt;AFPS_WeaponAmmo&gt;()</code> in <code>Awake</code>, and
+speed-sync it yourself from <code>pool.ReloadDuration</code> if the clip lengths differ.</p>
+<h2 id="adding-an-inspect-key">Adding an Inspect key</h2>
+<p>The asset deliberately ships no <code>Inspect</code> action — adding one to
+<code>AFPS_PlayerActions</code> would force every existing project to merge an input asset
+change for a cosmetic feature. If you add an action named exactly <code>Inspect</code> to
+your own copy of the input asset, <code>AFPS_WeaponAnimator</code> finds it by name when
+the weapon is equipped and subscribes to it automatically. Nothing else to wire.</p>
+<h2 id="events-from-clips">Events from clips</h2>
+<p><code>AFPS_WeaponAnimationEventReceiver</code> forwards <code>AnimEvent(&quot;Key&quot;)</code> to a keyed
+<code>AudioClip</code> + <code>UnityEvent</code> pair, and <code>AnimSFX(clip)</code> plays an <code>AudioClip</code> passed
+directly in the event's Object field. Both are cosmetic-only by design — see the
+warning in <a href="weapon-animation-quick-start.html">Quick Start</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/weapon-animation-extending.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

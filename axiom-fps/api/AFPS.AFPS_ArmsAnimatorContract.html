@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_ArmsAnimatorContract </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_ArmsAnimatorContract ">
+    
+    <meta name="description" content="Single source of truth for the shared movement arms&#39; animator: state names, parameter names, and their pre-hashed IDs. The arms mirror  deliberately — same two-layer shape, same locomotion vocabulary, same swim directions — so that learning one teaches you the other, and so the two can be driven from one shared movement snapshot. Every hash is a static readonly computed from a const string: a pure computation with no mutable static state, so it survives Enter Play Mode with domain reload disabled.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_ArmsAnimatorContract">
+
+
+
+  <h1 id="AFPS_AFPS_ArmsAnimatorContract" data-uid="AFPS.AFPS_ArmsAnimatorContract" class="text-break">Class AFPS_ArmsAnimatorContract</h1>
+  <div class="markdown level0 summary"><p>Single source of truth for the shared movement arms' animator: state names, parameter names, and
+their pre-hashed IDs. The arms mirror <a class="xref" href="AFPS.AFPS_WeaponAnimatorContract.html">AFPS_WeaponAnimatorContract</a> deliberately —
+same two-layer shape, same locomotion vocabulary, same swim directions — so that learning one
+teaches you the other, and so the two can be driven from one shared movement snapshot.</p>
+<p>Every hash is a <code>static readonly</code> computed from a const string: a pure computation with no
+mutable static state, so it survives Enter Play Mode with domain reload disabled.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">AFPS_ArmsAnimatorContract</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_ArmsAnimatorContract_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AFPS_ArmsAnimatorContract</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_ActionsLayer.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.ActionsLayer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L53">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_ActionsLayer" data-uid="AFPS.AFPS_ArmsAnimatorContract.ActionsLayer">ActionsLayer</h4>
+  <div class="markdown level1 summary"><p>Index of the Actions layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ActionsLayer = 1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_ActionsLayerName.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.ActionsLayerName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L48">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_ActionsLayerName" data-uid="AFPS.AFPS_ArmsAnimatorContract.ActionsLayerName">ActionsLayerName</h4>
+  <div class="markdown level1 summary"><p>Name of the one-shot layer, Override blending at weight 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ActionsLayerName = &quot;Actions&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_AnimationFolder.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.AnimationFolder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L298">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_AnimationFolder" data-uid="AFPS.AFPS_ArmsAnimatorContract.AnimationFolder">AnimationFolder</h4>
+  <div class="markdown level1 summary"><p>Folder new arms override controllers are created in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AnimationFolder = &quot;Assets/Axiom FPS/Presets/Arms Animation&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_BaseLayer.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.BaseLayer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L51">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_BaseLayer" data-uid="AFPS.AFPS_ArmsAnimatorContract.BaseLayer">BaseLayer</h4>
+  <div class="markdown level1 summary"><p>Index of the Base layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int BaseLayer = 0</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_BaseLayerName.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.BaseLayerName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_BaseLayerName" data-uid="AFPS.AFPS_ArmsAnimatorContract.BaseLayerName">BaseLayerName</h4>
+  <div class="markdown level1 summary"><p>Name of the continuous-pose layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string BaseLayerName = &quot;Base&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_ClimbState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.ClimbState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L70">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_ClimbState" data-uid="AFPS.AFPS_ArmsAnimatorContract.ClimbState">ClimbState</h4>
+  <div class="markdown level1 summary"><p>Base-layer climb state — walls AND ladders, which reuse the climb reach.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ClimbState = &quot;Climb&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_ClimbStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.ClimbStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L108">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_ClimbStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.ClimbStateHash">ClimbStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_ClimbState">ClimbState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int ClimbStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_CrouchState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.CrouchState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L64">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_CrouchState" data-uid="AFPS.AFPS_ArmsAnimatorContract.CrouchState">CrouchState</h4>
+  <div class="markdown level1 summary"><p>Base-layer crouch state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string CrouchState = &quot;Crouch&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_CrouchStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.CrouchStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L102">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_CrouchStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.CrouchStateHash">CrouchStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_CrouchState">CrouchState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int CrouchStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_GrabState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.GrabState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L91">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_GrabState" data-uid="AFPS.AFPS_ArmsAnimatorContract.GrabState">GrabState</h4>
+  <div class="markdown level1 summary"><p>Actions-layer one-shot played when the player grabs or picks something up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string GrabState = &quot;Grab&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_GrabStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.GrabStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L129">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_GrabStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.GrabStateHash">GrabStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_GrabState">GrabState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int GrabStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IdleState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IdleState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L58">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IdleState" data-uid="AFPS.AFPS_ArmsAnimatorContract.IdleState">IdleState</h4>
+  <div class="markdown level1 summary"><p>Base-layer default state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IdleState = &quot;Idle&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IdleStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IdleStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L96">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IdleStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IdleStateHash">IdleStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IdleState">IdleState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IdleStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsClimbingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsClimbingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L144">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsClimbingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsClimbingParam">IsClimbingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: climbing a wall or a ladder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsClimbingParam = &quot;IsClimbing&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsClimbingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsClimbingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L165">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsClimbingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsClimbingParamHash">IsClimbingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsClimbingParam">IsClimbingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsClimbingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsCrouchingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsCrouchingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L138">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsCrouchingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsCrouchingParam">IsCrouchingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: crouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsCrouchingParam = &quot;IsCrouching&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsCrouchingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsCrouchingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L159">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsCrouchingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsCrouchingParamHash">IsCrouchingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsCrouchingParam">IsCrouchingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsCrouchingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsLedgeGrabbingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsLedgeGrabbingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L146">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsLedgeGrabbingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsLedgeGrabbingParam">IsLedgeGrabbingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: hanging from a ledge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsLedgeGrabbingParam = &quot;IsLedgeGrabbing&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsLedgeGrabbingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsLedgeGrabbingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L167">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsLedgeGrabbingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsLedgeGrabbingParamHash">IsLedgeGrabbingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsLedgeGrabbingParam">IsLedgeGrabbingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsLedgeGrabbingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSlidingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSlidingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L140">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSlidingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSlidingParam">IsSlidingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: sliding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsSlidingParam = &quot;IsSliding&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSlidingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSlidingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L161">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSlidingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSlidingParamHash">IsSlidingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsSlidingParam">IsSlidingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsSlidingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSprintingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSprintingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L136">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSprintingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSprintingParam">IsSprintingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: sprinting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsSprintingParam = &quot;IsSprinting&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSprintingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSprintingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L157">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSprintingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSprintingParamHash">IsSprintingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsSprintingParam">IsSprintingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsSprintingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSwimmingParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSwimmingParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L148">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSwimmingParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSwimmingParam">IsSwimmingParam</h4>
+  <div class="markdown level1 summary"><p>Bool: swimming.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsSwimmingParam = &quot;IsSwimming&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsSwimmingParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsSwimmingParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L169">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsSwimmingParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsSwimmingParamHash">IsSwimmingParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsSwimmingParam">IsSwimmingParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsSwimmingParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsWallrunningParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsWallrunningParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L142">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsWallrunningParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsWallrunningParam">IsWallrunningParam</h4>
+  <div class="markdown level1 summary"><p>Bool: wallrunning.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string IsWallrunningParam = &quot;IsWallrunning&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsWallrunningParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsWallrunningParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L163">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsWallrunningParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsWallrunningParamHash">IsWallrunningParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_IsWallrunningParam">IsWallrunningParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int IsWallrunningParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_LedgeGrabState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.LedgeGrabState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L72">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_LedgeGrabState" data-uid="AFPS.AFPS_ArmsAnimatorContract.LedgeGrabState">LedgeGrabState</h4>
+  <div class="markdown level1 summary"><p>Base-layer ledge-hang state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string LedgeGrabState = &quot;LedgeGrab&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_LedgeGrabStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.LedgeGrabStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L110">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_LedgeGrabStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.LedgeGrabStateHash">LedgeGrabStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_LedgeGrabState">LedgeGrabState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int LedgeGrabStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_MantleState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.MantleState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L89">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_MantleState" data-uid="AFPS.AFPS_ArmsAnimatorContract.MantleState">MantleState</h4>
+  <div class="markdown level1 summary"><p>Actions-layer one-shot played as a mantle/vault begins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MantleState = &quot;Mantle&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_MantleStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.MantleStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L127">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_MantleStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.MantleStateHash">MantleStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_MantleState">MantleState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int MantleStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_NoneState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.NoneState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L85">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_NoneState" data-uid="AFPS.AFPS_ArmsAnimatorContract.NoneState">NoneState</h4>
+  <div class="markdown level1 summary"><p>Actions-layer default state carrying NO motion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string NoneState = &quot;None&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_NoneStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.NoneStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L123">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_NoneStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.NoneStateHash">NoneStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_NoneState">NoneState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int NoneStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_PlaceholderClipFolder.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.PlaceholderClipFolder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L296">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_PlaceholderClipFolder" data-uid="AFPS.AFPS_ArmsAnimatorContract.PlaceholderClipFolder">PlaceholderClipFolder</h4>
+  <div class="markdown level1 summary"><p>Folder the generated arms placeholder clips are written to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PlaceholderClipFolder = &quot;Assets/Axiom FPS/Presets/Arms Animation/Placeholder Clips&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_RunState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.RunState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L62">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_RunState" data-uid="AFPS.AFPS_ArmsAnimatorContract.RunState">RunState</h4>
+  <div class="markdown level1 summary"><p>Base-layer run/sprint state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RunState = &quot;Run&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_RunStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.RunStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L100">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_RunStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.RunStateHash">RunStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_RunState">RunState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int RunStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlideStartState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlideStartState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L87">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlideStartState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlideStartState">SlideStartState</h4>
+  <div class="markdown level1 summary"><p>Actions-layer one-shot played as a slide begins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SlideStartState = &quot;SlideStart&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlideStartStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlideStartStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L125">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlideStartStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlideStartStateHash">SlideStartStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SlideStartState">SlideStartState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SlideStartStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlideState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlideState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlideState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlideState">SlideState</h4>
+  <div class="markdown level1 summary"><p>Base-layer slide state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SlideState = &quot;Slide&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlideStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlideStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L104">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlideStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlideStateHash">SlideStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SlideState">SlideState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SlideStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotCount.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L176">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotCount" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotCount">SlotCount</h4>
+  <div class="markdown level1 summary"><p>Number of clip slots. Every per-slot array is this long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int SlotCount = 16</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotDisplayNames.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotDisplayNames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L212">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotDisplayNames" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotDisplayNames">SlotDisplayNames</h4>
+  <div class="markdown level1 summary"><p>Human-readable slot labels for the inspector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string[] SlotDisplayNames</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotLayers.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotLayers%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L221">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotLayers" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotLayers">SlotLayers</h4>
+  <div class="markdown level1 summary"><p>Layer each slot's state lives on, indexed by <a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int[] SlotLayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotPlaceholderClipNames.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotPlaceholderClipNames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L203">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotPlaceholderClipNames" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotPlaceholderClipNames">SlotPlaceholderClipNames</h4>
+  <div class="markdown level1 summary"><p>Name of the shipped placeholder clip occupying each slot. These names double as the &quot;slot is
+empty&quot; marker, exactly as in the weapon contract.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string[] SlotPlaceholderClipNames</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotStateHashes.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotStateHashes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L191">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotStateHashes" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotStateHashes">SlotStateHashes</h4>
+  <div class="markdown level1 summary"><p>State hash each slot's clip plays in, indexed by <a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int[] SlotStateHashes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotStateNames.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotStateNames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L182">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotStateNames" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotStateNames">SlotStateNames</h4>
+  <div class="markdown level1 summary"><p>State name each slot's clip plays in, indexed by <a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string[] SlotStateNames</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SpeedParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SpeedParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L134">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SpeedParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.SpeedParam">SpeedParam</h4>
+  <div class="markdown level1 summary"><p>Float: horizontal player speed in m/s. Drives Idle↔Walk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SpeedParam = &quot;Speed&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SpeedParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SpeedParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L155">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SpeedParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SpeedParamHash">SpeedParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SpeedParam">SpeedParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SpeedParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimBackwardState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimBackwardState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L78">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimBackwardState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimBackwardState">SwimBackwardState</h4>
+  <div class="markdown level1 summary"><p>Base-layer swim state: backing up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimBackwardState = &quot;SwimBackward&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimBackwardStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimBackwardStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L116">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimBackwardStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimBackwardStateHash">SwimBackwardStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimBackwardState">SwimBackwardState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimBackwardStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimDirectionParam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimDirectionParam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L150">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimDirectionParam" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimDirectionParam">SwimDirectionParam</h4>
+  <div class="markdown level1 summary"><p>Int: which swim pose to hold. Values match the weapon contract's SwimDirection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimDirectionParam = &quot;SwimDirection&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimDirectionParamHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimDirectionParamHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L171">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimDirectionParamHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimDirectionParamHash">SwimDirectionParamHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimDirectionParam">SwimDirectionParam</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimDirectionParamHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimDownState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimDownState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L82">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimDownState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimDownState">SwimDownState</h4>
+  <div class="markdown level1 summary"><p>Base-layer swim state: diving.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimDownState = &quot;SwimDown&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimDownStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimDownStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L120">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimDownStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimDownStateHash">SwimDownStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimDownState">SwimDownState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimDownStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimForwardState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimForwardState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L76">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimForwardState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimForwardState">SwimForwardState</h4>
+  <div class="markdown level1 summary"><p>Base-layer swim state: stroking forward.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimForwardState = &quot;SwimForward&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimForwardStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimForwardStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L114">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimForwardStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimForwardStateHash">SwimForwardStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimForwardState">SwimForwardState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimForwardStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimIdleState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimIdleState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L74">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimIdleState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimIdleState">SwimIdleState</h4>
+  <div class="markdown level1 summary"><p>Base-layer swim state: treading water.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimIdleState = &quot;SwimIdle&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimIdleStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimIdleStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L112">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimIdleStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimIdleStateHash">SwimIdleStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimIdleState">SwimIdleState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimIdleStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimSlots.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimSlots%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L242">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimSlots" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimSlots">SwimSlots</h4>
+  <div class="markdown level1 summary"><p>The five swim slots in <a class="xref" href="AFPS.AFPS_WeaponAnimatorContract.html#AFPS_AFPS_WeaponAnimatorContract_SwimDirections">SwimDirections</a> order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly AFPS_ArmsAnimSlot[] SwimSlots</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimUpState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimUpState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L80">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimUpState" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimUpState">SwimUpState</h4>
+  <div class="markdown level1 summary"><p>Base-layer swim state: ascending.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SwimUpState = &quot;SwimUp&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimUpStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimUpStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L118">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimUpStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimUpStateHash">SwimUpStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_SwimUpState">SwimUpState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SwimUpStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_TemplateControllerPath.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.TemplateControllerPath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L294">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_TemplateControllerPath" data-uid="AFPS.AFPS_ArmsAnimatorContract.TemplateControllerPath">TemplateControllerPath</h4>
+  <div class="markdown level1 summary"><p>Project path of the generated arms template controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string TemplateControllerPath = &quot;Assets/Axiom FPS/Presets/Arms Animation/ArmsAnimatorTemplate.controller&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_WalkSpeedThreshold.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.WalkSpeedThreshold%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L179">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_WalkSpeedThreshold" data-uid="AFPS.AFPS_ArmsAnimatorContract.WalkSpeedThreshold">WalkSpeedThreshold</h4>
+  <div class="markdown level1 summary"><p>Speed (m/s) at which the Base layer leaves Idle for Walk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float WalkSpeedThreshold = 0.2</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_WalkState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.WalkState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L60">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_WalkState" data-uid="AFPS.AFPS_ArmsAnimatorContract.WalkState">WalkState</h4>
+  <div class="markdown level1 summary"><p>Base-layer walk state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string WalkState = &quot;Walk&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_WalkStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.WalkStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L98">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_WalkStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.WalkStateHash">WalkStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_WalkState">WalkState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int WalkStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_WallrunState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.WallrunState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L68">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_WallrunState" data-uid="AFPS.AFPS_ArmsAnimatorContract.WallrunState">WallrunState</h4>
+  <div class="markdown level1 summary"><p>Base-layer wallrun state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string WallrunState = &quot;Wallrun&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_WallrunStateHash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.WallrunStateHash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L106">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_WallrunStateHash" data-uid="AFPS.AFPS_ArmsAnimatorContract.WallrunStateHash">WallrunStateHash</h4>
+  <div class="markdown level1 summary"><p>Pre-hashed <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html#AFPS_AFPS_ArmsAnimatorContract_WallrunState">WallrunState</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int WallrunStateHash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsOneShotSlot_AFPS_AFPS_ArmsAnimSlot_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsOneShotSlot(AFPS.AFPS_ArmsAnimSlot)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L236">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsAnimatorContract_IsOneShotSlot_" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsOneShotSlot*"></a>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsOneShotSlot_AFPS_AFPS_ArmsAnimSlot_" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsOneShotSlot(AFPS.AFPS_ArmsAnimSlot)">IsOneShotSlot(AFPS_ArmsAnimSlot)</h4>
+  <div class="markdown level1 summary"><p>True for the three Actions-layer one-shots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOneShotSlot(AFPS_ArmsAnimSlot slot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a></td>
+        <td><span class="parametername">slot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_IsPlaceholderClip_UnityEngine_AnimationClip_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.IsPlaceholderClip(UnityEngine.AnimationClip)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L264">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsAnimatorContract_IsPlaceholderClip_" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsPlaceholderClip*"></a>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_IsPlaceholderClip_UnityEngine_AnimationClip_" data-uid="AFPS.AFPS_ArmsAnimatorContract.IsPlaceholderClip(UnityEngine.AnimationClip)">IsPlaceholderClip(AnimationClip)</h4>
+  <div class="markdown level1 summary"><p>True when the clip is one of the shipped arms placeholders, i.e. the slot is really empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPlaceholderClip(AnimationClip clip)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AnimationClip</span></td>
+        <td><span class="parametername">clip</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotIndexFromPlaceholderName_System_String_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotIndexFromPlaceholderName(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L278">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsAnimatorContract_SlotIndexFromPlaceholderName_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotIndexFromPlaceholderName*"></a>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotIndexFromPlaceholderName_System_String_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotIndexFromPlaceholderName(System.String)">SlotIndexFromPlaceholderName(string)</h4>
+  <div class="markdown level1 summary"><p>Slot index whose placeholder carries this name, or -1 when the name isn't part of the contract.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SlotIndexFromPlaceholderName(string clipName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clipName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SlotLoops_AFPS_AFPS_ArmsAnimSlot_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SlotLoops(AFPS.AFPS_ArmsAnimSlot)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L230">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsAnimatorContract_SlotLoops_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotLoops*"></a>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SlotLoops_AFPS_AFPS_ArmsAnimSlot_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SlotLoops(AFPS.AFPS_ArmsAnimSlot)">SlotLoops(AFPS_ArmsAnimSlot)</h4>
+  <div class="markdown level1 summary"><p>True for the continuous Base-layer poses, which loop and are polled rather than triggered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SlotLoops(AFPS_ArmsAnimSlot slot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a></td>
+        <td><span class="parametername">slot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract_SwimSlotForDirection_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract.SwimSlotForDirection(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L252">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsAnimatorContract_SwimSlotForDirection_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimSlotForDirection*"></a>
+  <h4 id="AFPS_AFPS_ArmsAnimatorContract_SwimSlotForDirection_System_Int32_" data-uid="AFPS.AFPS_ArmsAnimatorContract.SwimSlotForDirection(System.Int32)">SwimSlotForDirection(int)</h4>
+  <div class="markdown level1 summary"><p>Slot a SwimDirection value maps to; Swim Idle for anything unrecognised. Direction values are
+deliberately shared with the weapon contract so one movement snapshot drives both systems.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AFPS_ArmsAnimSlot SwimSlotForDirection(int direction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">direction</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsAnimatorContract.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsAnimatorContract%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Arms Animation/AFPS_ArmsAnimatorContract.cs/#L42" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

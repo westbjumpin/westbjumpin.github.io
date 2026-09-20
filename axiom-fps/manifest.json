@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/Projects/Axiom FPS/Movement-FPS-Asset/Documentation",
+  "source_base_path": "C:/Projects/Movement FPS Asset/Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -15,6 +15,20 @@
       "IsMRef": true,
       "Title": "AFPS.ADS",
       "Summary": "<p sourcefile=\"api/AFPS.ADS.yml\" sourcestartlinenumber=\"1\">FireWeaponBase-derived ADS handler: Fire() records aim intent and a per-frame reconcile blends the aim-down-sights state (pos/rot/FOV/spread plus crosshair/scope UI). Always CanFireNow=false (no recoil kick).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ADSPose.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ADSPose.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ADSPose",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ADSPose.yml\" sourcestartlinenumber=\"1\">Shared ADS pose math. The runtime pipeline (<xref href=\"AFPS.AFPS_WeaponObject\" data-throw-if-not-resolved=\"false\"></xref> / <xref href=\"AFPS.ADS\" data-throw-if-not-resolved=\"false\"></xref>)\nand the editor ADS preview both evaluate the aimed pose through here, so what a designer previews\nin the editor can't drift from what the player actually sees.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -130,6 +144,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_AnimationEventEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_AnimationEventEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_AnimationEventEntry",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AnimationEventEntry.yml\" sourcestartlinenumber=\"1\">One keyed cosmetic response to an animation event: an optional one-shot sound plus an optional\nUnityEvent for anything else (particles, prop toggles, socket spawns).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_ArmAnimationSettings.yml",
       "output": {
         ".html": {
@@ -140,7 +168,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ArmAnimationSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ArmAnimationSettings.yml\" sourcestartlinenumber=\"1\">Maps each MovementState to an ArmAnimation; consumed by AFPS_ArmsController to drive the arm Animator per state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ArmsAnimSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ArmsAnimSlot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ArmsAnimSlot",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ArmsAnimSlot.yml\" sourcestartlinenumber=\"1\">Clip slots the arms animator template exposes. Enum order IS the index order used by every\nper-slot array in <xref href=\"AFPS.AFPS_ArmsAnimatorContract\" data-throw-if-not-resolved=\"false\"></xref>, so the tables stay aligned without a\ndictionary lookup. Append new slots at the END only.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ArmsAnimatorContract.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ArmsAnimatorContract.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ArmsAnimatorContract",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ArmsAnimatorContract.yml\" sourcestartlinenumber=\"1\">Single source of truth for the shared movement arms' animator: state names, parameter names, and\ntheir pre-hashed IDs. The arms mirror <xref href=\"AFPS.AFPS_WeaponAnimatorContract\" data-throw-if-not-resolved=\"false\"></xref> deliberately —\nsame two-layer shape, same locomotion vocabulary, same swim directions — so that learning one\nteaches you the other, and so the two can be driven from one shared movement snapshot.</p>\n<p sourcefile=\"api/AFPS.AFPS_ArmsAnimatorContract.yml\" sourcestartlinenumber=\"6\">Every hash is a <code>static readonly</code> computed from a const string: a pure computation with no\nmutable static state, so it survives Enter Play Mode with domain reload disabled.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -154,7 +210,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ArmsController",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ArmsController.yml\" sourcestartlinenumber=\"1\">Drives the shared first-person movement arms — the rig used for climbing, ledge hangs, mantles,\nslides and swimming, independent of whichever weapon is held.</p>\n<p sourcefile=\"api/AFPS.AFPS_ArmsController.yml\" sourcestartlinenumber=\"4\">Rebuilt on the same architecture as <xref href=\"AFPS.AFPS_WeaponAnimator\" data-throw-if-not-resolved=\"false\"></xref>: one generated template\ncontroller, a per-player <code>AnimatorOverrideController</code> whose named slots you drop clips into,\nhashed state and parameter IDs from <xref href=\"AFPS.AFPS_ArmsAnimatorContract\" data-throw-if-not-resolved=\"false\"></xref>, and playback driven by\n<code>Play</code>/<code>CrossFade</code> rather than triggers. Continuous poses are POLLED from the shared\n<xref href=\"AFPS.AFPS_MovementAnimationSampler\" data-throw-if-not-resolved=\"false\"></xref> snapshot — the same one the weapon animator reads, so\nthe arms and the weapon can never disagree about what the player is doing. Only genuine one-shots\n(grab, mantle, slide-start) are pushed in by callers.</p>\n<p sourcefile=\"api/AFPS.AFPS_ArmsController.yml\" sourcestartlinenumber=\"12\">LEGACY MODE: when the assigned controller is not contract-shaped — most importantly the shipped\nhand-authored <code>Arms.controller</code> — this component behaves exactly as it always has, string\nparameters and triggers included. Existing projects therefore upgrade with no change in behaviour\nand migrate when they choose to, with the Set Up Arms Animations button on this component.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -168,7 +224,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_AudioManager",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_AudioManager.yml\" sourcestartlinenumber=\"1\">Static helper for playing a random clip from a RandomAudioClipContainer at a random volume via PlayOneShot.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -214,6 +270,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_CheckpointRespawnStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_CheckpointRespawnStrategy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_CheckpointRespawnStrategy",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_CheckpointRespawnStrategy.yml\" sourcestartlinenumber=\"1\">Respawns through the existing <xref href=\"AFPS.AFPS_CheckpointManager\" data-throw-if-not-resolved=\"false\"></xref> — same position, same frozen HP,\nsame frozen status effects as the asset's original death behaviour. This is the strategy that keeps\na project's feel unchanged when it adopts the death screen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_ClimbMovementSettings.yml",
       "output": {
         ".html": {
@@ -224,7 +294,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ClimbMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ClimbMovementSettings.yml\" sourcestartlinenumber=\"1\">Wall-climb preset: detection radius/layers, PID-driven climb velocity curve, stamina drain, disconnect impulse, horizontal movement multiplier, and per-wall climb-count cap.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -256,6 +326,104 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ContainerInventory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ContainerInventory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ContainerInventory",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ContainerInventory.yml\" sourcestartlinenumber=\"1\">A lootable world container — chest, crate, locker, dead body, wall stash. Interacting binds its\ncontents to the inventory's secondary grid, resized to the size declared here, so the player loots\nthrough the same drag / rotate / stack interactions they already use on their own inventory.</p>\n<p sourcefile=\"api/AFPS.AFPS_ContainerInventory.yml\" sourcestartlinenumber=\"5\">Contents are live <xref href=\"AFPS.AFPS_ItemObject\" data-throw-if-not-resolved=\"false\"></xref> instances. While closed they are deactivated and\nparked under this GameObject, keeping their stack sizes, rotation, nested storage and the world\nobject they were picked up from; opening re-seats them in the cells they were left in. Authored\nloot (<xref href=\"AFPS.AFPS_ContainerInventory.startingContents\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"AFPS.AFPS_ContainerInventory.lootTable\" data-throw-if-not-resolved=\"false\"></xref>) stays as lightweight descriptors\nuntil first open.</p>\n<p sourcefile=\"api/AFPS.AFPS_ContainerInventory.yml\" sourcestartlinenumber=\"11\">Setup: put this on a world object with a collider on the interaction layer, and give the player an\n<xref href=\"AFPS.AFPS_ContainerUIController\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ContainerLootTable.LootEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ContainerLootTable.LootEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ContainerLootTable.LootEntry",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ContainerLootTable.LootEntry.yml\" sourcestartlinenumber=\"1\">One candidate line in a loot table: what can drop, how likely, and how big a stack.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ContainerLootTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ContainerLootTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ContainerLootTable",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ContainerLootTable.yml\" sourcestartlinenumber=\"1\">Weighted loot table for <xref href=\"AFPS.AFPS_ContainerInventory\" data-throw-if-not-resolved=\"false\"></xref>. Rolls a list of\n<xref href=\"AFPS.StoredItemDescriptor\" data-throw-if-not-resolved=\"false\"></xref> entries — the same serialisable shape the rest of the\ninventory uses for nested storage — so the result can sit dormant on a closed container and be\nmaterialised into real item objects the first time it is opened.</p>\n<p sourcefile=\"api/AFPS.AFPS_ContainerLootTable.yml\" sourcestartlinenumber=\"6\">Two passes run per roll: guaranteed entries always attempt (gated only by their own chance), then\nweighted entries fill the remaining roll count, picked proportionally to weight.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ContainerUIController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ContainerUIController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ContainerUIController",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ContainerUIController.yml\" sourcestartlinenumber=\"1\">Player-side owner of the secondary (&quot;container&quot;) inventory panel. One pooled\n<xref href=\"AFPS.AFPS_InventoryGrid\" data-throw-if-not-resolved=\"false\"></xref> is re-sized and re-pointed for whichever\n<xref href=\"AFPS.AFPS_ContainerInventory\" data-throw-if-not-resolved=\"false\"></xref> the player has open, so a 3x2 ammo box and a 10x6 corpse\nshare the same grid, binding and UI element.</p>\n<p sourcefile=\"api/AFPS.AFPS_ContainerUIController.yml\" sourcestartlinenumber=\"6\">It binds and unbinds containers (one at a time), marks the grid external so the rest of the\ninventory treats its contents as not-yet-owned loot, drives the UXML panel (title, live weight,\nClose and Take All), and closes the container when the inventory closes, the player walks away,\nor the player dies.</p>\n<p sourcefile=\"api/AFPS.AFPS_ContainerUIController.yml\" sourcestartlinenumber=\"11\">Place it on the same GameObject as <xref href=\"AFPS.AFPS_InventorySystem\" data-throw-if-not-resolved=\"false\"></xref> (or anywhere in the player\nhierarchy) and point it at the secondary grid. The UXML fields are optional: with no UIDocument\nassigned it still binds containers and simply shows/hides the grid GameObject, which is what a\nUGUI-based setup wants.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ControlAxes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ControlAxes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ControlAxes",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ControlAxes.yml\" sourcestartlinenumber=\"1\">Which player-control channels a lock suppresses. Flags, so a lock can hold any combination.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ControlLockStatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ControlLockStatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ControlLockStatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ControlLockStatusBehaviour.yml\" sourcestartlinenumber=\"1\">Status behaviour that locks the player's controls for the effect's duration — a Stun (lock everything),\na Root/Snare (movement only), a Silence-style disarm (firing only), or any mix. Holds a reference-counted\nlock on <xref href=\"AFPS.AFPS_PlayerControlLock\" data-throw-if-not-resolved=\"false\"></xref> while active and releases it when the effect ends, so\noverlapping locks compose correctly.</p>\n<p sourcefile=\"api/AFPS.AFPS_ControlLockStatusBehaviour.yml\" sourcestartlinenumber=\"6\">Player-only: it drives the player's movement/camera/weapon systems, so it no-ops on AI (whose &quot;stun&quot;\nwould be an AI-side concern). The control lock is reference-counted, so stacking two stuns and having one\nexpire keeps the player locked until the second ends.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_CorpseContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_CorpseContainer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_CorpseContainer",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_CorpseContainer.yml\" sourcestartlinenumber=\"1\">Turns a dead entity into a lootable body. Watches an <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> and, the moment it\ndies, fills the <xref href=\"AFPS.AFPS_ContainerInventory\" data-throw-if-not-resolved=\"false\"></xref> on this GameObject with the entity's gear —\na death loot table, an authored carried-items list, and optionally its equipped weapons — then\nenables the container so the player can interact with it.</p>\n<p sourcefile=\"api/AFPS.AFPS_CorpseContainer.yml\" sourcestartlinenumber=\"6\">While alive the container component is disabled, which is the interaction system's off-switch: no\ninteraction box, no prompt, no Interact() call. A living enemy therefore shows no loot affordance\nwithout any extra wiring.</p>\n<p sourcefile=\"api/AFPS.AFPS_CorpseContainer.yml\" sourcestartlinenumber=\"10\">For NPCs only. On the player it refuses to run and points you at\n<xref href=\"AFPS.AFPS_InventoryDeathHandler\" data-throw-if-not-resolved=\"false\"></xref>, which answers the same question without riding along\nthrough respawn as a lootable body attached to the living player.</p>\n<p sourcefile=\"api/AFPS.AFPS_CorpseContainer.yml\" sourcestartlinenumber=\"14\">Setup: put this and <xref href=\"AFPS.AFPS_ContainerInventory\" data-throw-if-not-resolved=\"false\"></xref> on the entity (or on a child owning the\ncorpse collider), leave the references empty to auto-resolve, and give the container a verb like\n&quot;Loot&quot;. The collider the player looks at must be on the same GameObject as the container — the\ninteraction system reads the collider it hits, and does not walk up to parents.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_CrosshairSettings.yml",
       "output": {
         ".html": {
@@ -266,7 +434,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_CrosshairSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_CrosshairSettings.yml\" sourcestartlinenumber=\"1\">Maps MovementState → Crosshair; UIManager selects the active entry each frame and transitions via IHUDLayer.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -280,7 +448,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_CrouchAndSlideSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_CrouchAndSlideSettings.yml\" sourcestartlinenumber=\"1\">Crouch and slide preset: speed thresholds, collider height, movement force/drag, slide impulse, and ceiling-clearance check distance.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -312,6 +480,132 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DamageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DamageType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DamageType",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DamageType.yml\" sourcestartlinenumber=\"1\">ScriptableObject identity for a kind of damage (Ballistic, Fire, Poison, …). Replaces the old\n<code>DamageType</code> enum so new types can be authored as assets and carry data: a display name and\ncolour for UI, a death-screen noun, and an optional list of status effects to auto-apply on a\ndirect hit. Referenced by <xref href=\"AFPS.DamageInfo.type\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"AFPS.DamageTypeResistance.type\" data-throw-if-not-resolved=\"false\"></xref>,\nweapon/explosion settings, and <xref href=\"AFPS.AFPS_StatusEffect.damageType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DashSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DashSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DashSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DashSettings.yml\" sourcestartlinenumber=\"1\">Dash preset: every tuning value for <xref href=\"AFPS.Dash\" data-throw-if-not-resolved=\"false\"></xref> — direction mode and force, the pre-dash\nvelocity reset, the momentum the dash keeps afterwards, and the optional charge-up windup.</p>\n<p sourcefile=\"api/AFPS.AFPS_DashSettings.yml\" sourcestartlinenumber=\"4\">Swap the asset to swap the whole feel of the dash. Only the SFX containers stay on the component,\nsince those are per-instance rather than per-preset.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathBodyHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathBodyHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathBodyHandler",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathBodyHandler.yml\" sourcestartlinenumber=\"1\">Optional companion to <xref href=\"AFPS.AFPS_DeathController\" data-throw-if-not-resolved=\"false\"></xref> that decides what the camera is looking at\nduring a death. A freezecam or orbit shot pointed at a hidden first-person capsule looks broken —\nthis is what gives those modes a subject.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathBodyHandler.yml\" sourcestartlinenumber=\"5\">Add it to the player only when the death screen actually leaves first person; the controller works\nfine without it. Whatever this produces is written back into <xref href=\"AFPS.DeathContext.body\" data-throw-if-not-resolved=\"false\"></xref>, which\nis the transform every camera mode frames.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathCameraMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathCameraMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathCameraMode",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathCameraMode.yml\" sourcestartlinenumber=\"1\">Base class for everything the camera can do while the player is dead. Subclass, override\n<xref href=\"AFPS.AFPS_DeathCameraMode.Sample(AFPS.DeathContext%2cSystem.Single)\" data-throw-if-not-resolved=\"false\"></xref>, and the asset gets a new death camera with no changes to the death\ncontroller — the same extension model as <xref href=\"AFPS.AbilityBase\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathCameraMode.yml\" sourcestartlinenumber=\"5\">Subclasses only describe where the camera wants to be; the blend from the pose the player died\nholding into that target is handled here so every mode gets easing, dolly-in, and FOV blending\nfor free.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathCameraMode.yml\" sourcestartlinenumber=\"9\">Runtime state: modes are shared assets, so any per-death state a subclass caches must be reset in\n<xref href=\"AFPS.AFPS_DeathCameraMode.Begin(AFPS.DeathContext)\" data-throw-if-not-resolved=\"false\"></xref>. The shipped modes are pure functions of elapsed time and the context.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathController",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathController.yml\" sourcestartlinenumber=\"1\">Owns the window between dying and respawning. Add it to the player and\n<xref href=\"AFPS.AFPS_Health.Die\" data-throw-if-not-resolved=\"false\"></xref> stops respawning instantly and hands the death over here instead;\nremove it and the asset reverts to its original instant-checkpoint behaviour. Nothing else has to\nchange either way — the presence of this component is the switch.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathController.yml\" sourcestartlinenumber=\"6\">The sequence itself is described entirely by the <xref href=\"AFPS.AFPS_DeathSettings\" data-throw-if-not-resolved=\"false\"></xref> asset in\n<xref href=\"AFPS.AFPS_DeathController.settings\" data-throw-if-not-resolved=\"false\"></xref>: timing, camera mode, respawn strategy, screen text, and policy. Swapping\nthat one asset is how a flat &quot;YOU DIED&quot; overlay becomes a killcam.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathController.yml\" sourcestartlinenumber=\"10\">Runs at a late execution order so its camera drive lands after <xref href=\"AFPS.AFPS_Camera\" data-throw-if-not-resolved=\"false\"></xref> has had\nits turn, and times everything on the unscaled clock so death-screen countdowns survive time\ndilation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathScreenUGUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathScreenUGUI.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathScreenUGUI",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathScreenUGUI.yml\" sourcestartlinenumber=\"1\">UGUI death screen, for projects still on the Canvas-based HUD. Functionally identical to\n<xref href=\"AFPS.AFPS_DeathScreenUIToolkit\" data-throw-if-not-resolved=\"false\"></xref> — same contract, same settings, same behaviour — so the two\ncan be swapped on the controller without touching anything else.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathScreenUGUI.yml\" sourcestartlinenumber=\"5\">Every reference is optional: wire up only the pieces the screen actually shows.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathScreenUIToolkit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathScreenUIToolkit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathScreenUIToolkit",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathScreenUIToolkit.yml\" sourcestartlinenumber=\"1\">UI Toolkit death screen, rendered from <code>UI Toolkit/DeathScreen/DeathScreen.uxml</code>. Matches how\nthe pause and main menus are built in this asset: a <xref href=\"UnityEngine.UIElements.UIDocument\" data-throw-if-not-resolved=\"false\"></xref> on its own GameObject,\nelements resolved by name, styling left entirely to USS.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathScreenUIToolkit.yml\" sourcestartlinenumber=\"5\">Every element is optional — delete the countdown label or the prompt from the UXML and this keeps\nworking. Only the names matter, so a project can rebuild the layout from scratch as long as it\nkeeps them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathScreenView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathScreenView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathScreenView",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathScreenView.yml\" sourcestartlinenumber=\"1\">Base for whatever draws the death screen. <xref href=\"AFPS.AFPS_DeathController\" data-throw-if-not-resolved=\"false\"></xref> talks to this and\nnothing else, so the UGUI and UI Toolkit implementations are interchangeable — and a project can\nsubclass this to render the screen its own way without touching the death flow.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathScreenView.yml\" sourcestartlinenumber=\"5\">Leaving the controller's view slot empty is a supported configuration: the death sequence still\nruns its camera, timing, and respawn, it just draws no UI. That is how a purely cinematic death\n(freezecam into an automatic respawn) is authored.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_DeathSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_DeathSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_DeathSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_DeathSettings.yml\" sourcestartlinenumber=\"1\">One death screen, described end to end: how long the sequence runs, what the camera does, what\nhappens to the body, what the screen says, and what brings the player back.</p>\n<p sourcefile=\"api/AFPS.AFPS_DeathSettings.yml\" sourcestartlinenumber=\"4\">Swapping this one asset on <xref href=\"AFPS.AFPS_DeathController\" data-throw-if-not-resolved=\"false\"></xref> is the whole customisation story —\nthe shipped presets in <code>Presets/Death</code> are the same component configured four different ways.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_DragableObject.yml",
       "output": {
         ".html": {
@@ -336,7 +630,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_EquipAnimationWeaponObjectSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_EquipAnimationWeaponObjectSettings.yml\" sourcestartlinenumber=\"1\">Weapon equip/de-equip animation preset: resting position/rotation, equip start/end transforms, and per-axis LeanTween duration and easing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_EventRespawnStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_EventRespawnStrategy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_EventRespawnStrategy",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_EventRespawnStrategy.yml\" sourcestartlinenumber=\"1\">Does nothing itself — raises <xref href=\"AFPS.AFPS_EventRespawnStrategy.OnRespawnRequested\" data-throw-if-not-resolved=\"false\"></xref> and lets your own code decide where\nthe player goes. This is the escape hatch for anything the shipped strategies don't cover: a\nnetworked spawn handshake, a spectator queue, a wave-based arena that spawns you when the round\nflips.</p>\n<p sourcefile=\"api/AFPS.AFPS_EventRespawnStrategy.yml\" sourcestartlinenumber=\"6\">Subscribe before the player can die (Awake/OnEnable on a manager), move the player in the handler,\nand set <xref href=\"AFPS.AFPS_EventRespawnStrategy.restoresHealth\" data-throw-if-not-resolved=\"false\"></xref> to match whether your handler also sets HP.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -364,7 +672,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ExplosionMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ExplosionMovementSettings.yml\" sourcestartlinenumber=\"1\">Explosion response preset: toggles input-disable and drag-override on blast hit, with per-explosion duration controlled by the caller.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -378,7 +686,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_FOVEffectsCameraSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_FOVEffectsCameraSettings.yml\" sourcestartlinenumber=\"1\">Velocity-driven FOV preset for main and weapon cameras. The peak velocity FOV is a multiplier of the (runtime-mutable) base FOV, reached as the player approaches their configured top movement speed — so the effect scales with both the player's chosen FOV and their movement tuning, with no manual velocity threshold to keep in sync.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -406,7 +714,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_FluidMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_FluidMovementSettings.yml\" sourcestartlinenumber=\"1\">Fluid (swim/water) preset: movement mode (Default/Swim/NoSwim), swim speed, acceleration, and ascend/descend rates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_FollowBodyDeathCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_FollowBodyDeathCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_FollowBodyDeathCamera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_FollowBodyDeathCamera.yml\" sourcestartlinenumber=\"1\">Third-person camera that tracks the body — the corpse prefab or ragdoll produced by\n<xref href=\"AFPS.AFPS_DeathBodyHandler\" data-throw-if-not-resolved=\"false\"></xref>, or the player transform when neither exists. Pairs with a\nragdoll: the camera hangs back at a fixed offset while the body tumbles, so the fall is readable.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -420,7 +742,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_FootstepSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_FootstepSettings.yml\" sourcestartlinenumber=\"1\">ScriptableObject map from PhysicsMaterial → AudioResource for surface-driven footstep sounds; defaultAudioResource plays on unmapped surfaces.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_FreezeDeathCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_FreezeDeathCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_FreezeDeathCamera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_FreezeDeathCamera.yml\" sourcestartlinenumber=\"1\">Holds the exact camera pose the player died with — the classic freezecam. The camera stops being\ndriven by the body, so it no longer bobs, tilts, or follows a ragdoll falling over: the last frame\nof gameplay simply hangs there.</p>\n<p sourcefile=\"api/AFPS.AFPS_FreezeDeathCamera.yml\" sourcestartlinenumber=\"5\">The optional dolly and drift turn that frozen frame into a slow reveal without leaving the pose:\npull back to show the room the player died in, rise to look down at the body, or add a barely\nperceptible yaw so the shot doesn't read as a screenshot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_GrapplingHookSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_GrapplingHookSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_GrapplingHookSettings",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_GrapplingHookSettings.yml\" sourcestartlinenumber=\"1\">Grappling hook preset: every tuning value for <xref href=\"AFPS.GrapplingHook\" data-throw-if-not-resolved=\"false\"></xref> — attach rules, reel and\nmomentum, pendulum tension, swing control, movable-anchor mass split, and the auto-detach conditions.</p>\n<p sourcefile=\"api/AFPS.AFPS_GrapplingHookSettings.yml\" sourcestartlinenumber=\"4\">Swap the asset to swap the whole feel of the grapple. Scene-bound references (the rope LineRenderer)\nand the SFX containers stay on the component, since those are per-instance rather than per-preset.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -434,7 +784,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_GroundingAndSlopeMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_GroundingAndSlopeMovementSettings.yml\" sourcestartlinenumber=\"1\">Grounding and slope preset: sphere-cast radius/distance/layers, slope max-angle and push force, and PID-driven float/step-height controller tuning.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -448,7 +798,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_HeadbobCameraSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HeadbobCameraSettings.yml\" sourcestartlinenumber=\"1\">Procedural headbob preset: Sine or Curve mode, velocity-scaled frequency/amplitude, per-state suppression, and stabilization tuning.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -518,7 +868,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_HitBobCameraSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HitBobCameraSettings.yml\" sourcestartlinenumber=\"1\">Acceleration-driven camera bob preset: acceleration scale/clamp, rebound, damping, and per-axis rotation multipliers for physics-impact shake.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -546,7 +896,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_Hitmarker",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Hitmarker.yml\" sourcestartlinenumber=\"1\">UGUI hitmarker instance: runs start→base→end LeanTween sequence driven by AFPS_HitmarkerSettings, then self-destructs.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -560,7 +910,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_HitmarkerSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HitmarkerSettings.yml\" sourcestartlinenumber=\"1\">Three-phase hitmarker preset (start→base hold→end): sprite, sound + delay, per-phase size/rotation/color and LeanTween easing.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -574,7 +924,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_HorizontalMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_HorizontalMovementSettings.yml\" sourcestartlinenumber=\"1\">Ground and air movement preset: drag, acceleration, max speed, and air-strafe speed for both grounded and airborne states.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -588,7 +938,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_InputManager",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InputManager.yml\" sourcestartlinenumber=\"1\">Bootstraps the static AFPS_PlayerActions instance, applies saved keybindings, enables the Player action map, and exposes ToggleActionMap for UI/gameplay context switches.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -631,6 +981,20 @@
       "IsMRef": true,
       "Title": "AFPS.AFPS_InteractionSystem",
       "Summary": "<p sourcefile=\"api/AFPS.AFPS_InteractionSystem.yml\" sourcestartlinenumber=\"1\">Player interaction controller: runs dual spherecasts each Update (weapon and general layers), manages look-targeting UI, routes press/held-press events to <xref href=\"AFPS.AFPS_Interactable.Interact(AFPS.AFPS_InteractionSystem)\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"AFPS.AFPS_PickupInteractable.Pickup(AFPS.AFPS_InventorySystem)\" data-throw-if-not-resolved=\"false\"></xref>, and owns the active <xref href=\"AFPS.AFPS_DragableObject\" data-throw-if-not-resolved=\"false\"></xref> reference.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_InventoryDeathHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_InventoryDeathHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_InventoryDeathHandler",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_InventoryDeathHandler.yml\" sourcestartlinenumber=\"1\">Decides what happens to the player's inventory when they die: keep it, drop it into a lootable\ncontainer at the death position, or destroy it.</p>\n<p sourcefile=\"api/AFPS.AFPS_InventoryDeathHandler.yml\" sourcestartlinenumber=\"4\">Hooks <xref href=\"AFPS.AFPS_Health.OnDied\" data-throw-if-not-resolved=\"false\"></xref>, which fires before either respawn path runs, so the death\nposition is still the player's real one. Nothing else in the death system touches the inventory,\nso this component is the whole feature — remove it and deaths keep everything.</p>\n<p sourcefile=\"api/AFPS.AFPS_InventoryDeathHandler.yml\" sourcestartlinenumber=\"8\">Dropped items keep their identity: stack sizes, rotation, nested storage, and the world objects\nthey were picked up from all survive into the container, so looting your own grave returns exactly\nwhat you lost.</p>\n<p sourcefile=\"api/AFPS.AFPS_InventoryDeathHandler.yml\" sourcestartlinenumber=\"12\">Drop To Container can put the loot in its own container on the ground, or inside the corpse the\ndeath sequence spawns so the body itself is the stash — see <xref href=\"AFPS.DeathContainerPlacement\" data-throw-if-not-resolved=\"false\"></xref>.\nThis is the player's body-loot component; <xref href=\"AFPS.AFPS_CorpseContainer\" data-throw-if-not-resolved=\"false\"></xref> is the NPC equivalent\nand refuses to run alongside it.</p>\n<p sourcefile=\"api/AFPS.AFPS_InventoryDeathHandler.yml\" sourcestartlinenumber=\"17\">Setup: put it on the player next to <xref href=\"AFPS.AFPS_InventorySystem\" data-throw-if-not-resolved=\"false\"></xref>, leave the references empty\nto auto-resolve, and pick a policy. Drop To Container additionally needs a prefab carrying an\n<xref href=\"AFPS.AFPS_ContainerInventory\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -728,7 +1092,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_Item",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Item.yml\" sourcestartlinenumber=\"1\">Item definition: grid size, stack, weight, category, storage container settings, count-driven sprite/HUD icon swaps, and context menu reference.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -742,7 +1106,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ItemCategory",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemCategory.yml\" sourcestartlinenumber=\"1\">Tag SO used by grids and items to enforce category-based placement restrictions.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -770,7 +1134,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_ItemMenu",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ItemMenu.yml\" sourcestartlinenumber=\"1\">List of button prefabs spawned as the right-click context menu for an inventory item.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -816,6 +1180,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_KeepFirstPersonDeathCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_KeepFirstPersonDeathCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_KeepFirstPersonDeathCamera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_KeepFirstPersonDeathCamera.yml\" sourcestartlinenumber=\"1\">Leaves the camera exactly where it is — the player keeps their own first-person view, and can keep\nlooking around, while the death screen sits on top. This is the mode behind a flat &quot;YOU DIED&quot;\noverlay with a respawn button.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_KillInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_KillInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_KillInfo",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_KillInfo.yml\" sourcestartlinenumber=\"1\">A resolved &quot;who killed whom&quot; record, built by <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> whenever ANY entity dies —\nplayer, AI, or a destructible prop — and delivered through the health's <xref href=\"AFPS.AFPS_Health.OnKilled\" data-throw-if-not-resolved=\"false\"></xref>\nevent and the static <xref href=\"AFPS.AFPS_Health.OnAnyKilled\" data-throw-if-not-resolved=\"false\"></xref> event. Both are empty hooks by default:\nsubscribe to drive a killfeed, scoring, on-death loot, AI aggro, achievements, and so on, without\ntouching the health system itself.</p>\n<p sourcefile=\"api/AFPS.AFPS_KillInfo.yml\" sourcestartlinenumber=\"7\">It reads the victim's latched <xref href=\"AFPS.AFPS_Health.LastDamage\" data-throw-if-not-resolved=\"false\"></xref>, so status-effect deaths attribute\ncorrectly (a death from your rocket's Burn credits you), matching the floating-number and death-screen\nattribution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_KillerDeathCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_KillerDeathCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_KillerDeathCamera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_KillerDeathCamera.yml\" sourcestartlinenumber=\"1\">Killcam: frames whoever landed the killing blow, resolved from the latched\n<xref href=\"AFPS.AFPS_Health.LastDamage\" data-throw-if-not-resolved=\"false\"></xref> instigator. The camera sits over the victim's body and looks\ndown the line to the killer, keeping them framed as they move.</p>\n<p sourcefile=\"api/AFPS.AFPS_KillerDeathCamera.yml\" sourcestartlinenumber=\"5\">Deaths with nothing to blame — a fall, drowning, a status effect that outlived its caster — have no\nkiller to point at. Set <xref href=\"AFPS.AFPS_KillerDeathCamera.fallbackWhenNoKiller\" data-throw-if-not-resolved=\"false\"></xref> so those still play something\ndeliberate instead of holding a shot of empty air.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_KnockbackStatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_KnockbackStatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_KnockbackStatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_KnockbackStatusBehaviour.yml\" sourcestartlinenumber=\"1\">Status behaviour that knocks the player back and strips their control until they land again — the\nclassic &quot;launched and helpless&quot; effect. On apply it launches the player's Rigidbody away from whoever\napplied the effect (plus an upward kick) and holds a control lock that releases itself the moment the\nplayer touches the ground; the effect's own duration is a safety cap that also releases the lock if the\nplayer somehow never lands.</p>\n<p sourcefile=\"api/AFPS.AFPS_KnockbackStatusBehaviour.yml\" sourcestartlinenumber=\"7\">Player-only (drives the player's Rigidbody + control lock). Direction comes from the effect's\ninstigator (<xref href=\"AFPS.StatusEffect.instigator\" data-throw-if-not-resolved=\"false\"></xref>) — so a rocket, a punch, or a barrel blast all shove\nthe player away from the source.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_Ladder.yml",
       "output": {
         ".html": {
@@ -840,7 +1260,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_LadderMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_LadderMovementSettings.yml\" sourcestartlinenumber=\"1\">Ladder preset: climb/jump behaviour enums, PID-driven climb and X/Z snap controllers, fall speeds, boost/disconnect impulses, and loose-mode angle limits.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -854,7 +1274,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_MantleAndVaultMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MantleAndVaultMovementSettings.yml\" sourcestartlinenumber=\"1\">Mantle/vault and ledge-hang preset: dual-ray detection offsets, slope allowance, timed forward/up impulses, max hang duration, drop-back force, and mantle-abort grace period.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -886,6 +1306,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MoveSpeedStatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MoveSpeedStatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MoveSpeedStatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MoveSpeedStatusBehaviour.yml\" sourcestartlinenumber=\"1\">Status behaviour that scales the target's movement speed while active — the &quot;Cold slows you&quot; effect.\nRegisters a multiplier on the target's <xref href=\"AFPS.AFPS_Movement\" data-throw-if-not-resolved=\"false\"></xref> in <xref href=\"AFPS.AFPS_MoveSpeedStatusBehaviour.OnApplied(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref> and\nremoves it in <xref href=\"AFPS.AFPS_MoveSpeedStatusBehaviour.OnExpired(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref>, keyed by the effect instance so multiple slows stack and each\ncleans up independently. No-ops on targets without an <xref href=\"AFPS.AFPS_Movement\" data-throw-if-not-resolved=\"false\"></xref> (e.g. AI actors).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_Movement.yml",
       "output": {
         ".html": {
@@ -900,6 +1334,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovementAnimationSampler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovementAnimationSampler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovementAnimationSampler",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovementAnimationSampler.yml\" sourcestartlinenumber=\"1\">Builds an <xref href=\"AFPS.AFPS_MovementAnimationSnapshot\" data-throw-if-not-resolved=\"false\"></xref> from an <xref href=\"AFPS.AFPS_Movement\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.AFPS_MovementAnimationSampler.yml\" sourcestartlinenumber=\"3\">This exists so the swim and locomotion rules live in exactly one place. They were duplicated the\nmoment a second animation system needed them, and duplicated rules drift: the arms and the weapon\ndisagreeing about whether the player is swimming is a bug nobody would think to look for.</p>\n<p sourcefile=\"api/AFPS.AFPS_MovementAnimationSampler.yml\" sourcestartlinenumber=\"7\">Pure and allocation-free — safe to call every frame, and safe under Enter Play Mode with domain\nreload disabled (no static state of any kind).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_MovementAnimationSnapshot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_MovementAnimationSnapshot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_MovementAnimationSnapshot",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovementAnimationSnapshot.yml\" sourcestartlinenumber=\"1\">One frame's answer to &quot;what is the player doing?&quot;, in the form every animation system in the asset\nneeds it. Sampled once per consumer per frame and passed around by value.</p>\n<p sourcefile=\"api/AFPS.AFPS_MovementAnimationSnapshot.yml\" sourcestartlinenumber=\"4\">Every field is derived, never authored: the weapon and arms animators must agree on what counts as\nswimming or climbing, and the only way to guarantee that is for neither of them to decide.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_MovementEffectsCameraSettings.yml",
       "output": {
         ".html": {
@@ -910,7 +1372,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_MovementEffectsCameraSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovementEffectsCameraSettings.yml\" sourcestartlinenumber=\"1\">Camera roll/tilt preset: mouse tilt, strafe tilt, wallrun tilt, slide tilt, and ledge-hang yaw soft/hard clamp tuning.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -939,6 +1401,20 @@
       "IsMRef": true,
       "Title": "AFPS.AFPS_MovingPlatform",
       "Summary": "<p sourcefile=\"api/AFPS.AFPS_MovingPlatform.yml\" sourcestartlinenumber=\"1\">Kinematic rigidbody platform: interpolates between waypoints or spins as a rotator, carries riders via per-frame delta, and supports dwell, ping-pong, loop, and elevator EndModes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_OrbitDeathCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_OrbitDeathCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_OrbitDeathCamera",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_OrbitDeathCamera.yml\" sourcestartlinenumber=\"1\">Slowly circles the body — the cinematic death shot. Radius and height can widen over the orbit, so\nthe camera both pulls away from and rises above the death as it goes around, which is what sells a\nlong &quot;hold until the player presses respawn&quot; screen.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1054,6 +1530,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_PlayerControlLock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_PlayerControlLock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_PlayerControlLock",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_PlayerControlLock.yml\" sourcestartlinenumber=\"1\">Reference-counted control lock on the player. Status effects (Stun, Knockback) — or any other system —\nhold a lock over one or more <xref href=\"AFPS.AFPS_ControlAxes\" data-throw-if-not-resolved=\"false\"></xref>; the player regains a channel only when the\nLAST holder suppressing it releases, so overlapping locks never fight. Also supports &quot;lock until the\nplayer lands again&quot; for knockback.</p>\n<p sourcefile=\"api/AFPS.AFPS_PlayerControlLock.yml\" sourcestartlinenumber=\"6\">Added automatically to the player the first time a lock is requested (like the status VFX registry) —\nyou never place it by hand. It drives <xref href=\"AFPS.AFPS_Movement.MovementLocked\" data-throw-if-not-resolved=\"false\"></xref>,\n<xref href=\"AFPS.AFPS_Camera.allowCameraInput\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"AFPS.AFPS_WeaponSystem.allowFiring\" data-throw-if-not-resolved=\"false\"></xref>, saving and\nrestoring the look/firing flags so releasing a lock can't stomp a menu that independently disabled them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_PlayerSoundManager.yml",
       "output": {
         ".html": {
@@ -1138,6 +1628,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ReloadSceneRespawnStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ReloadSceneRespawnStrategy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ReloadSceneRespawnStrategy",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ReloadSceneRespawnStrategy.yml\" sourcestartlinenumber=\"1\">Restarts the level instead of respawning in it — the roguelike / &quot;one life&quot; answer to death. The\ndeath screen still plays in full; the reload happens when the player finally triggers the respawn.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_RespawnStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_RespawnStrategy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_RespawnStrategy",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_RespawnStrategy.yml\" sourcestartlinenumber=\"1\">Where the player comes back. Swapping this asset turns a checkpoint game into an arena shooter\nwithout touching the death screen, the camera, or any code — which is the point of keeping it\nseparate from <xref href=\"AFPS.AFPS_DeathSettings\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.AFPS_RespawnStrategy.yml\" sourcestartlinenumber=\"5\">Subclass and override <xref href=\"AFPS.AFPS_RespawnStrategy.Respawn(AFPS.DeathContext)\" data-throw-if-not-resolved=\"false\"></xref> to add your own (a spawn queue, a network handshake,\na spectator hand-off).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_ScreenEffectStatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_ScreenEffectStatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_ScreenEffectStatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_ScreenEffectStatusBehaviour.yml\" sourcestartlinenumber=\"1\">Status behaviour that shows a full-screen overlay on the local player while the effect is active —\nthe &quot;frost creeps in at the screen edges while Cold&quot; hook. On apply it hands its\n<xref href=\"AFPS.AFPS_ScreenEffectStatusBehaviour.request\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"AFPS.AFPS_StatusScreenEffects\" data-throw-if-not-resolved=\"false\"></xref> (fading the overlay in) and can fire an\noptional vignette pulse; on expiry it fades the overlay back out.</p>\n<p sourcefile=\"api/AFPS.AFPS_ScreenEffectStatusBehaviour.yml\" sourcestartlinenumber=\"6\">It only fires for the player (gated on <xref href=\"AFPS.AFPS_Agent.isPlayer\" data-throw-if-not-resolved=\"false\"></xref>), so an enemy catching the same\nstatus doesn't tint the player's screen — enemies show their status in the world instead (see\n<code>AFPS_StatusBehaviour</code> subclasses for in-world VFX). No-ops gracefully when no receiver exists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_SlotWeaponObjectSettings.yml",
       "output": {
         ".html": {
@@ -1148,7 +1680,49 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_SlotWeaponObjectSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SlotWeaponObjectSettings.yml\" sourcestartlinenumber=\"1\">Weapon slot assignment preset: target slot index, override/clump behaviour on slot conflict, and equip-on-pickup flags.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SpawnOnDeath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SpawnOnDeath.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SpawnOnDeath",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SpawnOnDeath.yml\" sourcestartlinenumber=\"1\">Spawns a prefab when this entity's <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> dies, forwarding the killer (this\nentity's last attacker) to the spawned object so any damage it deals is credited to whoever caused\nthe death — not to this object. The canonical use is an explosive prop: drop this next to an\n<xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref>, point it at an explosion prefab, and a player who shoots the barrel earns\nthe blast's damage numbers and kills, including self-inflicted chains (shoot barrel at your feet →\nthe death reads as suicide, not &quot;the environment&quot;).</p>\n<p sourcefile=\"api/AFPS.AFPS_SpawnOnDeath.yml\" sourcestartlinenumber=\"8\">Works for cosmetic spawns too (leave <xref href=\"AFPS.AFPS_SpawnOnDeath.inheritKiller\" data-throw-if-not-resolved=\"false\"></xref> off for anonymous VFX/debris).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SpawnPointRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SpawnPointRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SpawnPointRegistry",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SpawnPointRegistry.yml\" sourcestartlinenumber=\"1\">Scene-side list of respawn points for <xref href=\"AFPS.AFPS_SpawnPointRespawnStrategy\" data-throw-if-not-resolved=\"false\"></xref>. The strategy is\na ScriptableObject and so cannot hold scene references — this component is where the actual\ntransforms live, and the strategy asks it for one at respawn time.</p>\n<p sourcefile=\"api/AFPS.AFPS_SpawnPointRegistry.yml\" sourcestartlinenumber=\"5\">Drop it on an empty GameObject and either fill <xref href=\"AFPS.AFPS_SpawnPointRegistry.spawnPoints\" data-throw-if-not-resolved=\"false\"></xref> by hand or parent the\npoints under it and let <xref href=\"AFPS.AFPS_SpawnPointRegistry.collectChildrenOnAwake\" data-throw-if-not-resolved=\"false\"></xref> gather them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_SpawnPointRespawnStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_SpawnPointRespawnStrategy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_SpawnPointRespawnStrategy",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SpawnPointRespawnStrategy.yml\" sourcestartlinenumber=\"1\">Respawns at one of the points registered with <xref href=\"AFPS.AFPS_SpawnPointRegistry\" data-throw-if-not-resolved=\"false\"></xref>. Position and\nfacing both come from the point, and the player is healed by the controller (this strategy does not\nrestore HP itself), so it drops straight into arena-style games with no checkpoint anywhere.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1190,7 +1764,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_SprintMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_SprintMovementSettings.yml\" sourcestartlinenumber=\"1\">Sprint preset: toggle/hold mode, omni-directional flag, and separate ground/air drag, acceleration, and max-speed values for sprinting.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1204,7 +1778,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StaminaMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StaminaMovementSettings.yml\" sourcestartlinenumber=\"1\">Stamina preset: max pool, deplete/regain rates, post-exhaust sprint lockout duration, and infinite-stamina override toggle.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1218,7 +1792,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatsADSSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatsADSSettings.yml\" sourcestartlinenumber=\"1\">ADS preset: sensitivity/speed multipliers, spread scalar, LeanTween-driven position/rotation/FOV/crosshair/scope transition timings and easing types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1232,7 +1806,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatsProjectileFireSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatsProjectileFireSettings.yml\" sourcestartlinenumber=\"1\">Projectile-fire preset: launch force/torque, fire position/direction, velocity offsets, fire delay, inventory-driven ammo/magazine settings, and UI impulse.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1246,7 +1820,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatsProjectileSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatsProjectileSettings.yml\" sourcestartlinenumber=\"1\">In-flight projectile preset: custom gravity, bounce layers/count/velocity multiplier, pierce, damage type, destroy-on-hit flags, and optional timed self-destruct.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1260,7 +1834,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatsRaycastFireSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatsRaycastFireSettings.yml\" sourcestartlinenumber=\"1\">Raycast-fire preset: distance, fire position/direction, spread/shot count, pierce (PhysicsMaterial dictionary), bounce, damage falloff curve, ammo/magazine, and UI impulse.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1274,7 +1848,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatsWeaponObjectSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatsWeaponObjectSettings.yml\" sourcestartlinenumber=\"1\">Weapon fire-mode preset: primary/secondary switch cooldowns, simultaneous-fire lockout timers, and sprint/sprint-tilt interrupt durations per fire mode.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusBehaviour.yml\" sourcestartlinenumber=\"1\">Base ScriptableObject for a non-HP side effect of a status (slow, freeze, VFX, …). An\n<xref href=\"AFPS.AFPS_StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> lists any number of these; <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> drives their\nlifecycle: <xref href=\"AFPS.AFPS_StatusBehaviour.OnApplied(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref> once when the effect is added, <xref href=\"AFPS.AFPS_StatusBehaviour.OnTick(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref> on every\nreapply tick, and <xref href=\"AFPS.AFPS_StatusBehaviour.OnExpired(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref> once when it ends (by timeout, chain, or being cleared on\nrespawn — so anything applied in <xref href=\"AFPS.AFPS_StatusBehaviour.OnApplied(AFPS.AFPS_StatusContext)\" data-throw-if-not-resolved=\"false\"></xref> is always undone).</p>\n<p sourcefile=\"api/AFPS.AFPS_StatusBehaviour.yml\" sourcestartlinenumber=\"7\">Behaviours are shared, stateless config (one asset drives many targets); keep per-target state on\nthe target, keyed by <xref href=\"AFPS.AFPS_StatusContext.instance\" data-throw-if-not-resolved=\"false\"></xref>. See\n<xref href=\"AFPS.AFPS_MoveSpeedStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref> for a worked example.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusContext",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusContext.yml\" sourcestartlinenumber=\"1\">Snapshot of who a status behaviour is acting on, passed to every lifecycle hook on\n<xref href=\"AFPS.AFPS_StatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref>. Carries the target's <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> and the specific\nruntime <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> instance — behaviours use <xref href=\"AFPS.AFPS_StatusContext.instance\" data-throw-if-not-resolved=\"false\"></xref> as a per-effect\nkey so each stack registers and cleans up its own state (e.g. one slow multiplier per Cold stack).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1288,7 +1890,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatusEffect",
-      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusEffect.yml\" sourcestartlinenumber=\"1\">ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, and optional chained effects. At runtime <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)\" data-throw-if-not-resolved=\"false\"></xref> instantiates a <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> from this template.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusEffect.yml\" sourcestartlinenumber=\"1\">ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, non-HP behaviours, and an optional chained effect. At runtime <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref> instantiates a <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> from this template.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1303,6 +1905,76 @@
       "IsMRef": true,
       "Title": "AFPS.AFPS_StatusOtherEffect",
       "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusOtherEffect.yml\" sourcestartlinenumber=\"1\">Base for non-HP side effects paired with a <xref href=\"AFPS.StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> tick (e.g. slow, freeze, knockback). Override <xref href=\"AFPS.AFPS_StatusOtherEffect.ExecuteStatus\" data-throw-if-not-resolved=\"false\"></xref> to implement behavior.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusScreenEffects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusScreenEffects.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusScreenEffects",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusScreenEffects.yml\" sourcestartlinenumber=\"1\">Player-side receiver that renders full-screen status overlays (frost, fire, poison haze) and, optionally,\nfires the camera's vignette. It is a singleton — the local player owns the one instance — so status\nbehaviours can reach it from anywhere via <xref href=\"AFPS.AFPS_StatusScreenEffects.Instance\" data-throw-if-not-resolved=\"false\"></xref> without a scene reference.</p>\n<p sourcefile=\"api/AFPS.AFPS_StatusScreenEffects.yml\" sourcestartlinenumber=\"5\">Setup (one receiver per scene, on the local player's HUD): add this component to a Screen Space - Overlay\nCanvas — or to any child of one — or leave it anywhere and assign a Canvas to <xref href=\"AFPS.AFPS_StatusScreenEffects.overlayCanvas\" data-throw-if-not-resolved=\"false\"></xref>.\n<xref href=\"AFPS.AFPS_ScreenEffectStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref> drives it. Overlays are keyed by the applying effect\ninstance, so each active effect gets its own layer and cleans up independently.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusVFXAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusVFXAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusVFXAnchor",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusVFXAnchor.yml\" sourcestartlinenumber=\"1\">Marks a point on a character where status VFX can attach, and authors how the VFX sits there. Place\nthese on bones or empties (chest, head, hands) and give each an <xref href=\"AFPS.AFPS_StatusVFXAnchor.anchorId\" data-throw-if-not-resolved=\"false\"></xref>; an\n<xref href=\"AFPS.AFPS_VFXStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref> whose anchor id matches spawns its VFX at this transform, applying\nthe <xref href=\"AFPS.AFPS_StatusVFXAnchor.rotationEuler\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"AFPS.AFPS_StatusVFXAnchor.scale\" data-throw-if-not-resolved=\"false\"></xref> below as WORLD values (not multiplied by this\nbone's own rotation/scale), so the VFX reads the same wherever the bone happens to be pointed or scaled.\nSeveral anchors may share an id to place the same effect at multiple points (e.g. fire on both hands),\neach with its own rotation and scale. Optional — an enemy with no anchors just gets the VFX at its root.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusVFXBinder.VFXOverride.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusVFXBinder.VFXOverride.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusVFXBinder.VFXOverride",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusVFXBinder.VFXOverride.yml\" sourcestartlinenumber=\"1\">One per-enemy override: which status effect it targets, the prefab to use, and an optional anchor override.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusVFXBinder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusVFXBinder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusVFXBinder",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusVFXBinder.yml\" sourcestartlinenumber=\"1\">Optional per-enemy override map for status VFX. Place it on an enemy to give specific status effects a\ndifferent look than their behaviour's default — a fire elemental burning brighter than a soldier, or a\nboss whose frost coats a custom mesh. Status effects not listed here fall back to the VFX authored on\ntheir <xref href=\"AFPS.AFPS_VFXStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref>, so this is purely additive.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_StatusVFXRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_StatusVFXRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_StatusVFXRegistry",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_StatusVFXRegistry.yml\" sourcestartlinenumber=\"1\">Per-target bookkeeping for status VFX spawned by <xref href=\"AFPS.AFPS_VFXStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref>. Behaviours are\nshared, stateless assets and can't hold the instances they spawn, so the spawned objects are tracked\nhere — on the target itself, keyed by the effect instance — and torn down when the effect ends or the\ntarget is destroyed. Added automatically at runtime; not meant to be placed by hand.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1330,7 +2002,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_Team",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_Team.yml\" sourcestartlinenumber=\"1\">Identity card for a team: name, color, friendly-fire flags, and allied-team list queried by AFPS_Agent alliance checks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1358,7 +2030,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_UIImpulse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_UIImpulse.yml\" sourcestartlinenumber=\"1\">Scales this RectTransform on TriggerImpulse: gain → hold → decay via LeanTween, cancelling any in-flight sequence on re-fire.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1372,7 +2044,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_UIManager",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_UIManager.yml\" sourcestartlinenumber=\"1\">Central HUD coordinator: fans weapon/ammo/health/crosshair/impulse/compass/interaction data to registered IHUDLayer implementations (UGUI + UI Toolkit).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1386,7 +2058,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_UISway",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_UISway.yml\" sourcestartlinenumber=\"1\">Offsets this RectTransform's anchoredPosition each LateUpdate by lerped camera-input sway + rigidbody-velocity sway.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1404,6 +2076,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_VFXStatusBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_VFXStatusBehaviour.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_VFXStatusBehaviour",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_VFXStatusBehaviour.yml\" sourcestartlinenumber=\"1\">Status behaviour that shows an in-world VFX on the target while the effect is active — fire on a\nburning enemy, frost on a chilled one. It spawns a prefab when the effect starts and destroys it when\nthe effect ends.</p>\n<p sourcefile=\"api/AFPS.AFPS_VFXStatusBehaviour.yml\" sourcestartlinenumber=\"5\">Two simple pieces make it up: this behaviour (drop it on the status effect, set the prefab and which\nanchor to attach to) and <xref href=\"AFPS.AFPS_StatusVFXAnchor\" data-throw-if-not-resolved=\"false\"></xref> markers you place on bones, each authoring\nWHERE the VFX sits plus its world rotation and scale there. If an enemy has no matching anchor, the VFX\nattaches to the target root — so it works on any target, authored or not. For a per-enemy look (a\ndifferent prefab on a specific enemy) add an <xref href=\"AFPS.AFPS_StatusVFXBinder\" data-throw-if-not-resolved=\"false\"></xref> to that enemy; otherwise\nthis default is used everywhere.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AFPS_VerticalMovementSettings.yml",
       "output": {
         ".html": {
@@ -1414,7 +2100,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_VerticalMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_VerticalMovementSettings.yml\" sourcestartlinenumber=\"1\">Jump/gravity preset: coyote time, multi-jump count, ground/air jump forces, hold-to-jump setting, horizontal velocity change on air-jump, and stamina cost.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1428,7 +2114,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_VignetteFlash",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_VignetteFlash.yml\" sourcestartlinenumber=\"1\">Data preset for a timed vignette flash: color, intensity, and fade-in / hold / fade-out durations.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1442,7 +2128,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.AFPS_WallInteractionMovementSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WallInteractionMovementSettings.yml\" sourcestartlinenumber=\"1\">Wall-interaction preset: detection layers/distances, walljump side/up forces, max-touch count per wall, and wallrun gravity/force overrides.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1471,6 +2157,62 @@
       "IsMRef": true,
       "Title": "AFPS.AFPS_WeaponAmmo",
       "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAmmo.yml\" sourcestartlinenumber=\"1\">One ammo pool per weapon. In Magazine mode the loaded mag is an AFPS_ItemObject inside\nthe weapon's storedItems; bullets are stacked AFPS_ItemObjects inside that mag's\nstoredItems (LIFO fire order, mixed ammo allowed).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponAnimSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponAnimSlot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponAnimSlot",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAnimSlot.yml\" sourcestartlinenumber=\"1\">The clip slots the weapon animator template exposes. The enum order IS the slot order used by\n<xref href=\"AFPS.AFPS_WeaponAnimatorContract.SlotStateNames\" data-throw-if-not-resolved=\"false\"></xref> and every other per-slot array in the\nruntime and editor, so the tables stay index-aligned without a dictionary lookup in Awake.\nAppend new slots at the END only — inserting one would silently re-map cached slot indices.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponAnimationEventReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponAnimationEventReceiver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponAnimationEventReceiver",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAnimationEventReceiver.yml\" sourcestartlinenumber=\"1\">Forwards Unity AnimationEvents from a weapon clip to sounds and UnityEvents, keyed by string, so\nmag drops, shell ejects and bolt clicks need no code.</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimationEventReceiver.yml\" sourcestartlinenumber=\"4\">Must live on the SAME GameObject as the Animator: Unity dispatches animation events to components\non the animated object itself, not on its parents.</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimationEventReceiver.yml\" sourcestartlinenumber=\"7\">HARD RULE: everything reachable from here is cosmetic. Animation events must never drive ammo,\ndamage, or weapon state — gameplay timing is owned by AFPS_WeaponObject and AFPS_WeaponAmmo, and a\nclip that gets retimed, interrupted or speed-synced would otherwise desync real game state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponAnimator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponAnimator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponAnimator",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAnimator.yml\" sourcestartlinenumber=\"1\">Drives a weapon's Mecanim Animator from the gameplay events the existing weapon systems already\nraise (fire emitted, reload started/ended, equip/de-equip started), so authored clips play on the\nrig BELOW the weapon root while bob, sway, tilt, recoil, bump and ADS keep composing the root\nitself in <xref href=\"AFPS.AFPS_WeaponSystem\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimator.yml\" sourcestartlinenumber=\"6\">Everything here is optional and additive. With no Animator, no override controller, or an empty\nclip slot, the matching procedural behaviour (LeanTween equip tween, reload tilt stance) runs\nexactly as it did before this component existed — a weapon that never gets one is untouched.</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimator.yml\" sourcestartlinenumber=\"10\">Gameplay stays authoritative: clips adapt their playback SPEED to the fire rate and\n<xref href=\"AFPS.AFPS_WeaponAmmo.ReloadDuration\" data-throw-if-not-resolved=\"false\"></xref>, never the other way round. Animation events are\ncosmetic only (see <xref href=\"AFPS.AFPS_WeaponAnimationEventReceiver\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimator.yml\" sourcestartlinenumber=\"14\">Lives on the weapon ROOT beside <xref href=\"AFPS.AFPS_WeaponObject\" data-throw-if-not-resolved=\"false\"></xref>; the Animator itself must live on\nor under the weaponModel child, because the root's localPosition/localRotation is rewritten every\nframe by AFPS_WeaponSystem and an Animator there would fight it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AFPS_WeaponAnimatorContract.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AFPS_WeaponAnimatorContract.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AFPS_WeaponAnimatorContract",
+      "Summary": "<p sourcefile=\"api/AFPS.AFPS_WeaponAnimatorContract.yml\" sourcestartlinenumber=\"1\">Single source of truth for the weapon animator template's state names, parameter names, and\ntheir pre-hashed IDs. Users extending the template keep the runtime working by keeping these\nnames — nothing else in the system contains an animator string literal, so editing this file\nand regenerating the template is the only change needed to alter the contract.</p>\n<p sourcefile=\"api/AFPS.AFPS_WeaponAnimatorContract.yml\" sourcestartlinenumber=\"6\">Every hash is a <code>static readonly</code> computed from a const string: a pure computation with no\nmutable static state, so it survives Enter Play Mode with domain reload disabled.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1586,6 +2328,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AbilityFire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AbilityFire.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AbilityFire",
+      "Summary": "<p sourcefile=\"api/AFPS.AbilityFire.yml\" sourcestartlinenumber=\"1\">Bridges the ability system into the weapon system: a fire script that activates an\n<xref href=\"AFPS.AbilityBase\" data-throw-if-not-resolved=\"false\"></xref> instead of emitting a shot, so any ability can be the way a weapon fires.\nDrop it into a weapon's primary or secondary fire scripts and the weapon's existing pipeline —\nfire type, fire rate, burst, recoil profile, sprint interrupt, equip/drop — drives the ability.</p>\n<p sourcefile=\"api/AFPS.AbilityFire.yml\" sourcestartlinenumber=\"6\">Trigger timing belongs entirely to the weapon. The ability's own <xref href=\"AFPS.AbilityBase.abilityTriggerType\" data-throw-if-not-resolved=\"false\"></xref>\nand <xref href=\"AFPS.AbilityBase.triggerRate\" data-throw-if-not-resolved=\"false\"></xref> are ignored here — those drive the\n<xref href=\"AFPS.AFPS_AbilitySystem\" data-throw-if-not-resolved=\"false\"></xref> slot path, and honouring both would put two invisible cooldowns on\none trigger. The ability keeps ownership of <em sourcefile=\"api/AFPS.AbilityFire.yml\" sourcestartlinenumber=\"9\">validity</em> through <xref href=\"AFPS.AbilityBase.CanActivate\" data-throw-if-not-resolved=\"false\"></xref>,\nwhich gates the recoil kick.</p>\n<p sourcefile=\"api/AFPS.AbilityFire.yml\" sourcestartlinenumber=\"12\">Press/release map straight across, because <code>Fire(released)</code> and\n<code>ActivateAbility(pressed)</code> are inverses of each other: pair a held ability such as\n<xref href=\"AFPS.GrapplingHook\" data-throw-if-not-resolved=\"false\"></xref> with the OnPressAndRelease fire type and set <xref href=\"AFPS.AbilityFire.holdToUse\" data-throw-if-not-resolved=\"false\"></xref>,\nand press-to-grapple / release-to-let-go works with no ability-specific code.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.AbilityHolder.yml",
       "output": {
         ".html": {
@@ -1597,6 +2353,20 @@
       "IsMRef": true,
       "Title": "AFPS.AbilityHolder",
       "Summary": "<p sourcefile=\"api/AFPS.AbilityHolder.yml\" sourcestartlinenumber=\"1\">Runtime state for a single equipped ability slot: holds the live AbilityBase instance, trigger configuration, cooldown timer, and burst/charge bookkeeping.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.AbilitySource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.AbilitySource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.AbilitySource",
+      "Summary": "<p sourcefile=\"api/AFPS.AbilitySource.yml\" sourcestartlinenumber=\"1\">Where an <xref href=\"AFPS.AbilityFire\" data-throw-if-not-resolved=\"false\"></xref> gets its ability from: a component authored on the weapon prefab, or a prefab it spawns and owns.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1638,7 +2408,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.Consume",
-      "Summary": "<p sourcefile=\"api/AFPS.Consume.yml\" sourcestartlinenumber=\"1\">Decrements item stack by 1; destroys GO when stack reaches 0.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.Consume.yml\" sourcestartlinenumber=\"1\">Spends one unit of the item and applies its effects to the player: healing, overheal, damage, and\nany number of status effects. Covers medkits, bandages, food, stimulants, drugs with a downside,\nand poison — all from the same button prefab, configured per item menu.</p>\n<p sourcefile=\"api/AFPS.Consume.yml\" sourcestartlinenumber=\"5\">The item is only spent when something actually happened, so a full-health player clicking a medkit\ndoesn't waste it (turn off <xref href=\"AFPS.Consume.requireEffect\" data-throw-if-not-resolved=\"false\"></xref> if you'd rather they could).</p>\n<p sourcefile=\"api/AFPS.Consume.yml\" sourcestartlinenumber=\"8\">Effects are applied through <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref>'s normal paths, so damage numbers, the health\nHUD, resistances and kill attribution all behave exactly as they do for world damage.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ContainerLootTiming.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ContainerLootTiming.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ContainerLootTiming",
+      "Summary": "<p sourcefile=\"api/AFPS.ContainerLootTiming.yml\" sourcestartlinenumber=\"1\">When a container's loot table is rolled.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1694,7 +2478,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.DamageInfo",
-      "Summary": "<p sourcefile=\"api/AFPS.DamageInfo.yml\" sourcestartlinenumber=\"1\">Immutable payload passed to <xref href=\"AFPS.IDamageable.ApplyDamage(AFPS.DamageInfo)\" data-throw-if-not-resolved=\"false\"></xref>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.DamageInfo.yml\" sourcestartlinenumber=\"1\">Payload passed to <xref href=\"AFPS.IDamageable.ApplyDamage(AFPS.DamageInfo)\" data-throw-if-not-resolved=\"false\"></xref>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry. <xref href=\"AFPS.DamageInfo.type\" data-throw-if-not-resolved=\"false\"></xref> is an <xref href=\"AFPS.AFPS_DamageType\" data-throw-if-not-resolved=\"false\"></xref> asset (null = untyped). A value type passed by copy, and relays such as <xref href=\"AFPS.AFPS_Hitbox\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"AFPS.AFPS_Health\" data-throw-if-not-resolved=\"false\"></xref> deliberately mutate their local copy (scaling <code>amount</code>, tagging the hit) before forwarding it.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1708,7 +2492,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.DamageNumberEvent",
-      "Summary": "<p sourcefile=\"api/AFPS.DamageNumberEvent.yml\" sourcestartlinenumber=\"1\">Fired by <xref href=\"AFPS.AFPS_Health.OnDamageDealt\" data-throw-if-not-resolved=\"false\"></xref> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <xref href=\"AFPS.DamageNumberEvent.isHeal\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"AFPS.DamageNumberEvent.hitBoneTag\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.DamageNumberEvent.yml\" sourcestartlinenumber=\"1\">Fired by <xref href=\"AFPS.AFPS_Health.OnDamageDealt\" data-throw-if-not-resolved=\"false\"></xref> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <xref href=\"AFPS.DamageNumberEvent.isHeal\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"AFPS.DamageNumberEvent.hitBoneTag\" data-throw-if-not-resolved=\"false\"></xref>, and can tint by <xref href=\"AFPS.DamageNumberEvent.type\" data-throw-if-not-resolved=\"false\"></xref>'s colour.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1736,7 +2520,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.DamageTypeResistance",
-      "Summary": "<p sourcefile=\"api/AFPS.DamageTypeResistance.yml\" sourcestartlinenumber=\"1\">Maps a <xref href=\"AFPS.DamageType\" data-throw-if-not-resolved=\"false\"></xref> to a damage multiplier; values below 1 reduce damage, above 1 increase it, negative values convert damage to healing.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.DamageTypeResistance.yml\" sourcestartlinenumber=\"1\">Maps an <xref href=\"AFPS.AFPS_DamageType\" data-throw-if-not-resolved=\"false\"></xref> to a damage multiplier; values below 1 reduce damage, above 1 increase it, negative values convert damage to healing.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1750,7 +2534,105 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.Dash",
-      "Summary": "<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"1\">Applies an impulse force along the player's current movement vector; magnitude differs based on <xref href=\"AFPS.AFPS_Movement.grounded\" data-throw-if-not-resolved=\"false\"></xref> state.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"1\">Impulse dash with three direction modes, an optional charge-up windup, and a momentum window that\ndecides how much of the dash the player keeps.</p>\n<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"4\">The dash fires a single <xref href=\"UnityEngine.ForceMode.Impulse\" data-throw-if-not-resolved=\"false\"></xref> along one of three directions — the camera's\naim, the player's movement input, or straight up (see <xref href=\"AFPS.DashMode\" data-throw-if-not-resolved=\"false\"></xref>) — scaled by a ground or\nair force. The two modes that can launch the player off the ground suppress\n<xref href=\"AFPS.AFPS_Movement\" data-throw-if-not-resolved=\"false\"></xref>'s hover float for a moment, because the float PID holds a fixed hover\nheight and would otherwise push back against the launch.</p>\n<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"10\">Momentum preservation is a drag window rather than a force: the controller's ground and air\nacceleration only ever add speed along the movement vector, so nothing brakes a dash except\n<xref href=\"UnityEngine.Rigidbody.linearDamping\" data-throw-if-not-resolved=\"false\"></xref>, which <xref href=\"AFPS.AFPS_Movement\" data-throw-if-not-resolved=\"false\"></xref> rewrites from its own state\nevery frame. For <xref href=\"AFPS.AFPS_DashSettings.momentumPreserveTime\" data-throw-if-not-resolved=\"false\"></xref> seconds after a dash this script\nre-applies a scaled-down damping on every physics step — reading the controller's authored value\nthrough <xref href=\"AFPS.AFPS_Movement.CurrentDrag\" data-throw-if-not-resolved=\"false\"></xref> rather than the body's own, so several physics steps\ninside one frame can't compound the reduction. The window ends early when the player lands, jumps,\nslides, or steers hard against the dash, so it never fights the action the player just chose.</p>\n<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"19\">The optional charge-up bleeds speed off in place for a windup and then fires automatically, hanging\nthe player in the air (gravity and float cancelled) and locking movement input for the duration if\nthe preset asks for it. Aim stays free throughout, and the dash direction is sampled when the impulse\nactually fires, so the player can steer a charged dash with the mouse.</p>\n<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"24\">The windup is the ability's own, and is independent of the holder's trigger type: pairing it with a\nCharge-type holder gives the player a held charge followed by this windup, and the holder's trigger\nrate starts counting from the press rather than from the moment the impulse lands.</p>\n<p sourcefile=\"api/AFPS.Dash.yml\" sourcestartlinenumber=\"28\">Every tuning value lives on an <xref href=\"AFPS.AFPS_DashSettings\" data-throw-if-not-resolved=\"false\"></xref> preset, so the whole feel of the dash\nswaps with one asset. Only the per-instance SFX containers stay on the component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DashMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DashMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DashMode",
+      "Summary": "<p sourcefile=\"api/AFPS.DashMode.yml\" sourcestartlinenumber=\"1\">Which direction a <xref href=\"AFPS.Dash\" data-throw-if-not-resolved=\"false\"></xref> impulse is fired along.</p>\n<p sourcefile=\"api/AFPS.DashMode.yml\" sourcestartlinenumber=\"3\"><xref href=\"AFPS.DashMode.Input\" data-throw-if-not-resolved=\"false\"></xref> keeps the dash on the movement plane and is the classic ground-dash; the other\ntwo deliberately throw the player off the ground, which is why they suppress the hover float for\n<xref href=\"AFPS.AFPS_DashSettings.floatDisableTime\" data-throw-if-not-resolved=\"false\"></xref> — the PID would otherwise fight the launch and flatten it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DashVelocityReset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DashVelocityReset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DashVelocityReset",
+      "Summary": "<p sourcefile=\"api/AFPS.DashVelocityReset.yml\" sourcestartlinenumber=\"1\">Which components of the player's velocity <xref href=\"AFPS.AFPS_DashSettings.zeroVelocityBeforeDash\" data-throw-if-not-resolved=\"false\"></xref> clears, so a dash can wipe the slate without also throwing away a jump arc.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DeathBodyMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DeathBodyMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DeathBodyMode",
+      "Summary": "<p sourcefile=\"api/AFPS.DeathBodyMode.yml\" sourcestartlinenumber=\"1\">What the player's body does while they are dead.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DeathCameraPose.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DeathCameraPose.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DeathCameraPose",
+      "Summary": "<p sourcefile=\"api/AFPS.DeathCameraPose.yml\" sourcestartlinenumber=\"1\">A camera pose sampled by an <xref href=\"AFPS.AFPS_DeathCameraMode\" data-throw-if-not-resolved=\"false\"></xref>: where the camera is, where it looks, and how wide.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DeathContainerPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DeathContainerPlacement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DeathContainerPlacement",
+      "Summary": "<p sourcefile=\"api/AFPS.DeathContainerPlacement.yml\" sourcestartlinenumber=\"1\">Where the container holding a dropped inventory ends up.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DeathContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DeathContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DeathContext",
+      "Summary": "<p sourcefile=\"api/AFPS.DeathContext.yml\" sourcestartlinenumber=\"1\">Everything the death flow knows about one death, built once by <xref href=\"AFPS.AFPS_DeathController\" data-throw-if-not-resolved=\"false\"></xref>\nand handed to every subsystem that participates: camera modes, the death screen, respawn\nstrategies, and user code listening on the controller's events.</p>\n<p sourcefile=\"api/AFPS.DeathContext.yml\" sourcestartlinenumber=\"5\">This is a class rather than a struct on purpose — camera modes read it every LateUpdate, and the\nbody handler writes <xref href=\"AFPS.DeathContext.body\" data-throw-if-not-resolved=\"false\"></xref> back into it after spawning a corpse.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.DeathPhase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.DeathPhase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.DeathPhase",
+      "Summary": "<p sourcefile=\"api/AFPS.DeathPhase.yml\" sourcestartlinenumber=\"1\">Where a death sequence currently is.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1806,7 +2688,119 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.Drop",
-      "Summary": "<p sourcefile=\"api/AFPS.Drop.yml\" sourcestartlinenumber=\"1\">Drops the item into the world: calls connectedInteractable.Drop(), clears inventory references, and destroys the UI GO.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.Drop.yml\" sourcestartlinenumber=\"1\">Drops the item into the world and destroys its UI object.</p>\n<p sourcefile=\"api/AFPS.Drop.yml\" sourcestartlinenumber=\"3\">Routes through <xref href=\"AFPS.AFPS_InventorySystem.DropItemToWorld(AFPS.AFPS_ItemObject%2cUnityEngine.Vector3%2cUnityEngine.Quaternion)\" data-throw-if-not-resolved=\"false\"></xref>. An item that was picked up\nreturns as its original world GameObject; a stack split or spread off a pickup (or the extra\nstacks of a pickup that filled several cells) clones that same pickup, so those need no setup.\nOnly an item that never came from the world at all — rolled from a loot table or spawned straight\ninto a grid — falls back to the item asset's <xref href=\"AFPS.AFPS_Item.worldPrefab\" data-throw-if-not-resolved=\"false\"></xref>. Items with none\nof those are left in place rather than deleted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSEditor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSEditor",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSEditor.yml\" sourcestartlinenumber=\"1\">Adds the edit-mode ADS preview, the structural validation report and a play-mode state readout\nabove the normal ADS inspector.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSEditor.yml\" sourcestartlinenumber=\"4\">Derives from NaughtyInspector rather than Editor on purpose: NaughtyAttributes registers itself for\nevery UnityEngine.Object, so a plain Editor here would silently drop every BoxGroup/ShowIf/Required\non ADS.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSIssue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSIssue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSIssue",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSIssue.yml\" sourcestartlinenumber=\"1\">A single problem found by ADS setup validation: a severity and a human-readable message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSIssueSeverity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSIssueSeverity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSIssueSeverity",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSIssueSeverity.yml\" sourcestartlinenumber=\"1\">Severity of an <xref href=\"AFPS.EditorTools.AFPS_ADSIssue\" data-throw-if-not-resolved=\"false\"></xref> reported by ADS validation, from lowest to highest.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSPreviewOverlay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSPreviewOverlay.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSPreviewOverlay",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSPreviewOverlay.yml\" sourcestartlinenumber=\"1\">Scene view overlay for a running ADS preview. It exists because the preview outlives the selection:\nthe moment you select anything other than the ADS component — a light, the aim point, a piece of\nlevel geometry — the inspector panel with the Stop button is gone, and the preview is still running\nwith the cameras still zoomed. This gives it a home that doesn't depend on what's selected.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSPreviewOverlay.yml\" sourcestartlinenumber=\"6\">Shows itself only while a preview is active, and hides again when it stops.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSPreviewSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSPreviewSession.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSPreviewSession",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSPreviewSession.yml\" sourcestartlinenumber=\"1\">Drives the edit-mode ADS preview: stages a throwaway copy of a weapon under the scene's\nAFPS_WeaponSystem, poses it through <xref href=\"AFPS.AFPS_ADSPose\" data-throw-if-not-resolved=\"false\"></xref>, and drives the real main/weapon\ncamera FOVs — which makes the GAME VIEW a true ADS render (the same two-camera composite as play\nmode, rather than a simulation of it).</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSPreviewSession.yml\" sourcestartlinenumber=\"6\">Nothing authored is mutated. The staged weapon is a plain clone flagged HideFlags.DontSave, so it\ncan never be serialized into a scene or applied back to a prefab. The camera FOVs are the only\nwrites to real components; they're cached and restored on every teardown path, and temporarily\nreverted around a scene save so a save taken mid-preview can't bake the aimed FOV.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSPreviewSession.yml\" sourcestartlinenumber=\"11\">The preview stops (rather than trying to survive) on domain reload, play mode, scene change and\neditor quit — cheaper to re-toggle than to make cross-reload state correct.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSValidation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSValidation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSValidation",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSValidation.yml\" sourcestartlinenumber=\"1\">Checks the structural assumptions the ADS aimed pose is built on. None of these produce an error\nat runtime — they all just make the sight quietly fail to land where the designer expects, which\nis the whole reason they're worth surfacing in the inspector.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSValidation.yml\" sourcestartlinenumber=\"5\">The aimed pose collapses to <code>weapon.localPosition = -adsPoint.localPosition</code> with identity\nrotation, which parks the aim point exactly on the weapon system's origin. Everything below is a\nprecondition of that identity holding.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSValidation.yml\" sourcestartlinenumber=\"9\">Split into weapon-level and rig-level checks: a weapon prefab on its own can be checked for the\nfirst set, but the rig set needs a scene with a player in it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.AFPS_ADSValidationWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.AFPS_ADSValidationWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools.AFPS_ADSValidationWindow",
+      "Summary": "<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSValidationWindow.yml\" sourcestartlinenumber=\"1\">Project-wide ADS setup audit. The per-weapon inspector only tells you about the weapon you happen\nto be looking at; this catches the weapons nobody re-checked after a rig change — which is the way\nthese break in practice, since none of them produce a runtime error.</p>\n<p sourcefile=\"api/AFPS.EditorTools.AFPS_ADSValidationWindow.yml\" sourcestartlinenumber=\"5\">Deliberately NOT an alignment report: the aimed sight position is fixed by the hierarchy (the aim\npoint is parked on the weapon system's origin), so there is no per-weapon offset to measure. What\nvaries, and what this checks, is whether each weapon still satisfies the structural preconditions\nthat identity depends on.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.EditorTools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.EditorTools.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.EditorTools",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1821,6 +2815,20 @@
       "IsMRef": true,
       "Title": "AFPS.EndMode",
       "Summary": "<p sourcefile=\"api/AFPS.EndMode.yml\" sourcestartlinenumber=\"1\">Behaviour when the platform reaches the final waypoint: stop, reverse, loop, or elevator-return.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Equip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Equip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Equip",
+      "Summary": "<p sourcefile=\"api/AFPS.Equip.yml\" sourcestartlinenumber=\"1\">Moves the item into the first free equipment slot that claims its category — the right-click\nshortcut for what the player would otherwise do by dragging. Works on items in their own\ninventory and on loot sitting in an open container, so a weapon can go from a corpse straight\ninto a weapon slot.</p>\n<p sourcefile=\"api/AFPS.Equip.yml\" sourcestartlinenumber=\"6\">Only slots whose Allowed Categories name the item's category are considered, so a general-purpose\nslot never swallows it, and occupied slots are skipped rather than swapped — the player keeps\ndragging for a deliberate swap.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1932,7 +2940,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.GrapplingHook",
-      "Summary": "<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"1\">High-velocity, momentum-driven grapple</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"3\">On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the\nanchor with an eased &quot;windup&quot; pull that ramps to full force, and is constrained to an\ninextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular\nswing force for player-driven arcs. The rope conserves and compounds kinetic energy, so\nreleasing slingshots the player forward with the accumulated momentum.</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"9\">Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past\nit), looks too far away from the anchor, or drives face-on into a solid obstacle. The grapple is\nreleased by letting go of the button</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"13\">All physics is applied through <xref href=\"UnityEngine.Rigidbody\" data-throw-if-not-resolved=\"false\"></xref> forces — the transform is never moved\ndirectly — and both <code>Update</code> and <code>FixedUpdate</code> are written to avoid managed\nallocations (no Debug.Log, no allocating physics queries, struct-only math).</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"1\">High-velocity, momentum-driven grapple</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"3\">On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the\nanchor with an eased &quot;windup&quot; pull that ramps to full force, and is constrained to an\ninextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular\nswing force for player-driven arcs. The rope conserves and compounds kinetic energy, so\nreleasing slingshots the player forward with the accumulated momentum.</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"9\">Anchors may be movable: hooking a non-kinematic <xref href=\"UnityEngine.Rigidbody\" data-throw-if-not-resolved=\"false\"></xref> reels both ends toward\neach other and splits the rope between them by mass, so a crate flies to the player while a\nboulder pulls the player instead. See <xref href=\"AFPS.GrapplingHook.BindAnchor(UnityEngine.RaycastHit%40)\" data-throw-if-not-resolved=\"false\"></xref> for the split and\n<xref href=\"AFPS.GrapplingHook.ApplyRopeForcePair(UnityEngine.Vector3%2cUnityEngine.ForceMode)\" data-throw-if-not-resolved=\"false\"></xref> for how each rope term is shared. Static geometry, kinematic\nbodies and anything past the mass ceiling behave exactly as before, and the rope end tracks a\nmoving anchor so the LineRenderer stays glued to it.</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"16\">Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past\nit), looks too far away from the anchor, drives face-on into a solid obstacle, loses line of sight\nalong the rope for long enough that it would be running through a wall, or the anchor body is\ndestroyed mid-swing. The grapple is released by letting go of the button</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"21\">All physics is applied through <xref href=\"UnityEngine.Rigidbody\" data-throw-if-not-resolved=\"false\"></xref> forces — the transform is never moved\ndirectly — and both <code>Update</code> and <code>FixedUpdate</code> are written to avoid managed\nallocations (no Debug.Log, no allocating physics queries, struct-only math).</p>\n<p sourcefile=\"api/AFPS.GrapplingHook.yml\" sourcestartlinenumber=\"25\">Every tuning value lives on an <xref href=\"AFPS.AFPS_GrapplingHookSettings\" data-throw-if-not-resolved=\"false\"></xref> preset, so the whole feel\nof the grapple swaps with one asset. Only the per-instance references — the rope LineRenderer and\nthe SFX containers — stay on the component.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1989,6 +2997,20 @@
       "IsMRef": true,
       "Title": "AFPS.IDamageable",
       "Summary": "<p sourcefile=\"api/AFPS.IDamageable.yml\" sourcestartlinenumber=\"1\">Contract for any entity that can receive typed damage and report death state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.IDeathSequence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.IDeathSequence.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.IDeathSequence",
+      "Summary": "<p sourcefile=\"api/AFPS.IDeathSequence.yml\" sourcestartlinenumber=\"1\">Implemented by whatever owns the window between dying and respawning. <xref href=\"AFPS.AFPS_Health.Die\" data-throw-if-not-resolved=\"false\"></xref>\nlooks for one on its own GameObject and, if <xref href=\"AFPS.IDeathSequence.HandleDeath(AFPS.AFPS_Health)\" data-throw-if-not-resolved=\"false\"></xref> accepts, stops there —\nleaving <xref href=\"AFPS.AFPS_Health.isDead\" data-throw-if-not-resolved=\"false\"></xref> latched and handing the entity over.</p>\n<p sourcefile=\"api/AFPS.IDeathSequence.yml\" sourcestartlinenumber=\"5\">The contract is deliberately one method: the presence of the component is what switches the asset\nfrom the legacy instant-checkpoint respawn to a full death sequence, so projects that never add one\nbehave exactly as they did before. <xref href=\"AFPS.AFPS_DeathController\" data-throw-if-not-resolved=\"false\"></xref> is the shipped implementation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2076,6 +3098,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.InteractionPromptAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.InteractionPromptAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.InteractionPromptAnchor",
+      "Summary": "<p sourcefile=\"api/AFPS.InteractionPromptAnchor.yml\" sourcestartlinenumber=\"1\">Where the &quot;F to &lt;verb&gt;&quot; prompt sits: a fixed spot below the crosshair, or pinned to the bottom of the interaction box (following the target).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.InteractionRadialAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.InteractionRadialAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.InteractionRadialAnchor",
+      "Summary": "<p sourcefile=\"api/AFPS.InteractionRadialAnchor.yml\" sourcestartlinenumber=\"1\">Anchor point for the interaction hold-progress ring: fixed at screen center, or floating over the targeted object.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.InventoryCell.yml",
       "output": {
         ".html": {
@@ -2087,6 +3137,20 @@
       "IsMRef": true,
       "Title": "AFPS.InventoryCell",
       "Summary": "<p sourcefile=\"api/AFPS.InventoryCell.yml\" sourcestartlinenumber=\"1\">Single grid cell: tracks maximum item input size and the <xref href=\"AFPS.AFPS_ItemObject\" data-throw-if-not-resolved=\"false\"></xref> currently occupying this cell (null = empty).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.InventoryDeathPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.InventoryDeathPolicy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.InventoryDeathPolicy",
+      "Summary": "<p sourcefile=\"api/AFPS.InventoryDeathPolicy.yml\" sourcestartlinenumber=\"1\">What happens to the player's inventory when they die.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2254,7 +3318,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.MainMenu.GameSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.GameSettings.yml\" sourcestartlinenumber=\"1\">Persistent settings data bag: video (resolution, fullscreen, quality), audio volumes, gameplay (FOV, sensitivity), controller nav mode, and keybinding JSON blob.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2338,7 +3402,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.MainMenu.LevelDatabase",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.LevelDatabase.yml\" sourcestartlinenumber=\"1\">Ordered list of LevelEntry assets shown in the Level Select screen.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2352,7 +3416,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.MainMenu.LevelEntry",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.LevelEntry.yml\" sourcestartlinenumber=\"1\">Single selectable level: display name, description, thumbnail sprite, and scene reference for async load.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2394,7 +3458,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.MainMenu.MainMenuController",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.MainMenuController.yml\" sourcestartlinenumber=\"1\">Root main-menu coordinator: builds Main/LevelSelect/Options ViewStates, wires MenuEvents, and drives MenuStateMachine; NavigationCancel routes to Back.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2520,7 +3584,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.MainMenu.SettingsService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.MainMenu.SettingsService.yml\" sourcestartlinenumber=\"1\">Singleton service: loads/saves GameSettings to persistentDataPath JSON, applies video/audio/FOV/keybinding overrides, and survives scene transitions via DontDestroyOnLoad.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2650,6 +3714,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.QuickTransferModifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.QuickTransferModifier.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.QuickTransferModifier",
+      "Summary": "<p sourcefile=\"api/AFPS.QuickTransferModifier.yml\" sourcestartlinenumber=\"1\">Keyboard modifier that turns a click into a one-shot container transfer instead of a pick-up.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.RandomAudioClipContainer.yml",
       "output": {
         ".html": {
@@ -2776,6 +3854,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.RespawnTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.RespawnTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.RespawnTrigger",
+      "Summary": "<p sourcefile=\"api/AFPS.RespawnTrigger.yml\" sourcestartlinenumber=\"1\">What ends the death screen and lets the player back into the game.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.RightClickNoItemBehaviour.yml",
       "output": {
         ".html": {
@@ -2801,6 +3893,34 @@
       "IsMRef": true,
       "Title": "AFPS.RightClickWithItemBehaviour",
       "Summary": "<p sourcefile=\"api/AFPS.RightClickWithItemBehaviour.yml\" sourcestartlinenumber=\"1\">Action taken when right-clicking while an item is currently held.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.ScreenEffectRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.ScreenEffectRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.ScreenEffectRequest",
+      "Summary": "<p sourcefile=\"api/AFPS.ScreenEffectRequest.yml\" sourcestartlinenumber=\"1\">Describes one full-screen status overlay: the image to fade in (a sprite/material such as a frost\nvignette or fire border, or a flat colour), its peak opacity, and the fade timings. Authored on\n<xref href=\"AFPS.AFPS_ScreenEffectStatusBehaviour\" data-throw-if-not-resolved=\"false\"></xref> and handed to <xref href=\"AFPS.AFPS_StatusScreenEffects\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.SpawnPointSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.SpawnPointSelection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.SpawnPointSelection",
+      "Summary": "<p sourcefile=\"api/AFPS.SpawnPointSelection.yml\" sourcestartlinenumber=\"1\">How <xref href=\"AFPS.AFPS_SpawnPointRespawnStrategy\" data-throw-if-not-resolved=\"false\"></xref> picks from the registered spawn points.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2912,7 +4032,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.StatusEffect",
-      "Summary": "<p sourcefile=\"api/AFPS.StatusEffect.yml\" sourcestartlinenumber=\"1\">Runtime instance of a status effect: tracks build-up accumulation, remaining apply time, reapply timer, and HP/overheal deltas per tick. Instantiated from <xref href=\"AFPS.AFPS_StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> via <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.StatusEffect.yml\" sourcestartlinenumber=\"1\">Runtime instance of a status effect: tracks build-up accumulation, remaining apply time, reapply timer, and HP/overheal deltas per tick. Instantiated from <xref href=\"AFPS.AFPS_StatusEffect\" data-throw-if-not-resolved=\"false\"></xref> via <xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.StatusEffectResistance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.StatusEffectResistance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.StatusEffectResistance",
+      "Summary": "<p sourcefile=\"api/AFPS.StatusEffectResistance.yml\" sourcestartlinenumber=\"1\">Per-status-effect resistance on a target: optionally blocks the effect from being applied, and scales\nhow long it lasts, its per-tick HP impact, and the strength of its non-HP behaviours (slow, screen\noverlay, knockback, …). Matched by the effect's source asset in\n<xref href=\"AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect%2cUnityEngine.GameObject)\" data-throw-if-not-resolved=\"false\"></xref>; effects with no matching entry apply at full strength.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2958,6 +4092,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Transfer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Transfer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Transfer",
+      "Summary": "<p sourcefile=\"api/AFPS.Transfer.yml\" sourcestartlinenumber=\"1\">Context-menu button that sends the item to the other side of the loot screen: an item inside the\nopen container moves into the player's inventory, an item in the player's inventory moves into\nthe open container.</p>\n<p sourcefile=\"api/AFPS.Transfer.yml\" sourcestartlinenumber=\"5\">The same action as the modifier-click quick transfer, exposed as a menu entry so gamepad players\n(who have no modifier key) get it too. Does nothing when no container is open, so it is safe to\nleave on the shared item menu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.TriggerType.yml",
       "output": {
         ".html": {
@@ -2982,7 +4130,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.UGUIHUDLayer.MagSlotView",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/AFPS.UGUIHUDLayer.MagSlotView.yml\" sourcestartlinenumber=\"1\">Inspector-authored references for one slot in the optional Tarkov-style magazine display: its root object, icon, count label, and loaded-mag highlight.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3056,6 +4204,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AFPS.Unload.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AFPS.Unload.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AFPS.Unload",
+      "Summary": "<p sourcefile=\"api/AFPS.Unload.yml\" sourcestartlinenumber=\"1\">Empties a storage container item into the player's grids — unloading a magazine's rounds, tipping\nout a pouch. The one-click version of popping items out with <xref href=\"AFPS.RemoveStoredItem\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p sourcefile=\"api/AFPS.Unload.yml\" sourcestartlinenumber=\"4\">Attach to the <xref href=\"AFPS.AFPS_ItemMenu\" data-throw-if-not-resolved=\"false\"></xref> of items whose asset has <code>isStorageContainer</code> set.\nContents that don't fit stay inside, so a full inventory partially unloads rather than losing\nanything, and the HUD warning fires once at the end rather than per item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AFPS.Use.yml",
       "output": {
         ".html": {
@@ -3066,7 +4228,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AFPS.Use",
-      "Summary": "<p sourcefile=\"api/AFPS.Use.yml\" sourcestartlinenumber=\"1\">Stub use button: delegates entirely to base.OnPress(); extend OnPress to add use logic.</p>\n"
+      "Summary": "<p sourcefile=\"api/AFPS.Use.yml\" sourcestartlinenumber=\"1\">Generic &quot;do something with this item&quot; button: fires a UnityEvent carrying the item and optionally\nspends part of its stack. The wiring-only entry point for actions that don't need code — a radio\nthat triggers a cutscene, a key that opens a specific door, a note that shows a UI panel.</p>\n<p sourcefile=\"api/AFPS.Use.yml\" sourcestartlinenumber=\"5\">Reach for <xref href=\"AFPS.Consume\" data-throw-if-not-resolved=\"false\"></xref> instead when the item affects the player's health, and subclass\n<xref href=\"AFPS.ItemMenuButtonBase\" data-throw-if-not-resolved=\"false\"></xref> when the behaviour needs real logic.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3122,7 +4284,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "MovementFPS.EditorTools.AssetOnboardingWindow",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/MovementFPS.EditorTools.AssetOnboardingWindow.yml\" sourcestartlinenumber=\"1\">The <code>Tools ▸ AFPS ▸ Get Started</code> editor window: shows requirements checks with one-click fixes, quick-start links, quick actions, and the changelog. Opens automatically on first import.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3163,6 +4325,56 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/ads-tuning.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/ads-tuning.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/arms-animation.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/arms-animation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/changelog.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/changelog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/damage-and-status-effects.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/damage-and-status-effects.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/death-system.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/death-system.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/getting-started.md",
       "output": {
         ".html": {
@@ -3182,6 +4394,16 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "docs/inventory-containers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/inventory-containers.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
@@ -3190,6 +4412,56 @@
         },
         ".json": {
           "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/weapon-animation-extending.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/weapon-animation-extending.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/weapon-animation-import-guide.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/weapon-animation-import-guide.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/weapon-animation-integration-matrix.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/weapon-animation-integration-matrix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/weapon-animation-quick-start.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/weapon-animation-quick-start.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/weapon-animation-troubleshooting.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/weapon-animation-troubleshooting.html"
         }
       },
       "version": ""

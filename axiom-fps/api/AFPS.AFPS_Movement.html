@@ -520,10 +520,43 @@ public class AFPS_Movement : MonoBehaviour</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_MovementLocked.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.MovementLocked%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L243">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_Movement_MovementLocked" data-uid="AFPS.AFPS_Movement.MovementLocked">MovementLocked</h4>
+  <div class="markdown level1 summary"><p>External, persistent movement-input lock (a Stun/Knockback status effect), separate from the
+timer-based explosion lock. Reference-counted and driven by <a class="xref" href="AFPS.AFPS_PlayerControlLock.html">AFPS_PlayerControlLock</a>; it is
+unioned into <span class="xref">AFPS.AFPS_Movement.disableInput</span> so every existing input gate honours it automatically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool MovementLocked</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_adsMovementSpeedMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.adsMovementSpeedMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L210">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L220">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_adsMovementSpeedMultiplier" data-uid="AFPS.AFPS_Movement.adsMovementSpeedMultiplier">adsMovementSpeedMultiplier</h4>
   <div class="markdown level1 summary"></div>
@@ -553,7 +586,7 @@ public float adsMovementSpeedMultiplier</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_agent.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.agent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L189">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L199">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_agent" data-uid="AFPS.AFPS_Movement.agent">agent</h4>
   <div class="markdown level1 summary"></div>
@@ -583,7 +616,7 @@ public AFPS_Agent agent</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_armsController.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.armsController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L87">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L88">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_armsController" data-uid="AFPS.AFPS_Movement.armsController">armsController</h4>
   <div class="markdown level1 summary"></div>
@@ -614,7 +647,7 @@ public AFPS_ArmsController armsController</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_cam.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.cam%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L89">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L90">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_cam" data-uid="AFPS.AFPS_Movement.cam">cam</h4>
   <div class="markdown level1 summary"></div>
@@ -645,7 +678,7 @@ public AFPS_Camera cam</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_climbMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.climbMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L114">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L115">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_climbMovementSettings" data-uid="AFPS.AFPS_Movement.climbMovementSettings">climbMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -676,7 +709,7 @@ public AFPS_ClimbMovementSettings climbMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_crouchAndSlideSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.crouchAndSlideSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L104">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L105">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_crouchAndSlideSettings" data-uid="AFPS.AFPS_Movement.crouchAndSlideSettings">crouchAndSlideSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -707,7 +740,7 @@ public AFPS_CrouchAndSlideSettings crouchAndSlideSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_currentGravity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.currentGravity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L136">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L137">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_currentGravity" data-uid="AFPS.AFPS_Movement.currentGravity">currentGravity</h4>
   <div class="markdown level1 summary"></div>
@@ -737,7 +770,7 @@ public Vector3 currentGravity</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_currentJumpNumber.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.currentJumpNumber%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L138">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L139">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_currentJumpNumber" data-uid="AFPS.AFPS_Movement.currentJumpNumber">currentJumpNumber</h4>
   <div class="markdown level1 summary"></div>
@@ -767,7 +800,7 @@ public int currentJumpNumber</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_currentLadder.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.currentLadder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L282">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L301">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_currentLadder" data-uid="AFPS.AFPS_Movement.currentLadder">currentLadder</h4>
   <div class="markdown level1 summary"></div>
@@ -797,7 +830,7 @@ public AFPS_Ladder currentLadder</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_currentMovementState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.currentMovementState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L207">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L217">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_currentMovementState" data-uid="AFPS.AFPS_Movement.currentMovementState">currentMovementState</h4>
   <div class="markdown level1 summary"></div>
@@ -827,7 +860,7 @@ public MovementState currentMovementState</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_currentSprintStamina.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.currentSprintStamina%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L144">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L145">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_currentSprintStamina" data-uid="AFPS.AFPS_Movement.currentSprintStamina">currentSprintStamina</h4>
   <div class="markdown level1 summary"></div>
@@ -857,7 +890,7 @@ public float currentSprintStamina</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_explosionMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.explosionMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L112">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L113">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_explosionMovementSettings" data-uid="AFPS.AFPS_Movement.explosionMovementSettings">explosionMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -888,7 +921,7 @@ public AFPS_ExplosionMovementSettings explosionMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_fluidAccelerationMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.fluidAccelerationMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L129">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L130">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_fluidAccelerationMultiplier" data-uid="AFPS.AFPS_Movement.fluidAccelerationMultiplier">fluidAccelerationMultiplier</h4>
   <div class="markdown level1 summary"></div>
@@ -918,7 +951,7 @@ public float fluidAccelerationMultiplier</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_fluidDrag.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.fluidDrag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L125">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L126">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_fluidDrag" data-uid="AFPS.AFPS_Movement.fluidDrag">fluidDrag</h4>
   <div class="markdown level1 summary"></div>
@@ -948,7 +981,7 @@ public float fluidDrag</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_fluidGravity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.fluidGravity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L133">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L134">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_fluidGravity" data-uid="AFPS.AFPS_Movement.fluidGravity">fluidGravity</h4>
   <div class="markdown level1 summary"></div>
@@ -978,7 +1011,7 @@ public Vector3 fluidGravity</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_fluidMovementMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.fluidMovementMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L127">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L128">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_fluidMovementMultiplier" data-uid="AFPS.AFPS_Movement.fluidMovementMultiplier">fluidMovementMultiplier</h4>
   <div class="markdown level1 summary"></div>
@@ -1008,7 +1041,7 @@ public float fluidMovementMultiplier</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_fluidMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.fluidMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L110">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L111">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_fluidMovementSettings" data-uid="AFPS.AFPS_Movement.fluidMovementSettings">fluidMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1039,7 +1072,7 @@ public AFPS_FluidMovementSettings fluidMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_grounded.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.grounded%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L161">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L162">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_grounded" data-uid="AFPS.AFPS_Movement.grounded">grounded</h4>
   <div class="markdown level1 summary"></div>
@@ -1069,7 +1102,7 @@ public bool grounded</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_groundedHit.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.groundedHit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L202">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L212">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_groundedHit" data-uid="AFPS.AFPS_Movement.groundedHit">groundedHit</h4>
   <div class="markdown level1 summary"></div>
@@ -1099,7 +1132,7 @@ public RaycastHit groundedHit</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_groundedOffset.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.groundedOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L85">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L86">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_groundedOffset" data-uid="AFPS.AFPS_Movement.groundedOffset">groundedOffset</h4>
   <div class="markdown level1 summary"></div>
@@ -1131,7 +1164,7 @@ public Transform groundedOffset</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_groundingAndSlopeMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.groundingAndSlopeMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L102">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L103">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_groundingAndSlopeMovementSettings" data-uid="AFPS.AFPS_Movement.groundingAndSlopeMovementSettings">groundingAndSlopeMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1162,7 +1195,7 @@ public AFPS_GroundingAndSlopeMovementSettings groundingAndSlopeMovementSettings<
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_hangWallNormal.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.hangWallNormal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L247">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L266">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_hangWallNormal" data-uid="AFPS.AFPS_Movement.hangWallNormal">hangWallNormal</h4>
   <div class="markdown level1 summary"></div>
@@ -1192,7 +1225,7 @@ public Vector3 hangWallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_horizontalMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.horizontalMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L98">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L99">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_horizontalMovementSettings" data-uid="AFPS.AFPS_Movement.horizontalMovementSettings">horizontalMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1226,7 +1259,7 @@ public AFPS_HorizontalMovementSettings horizontalMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_inFluid.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.inFluid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L123">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L124">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_inFluid" data-uid="AFPS.AFPS_Movement.inFluid">inFluid</h4>
   <div class="markdown level1 summary"></div>
@@ -1256,7 +1289,7 @@ public bool inFluid</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_interruptSprinting.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.interruptSprinting%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L220">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L230">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_interruptSprinting" data-uid="AFPS.AFPS_Movement.interruptSprinting">interruptSprinting</h4>
   <div class="markdown level1 summary"></div>
@@ -1286,7 +1319,7 @@ public bool interruptSprinting</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_isClimbing.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.isClimbing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L231">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L250">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_isClimbing" data-uid="AFPS.AFPS_Movement.isClimbing">isClimbing</h4>
   <div class="markdown level1 summary"></div>
@@ -1316,7 +1349,7 @@ public bool isClimbing</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_isGrappling.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.isGrappling%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L146">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L147">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_isGrappling" data-uid="AFPS.AFPS_Movement.isGrappling">isGrappling</h4>
   <div class="markdown level1 summary"></div>
@@ -1346,7 +1379,7 @@ public bool isGrappling</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_isHanging.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.isHanging%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L245">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L264">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_isHanging" data-uid="AFPS.AFPS_Movement.isHanging">isHanging</h4>
   <div class="markdown level1 summary"></div>
@@ -1376,7 +1409,7 @@ public bool isHanging</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_isSliding.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.isSliding%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L954">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1040">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_isSliding" data-uid="AFPS.AFPS_Movement.isSliding">isSliding</h4>
   <div class="markdown level1 summary"></div>
@@ -1406,7 +1439,7 @@ public bool isSliding</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_isSprinting.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.isSprinting%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L217">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L227">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_isSprinting" data-uid="AFPS.AFPS_Movement.isSprinting">isSprinting</h4>
   <div class="markdown level1 summary"></div>
@@ -1436,7 +1469,7 @@ public bool isSprinting</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_ladderMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.ladderMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L108">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L109">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_ladderMovementSettings" data-uid="AFPS.AFPS_Movement.ladderMovementSettings">ladderMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1467,7 +1500,7 @@ public AFPS_LadderMovementSettings ladderMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_ladderPosition.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.ladderPosition%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L284">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L303">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_ladderPosition" data-uid="AFPS.AFPS_Movement.ladderPosition">ladderPosition</h4>
   <div class="markdown level1 summary"></div>
@@ -1497,7 +1530,7 @@ public float ladderPosition</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_mantleAndVaultMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.mantleAndVaultMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L116">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L117">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_mantleAndVaultMovementSettings" data-uid="AFPS.AFPS_Movement.mantleAndVaultMovementSettings">mantleAndVaultMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1528,7 +1561,7 @@ public AFPS_MantleAndVaultMovementSettings mantleAndVaultMovementSettings</code>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_mantlingKey.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.mantlingKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L278">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L297">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_mantlingKey" data-uid="AFPS.AFPS_Movement.mantlingKey">mantlingKey</h4>
   <div class="markdown level1 summary"></div>
@@ -1558,7 +1591,7 @@ public string mantlingKey</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_movementInput.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.movementInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L168">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L169">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_movementInput" data-uid="AFPS.AFPS_Movement.movementInput">movementInput</h4>
   <div class="markdown level1 summary"></div>
@@ -1588,7 +1621,7 @@ public Vector2 movementInput</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_movementVector.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.movementVector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L166">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L167">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_movementVector" data-uid="AFPS.AFPS_Movement.movementVector">movementVector</h4>
   <div class="markdown level1 summary"></div>
@@ -1618,7 +1651,7 @@ public Vector3 movementVector</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_onWall.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.onWall%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L152">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L153">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_onWall" data-uid="AFPS.AFPS_Movement.onWall">onWall</h4>
   <div class="markdown level1 summary"></div>
@@ -1648,7 +1681,7 @@ public bool onWall</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_playerInput.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.playerInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L159">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L160">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_playerInput" data-uid="AFPS.AFPS_Movement.playerInput">playerInput</h4>
   <div class="markdown level1 summary"></div>
@@ -1678,7 +1711,7 @@ public PlayerInput playerInput</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_rb.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.rb%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L157">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L158">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_rb" data-uid="AFPS.AFPS_Movement.rb">rb</h4>
   <div class="markdown level1 summary"></div>
@@ -1708,7 +1741,7 @@ public Rigidbody rb</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_relativeVelocity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.relativeVelocity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L186">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L196">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_relativeVelocity" data-uid="AFPS.AFPS_Movement.relativeVelocity">relativeVelocity</h4>
   <div class="markdown level1 summary"></div>
@@ -1738,7 +1771,7 @@ public Vector3 relativeVelocity</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_sprintHeld.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.sprintHeld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L215">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L225">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_sprintHeld" data-uid="AFPS.AFPS_Movement.sprintHeld">sprintHeld</h4>
   <div class="markdown level1 summary"></div>
@@ -1768,7 +1801,7 @@ public bool sprintHeld</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_sprintMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.sprintMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L118">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L119">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_sprintMovementSettings" data-uid="AFPS.AFPS_Movement.sprintMovementSettings">sprintMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1799,7 +1832,7 @@ public AFPS_SprintMovementSettings sprintMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_staminaMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.staminaMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L120">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L121">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_staminaMovementSettings" data-uid="AFPS.AFPS_Movement.staminaMovementSettings">staminaMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1830,7 +1863,7 @@ public AFPS_StaminaMovementSettings staminaMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_useFluidGravity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.useFluidGravity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L131">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L132">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_useFluidGravity" data-uid="AFPS.AFPS_Movement.useFluidGravity">useFluidGravity</h4>
   <div class="markdown level1 summary"></div>
@@ -1860,7 +1893,7 @@ public bool useFluidGravity</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_verticalMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.verticalMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L100">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L101">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_verticalMovementSettings" data-uid="AFPS.AFPS_Movement.verticalMovementSettings">verticalMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1891,7 +1924,7 @@ public AFPS_VerticalMovementSettings verticalMovementSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_wallInteractionMovementSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.wallInteractionMovementSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L106">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L107">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_wallInteractionMovementSettings" data-uid="AFPS.AFPS_Movement.wallInteractionMovementSettings">wallInteractionMovementSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -1922,7 +1955,7 @@ public AFPS_WallInteractionMovementSettings wallInteractionMovementSettings</cod
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_wallrunCameraTilt.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.wallrunCameraTilt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L150">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L151">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_wallrunCameraTilt" data-uid="AFPS.AFPS_Movement.wallrunCameraTilt">wallrunCameraTilt</h4>
   <div class="markdown level1 summary"></div>
@@ -1952,7 +1985,7 @@ public float wallrunCameraTilt</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_wasGrounded.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.wasGrounded%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L163">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L164">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Movement_wasGrounded" data-uid="AFPS.AFPS_Movement.wasGrounded">wasGrounded</h4>
   <div class="markdown level1 summary"></div>
@@ -1981,10 +2014,78 @@ public bool wasGrounded</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_CrouchOrSlideHeld.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.CrouchOrSlideHeld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1026">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Movement_CrouchOrSlideHeld_" data-uid="AFPS.AFPS_Movement.CrouchOrSlideHeld*"></a>
+  <h4 id="AFPS_AFPS_Movement_CrouchOrSlideHeld" data-uid="AFPS.AFPS_Movement.CrouchOrSlideHeld">CrouchOrSlideHeld</h4>
+  <div class="markdown level1 summary"><p>Raw held state of the crouch/slide button — the same signal AscendDescendLogic uses to swim
+downward. Exposed read-only for AFPS_WeaponAnimator; see <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_JumpHeld">JumpHeld</a> for why intent
+is used rather than velocity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CrouchOrSlideHeld { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_CurrentDrag.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.CurrentDrag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L183">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Movement_CurrentDrag_" data-uid="AFPS.AFPS_Movement.CurrentDrag*"></a>
+  <h4 id="AFPS_AFPS_Movement_CurrentDrag" data-uid="AFPS.AFPS_Movement.CurrentDrag">CurrentDrag</h4>
+  <div class="markdown level1 summary"><p>The linear damping this controller wants on the Rigidbody for the current frame, re-selected every
+frame in <span class="xref">AFPS.AFPS_Movement.MovementSpeedAndDragLogic()</span> from the active movement state.</p>
+<p>Exposed for systems that temporarily override <span class="xref">UnityEngine.Rigidbody.linearDamping</span> and need the
+authored value to scale (and to restore), rather than reading back their own override — see
+<a class="xref" href="AFPS.Dash.html">Dash</a>'s momentum-preservation window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CurrentDrag { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_IsMantling.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.IsMantling%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L269">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L288">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_IsMantling_" data-uid="AFPS.AFPS_Movement.IsMantling*"></a>
   <h4 id="AFPS_AFPS_Movement_IsMantling" data-uid="AFPS.AFPS_Movement.IsMantling">IsMantling</h4>
@@ -2010,6 +2111,40 @@ public bool wasGrounded</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_JumpHeld.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.JumpHeld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L766">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Movement_JumpHeld_" data-uid="AFPS.AFPS_Movement.JumpHeld*"></a>
+  <h4 id="AFPS_AFPS_Movement_JumpHeld" data-uid="AFPS.AFPS_Movement.JumpHeld">JumpHeld</h4>
+  <div class="markdown level1 summary"><p>Raw held state of the jump button — the same signal AscendDescendLogic uses to swim upward.
+Exposed read-only so AFPS_WeaponAnimator can pick the ascend swim clip from the player's INTENT
+rather than from velocity, which buoyancy drifts up and down on its own and would make the
+animation flicker between ascending and descending while the player holds still.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool JumpHeld { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -2017,7 +2152,7 @@ public bool wasGrounded</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_CanMantle.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.CanMantle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1209">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1295">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_CanMantle_" data-uid="AFPS.AFPS_Movement.CanMantle*"></a>
   <h4 id="AFPS_AFPS_Movement_CanMantle" data-uid="AFPS.AFPS_Movement.CanMantle">CanMantle()</h4>
@@ -2045,10 +2180,43 @@ public bool wasGrounded</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_ClearSpeedMultiplier_System_Object_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.ClearSpeedMultiplier(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L2008">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Movement_ClearSpeedMultiplier_" data-uid="AFPS.AFPS_Movement.ClearSpeedMultiplier*"></a>
+  <h4 id="AFPS_AFPS_Movement_ClearSpeedMultiplier_System_Object_" data-uid="AFPS.AFPS_Movement.ClearSpeedMultiplier(System.Object)">ClearSpeedMultiplier(object)</h4>
+  <div class="markdown level1 summary"><p>Removes the multiplier previously registered under <code class="paramref">key</code>, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearSpeedMultiplier(object key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_ClearTransientState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.ClearTransientState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1883">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1969">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_ClearTransientState_" data-uid="AFPS.AFPS_Movement.ClearTransientState*"></a>
   <h4 id="AFPS_AFPS_Movement_ClearTransientState" data-uid="AFPS.AFPS_Movement.ClearTransientState">ClearTransientState()</h4>
@@ -2066,7 +2234,7 @@ pending DisableInput timer.</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_DisableInput_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.DisableInput(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1864">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1950">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_DisableInput_" data-uid="AFPS.AFPS_Movement.DisableInput*"></a>
   <h4 id="AFPS_AFPS_Movement_DisableInput_System_Single_" data-uid="AFPS.AFPS_Movement.DisableInput(System.Single)">DisableInput(float)</h4>
@@ -2099,7 +2267,7 @@ pending DisableInput timer.</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_SetExplodeState_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.SetExplodeState(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1873">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1959">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_SetExplodeState_" data-uid="AFPS.AFPS_Movement.SetExplodeState*"></a>
   <h4 id="AFPS_AFPS_Movement_SetExplodeState_System_Single_" data-uid="AFPS.AFPS_Movement.SetExplodeState(System.Single)">SetExplodeState(float)</h4>
@@ -2132,7 +2300,7 @@ pending DisableInput timer.</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_SetFloatTimer_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.SetFloatTimer(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1857">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1943">View Source</a>
   </span>
   <a id="AFPS_AFPS_Movement_SetFloatTimer_" data-uid="AFPS.AFPS_Movement.SetFloatTimer*"></a>
   <h4 id="AFPS_AFPS_Movement_SetFloatTimer_System_Single_" data-uid="AFPS.AFPS_Movement.SetFloatTimer(System.Single)">SetFloatTimer(float)</h4>
@@ -2160,6 +2328,44 @@ pending DisableInput timer.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement_SetSpeedMultiplier_System_Object_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement.SetSpeedMultiplier(System.Object%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L1999">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Movement_SetSpeedMultiplier_" data-uid="AFPS.AFPS_Movement.SetSpeedMultiplier*"></a>
+  <h4 id="AFPS_AFPS_Movement_SetSpeedMultiplier_System_Object_System_Single_" data-uid="AFPS.AFPS_Movement.SetSpeedMultiplier(System.Object,System.Single)">SetSpeedMultiplier(object, float)</h4>
+  <div class="markdown level1 summary"><p>Registers (or updates) a movement-speed multiplier under <code class="paramref">key</code>. 0.5 = half speed, &gt;1 = faster. Call <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_ClearSpeedMultiplier_System_Object_">ClearSpeedMultiplier(object)</a> with the same key to remove it. Multiple keys compound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSpeedMultiplier(object key, float multiplier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">multiplier</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
           </div>
@@ -2172,7 +2378,7 @@ pending DisableInput timer.</p>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Movement.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Movement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L75" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Movement System/AFPS_Movement.cs/#L76" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

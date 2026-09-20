@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AFPS_UIManager ">
     
-    
+    <meta name="description" content="Central HUD coordinator: fans weapon/ammo/health/crosshair/impulse/compass/interaction data to registered IHUDLayer implementations (UGUI + UI Toolkit).">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,8 @@
 
 
   <h1 id="AFPS_AFPS_UIManager" data-uid="AFPS.AFPS_UIManager" class="text-break">Class AFPS_UIManager</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Central HUD coordinator: fans weapon/ammo/health/crosshair/impulse/compass/interaction data to registered IHUDLayer implementations (UGUI + UI Toolkit).</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -516,10 +517,43 @@ public class AFPS_UIManager : MonoBehaviour</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_blockPauseMenu.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.blockPauseMenu%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L550">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_UIManager_blockPauseMenu" data-uid="AFPS.AFPS_UIManager.blockPauseMenu">blockPauseMenu</h4>
+  <div class="markdown level1 summary"><p>While true every pause toggle is ignored. Raised by <a class="xref" href="AFPS.AFPS_DeathController.html">AFPS_DeathController</a> for the
+duration of a death sequence — pausing mid-death would strand timeScale and the UI action map
+between two systems that both want to own them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool blockPauseMenu</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_crosshairOpacity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.crosshairOpacity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L146">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L176">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_crosshairOpacity" data-uid="AFPS.AFPS_UIManager.crosshairOpacity">crosshairOpacity</h4>
   <div class="markdown level1 summary"></div>
@@ -549,7 +583,7 @@ public float crosshairOpacity</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_crosshairSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.crosshairSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L143">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L173">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_crosshairSettings" data-uid="AFPS.AFPS_UIManager.crosshairSettings">crosshairSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -579,7 +613,7 @@ public AFPS_CrosshairSettings crosshairSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_defaultCrosshairSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.defaultCrosshairSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L42">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L56">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_defaultCrosshairSettings" data-uid="AFPS.AFPS_UIManager.defaultCrosshairSettings">defaultCrosshairSettings</h4>
   <div class="markdown level1 summary"></div>
@@ -610,7 +644,7 @@ public AFPS_CrosshairSettings defaultCrosshairSettings</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_enableCrosshair.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.enableCrosshair%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L148">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L178">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_enableCrosshair" data-uid="AFPS.AFPS_UIManager.enableCrosshair">enableCrosshair</h4>
   <div class="markdown level1 summary"></div>
@@ -640,7 +674,7 @@ public bool enableCrosshair</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_inventoryEnabled.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.inventoryEnabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L150">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L180">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_inventoryEnabled" data-uid="AFPS.AFPS_UIManager.inventoryEnabled">inventoryEnabled</h4>
   <div class="markdown level1 summary"></div>
@@ -670,7 +704,7 @@ public bool inventoryEnabled</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_scopeGroup.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.scopeGroup%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L68">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L82">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_scopeGroup" data-uid="AFPS.AFPS_UIManager.scopeGroup">scopeGroup</h4>
   <div class="markdown level1 summary"></div>
@@ -700,7 +734,7 @@ public CanvasGroup scopeGroup</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_scopeImage.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.scopeImage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L70">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L84">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_UIManager_scopeImage" data-uid="AFPS.AFPS_UIManager.scopeImage">scopeImage</h4>
   <div class="markdown level1 summary"></div>
@@ -732,7 +766,7 @@ public Image scopeImage</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_ChangeCrosshairSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.ChangeCrosshairSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L307">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L337">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_ChangeCrosshairSettings_" data-uid="AFPS.AFPS_UIManager.ChangeCrosshairSettings*"></a>
   <h4 id="AFPS_AFPS_UIManager_ChangeCrosshairSettings" data-uid="AFPS.AFPS_UIManager.ChangeCrosshairSettings">ChangeCrosshairSettings()</h4>
@@ -747,7 +781,7 @@ public Image scopeImage</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_CreateHitmarker_AFPS_AFPS_HitmarkerSettings_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.CreateHitmarker(AFPS.AFPS_HitmarkerSettings)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L319">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L349">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_CreateHitmarker_" data-uid="AFPS.AFPS_UIManager.CreateHitmarker*"></a>
   <h4 id="AFPS_AFPS_UIManager_CreateHitmarker_AFPS_AFPS_HitmarkerSettings_" data-uid="AFPS.AFPS_UIManager.CreateHitmarker(AFPS.AFPS_HitmarkerSettings)">CreateHitmarker(AFPS_HitmarkerSettings)</h4>
@@ -779,7 +813,7 @@ public Image scopeImage</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_DisableInteractionBox.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.DisableInteractionBox%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L626">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L712">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_DisableInteractionBox_" data-uid="AFPS.AFPS_UIManager.DisableInteractionBox*"></a>
   <h4 id="AFPS_AFPS_UIManager_DisableInteractionBox" data-uid="AFPS.AFPS_UIManager.DisableInteractionBox">DisableInteractionBox()</h4>
@@ -794,7 +828,7 @@ public Image scopeImage</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_OnCurrentWeaponChanged_AFPS_AFPS_WeaponObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.OnCurrentWeaponChanged(AFPS.AFPS_WeaponObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L659">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L863">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_OnCurrentWeaponChanged_" data-uid="AFPS.AFPS_UIManager.OnCurrentWeaponChanged*"></a>
   <h4 id="AFPS_AFPS_UIManager_OnCurrentWeaponChanged_AFPS_AFPS_WeaponObject_" data-uid="AFPS.AFPS_UIManager.OnCurrentWeaponChanged(AFPS.AFPS_WeaponObject)">OnCurrentWeaponChanged(AFPS_WeaponObject)</h4>
@@ -824,40 +858,10 @@ public Image scopeImage</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_OnDisable.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.OnDisable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L173">View Source</a>
-  </span>
-  <a id="AFPS_AFPS_UIManager_OnDisable_" data-uid="AFPS.AFPS_UIManager.OnDisable*"></a>
-  <h4 id="AFPS_AFPS_UIManager_OnDisable" data-uid="AFPS.AFPS_UIManager.OnDisable">OnDisable()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnDisable()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_OnEnable.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.OnEnable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L161">View Source</a>
-  </span>
-  <a id="AFPS_AFPS_UIManager_OnEnable_" data-uid="AFPS.AFPS_UIManager.OnEnable*"></a>
-  <h4 id="AFPS_AFPS_UIManager_OnEnable" data-uid="AFPS.AFPS_UIManager.OnEnable">OnEnable()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnEnable()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_RefreshWeaponUI.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.RefreshWeaponUI%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L732">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L936">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_RefreshWeaponUI_" data-uid="AFPS.AFPS_UIManager.RefreshWeaponUI*"></a>
   <h4 id="AFPS_AFPS_UIManager_RefreshWeaponUI" data-uid="AFPS.AFPS_UIManager.RefreshWeaponUI">RefreshWeaponUI()</h4>
@@ -876,7 +880,7 @@ The push is deferred to end-of-frame so it sees the completed inventory state.</
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_SetCompassHeading_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.SetCompassHeading(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L644">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L848">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_SetCompassHeading_" data-uid="AFPS.AFPS_UIManager.SetCompassHeading*"></a>
   <h4 id="AFPS_AFPS_UIManager_SetCompassHeading_System_Single_" data-uid="AFPS.AFPS_UIManager.SetCompassHeading(System.Single)">SetCompassHeading(float)</h4>
@@ -905,10 +909,46 @@ The push is deferred to end-of-frame so it sees the completed inventory state.</
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_SetInventoryOpen_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.SetInventoryOpen(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L454">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_UIManager_SetInventoryOpen_" data-uid="AFPS.AFPS_UIManager.SetInventoryOpen*"></a>
+  <h4 id="AFPS_AFPS_UIManager_SetInventoryOpen_System_Boolean_" data-uid="AFPS.AFPS_UIManager.SetInventoryOpen(System.Boolean)">SetInventoryOpen(bool)</h4>
+  <div class="markdown level1 summary"><p>Opens or closes the inventory panel: canvas, cursor lock, action map, camera/fire gating, and the
+held-item revert on close. The single entry point — the toggle key, container interactions and
+gameplay scripts all route through here so the state can't diverge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInventoryOpen(bool open)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">open</span></td>
+        <td><p>Target state. Calling with the state it's already in is a no-op.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_SetScopeSprite_UnityEngine_Sprite_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.SetScopeSprite(UnityEngine.Sprite)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L371">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L401">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_SetScopeSprite_" data-uid="AFPS.AFPS_UIManager.SetScopeSprite*"></a>
   <h4 id="AFPS_AFPS_UIManager_SetScopeSprite_UnityEngine_Sprite_" data-uid="AFPS.AFPS_UIManager.SetScopeSprite(UnityEngine.Sprite)">SetScopeSprite(Sprite)</h4>
@@ -941,7 +981,7 @@ The push is deferred to end-of-frame so it sees the completed inventory state.</
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_SetScopeVisible_System_Boolean_System_Single_DentedPixel_LeanTweenType_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.SetScopeVisible(System.Boolean%2CSystem.Single%2CDentedPixel.LeanTweenType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L383">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L413">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_SetScopeVisible_" data-uid="AFPS.AFPS_UIManager.SetScopeVisible*"></a>
   <h4 id="AFPS_AFPS_UIManager_SetScopeVisible_System_Boolean_System_Single_DentedPixel_LeanTweenType_" data-uid="AFPS.AFPS_UIManager.SetScopeVisible(System.Boolean,System.Single,DentedPixel.LeanTweenType)">SetScopeVisible(bool, float, LeanTweenType)</h4>
@@ -986,7 +1026,7 @@ Cancels any in-flight UGUI fade; layers cancel their own. <code class="paramref"
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_ShowInventoryFullWarning.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.ShowInventoryFullWarning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L448">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L512">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_ShowInventoryFullWarning_" data-uid="AFPS.AFPS_UIManager.ShowInventoryFullWarning*"></a>
   <h4 id="AFPS_AFPS_UIManager_ShowInventoryFullWarning" data-uid="AFPS.AFPS_UIManager.ShowInventoryFullWarning">ShowInventoryFullWarning()</h4>
@@ -1004,7 +1044,7 @@ for lack of inventory room.</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_ShowInventoryTooHeavyWarning.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.ShowInventoryTooHeavyWarning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L454">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L518">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_ShowInventoryTooHeavyWarning_" data-uid="AFPS.AFPS_UIManager.ShowInventoryTooHeavyWarning*"></a>
   <h4 id="AFPS_AFPS_UIManager_ShowInventoryTooHeavyWarning" data-uid="AFPS.AFPS_UIManager.ShowInventoryTooHeavyWarning">ShowInventoryTooHeavyWarning()</h4>
@@ -1021,7 +1061,7 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_TogglePauseMenuLogic.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.TogglePauseMenuLogic%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L480">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L552">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_TogglePauseMenuLogic_" data-uid="AFPS.AFPS_UIManager.TogglePauseMenuLogic*"></a>
   <h4 id="AFPS_AFPS_UIManager_TogglePauseMenuLogic" data-uid="AFPS.AFPS_UIManager.TogglePauseMenuLogic">TogglePauseMenuLogic()</h4>
@@ -1036,7 +1076,7 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_TriggerUIImpulse_AFPS_UIImpulseSettings_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.TriggerUIImpulse(AFPS.UIImpulseSettings)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L633">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L837">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_TriggerUIImpulse_" data-uid="AFPS.AFPS_UIManager.TriggerUIImpulse*"></a>
   <h4 id="AFPS_AFPS_UIManager_TriggerUIImpulse_AFPS_UIImpulseSettings_" data-uid="AFPS.AFPS_UIManager.TriggerUIImpulse(AFPS.UIImpulseSettings)">TriggerUIImpulse(UIImpulseSettings)</h4>
@@ -1068,7 +1108,7 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_UpdateHealthUI_AFPS_AFPS_Health_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.UpdateHealthUI(AFPS.AFPS_Health%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L235">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L265">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_UpdateHealthUI_" data-uid="AFPS.AFPS_UIManager.UpdateHealthUI*"></a>
   <h4 id="AFPS_AFPS_UIManager_UpdateHealthUI_AFPS_AFPS_Health_System_Single_" data-uid="AFPS.AFPS_UIManager.UpdateHealthUI(AFPS.AFPS_Health,System.Single)">UpdateHealthUI(AFPS_Health, float)</h4>
@@ -1105,7 +1145,7 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_UpdateInteractionBox_UnityEngine_Collider_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.UpdateInteractionBox(UnityEngine.Collider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L538">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L617">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_UpdateInteractionBox_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionBox*"></a>
   <h4 id="AFPS_AFPS_UIManager_UpdateInteractionBox_UnityEngine_Collider_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionBox(UnityEngine.Collider)">UpdateInteractionBox(Collider)</h4>
@@ -1134,10 +1174,91 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_UpdateInteractionPrompt_AFPS_AFPS_Interactable_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.UpdateInteractionPrompt(AFPS.AFPS_Interactable%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L734">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_UIManager_UpdateInteractionPrompt_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionPrompt*"></a>
+  <h4 id="AFPS_AFPS_UIManager_UpdateInteractionPrompt_AFPS_AFPS_Interactable_System_Boolean_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionPrompt(AFPS.AFPS_Interactable,System.Boolean)">UpdateInteractionPrompt(AFPS_Interactable, bool)</h4>
+  <div class="markdown level1 summary"><p>Push the &quot;F to &lt;verb&gt;&quot; prompt for the currently-targeted interactable. Gated by the master
+toggle plus opt-in (the object's allowInteractionPrompt OR the global promptOnAllInteractables
+override). When a weapon pickup would swap out an occupied slot, the weapon's swap verb overrides
+its normal verb. Called each frame while targeting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateInteractionPrompt(AFPS_Interactable interactable, bool swapPending)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Interactable.html">AFPS_Interactable</a></td>
+        <td><span class="parametername">interactable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">swapPending</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_UpdateInteractionRadial_System_Single_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.UpdateInteractionRadial(System.Single%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L774">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_UIManager_UpdateInteractionRadial_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionRadial*"></a>
+  <h4 id="AFPS_AFPS_UIManager_UpdateInteractionRadial_System_Single_System_Boolean_" data-uid="AFPS.AFPS_UIManager.UpdateInteractionRadial(System.Single,System.Boolean)">UpdateInteractionRadial(float, bool)</h4>
+  <div class="markdown level1 summary"><p>Push the radial hold-progress ring. Visible only while a hold is actually in progress and the
+master toggle is on; anchored per <span class="xref">AFPS.AFPS_UIManager.radialAnchor</span> (screen center or over the target).
+Called each frame while targeting a held interactable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateInteractionRadial(float progress01, bool holding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">progress01</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">holding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_UpdateWeaponIcons.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.UpdateWeaponIcons%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L521">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L600">View Source</a>
   </span>
   <a id="AFPS_AFPS_UIManager_UpdateWeaponIcons_" data-uid="AFPS.AFPS_UIManager.UpdateWeaponIcons*"></a>
   <h4 id="AFPS_AFPS_UIManager_UpdateWeaponIcons" data-uid="AFPS.AFPS_UIManager.UpdateWeaponIcons">UpdateWeaponIcons()</h4>
@@ -1147,6 +1268,40 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UpdateWeaponIcons()</code></pre>
   </div>
+  <h3 id="events">Events
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager_OnInventoryToggled.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager.OnInventoryToggled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L430">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_UIManager_OnInventoryToggled" data-uid="AFPS.AFPS_UIManager.OnInventoryToggled">OnInventoryToggled</h4>
+  <div class="markdown level1 summary"><p>Raised whenever the inventory panel opens (true) or closes (false), from any source — the toggle
+key, a container opening it, or a script calling <a class="xref" href="AFPS.AFPS_UIManager.html#AFPS_AFPS_UIManager_SetInventoryOpen_System_Boolean_">SetInventoryOpen(bool)</a>. Container UI hangs
+off this so closing the inventory also unbinds whatever container was open, in the same frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;bool&gt; OnInventoryToggled</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
           </div>
@@ -1159,7 +1314,7 @@ Called by the pickup path when a pickup is refused for exceeding the carry-weigh
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_UIManager.md&amp;value=---%0Auid%3A%20AFPS.AFPS_UIManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/UI/AFPS_UIManager.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

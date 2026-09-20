@@ -711,7 +711,7 @@ public AFPS_InventorySystem inventorySystem</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGridUIBinding_CellPanelSize.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGridUIBinding.CellPanelSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGridUIBinding.cs/#L906">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGridUIBinding.cs/#L973">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGridUIBinding_CellPanelSize_" data-uid="AFPS.AFPS_InventoryGridUIBinding.CellPanelSize*"></a>
   <h4 id="AFPS_AFPS_InventoryGridUIBinding_CellPanelSize" data-uid="AFPS.AFPS_InventoryGridUIBinding.CellPanelSize">CellPanelSize</h4>
@@ -744,7 +744,7 @@ public AFPS_InventorySystem inventorySystem</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGridUIBinding_GetPanelPerScreen.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGridUIBinding.GetPanelPerScreen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGridUIBinding.cs/#L904">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGridUIBinding.cs/#L971">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGridUIBinding_GetPanelPerScreen_" data-uid="AFPS.AFPS_InventoryGridUIBinding.GetPanelPerScreen*"></a>
   <h4 id="AFPS_AFPS_InventoryGridUIBinding_GetPanelPerScreen" data-uid="AFPS.AFPS_InventoryGridUIBinding.GetPanelPerScreen">GetPanelPerScreen()</h4>
@@ -771,6 +771,27 @@ AFPS_InventoryUIRenderer to size its held-mirror in panel coords.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGridUIBinding_RebuildForGridSize.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGridUIBinding.RebuildForGridSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGridUIBinding.cs/#L323">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventoryGridUIBinding_RebuildForGridSize_" data-uid="AFPS.AFPS_InventoryGridUIBinding.RebuildForGridSize*"></a>
+  <h4 id="AFPS_AFPS_InventoryGridUIBinding_RebuildForGridSize" data-uid="AFPS.AFPS_InventoryGridUIBinding.RebuildForGridSize">RebuildForGridSize()</h4>
+  <div class="markdown level1 summary"><p>Rebuilds the cell elements from the grid's CURRENT gridSize and drops every per-item and
+per-cell cache. Call after changing <a class="xref" href="AFPS.AFPS_InventoryGrid.html#AFPS_AFPS_InventoryGrid_gridSize">gridSize</a> at runtime —
+<a class="xref" href="AFPS.AFPS_ContainerUIController.html">AFPS_ContainerUIController</a> does this every time it binds a container, so one
+pooled grid can render a 4x3 crate and then an 10x6 corpse.</p>
+<p>Safe to call before Start (no-ops until the element has been resolved) and safe to call while
+the panel is hidden — layout re-validates through the usual GeometryChanged / polling path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RebuildForGridSize()</code></pre>
+  </div>
 
 </article>
           </div>

@@ -533,10 +533,106 @@ public class ADS : FireWeaponBase</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_AimBlend.md&amp;value=---%0Auid%3A%20AFPS.ADS.AimBlend%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L142">View Source</a>
+  </span>
+  <a id="AFPS_ADS_AimBlend_" data-uid="AFPS.ADS.AimBlend*"></a>
+  <h4 id="AFPS_ADS_AimBlend" data-uid="AFPS.ADS.AimBlend">AimBlend</h4>
+  <div class="markdown level1 summary"><p>Raw 0..1 aim blend driving weapon position, movement multipliers and spread (0 = hip,
+1 = aimed). Un-eased — <span class="xref">AFPS.ADS.UpdateAdsBlends()</span> applies SmoothStep on top. Exposed so HUD
+and animation code can follow the aim without duplicating the timing, and so the editor can
+show the live state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AimBlend { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_AimRotationBlend.md&amp;value=---%0Auid%3A%20AFPS.ADS.AimRotationBlend%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L145">View Source</a>
+  </span>
+  <a id="AFPS_ADS_AimRotationBlend_" data-uid="AFPS.ADS.AimRotationBlend*"></a>
+  <h4 id="AFPS_ADS_AimRotationBlend" data-uid="AFPS.ADS.AimRotationBlend">AimRotationBlend</h4>
+  <div class="markdown level1 summary"><p>Raw 0..1 blend for weapon rotation; rides its own transition time. See <a class="xref" href="AFPS.ADS.html#AFPS_ADS_AimBlend">AimBlend</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AimRotationBlend { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_CameraFOVBlend.md&amp;value=---%0Auid%3A%20AFPS.ADS.CameraFOVBlend%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L148">View Source</a>
+  </span>
+  <a id="AFPS_ADS_CameraFOVBlend_" data-uid="AFPS.ADS.CameraFOVBlend*"></a>
+  <h4 id="AFPS_ADS_CameraFOVBlend" data-uid="AFPS.ADS.CameraFOVBlend">CameraFOVBlend</h4>
+  <div class="markdown level1 summary"><p>Raw 0..1 blend for the main camera's ADS FOV offset. See <a class="xref" href="AFPS.ADS.html#AFPS_ADS_AimBlend">AimBlend</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CameraFOVBlend { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_HideRecoilProfile.md&amp;value=---%0Auid%3A%20AFPS.ADS.HideRecoilProfile%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L75">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L158">View Source</a>
   </span>
   <a id="AFPS_ADS_HideRecoilProfile_" data-uid="AFPS.ADS.HideRecoilProfile*"></a>
   <h4 id="AFPS_ADS_HideRecoilProfile" data-uid="AFPS.ADS.HideRecoilProfile">HideRecoilProfile</h4>
@@ -565,6 +661,103 @@ scripts that never emit a shot (e.g. ADS), where a recoil profile would be meani
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="AFPS.FireWeaponBase.html#AFPS_FireWeaponBase_HideRecoilProfile">FireWeaponBase.HideRecoilProfile</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_IsAiming.md&amp;value=---%0Auid%3A%20AFPS.ADS.IsAiming%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L127">View Source</a>
+  </span>
+  <a id="AFPS_ADS_IsAiming_" data-uid="AFPS.ADS.IsAiming*"></a>
+  <h4 id="AFPS_ADS_IsAiming" data-uid="AFPS.ADS.IsAiming">IsAiming</h4>
+  <div class="markdown level1 summary"><p>True while aiming (between EnterADS and exit). Read by AFPS_WeaponAnimator for the IsADS
+parameter and FireADS clip selection. Reports the APPLIED state, not the input intent, so it
+matches what the player can actually see on screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAiming { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_WantsToAim.md&amp;value=---%0Auid%3A%20AFPS.ADS.WantsToAim%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L134">View Source</a>
+  </span>
+  <a id="AFPS_ADS_WantsToAim_" data-uid="AFPS.ADS.WantsToAim*"></a>
+  <h4 id="AFPS_ADS_WantsToAim" data-uid="AFPS.ADS.WantsToAim">WantsToAim</h4>
+  <div class="markdown level1 summary"><p>Input INTENT — true between an aim press and its release, even while a hard cancel (reload,
+holster, mantle) is suppressing the aim itself. Differs from <a class="xref" href="AFPS.ADS.html#AFPS_ADS_IsAiming">IsAiming</a> only while
+a transition or a cancel is in flight, which is exactly when a stuck aim is worth diagnosing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WantsToAim { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_WeaponCameraFOVBlend.md&amp;value=---%0Auid%3A%20AFPS.ADS.WeaponCameraFOVBlend%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L151">View Source</a>
+  </span>
+  <a id="AFPS_ADS_WeaponCameraFOVBlend_" data-uid="AFPS.ADS.WeaponCameraFOVBlend*"></a>
+  <h4 id="AFPS_ADS_WeaponCameraFOVBlend" data-uid="AFPS.ADS.WeaponCameraFOVBlend">WeaponCameraFOVBlend</h4>
+  <div class="markdown level1 summary"><p>Raw 0..1 blend for the weapon camera's ADS FOV offset. See <a class="xref" href="AFPS.ADS.html#AFPS_ADS_AimBlend">AimBlend</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float WeaponCameraFOVBlend { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -572,7 +765,7 @@ scripts that never emit a shot (e.g. ADS), where a recoil profile would be meani
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_CanFireNow.md&amp;value=---%0Auid%3A%20AFPS.ADS.CanFireNow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L72">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L155">View Source</a>
   </span>
   <a id="AFPS_ADS_CanFireNow_" data-uid="AFPS.ADS.CanFireNow*"></a>
   <h4 id="AFPS_ADS_CanFireNow" data-uid="AFPS.ADS.CanFireNow">CanFireNow()</h4>
@@ -607,7 +800,7 @@ AFPS_WeaponObject can skip the recoil kick on a no-op Fire().</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_DropLogic.md&amp;value=---%0Auid%3A%20AFPS.ADS.DropLogic%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L341">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L495">View Source</a>
   </span>
   <a id="AFPS_ADS_DropLogic_" data-uid="AFPS.ADS.DropLogic*"></a>
   <h4 id="AFPS_ADS_DropLogic" data-uid="AFPS.ADS.DropLogic">DropLogic()</h4>
@@ -624,7 +817,7 @@ AFPS_WeaponObject can skip the recoil kick on a no-op Fire().</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_Fire_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.ADS.Fire(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L184">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L316">View Source</a>
   </span>
   <a id="AFPS_ADS_Fire_" data-uid="AFPS.ADS.Fire*"></a>
   <h4 id="AFPS_ADS_Fire_System_Boolean_" data-uid="AFPS.ADS.Fire(System.Boolean)">Fire(bool)</h4>
@@ -661,7 +854,7 @@ calls (doubled press, late release) can't start or strand a transition.</p>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_PickupLogic.md&amp;value=---%0Auid%3A%20AFPS.ADS.PickupLogic%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L381">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L548">View Source</a>
   </span>
   <a id="AFPS_ADS_PickupLogic_" data-uid="AFPS.ADS.PickupLogic*"></a>
   <h4 id="AFPS_ADS_PickupLogic" data-uid="AFPS.ADS.PickupLogic">PickupLogic()</h4>
@@ -673,6 +866,24 @@ calls (doubled press, late release) can't start or strand a transition.</p>
   </div>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="AFPS.FireWeaponBase.html#AFPS_FireWeaponBase_PickupLogic">FireWeaponBase.PickupLogic()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ADS_RefreshAimPointRestPose.md&amp;value=---%0Auid%3A%20AFPS.ADS.RefreshAimPointRestPose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/FireWeaponExamples/ADS.cs/#L104">View Source</a>
+  </span>
+  <a id="AFPS_ADS_RefreshAimPointRestPose_" data-uid="AFPS.ADS.RefreshAimPointRestPose*"></a>
+  <h4 id="AFPS_ADS_RefreshAimPointRestPose" data-uid="AFPS.ADS.RefreshAimPointRestPose">RefreshAimPointRestPose()</h4>
+  <div class="markdown level1 summary"><p>Re-reads the aim point's rest pose. Call after moving the aim point at runtime (attachment or
+optic swaps); the aimed pose is otherwise fixed at what the prefab was authored with, on purpose.
+Only meaningful while the rig is at rest — call it before the Animator poses the weapon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RefreshAimPointRestPose()</code></pre>
+  </div>
 
 </article>
           </div>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Death and Respawn </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Death and Respawn ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="death-and-respawn">Death and Respawn</h1>
+
+<p>Out of the box the player respawns instantly at the last checkpoint. Adding an
+<code>AFPS_DeathController</code> to the player replaces that with a full death sequence —
+and removing the component puts the old behaviour back. Nothing else changes
+either way, so existing scenes are unaffected until you opt in.</p>
+<p>Everything about the sequence lives on a preset: which camera takes over, how
+long it holds, what the screen says, and where you come back.</p>
+<h2 id="setup">Setup</h2>
+<ol>
+<li>Add <strong>AFPS Death Controller</strong> to the player root — the object with
+<code>AFPS_Health</code>. Do it on the <code>AFPS Player</code> prefab, not a scene copy. Adding it
+auto-wires the references it can find on the player.</li>
+<li>Assign a preset from <code>Assets/Axiom FPS/Presets/Death/</code> to its <strong>Settings</strong>
+field. That alone gives a working death sequence, with no on-screen text.</li>
+<li><em>Optional, for on-screen text.</em> Add a child GameObject with a <code>UIDocument</code>
+whose Source Asset is <code>UI Toolkit/DeathScreen/DeathScreen.uxml</code> and whose
+Panel Settings is the shipped <code>DeathScreenPanelSettings</code> asset in the same
+folder. Add <strong>AFPS Death Screen (UI Toolkit)</strong> beside it, then drag that
+component into the controller's <strong>Death Screen</strong> field. Canvas HUD projects
+use <strong>AFPS Death Screen (UGUI)</strong> instead. Keep the GameObject active — the
+screen hides itself.</li>
+<li><em>Optional.</em> Drop your HUD objects into <strong>Hide While Dead</strong>.</li>
+<li>Press the controller's <strong>Debug: Kill Player</strong> button in play mode to preview
+the sequence without hunting for something to die to.</li>
+</ol>
+<h2 id="shipped-presets">Shipped presets</h2>
+<p>Under <code>Presets/Death/</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flat You Died</strong></td>
+<td>First-person view, &quot;YOU DIED&quot;, respawn button.</td>
+</tr>
+<tr>
+<td><strong>Freezecam</strong></td>
+<td>Holds the frame you died on, slow dolly out, 3s countdown then a button.</td>
+</tr>
+<tr>
+<td><strong>Deathcam</strong></td>
+<td>Killcam framing whoever killed you, corpse in frame, automatic respawn at a spawn point.</td>
+</tr>
+<tr>
+<td><strong>Orbit Cinematic</strong></td>
+<td>Slow orbit around the body, holds until you ask to respawn.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customising">Customising</h2>
+<p>Everything is on the preset asset: timing, screen text, time dilation, cursor and
+input policy. The two slots that change the most are:</p>
+<p><strong>Camera Mode</strong> (<code>Presets/Death/Cameras/</code>) — Keep First Person, Freeze Cam,
+Follow Body, Killer Cam, or Orbit. Subclass <code>AFPS_DeathCameraMode</code> to write your
+own.</p>
+<p><strong>Respawn Strategy</strong> (<code>Presets/Death/Respawn/</code>) — Checkpoint (the original
+behaviour), Spawn Point (needs an <code>AFPS_SpawnPointRegistry</code> in the scene), Reload
+Scene, or Event Only for your own respawn code.</p>
+<p>Screen text supports the <code>{killer}</code>, <code>{damageType}</code>, <code>{distance}</code>, <code>{damage}</code> and
+<code>{seconds}</code> tokens, filled from the kill record described below.</p>
+<h2 id="bodies-and-ragdolls">Bodies and ragdolls</h2>
+<p>Any camera that leaves first person needs something to look at. Add an <strong>AFPS
+Death Body Handler</strong> to the player and choose: keep in place, hide the body,
+spawn a corpse prefab, or enable a ragdoll you authored on your own model. The
+killing blow's impulse is applied either way.</p>
+<h2 id="kill-records">Kill records</h2>
+<p>Every death — player, AI, or a destructible prop — raises an <code>AFPS_KillInfo</code>
+record through the victim's <code>AFPS_Health.OnKilled</code> event and the static
+<code>AFPS_Health.OnAnyKilled</code>. Both are empty hooks by default; subscribe to drive a
+killfeed, scoring, on-death loot, AI aggro, or achievements without touching the
+health system.</p>
+<p>The record names the victim and their <code>AFPS_Agent</code>, the GameObject credited with
+the kill, the killer's agent, the <code>AFPS_DamageType</code> of the killing blow, and
+flags for headshots and self-inflicted deaths. It is built from the victim's
+latched last damage, so a death from your rocket's Burn credits you rather than
+the fire — the same attribution the death screen and floating damage numbers use.</p>
+<p>Two cases are worth knowing about:</p>
+<ul>
+<li><strong>Unattributed deaths.</strong> A fall, drowning, or a scripted kill has no
+instigator. <code>hasKiller</code> is false and the killer fields stay empty. This is
+<em>not</em> counted as self-inflicted, because there is nothing to credit.</li>
+<li><strong>Self-inflicted deaths.</strong> Your own explosive, your own fire, or an explosive
+barrel you shot resolves back to you, and <code>selfInflicted</code> is true. Explosive
+props credit correctly through chain reactions — see the Firing Range barrels.</li>
+</ul>
+<h2 id="related">Related</h2>
+<ul>
+<li><a href="damage-and-status-effects.html">Damage Types and Status Effects</a> — what fills
+in <code>{damageType}</code> and how status-effect kills are attributed.</li>
+<li><a href="inventory-containers.html">World Containers and Looting</a> — what happens to the
+player's inventory when they die.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/death-system.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

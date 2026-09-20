@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Struct DamageNumberEvent ">
     
-    <meta name="description" content="Fired by  after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from  and .">
+    <meta name="description" content="Fired by  after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from  and , and can tint by &#39;s colour.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,7 @@
 
 
   <h1 id="AFPS_DamageNumberEvent" data-uid="AFPS.DamageNumberEvent" class="text-break">Struct DamageNumberEvent</h1>
-  <div class="markdown level0 summary"><p>Fired by <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDamageDealt">OnDamageDealt</a> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_isHeal">isHeal</a> and <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_hitBoneTag">hitBoneTag</a>.</p>
+  <div class="markdown level0 summary"><p>Fired by <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDamageDealt">OnDamageDealt</a> after resistances resolve. Carries the actual post-resistance magnitude (always positive) plus the data a floating-number renderer needs; UI systems resolve crit/heal styling from <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_isHeal">isHeal</a> and <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_hitBoneTag">hitBoneTag</a>, and can tint by <a class="xref" href="AFPS.DamageNumberEvent.html#AFPS_DamageNumberEvent_type">type</a>'s colour.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -108,7 +108,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_amount.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.amount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L54">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L42">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_amount" data-uid="AFPS.DamageNumberEvent.amount">amount</h4>
   <div class="markdown level1 summary"></div>
@@ -137,7 +137,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_hitBoneTag.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.hitBoneTag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L57">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L45">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_hitBoneTag" data-uid="AFPS.DamageNumberEvent.hitBoneTag">hitBoneTag</h4>
   <div class="markdown level1 summary"></div>
@@ -166,7 +166,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_instigator.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.instigator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L53">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L41">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_instigator" data-uid="AFPS.DamageNumberEvent.instigator">instigator</h4>
   <div class="markdown level1 summary"></div>
@@ -195,7 +195,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_isHeal.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.isHeal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L55">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L43">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_isHeal" data-uid="AFPS.DamageNumberEvent.isHeal">isHeal</h4>
   <div class="markdown level1 summary"></div>
@@ -224,7 +224,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_target.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.target%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L52">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L40">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_target" data-uid="AFPS.DamageNumberEvent.target">target</h4>
   <div class="markdown level1 summary"></div>
@@ -253,14 +253,14 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_type.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L58">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L46">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_type" data-uid="AFPS.DamageNumberEvent.type">type</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DamageType type</code></pre>
+    <pre><code class="lang-csharp hljs">public AFPS_DamageType type</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -272,7 +272,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="AFPS.DamageType.html">DamageType</a></td>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -282,7 +282,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent_worldPoint.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent.worldPoint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L56">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L44">View Source</a>
   </span>
   <h4 id="AFPS_DamageNumberEvent_worldPoint" data-uid="AFPS.DamageNumberEvent.worldPoint">worldPoint</h4>
   <div class="markdown level1 summary"></div>
@@ -318,7 +318,7 @@
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageNumberEvent.md&amp;value=---%0Auid%3A%20AFPS.DamageNumberEvent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L50" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L38" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

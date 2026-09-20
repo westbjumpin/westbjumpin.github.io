@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AFPS_ArmsController ">
     
-    
+    <meta name="description" content="Drives the shared first-person movement arms — the rig used for climbing, ledge hangs, mantles, slides and swimming, independent of whichever weapon is held. Rebuilt on the same architecture as : one generated template controller, a per-player AnimatorOverrideController whose named slots you drop clips into, hashed state and parameter IDs from , and playback driven by Play/CrossFade rather than triggers. Continuous poses are POLLED from the shared  snapshot — the same one the weapon animator reads, so the arms and the weapon can never disagree about what the player is doing. Only genuine one-shots (grab, mantle, slide-start) are pushed in by callers. LEGACY MODE: when the assigned controller is not contract-shaped — most importantly the shipped hand-authored Arms.controller — this component behaves exactly as it always has, string parameters and triggers included. Existing projects therefore upgrade with no change in behaviour and migrate when they choose to, with the Set Up Arms Animations button on this component.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,20 @@
 
 
   <h1 id="AFPS_AFPS_ArmsController" data-uid="AFPS.AFPS_ArmsController" class="text-break">Class AFPS_ArmsController</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Drives the shared first-person movement arms — the rig used for climbing, ledge hangs, mantles,
+slides and swimming, independent of whichever weapon is held.</p>
+<p>Rebuilt on the same architecture as <a class="xref" href="AFPS.AFPS_WeaponAnimator.html">AFPS_WeaponAnimator</a>: one generated template
+controller, a per-player <code>AnimatorOverrideController</code> whose named slots you drop clips into,
+hashed state and parameter IDs from <a class="xref" href="AFPS.AFPS_ArmsAnimatorContract.html">AFPS_ArmsAnimatorContract</a>, and playback driven by
+<code>Play</code>/<code>CrossFade</code> rather than triggers. Continuous poses are POLLED from the shared
+<a class="xref" href="AFPS.AFPS_MovementAnimationSampler.html">AFPS_MovementAnimationSampler</a> snapshot — the same one the weapon animator reads, so
+the arms and the weapon can never disagree about what the player is doing. Only genuine one-shots
+(grab, mantle, slide-start) are pushed in by callers.</p>
+<p>LEGACY MODE: when the assigned controller is not contract-shaped — most importantly the shipped
+hand-authored <code>Arms.controller</code> — this component behaves exactly as it always has, string
+parameters and triggers included. Existing projects therefore upgrade with no change in behaviour
+and migrate when they choose to, with the Set Up Arms Animations button on this component.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -509,7 +522,8 @@
   <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
   <h5 id="AFPS_AFPS_ArmsController_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;AFPS/AFPS Arms Controller&quot;)]
+    <pre><code class="lang-csharp hljs">[DefaultExecutionOrder(-10)]
+[AddComponentMenu(&quot;AFPS/AFPS Arms Controller&quot;)]
 public class AFPS_ArmsController : MonoBehaviour</code></pre>
   </div>
   <h3 id="fields">Fields
@@ -519,10 +533,11 @@ public class AFPS_ArmsController : MonoBehaviour</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_wallNormal.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.wallNormal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L25">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L53">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ArmsController_wallNormal" data-uid="AFPS.AFPS_ArmsController.wallNormal">wallNormal</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wall normal the arms face while climbing or ledge-grabbing. Written by AFPS_Movement.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -544,6 +559,137 @@ public Vector3 wallNormal</code></pre>
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Animator.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Animator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L74">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_Animator_" data-uid="AFPS.AFPS_ArmsController.Animator*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_Animator" data-uid="AFPS.AFPS_ArmsController.Animator">Animator</h4>
+  <div class="markdown level1 summary"><p>The Animator this component drives.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animator Animator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Animator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_MovementArmsForced.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.MovementArmsForced%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L60">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_MovementArmsForced_" data-uid="AFPS.AFPS_ArmsController.MovementArmsForced*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_MovementArmsForced" data-uid="AFPS.AFPS_ArmsController.MovementArmsForced">MovementArmsForced</h4>
+  <div class="markdown level1 summary"><p>True while movement animations are forcing the shared arms visible (climb, ledge hang, mantle
+window). AFPS_WeaponAnimator hides the weapon rig's arm meshes during this window so the player
+never sees four arms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MovementArmsForced { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_SharedArmsVisible.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.SharedArmsVisible%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L68">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_SharedArmsVisible_" data-uid="AFPS.AFPS_ArmsController.SharedArmsVisible*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_SharedArmsVisible" data-uid="AFPS.AFPS_ArmsController.SharedArmsVisible">SharedArmsVisible</h4>
+  <div class="markdown level1 summary"><p>Whether the shared arms are actually on screen this frame. This — not
+<a class="xref" href="AFPS.AFPS_ArmsController.html#AFPS_AFPS_ArmsController_MovementArmsForced">MovementArmsForced</a> — is what an animated weapon should hide its own arm meshes
+against: the forced flag is only one of the reasons the shared arms can be visible, and a weapon
+with useArms on shows them the whole time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SharedArmsVisible { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_UsingClipSlots.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.UsingClipSlots%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L71">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_UsingClipSlots_" data-uid="AFPS.AFPS_ArmsController.UsingClipSlots*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_UsingClipSlots" data-uid="AFPS.AFPS_ArmsController.UsingClipSlots">UsingClipSlots</h4>
+  <div class="markdown level1 summary"><p>True when the assigned controller is contract-shaped and the clip-slot system is driving the arms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsingClipSlots { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -551,11 +697,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Climbing_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Climbing(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L117">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L620">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Climbing_" data-uid="AFPS.AFPS_ArmsController.Climbing*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Climbing_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.Climbing(System.Boolean)">Climbing(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the Climbing bool on the arms Animator and caches it for arms-visibility/rotation.</p>
+  <div class="markdown level1 summary"><p>Sets the climbing state and caches it for arms-visibility/rotation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -584,11 +730,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Crouch_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Crouch(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L142">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L661">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Crouch_" data-uid="AFPS.AFPS_ArmsController.Crouch*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Crouch_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.Crouch(System.Boolean)">Crouch(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the Crouch bool on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Sets the crouch state. Superseded by polling in clip-slot mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -617,11 +763,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Grab.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Grab%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L85">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L553">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Grab_" data-uid="AFPS.AFPS_ArmsController.Grab*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Grab" data-uid="AFPS.AFPS_ArmsController.Grab">Grab()</h4>
-  <div class="markdown level1 summary"><p>Fires the Grab trigger on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Plays the grab one-shot. Called by AFPS_InteractionSystem on pickup and interaction — the one arm animation no movement state can imply.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -630,14 +776,62 @@ public Vector3 wallNormal</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_HasClip_AFPS_AFPS_ArmsAnimSlot_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.HasClip(AFPS.AFPS_ArmsAnimSlot)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L77">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_HasClip_" data-uid="AFPS.AFPS_ArmsController.HasClip*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_HasClip_AFPS_AFPS_ArmsAnimSlot_" data-uid="AFPS.AFPS_ArmsController.HasClip(AFPS.AFPS_ArmsAnimSlot)">HasClip(AFPS_ArmsAnimSlot)</h4>
+  <div class="markdown level1 summary"><p>True when the slot carries a user clip rather than the shipped placeholder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasClip(AFPS_ArmsAnimSlot slot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ArmsAnimSlot.html">AFPS_ArmsAnimSlot</a></td>
+        <td><span class="parametername">slot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_LedgeGrab_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.LedgeGrab(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L110">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L606">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_LedgeGrab_" data-uid="AFPS.AFPS_ArmsController.LedgeGrab*"></a>
   <h4 id="AFPS_AFPS_ArmsController_LedgeGrab_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.LedgeGrab(System.Boolean)">LedgeGrab(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the LedgeGrab bool on the arms Animator and caches it for arms-visibility/rotation.</p>
+  <div class="markdown level1 summary"><p>Sets the ledge-grab state and caches it for arms-visibility/rotation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -666,11 +860,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Mantle.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Mantle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L91">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L566">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Mantle_" data-uid="AFPS.AFPS_ArmsController.Mantle*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Mantle" data-uid="AFPS.AFPS_ArmsController.Mantle">Mantle()</h4>
-  <div class="markdown level1 summary"><p>Queues the Mantle trigger and keeps the arms visible for the mantle animation, even with arms-hiding weapons. The trigger is fired from LateUpdate once the arms are active.</p>
+  <div class="markdown level1 summary"><p>Plays the mantle one-shot and keeps the arms visible for its duration, even with arms-hiding weapons. In clip-slot mode this is also raised automatically when the movement state enters Mantle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -679,14 +873,53 @@ public Vector3 wallNormal</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_PlayAction_System_Int32_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.PlayAction(System.Int32%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L542">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ArmsController_PlayAction_" data-uid="AFPS.AFPS_ArmsController.PlayAction*"></a>
+  <h4 id="AFPS_AFPS_ArmsController_PlayAction_System_Int32_System_Single_" data-uid="AFPS.AFPS_ArmsController.PlayAction(System.Int32,System.Single)">PlayAction(int, float)</h4>
+  <div class="markdown level1 summary"><p>Plays an arbitrary state on the Actions layer. The extension point for one-shots you add to a
+duplicated arms template. No-op outside clip-slot mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayAction(int stateHash, float crossfade)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">stateHash</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">crossfade</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Run_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Run(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L104">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L597">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Run_" data-uid="AFPS.AFPS_ArmsController.Run*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Run_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.Run(System.Boolean)">Run(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the Running bool on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Sets the running state. Superseded by polling in clip-slot mode; kept so existing callers and user code keep working.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -715,11 +948,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_SlideStart.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.SlideStart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L98">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L583">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_SlideStart_" data-uid="AFPS.AFPS_ArmsController.SlideStart*"></a>
   <h4 id="AFPS_AFPS_ArmsController_SlideStart" data-uid="AFPS.AFPS_ArmsController.SlideStart">SlideStart()</h4>
-  <div class="markdown level1 summary"><p>Fires the SlideStart trigger on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Plays the slide-start one-shot. In clip-slot mode this is also raised automatically when the movement state enters Sliding.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -731,11 +964,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_Sliding_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.Sliding(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L124">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L634">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_Sliding_" data-uid="AFPS.AFPS_ArmsController.Sliding*"></a>
   <h4 id="AFPS_AFPS_ArmsController_Sliding_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.Sliding(System.Boolean)">Sliding(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the Sliding bool on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Sets the sliding state. Superseded by polling in clip-slot mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -764,11 +997,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_SwimFront_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.SwimFront(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L130">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L643">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_SwimFront_" data-uid="AFPS.AFPS_ArmsController.SwimFront*"></a>
   <h4 id="AFPS_AFPS_ArmsController_SwimFront_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.SwimFront(System.Boolean)">SwimFront(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the SwimFront bool on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Sets the forward-swim state. Superseded in clip-slot mode by the five directional swim slots.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -797,11 +1030,11 @@ public Vector3 wallNormal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController_SwimSide_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController.SwimSide(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L136">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L652">View Source</a>
   </span>
   <a id="AFPS_AFPS_ArmsController_SwimSide_" data-uid="AFPS.AFPS_ArmsController.SwimSide*"></a>
   <h4 id="AFPS_AFPS_ArmsController_SwimSide_System_Boolean_" data-uid="AFPS.AFPS_ArmsController.SwimSide(System.Boolean)">SwimSide(bool)</h4>
-  <div class="markdown level1 summary"><p>Sets the SwimSide bool on the arms Animator.</p>
+  <div class="markdown level1 summary"><p>Sets the side-swim state. Superseded in clip-slot mode by the five directional swim slots.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -837,7 +1070,7 @@ public Vector3 wallNormal</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ArmsController.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ArmsController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/AFPS_ArmsController.cs/#L26" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

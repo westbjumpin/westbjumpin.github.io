@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Tuning ADS </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Tuning ADS ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tuning-ads">Tuning ADS</h1>
+
+<p>Aiming down sights is the one piece of weapon feel you can't judge from the
+inspector. The numbers on <code>AFPS_StatsADSSettings</code> don't tell you whether the
+optic sits centred, whether the gun clips the near plane on the way in, or
+whether the zoom lands before or after the weapon settles. Traditionally the
+only way to find out is to enter play mode, equip the weapon, hold aim, quit,
+change one number, and do it again.</p>
+<p>The ADS preview removes that loop. It stages the weapon on the player rig in
+edit mode and drives the real cameras, so the <strong>Game view shows the true aimed
+framing</strong> — the same two-camera composite the player sees, not an approximation
+of it.</p>
+<h2 id="how-the-aimed-pose-works">How the aimed pose works</h2>
+<p>Worth understanding, because everything below follows from it.</p>
+<p><code>AFPS_WeaponSystem</code> composes each weapon's local transform every frame from its
+resting offsets plus the ADS offsets. At full aim those cancel out, and the pose
+collapses to:</p>
+<pre><code>weapon.localRotation = inverse(aimPoint.localRotation)
+weapon.localPosition = -(weapon.localRotation * aimPoint.localPosition)
+</code></pre>
+<p>In plain terms: <strong>the aim point is parked exactly on the weapon system's origin,
+looking straight down its forward axis.</strong> In the stock player prefab the weapon
+system sits at (0, 0, 0) under the camera, so the aim point lands on the eye and
+looks where the camera looks.</p>
+<p>Two things follow:</p>
+<ul>
+<li>You never position the <em>weapon</em> for ADS. You position the <em>aim point</em>, and the
+weapon is placed to satisfy it. The aim point marks where the shooter's eye
+goes, not where the optic glass is — the optic sits in front of it.</li>
+<li>Alignment is structural. As long as the preconditions below hold, the sight
+cannot be off-centre. There is no per-weapon alignment to measure or fix,
+which is why the tooling validates structure instead of reporting offsets.</li>
+</ul>
+<h2 id="previewing">Previewing</h2>
+<p>Select an <code>ADS</code> component and press <strong>Preview ADS</strong>.</p>
+<p>The weapon can be a prefab asset in the Project window or an object placed in
+the scene — including one parented under a container object, since the preview
+stages the object carrying <code>AFPS_WeaponObject</code> rather than the top of its
+hierarchy.</p>
+<p>The preview stages a throwaway copy of the weapon under the weapon system,
+assigns it the weapon layer, applies the scoped-visibility swaps and drives the
+main and weapon camera FOVs. Look at the <strong>Game view</strong>, not the Scene view — the
+Scene view camera has its own FOV and doesn't render the weapon camera's
+composite.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aim Blend</strong></td>
+<td>Scrubs hip (0) to fully aimed (1). Use it to catch the weapon clipping the near plane or sweeping through geometry mid-transition.</td>
+</tr>
+<tr>
+<td><strong>Hip</strong> / <strong>Aim</strong></td>
+<td>Snap to either end.</td>
+</tr>
+<tr>
+<td><strong>Play In</strong> / <strong>Play Out</strong></td>
+<td>Runs the transition at the profile's real timings. Position, rotation and both FOVs advance on their own configured times, so this shows the actual lead-lag between the weapon settling and the zoom landing.</td>
+</tr>
+<tr>
+<td><strong>Frame Aim Point</strong></td>
+<td>Points the Scene view at the staged aim point without selecting it, so the preview controls stay in the Inspector.</td>
+</tr>
+<tr>
+<td><strong>Centre Reticle</strong></td>
+<td>Draws a screen-centre marker over the Game view. On by default; the setting is remembered between previews.</td>
+</tr>
+</tbody>
+</table>
+<p>The Scene view also gets an <strong>ADS Preview</strong> overlay while a preview runs, with
+its own blend slider and a Stop button — see below.</p>
+<h3 id="the-scene-view-overlay">The Scene view overlay</h3>
+<p>A preview outlives the selection — select a light, a piece of level geometry, or
+the aim point itself and the Inspector panel goes with it, while the preview
+keeps running with the cameras still zoomed.</p>
+<p>So while a preview is active, an <strong>ADS Preview</strong> overlay appears in the Scene
+view with the weapon's name, an aim blend slider and a <strong>Stop ADS Preview</strong>
+button. It shows and hides itself with the preview, and like any overlay it can
+be moved, docked or collapsed from the Scene view's overlay menu.</p>
+<p>The aim point handle is the one thing that does still need the <code>ADS</code> component
+selected, since it's drawn by that component's editor.</p>
+<h3 id="the-centre-reticle">The centre reticle</h3>
+<p>The game's own crosshair is UI Toolkit and doesn't run in edit mode, so without
+a marker there is nothing in the Game view to judge the optic against. The
+preview draws its own: a four-segment cross with a deliberate gap at the exact
+centre, so the optic's reticle stays visible inside it rather than being covered
+by the marker meant to check it.</p>
+<p>It's a screen-space overlay canvas on a throwaway object, like everything else
+the preview creates — it is never saved, and it disappears when the preview
+stops. Turn it off from the inspector if it gets in the way of judging a
+magnified scope.</p>
+<h3 id="editing-the-aim-point-live">Editing the aim point live</h3>
+<p>While the <code>ADS</code> component is selected and a preview is running, a handle is
+drawn on the staged aim point in the Scene view — it follows the active Move or
+Rotate tool. Drag it and the change is written straight to the real weapon's aim
+point; edit the real one and the preview follows. The sync runs <strong>both ways</strong>.</p>
+<p>The handle is drawn rather than having you select the aim point outright,
+because selecting it would swap the Inspector away from the ADS component and
+take the preview controls with it. <strong>Frame Aim Point</strong> brings the Scene view to
+it without changing the selection.</p>
+<p>Scene objects get a single undo entry per drag; a prefab asset edited this way
+is saved when the preview stops.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>While fully aimed, the aim point appears not to move when you drag it. That's
+the aimed pose doing its job — the aim point is pinned to the eye by
+definition, so what you're actually moving is the <strong>weapon</strong>, in the opposite
+direction. Drag the aim point up and the gun goes down. Scrub the blend below
+1 if you'd rather see the handle move.</p>
+</div>
+<h3 id="correcting-sight-cant">Correcting sight cant</h3>
+<p>The aim point's <strong>rotation</strong> is honoured as well as its position. Point it down
+the optic's true line of sight and the weapon rotates by the inverse to match.
+This is how you fix a model whose sights aren't square to its forward axis,
+without touching the mesh.</p>
+<p>An aim point left at identity rotation behaves exactly as it always has, so
+existing weapons are unaffected.</p>
+<h3 id="what-the-preview-leaves-out">What the preview leaves out</h3>
+<ul>
+<li>Bob, sway, recoil, tilt, the weapon bump and the equip animation. All are zero
+at rest, and none can be reproduced meaningfully without play mode.</li>
+<li>The scope sprite HUD overlay, and the game's real crosshair. For a magnified
+optic, the framing you see is the weapon and the zoom, not the scope mask.</li>
+<li>The scoped-visibility swap is applied at full aim rather than after the scope
+fade delay, since a scrubbed blend has no wall clock.</li>
+</ul>
+<p>Nothing you author is modified. The staged weapon is flagged <code>DontSave</code>, so it
+can never be serialized into a scene or applied back to a prefab. Camera FOVs
+are the only writes to real components; they're restored on every teardown path,
+reverted around a scene save, and any prefab override the preview created is
+removed with them. The preview stops on play mode, script recompile, scene
+change and editor quit.</p>
+<h2 id="validating-setup">Validating setup</h2>
+<p>None of the ways ADS breaks produce a runtime error. They all just make the
+sight quietly land somewhere other than where you expect, which is why the
+checks exist.</p>
+<p>The <code>ADS</code> inspector reports problems for the weapon you're looking at.
+<strong>Tools ▸ AFPS ▸ ADS Validation</strong> audits every weapon prefab in the project at
+once, plus the player rig — use it after any rig change, since a rig problem
+shifts every weapon simultaneously.</p>
+<h3 id="weapon-checks">Weapon checks</h3>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADS is on the same GameObject as <code>AFPS_WeaponObject</code></td>
+<td>ADS resolves its weapon with <code>GetComponent</code>. On a child object it throws on the first frame.</td>
+</tr>
+<tr>
+<td>Aim point is a direct child of the weapon root</td>
+<td>The aimed offset is <code>-aimPoint.localPosition</code>, which is measured against the aim point's <strong>immediate parent</strong>. Nest it under an optic child and the sight is off by that child's transform, silently.</td>
+</tr>
+<tr>
+<td>Aim point isn't the weapon root itself</td>
+<td>Its <code>localPosition</code> would be the weapon's own offset from the weapon system, so aiming would fight its own placement.</td>
+</tr>
+<tr>
+<td>Weapon root scale is (1, 1, 1)</td>
+<td>The aimed offset cancels the aim point's <em>rotated</em> local position, but scale is applied before rotation — so the two only agree at unit scale. Otherwise the aim point is stranded at <code>(scale - 1) × localPosition</code> instead of on the origin. Scale the model child instead.</td>
+</tr>
+<tr>
+<td><code>camFOVAffect</code> / <code>weaponCamFOVAffect</code> below their base FOVs</td>
+<td><code>AFPS_Camera</code> applies them as a subtraction, so an equal or larger value drives the camera to a zero or negative field of view.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rig-checks">Rig checks</h3>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weapon system is a child of the camera</td>
+<td><code>AFPS_Camera</code> moves its own transform every <code>LateUpdate</code>. If the two aren't rigidly linked by the hierarchy, where the sight ends up relative to the eye can't be determined in the editor at all.</td>
+</tr>
+<tr>
+<td>Weapon system is at the camera's position and rotation</td>
+<td>The aim point is parked on the weapon system's origin. Any offset there is an offset from the eye on <strong>every</strong> weapon.</td>
+</tr>
+<tr>
+<td>Weapon system's world scale is (1, 1, 1)</td>
+<td>Equipping assigns <code>transform.parent</code> directly, which preserves world scale — so a scaled weapon system pushes every equipped weapon's local scale off 1, hitting the weapon-scale problem above.</td>
+</tr>
+</tbody>
+</table>
+<p>FOV checks and rig checks both need a player in an open scene. Prefabs scanned
+on their own get the weapon checks only, and the window says so rather than
+silently reporting fewer problems.</p>
+<h2 id="debugging-a-live-aim">Debugging a live aim</h2>
+<p>In play mode the <code>ADS</code> inspector shows a <strong>Live State</strong> panel: the input intent
+(<code>Wants To Aim</code>) separately from the applied state (<code>Is Aiming</code>), plus all four
+blends.</p>
+<p>That separation is the useful part. A stuck or unresponsive aim is almost always
+one of two shapes:</p>
+<ul>
+<li><strong>Intent true, aiming false.</strong> Something is hard-cancelling: the weapon is
+holstered or switched away, a reload is running, or the player is mantling or
+ledge-hanging.</li>
+<li><strong>Both true but a blend never reaches its target.</strong> The transition time on the
+settings asset is the thing to look at.</li>
+</ul>
+<p>The same blends are available to your own code as read-only properties on <code>ADS</code>
+(<code>AimBlend</code>, <code>AimRotationBlend</code>, <code>CameraFOVBlend</code>, <code>WeaponCameraFOVBlend</code>,
+<code>WantsToAim</code>, <code>IsAiming</code>), so a HUD can fade a reticle with the aim without
+duplicating the timing.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/ads-tuning.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

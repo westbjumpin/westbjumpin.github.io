@@ -525,7 +525,7 @@ public class AFPS_InventoryGrid : MonoBehaviour, IPointerEnterHandler, IEventSys
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_cells.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.cells%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L33">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L44">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_InventoryGrid_cells" data-uid="AFPS.AFPS_InventoryGrid.cells">cells</h4>
   <div class="markdown level1 summary"></div>
@@ -615,10 +615,45 @@ public AFPS_InventorySystem inventory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_isExternalContainer.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.isExternalContainer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L41">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_InventoryGrid_isExternalContainer" data-uid="AFPS.AFPS_InventoryGrid.isExternalContainer">isExternalContainer</h4>
+  <div class="markdown level1 summary"><p>True while this grid holds storage the player does NOT own — a world container, a lootable
+corpse, a vendor stash. Set by <a class="xref" href="AFPS.AFPS_ContainerUIController.html">AFPS_ContainerUIController</a> on bind, cleared on close.</p>
+<p>Every player-owned sweep in <a class="xref" href="AFPS.AFPS_InventorySystem.html">AFPS_InventorySystem</a> skips flagged grids, so an open
+chest never adds carry weight, never absorbs a pickup, and stays invisible to ammo and consume
+queries until the player takes something. Runtime state — never author it in the inspector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool isExternalContainer</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_items.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.items%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L35">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L46">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_InventoryGrid_items" data-uid="AFPS.AFPS_InventoryGrid.items">items</h4>
   <div class="markdown level1 summary"></div>
@@ -679,7 +714,7 @@ public Vector2Int maxSizeLimit</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_rectTransform.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.rectTransform%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L39">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L50">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_InventoryGrid_rectTransform" data-uid="AFPS.AFPS_InventoryGrid.rectTransform">rectTransform</h4>
   <div class="markdown level1 summary"></div>
@@ -740,7 +775,7 @@ public bool singleItemSlot</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_storedGridWeight.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.storedGridWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L37">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L48">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_InventoryGrid_storedGridWeight" data-uid="AFPS.AFPS_InventoryGrid.storedGridWeight">storedGridWeight</h4>
   <div class="markdown level1 summary"></div>
@@ -772,7 +807,7 @@ public float storedGridWeight</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_CategorySpecificity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.CategorySpecificity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L163">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L196">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_CategorySpecificity_" data-uid="AFPS.AFPS_InventoryGrid.CategorySpecificity*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_CategorySpecificity" data-uid="AFPS.AFPS_InventoryGrid.CategorySpecificity">CategorySpecificity</h4>
@@ -805,7 +840,7 @@ public float storedGridWeight</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_AcceptsCategory_AFPS_AFPS_ItemCategory_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.AcceptsCategory(AFPS.AFPS_ItemCategory)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L130">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L163">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_AcceptsCategory_" data-uid="AFPS.AFPS_InventoryGrid.AcceptsCategory*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_AcceptsCategory_AFPS_AFPS_ItemCategory_" data-uid="AFPS.AFPS_InventoryGrid.AcceptsCategory(AFPS.AFPS_ItemCategory)">AcceptsCategory(AFPS_ItemCategory)</h4>
@@ -850,10 +885,66 @@ public float storedGridWeight</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_ConfigureRuntime_UnityEngine_Vector2Int_AFPS_AFPS_ItemCategory___UnityEngine_Vector2Int_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.ConfigureRuntime(UnityEngine.Vector2Int%2CAFPS.AFPS_ItemCategory%5B%5D%2CUnityEngine.Vector2Int%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L152">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_InventoryGrid_ConfigureRuntime_" data-uid="AFPS.AFPS_InventoryGrid.ConfigureRuntime*"></a>
+  <h4 id="AFPS_AFPS_InventoryGrid_ConfigureRuntime_UnityEngine_Vector2Int_AFPS_AFPS_ItemCategory___UnityEngine_Vector2Int_System_Boolean_" data-uid="AFPS.AFPS_InventoryGrid.ConfigureRuntime(UnityEngine.Vector2Int,AFPS.AFPS_ItemCategory[],UnityEngine.Vector2Int,System.Boolean)">ConfigureRuntime(Vector2Int, AFPS_ItemCategory[], Vector2Int, bool)</h4>
+  <div class="markdown level1 summary"><p>Re-points this grid at a different logical owner at runtime: resizes the cell array, swaps the
+category whitelist and size limit, and marks it as external (container) storage. Lets one pooled
+grid host any container — see <a class="xref" href="AFPS.AFPS_ContainerUIController.html">AFPS_ContainerUIController</a>.</p>
+<p>The cell array is reallocated, so the caller must have emptied the grid first; anything still
+referencing the old cells is silently orphaned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConfigureRuntime(Vector2Int newGridSize, AFPS_ItemCategory[] categories, Vector2Int newMaxSizeLimit, bool external)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">newGridSize</span></td>
+        <td><p>New cell dimensions; each axis is clamped to at least 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_ItemCategory.html">AFPS_ItemCategory</a>[]</td>
+        <td><span class="parametername">categories</span></td>
+        <td><p>Category whitelist. Null or empty accepts every category.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector2Int</span></td>
+        <td><span class="parametername">newMaxSizeLimit</span></td>
+        <td><p>Largest accepted base item footprint. (0,0) = no limit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">external</span></td>
+        <td><p>Whether the grid should be treated as loot rather than player storage.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_GetAllItems.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.GetAllItems%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L67">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L78">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_GetAllItems_" data-uid="AFPS.AFPS_InventoryGrid.GetAllItems*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_GetAllItems" data-uid="AFPS.AFPS_InventoryGrid.GetAllItems">GetAllItems()</h4>
@@ -869,7 +960,7 @@ public float storedGridWeight</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_GetCapacityFor_AFPS_AFPS_Item_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.GetCapacityFor(AFPS.AFPS_Item)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L198">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L231">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_GetCapacityFor_" data-uid="AFPS.AFPS_InventoryGrid.GetCapacityFor*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_GetCapacityFor_AFPS_AFPS_Item_" data-uid="AFPS.AFPS_InventoryGrid.GetCapacityFor(AFPS.AFPS_Item)">GetCapacityFor(AFPS_Item)</h4>
@@ -918,7 +1009,7 @@ Used by stacked pickup so a 30-stack isn't accepted into a 12-capacity grid. Sin
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_GetGridWeight.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.GetGridWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L100">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L111">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_GetGridWeight_" data-uid="AFPS.AFPS_InventoryGrid.GetGridWeight*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_GetGridWeight" data-uid="AFPS.AFPS_InventoryGrid.GetGridWeight">GetGridWeight()</h4>
@@ -949,7 +1040,7 @@ Used by stacked pickup so a 30-stack isn't accepted into a 12-capacity grid. Sin
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_HasFootprintFor_AFPS_AFPS_Item_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.HasFootprintFor(AFPS.AFPS_Item)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L169">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L202">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_HasFootprintFor_" data-uid="AFPS.AFPS_InventoryGrid.HasFootprintFor*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_HasFootprintFor_AFPS_AFPS_Item_" data-uid="AFPS.AFPS_InventoryGrid.HasFootprintFor(AFPS.AFPS_Item)">HasFootprintFor(AFPS_Item)</h4>
@@ -997,7 +1088,7 @@ Used by stacked pickup so a 30-stack isn't accepted into a 12-capacity grid. Sin
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_InitializeGrid.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.InitializeGrid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L47">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L58">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_InitializeGrid_" data-uid="AFPS.AFPS_InventoryGrid.InitializeGrid*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_InitializeGrid" data-uid="AFPS.AFPS_InventoryGrid.InitializeGrid">InitializeGrid()</h4>
@@ -1013,7 +1104,7 @@ Used by stacked pickup so a 30-stack isn't accepted into a 12-capacity grid. Sin
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_IsExplicitCategoryMatch_AFPS_AFPS_ItemCategory_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.IsExplicitCategoryMatch(AFPS.AFPS_ItemCategory)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L148">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L181">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_IsExplicitCategoryMatch_" data-uid="AFPS.AFPS_InventoryGrid.IsExplicitCategoryMatch*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_IsExplicitCategoryMatch_AFPS_AFPS_ItemCategory_" data-uid="AFPS.AFPS_InventoryGrid.IsExplicitCategoryMatch(AFPS.AFPS_ItemCategory)">IsExplicitCategoryMatch(AFPS_ItemCategory)</h4>
@@ -1062,7 +1153,7 @@ Equip-on-pickup uses this so weapons don't auto-equip into the general stash.</p
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_InventoryGrid_OnPointerEnter_UnityEngine_EventSystems_PointerEventData_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_InventoryGrid.OnPointerEnter(UnityEngine.EventSystems.PointerEventData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L124">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_InventoryGrid.cs/#L135">View Source</a>
   </span>
   <a id="AFPS_AFPS_InventoryGrid_OnPointerEnter_" data-uid="AFPS.AFPS_InventoryGrid.OnPointerEnter*"></a>
   <h4 id="AFPS_AFPS_InventoryGrid_OnPointerEnter_UnityEngine_EventSystems_PointerEventData_" data-uid="AFPS.AFPS_InventoryGrid.OnPointerEnter(UnityEngine.EventSystems.PointerEventData)">OnPointerEnter(PointerEventData)</h4>

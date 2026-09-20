@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Damage Types and Status Effects </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Damage Types and Status Effects ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="damage-types-and-status-effects">Damage Types and Status Effects</h1>
+
+<p>Damage in Axiom FPS has an <em>identity</em>, and that identity can carry consequences.
+A hit does not just subtract health: it names what kind of damage it was, which
+decides how the UI colours it, how the death screen words it, what the target
+resists, and what lingering effects it leaves behind.</p>
+<p>Both halves are ScriptableObject assets, so new damage kinds and new effects are
+authored in the Inspector rather than written in code.</p>
+<h2 id="damage-types">Damage types</h2>
+<p>A damage kind is an <code>AFPS_DamageType</code> asset. It replaces the old fixed
+<code>DamageType</code> enum, which means you can add your own without editing the asset's
+source.</p>
+<p>Ten presets ship under <code>Presets/Health System/Damage Types/</code>: Ballistic,
+Electric, Environment, Explosive, Fall, Fire, Generic, Ice, Melee, and Poison.</p>
+<p>Each asset carries:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Display Name</strong></td>
+<td>The name UI shows — damage numbers, killfeed. Falls back to the asset name when blank.</td>
+</tr>
+<tr>
+<td><strong>Color</strong></td>
+<td>Tint used by UI that colours damage by type, such as floating damage numbers.</td>
+</tr>
+<tr>
+<td><strong>Icon</strong></td>
+<td>Optional sprite for killfeed and other UI.</td>
+</tr>
+<tr>
+<td><strong>Death Message Noun</strong></td>
+<td>The noun dropped into the death screen's &quot;killed by …&quot; line — &quot;an explosion&quot;, &quot;the fall&quot;. Falls back to the lowercased display name.</td>
+</tr>
+<tr>
+<td><strong>Apply On Hit</strong></td>
+<td>Status effects applied to the target automatically on a <strong>direct</strong> hit of this type — Fire applying Burn, for instance.</td>
+</tr>
+</tbody>
+</table>
+<p>Damage types are referenced from <code>DamageInfo.type</code>, from resistance entries on
+<code>AFPS_Health</code>, from weapon and explosion settings, and from status effects
+themselves.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Apply On Hit</strong> only fires on a direct hit. A status effect's own ticks do not
+re-trigger it, so a Burn tick will never re-apply Burn and refresh its own
+timer indefinitely.</p>
+</div>
+<h2 id="status-effects">Status effects</h2>
+<p>A status effect is an <code>AFPS_StatusEffect</code> asset — a template. At runtime
+<code>AFPS_Health.GiveNewStatusEffect</code> instantiates a live <code>StatusEffect</code> from it, so
+one asset can be active on many targets, and stack on a single target, without
+them sharing state.</p>
+<p>Over twenty presets ship under <code>Presets/Health System/Status Effects/</code>,
+including Burn, Bleed, Poison, Cold, Frozen, Stun, Blind, Flashbang, Knockback,
+Haste, Slow, and Regeneration.</p>
+<h3 id="timing-and-impact">Timing and impact</h3>
+<p><strong>Build Up Max</strong> is how much the effect must accumulate before it applies at all
+— the &quot;you are getting cold&quot; phase before Cold actually lands. <strong>Reapply Time</strong>
+is the tick interval, and <strong>Apply Time</strong> is how long the effect lasts once
+applied.</p>
+<p>Each tick moves <strong>Health Impact</strong> and <strong>Overheal Impact</strong>, either of which may be
+negative or positive — that is the difference between Poison and Regeneration.
+The effect's own <strong>Damage Type</strong> decides which of the target's resistances and
+vulnerabilities apply to those ticks; leave it null for untyped. <strong>Max Stacks</strong>
+caps how many copies can sit on one target, with <code>0</code> or <code>1</code> meaning no stacking.</p>
+<p>Three optional sounds play at the target's position: on apply, on every reapply
+tick, and on end. Be careful with the reapply sound on a short tick interval.</p>
+<h3 id="behaviours">Behaviours</h3>
+<p>Anything an effect does <em>other</em> than move health is a behaviour — a separate
+asset in the effect's <strong>Behaviours</strong> list. They are applied when the effect
+starts, ticked on each reapply, and undone when it ends. An effect with an empty
+list is a pure health-over-time effect.</p>
+<table>
+<thead>
+<tr>
+<th>Behaviour</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Move Speed</strong></td>
+<td>Scales the target's movement speed while active. Registers a multiplier on <code>AFPS_Movement</code> keyed by the effect instance, so multiple slows stack and each cleans up its own.</td>
+</tr>
+<tr>
+<td><strong>Control Lock</strong></td>
+<td>Locks movement, look, and firing in any combination — everything for a Stun, movement only for a root or snare, firing only for a disarm.</td>
+</tr>
+<tr>
+<td><strong>Knockback</strong></td>
+<td>Launches the target's Rigidbody away from whoever applied the effect, plus an upward kick, and strips control until they land again.</td>
+</tr>
+<tr>
+<td><strong>Screen Effect</strong></td>
+<td>Shows a full-screen overlay on the local player while active — frost creeping in at the edges, fire, blind/flashbang whiteout. Driven through <code>AFPS_StatusScreenEffects</code>.</td>
+</tr>
+<tr>
+<td><strong>VFX</strong></td>
+<td>Spawns a world-space prefab on the target for the effect's duration and destroys it at the end — fire on a burning enemy, frost on a chilled one. It follows the character.</td>
+</tr>
+</tbody>
+</table>
+<p>Behaviours key their state to the specific runtime effect instance rather than to
+the asset, which is what lets each stack register and clean up independently.</p>
+<h3 id="chaining-and-cancelling">Chaining and cancelling</h3>
+<p><strong>Next Status Effect</strong> applies a fresh effect when this one expires. Cold
+becoming Frozen is the shipped example.</p>
+<p><strong>Cancels Effects</strong> lists effect assets that this one removes on application, and
+suppresses for as long as it stays active — a Wet effect naming Burn to douse a
+fire and stop it re-igniting. <strong>Cancels Damage Types</strong> does the same thing by
+damage type instead, for &quot;water cancels <em>all</em> fire&quot; without naming each fire
+effect individually.</p>
+<h2 id="the-control-lock">The control lock</h2>
+<p>Stuns, knockbacks, and anything else that takes control away share one
+reference-counted lock, <code>AFPS_PlayerControlLock</code>, covering movement, look, and
+firing independently.</p>
+<p>Reference counting is the point. Two overlapping stuns used to fight each other
+— whichever ended first handed control back while the other was still running.
+Each holder now takes its own reference and releases only that one, so control
+returns when the <em>last</em> holder lets go. The knockback behaviour additionally
+releases its lock the moment the player lands, rather than on a fixed timer.</p>
+<h2 id="attribution">Attribution</h2>
+<p>Status-effect damage credits the original attacker, not the effect. A target that
+burns to death from your rocket's Fire gives <em>you</em> the kill, and the death screen
+and floating damage numbers agree. See
+<a href="death-system.html#kill-records">Death and Respawn</a> for the kill record this feeds.</p>
+<h2 id="related">Related</h2>
+<ul>
+<li><a href="death-system.html">Death and Respawn</a> — death cameras, respawn strategies, and
+the kill record.</li>
+<li><a href="../api/AFPS.AFPS_StatusEffect.html">API Reference</a> — every field and hook in
+full.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/damage-and-status-effects.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

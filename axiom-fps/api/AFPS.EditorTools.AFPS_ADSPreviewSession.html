@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_ADSPreviewSession </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_ADSPreviewSession ">
+    
+    <meta name="description" content="Drives the edit-mode ADS preview: stages a throwaway copy of a weapon under the scene&#39;s AFPS_WeaponSystem, poses it through , and drives the real main/weapon camera FOVs — which makes the GAME VIEW a true ADS render (the same two-camera composite as play mode, rather than a simulation of it). Nothing authored is mutated. The staged weapon is a plain clone flagged HideFlags.DontSave, so it can never be serialized into a scene or applied back to a prefab. The camera FOVs are the only writes to real components; they&#39;re cached and restored on every teardown path, and temporarily reverted around a scene save so a save taken mid-preview can&#39;t bake the aimed FOV. The preview stops (rather than trying to survive) on domain reload, play mode, scene change and editor quit — cheaper to re-toggle than to make cross-reload state correct.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession">
+
+
+
+  <h1 id="AFPS_EditorTools_AFPS_ADSPreviewSession" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession" class="text-break">Class AFPS_ADSPreviewSession</h1>
+  <div class="markdown level0 summary"><p>Drives the edit-mode ADS preview: stages a throwaway copy of a weapon under the scene's
+AFPS_WeaponSystem, poses it through <a class="xref" href="AFPS.AFPS_ADSPose.html">AFPS_ADSPose</a>, and drives the real main/weapon
+camera FOVs — which makes the GAME VIEW a true ADS render (the same two-camera composite as play
+mode, rather than a simulation of it).</p>
+<p>Nothing authored is mutated. The staged weapon is a plain clone flagged HideFlags.DontSave, so it
+can never be serialized into a scene or applied back to a prefab. The camera FOVs are the only
+writes to real components; they're cached and restored on every teardown path, and temporarily
+reverted around a scene save so a save taken mid-preview can't bake the aimed FOV.</p>
+<p>The preview stops (rather than trying to survive) on domain reload, play mode, scene change and
+editor quit — cheaper to re-toggle than to make cross-reload state correct.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">AFPS_ADSPreviewSession</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a>.<a class="xref" href="AFPS.EditorTools.html">EditorTools</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Editor.dll</h6>
+  <h5 id="AFPS_EditorTools_AFPS_ADSPreviewSession_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[InitializeOnLoad]
+public static class AFPS_ADSPreviewSession</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Blend.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Blend%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L126">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Blend_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Blend*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Blend" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Blend">Blend</h4>
+  <div class="markdown level1 summary"><p>Aim blend, 0 = hip, 1 = fully aimed. Setting it cancels a playing transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Blend { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_IsActive.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.IsActive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L92">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsActive_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsActive*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsActive" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsActive">IsActive</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsActive { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_IsPlayingTransition.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.IsPlayingTransition%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L99">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsPlayingTransition_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsPlayingTransition*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsPlayingTransition" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsPlayingTransition">IsPlayingTransition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPlayingTransition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Settings.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Settings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L101">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Settings_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Settings*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Settings" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Settings">Settings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AFPS_StatsADSSettings Settings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_StatsADSSettings.html">AFPS_StatsADSSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_ShowReticle.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.ShowReticle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L107">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_ShowReticle_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.ShowReticle*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_ShowReticle" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.ShowReticle">ShowReticle</h4>
+  <div class="markdown level1 summary"><p>Whether the screen-centre reticle is drawn over the game view during a preview. Persisted in
+EditorPrefs — it's a viewing preference, not per-weapon data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShowReticle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Source.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Source%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L93">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Source_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Source*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Source" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Source">Source</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ADS Source { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.ADS.html">ADS</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_StagedAimPoint.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.StagedAimPoint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L100">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_StagedAimPoint_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.StagedAimPoint*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_StagedAimPoint" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.StagedAimPoint">StagedAimPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform StagedAimPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_StagedRoot.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.StagedRoot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L94">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_StagedRoot_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.StagedRoot*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_StagedRoot" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.StagedRoot">StagedRoot</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GameObject StagedRoot { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_BlockingReason_AFPS_ADS_.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.BlockingReason(AFPS.ADS)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L158">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_BlockingReason_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.BlockingReason*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_BlockingReason_AFPS_ADS_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.BlockingReason(AFPS.ADS)">BlockingReason(ADS)</h4>
+  <div class="markdown level1 summary"><p>Why the preview can't run for <code class="paramref">candidate</code>, or null if it can. Checked before
+staging and surfaced in the inspector so the button can explain itself rather than just fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string BlockingReason(ADS candidate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.ADS.html">ADS</a></td>
+        <td><span class="parametername">candidate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_FindWeaponSystem.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.FindWeaponSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L798">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_FindWeaponSystem_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.FindWeaponSystem*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_FindWeaponSystem" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.FindWeaponSystem">FindWeaponSystem()</h4>
+  <div class="markdown level1 summary"><p>The player rig the ADS tooling talks about. Prefers an ACTIVE one: FindFirstObjectByType's
+ordering is unspecified, so a disabled spare player left in the scene could otherwise be picked
+over the real one. Shared by the inspector and the audit window so all three agree on the rig.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AFPS_WeaponSystem FindWeaponSystem()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_WeaponSystem.html">AFPS_WeaponSystem</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_FrameStagedAimPoint.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.FrameStagedAimPoint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L295">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_FrameStagedAimPoint_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.FrameStagedAimPoint*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_FrameStagedAimPoint" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.FrameStagedAimPoint">FrameStagedAimPoint()</h4>
+  <div class="markdown level1 summary"><p>Points the scene view at the staged aim point WITHOUT selecting it. Selecting it would swap the
+inspector away from the ADS component, taking the preview controls with it — the aim point is
+dragged through the handle AFPS_ADSEditor draws instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FrameStagedAimPoint()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_IsStaged_UnityEngine_Transform_.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.IsStaged(UnityEngine.Transform)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L97">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsStaged_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsStaged*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_IsStaged_UnityEngine_Transform_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.IsStaged(UnityEngine.Transform)">IsStaged(Transform)</h4>
+  <div class="markdown level1 summary"><p>True when the given object belongs to the staged preview copy rather than the real scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsStaged(Transform candidate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">candidate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_PlayTransition_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.PlayTransition(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L305">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_PlayTransition_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.PlayTransition*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_PlayTransition_System_Boolean_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.PlayTransition(System.Boolean)">PlayTransition(bool)</h4>
+  <div class="markdown level1 summary"><p>Plays the real in/out transition at the profile's configured timings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PlayTransition(bool towardAim)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">towardAim</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Start_AFPS_ADS_.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Start(AFPS.ADS)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L193">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Start_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Start*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Start_AFPS_ADS_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Start(AFPS.ADS)">Start(ADS)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Start(ADS candidate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.ADS.html">ADS</a></td>
+        <td><span class="parametername">candidate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Stop.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Stop%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L252">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Stop_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Stop*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Stop" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Stop">Stop()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Stop()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession_Toggle_AFPS_ADS_.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession.Toggle(AFPS.ADS)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L185">View Source</a>
+  </span>
+  <a id="AFPS_EditorTools_AFPS_ADSPreviewSession_Toggle_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Toggle*"></a>
+  <h4 id="AFPS_EditorTools_AFPS_ADSPreviewSession_Toggle_AFPS_ADS_" data-uid="AFPS.EditorTools.AFPS_ADSPreviewSession.Toggle(AFPS.ADS)">Toggle(ADS)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Toggle(ADS candidate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.ADS.html">ADS</a></td>
+        <td><span class="parametername">candidate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_EditorTools_AFPS_ADSPreviewSession.md&amp;value=---%0Auid%3A%20AFPS.EditorTools.AFPS_ADSPreviewSession%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Editor/ADS/AFPS_ADSPreviewSession.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

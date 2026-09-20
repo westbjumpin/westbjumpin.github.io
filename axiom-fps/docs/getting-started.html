@@ -70,23 +70,103 @@
 <h1 id="getting-started">Getting Started</h1>
 
 <h2 id="requirements">Requirements</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><strong>URP and TextMeshPro must be set up in your project <em>before</em> you import
+Axiom FPS.</strong> They are not installed for you. If either is missing you will see
+compile errors, pink materials, or missing text. See
+<a href="#prepare-your-project">Prepare your project</a> below.</p>
+</div>
 <ul>
 <li><strong>Unity 6000.3 (Unity 6)</strong> or newer.</li>
-<li>A project using the <strong>Universal Render Pipeline (URP)</strong>. Axiom FPS ships URP
-materials, shaders, and render settings; it is <strong>not</strong> compatible with the
-Built-in pipeline or HDRP (materials will appear pink).</li>
+<li>A project using the <strong>Universal Render Pipeline (URP)</strong>
+(<code>com.unity.render-pipelines.universal</code>). Axiom FPS ships URP materials,
+shaders, and render settings; it is <strong>not</strong> compatible with the Built-in
+pipeline or HDRP (materials will appear pink).</li>
+<li><strong>TextMeshPro</strong>, with the <strong>TMP Essential Resources</strong> imported into
+<code>Assets/TextMesh Pro/</code>. On Unity 6, TextMeshPro ships inside the <strong>UI</strong>
+package (<code>com.unity.ugui</code>), so the package itself is already there — but the
+essential resources are a separate, manual import.</li>
+<li><strong>Input System</strong> (<code>com.unity.inputsystem</code>), with the project's <strong>Active Input
+Handling</strong> set to <em>Input System Package (New)</em> or <em>Both</em>.</li>
+<li><strong>Visual Effect Graph</strong> (<code>com.unity.visualeffectgraph</code>) for the included VFX.</li>
 </ul>
-<p>All required Unity packages (Input System, URP, TextMeshPro, Visual Effect
-Graph, and others) are declared in the project manifest and resolve
-automatically on import.</p>
+<h2 id="prepare-your-project">Prepare your project</h2>
+<p>Do this in the project you are importing into, before importing the package:</p>
+<ol>
+<li><strong>Use a URP project.</strong> Either create a new project from the <strong>Universal 3D</strong>
+template, or add URP to an existing project:
+<ul>
+<li><strong>Window ▸ Package Manager ▸ Unity Registry</strong>, install <strong>Universal RP</strong>.</li>
+<li>Create a pipeline asset (<strong>Assets ▸ Create ▸ Rendering ▸ URP Asset (with
+Universal Renderer)</strong>) and assign it under <strong>Project Settings ▸ Graphics ▸
+Default Render Pipeline</strong>, and in each quality level under <strong>Project
+Settings ▸ Quality</strong>.</li>
+</ul>
+</li>
+<li><strong>Import TMP Essential Resources.</strong> <strong>Window ▸ TextMeshPro ▸ Import TMP
+Essential Resources</strong>. This creates <code>Assets/TextMesh Pro/</code> — without it, all
+HUD and menu text renders as missing/pink.</li>
+<li><strong>Install the Input System</strong> (<strong>Package Manager ▸ Unity Registry ▸ Input
+System</strong>) if it isn't already, and set <strong>Project Settings ▸ Player ▸ Active
+Input Handling</strong> to <em>Input System Package (New)</em> or <em>Both</em>. Unity will ask to
+restart the editor.</li>
+<li><strong>Install Visual Effect Graph</strong> (<strong>Package Manager ▸ Unity Registry ▸ Visual
+Effect Graph</strong>).</li>
+</ol>
 <h2 id="installation">Installation</h2>
 <ol>
-<li>Open or create a <strong>URP project</strong> in Unity 6.</li>
+<li>Open or create a <strong>URP project</strong> in Unity 6 and complete
+<a href="#prepare-your-project">Prepare your project</a> above.</li>
 <li>Import the Axiom FPS package.</li>
 <li>If prompted, accept any package-dependency installs and let Unity finish
 compiling.</li>
-<li>Open the onboarding window any time from <strong>Tools ▸ AFPS ▸ Get Started</strong>.</li>
+<li>Open the onboarding window any time from <strong>Tools ▸ AFPS ▸ Get Started</strong>. Its
+<strong>Requirements</strong> section checks your project and flags anything still
+missing.</li>
 </ol>
+<h2 id="troubleshooting-setup">Troubleshooting setup</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Materials are <strong>pink/magenta</strong></td>
+<td>URP is not installed, or no URP asset is assigned as the active render pipeline</td>
+<td>Install Universal RP and assign a URP asset in <strong>Project Settings ▸ Graphics</strong> and <strong>Quality</strong></td>
+</tr>
+<tr>
+<td>Text is missing, or shows as pink boxes</td>
+<td>TMP Essential Resources not imported</td>
+<td><strong>Window ▸ TextMeshPro ▸ Import TMP Essential Resources</strong></td>
+</tr>
+<tr>
+<td>Compile errors mentioning <code>UnityEngine.Rendering.Universal</code></td>
+<td>URP package missing</td>
+<td>Install <strong>Universal RP</strong> from the Package Manager</td>
+</tr>
+<tr>
+<td>Compile errors mentioning <code>TMPro</code></td>
+<td>TextMeshPro missing</td>
+<td>Install the <strong>UI</strong> package (<code>com.unity.ugui</code>) from the Package Manager</td>
+</tr>
+<tr>
+<td>Compile errors mentioning <code>UnityEngine.InputSystem</code></td>
+<td>Input System package missing</td>
+<td>Install <strong>Input System</strong> from the Package Manager</td>
+</tr>
+<tr>
+<td>Input does nothing in Play mode</td>
+<td>Active Input Handling set to the old system</td>
+<td><strong>Project Settings ▸ Player ▸ Active Input Handling</strong> ▸ <em>Input System Package (New)</em> or <em>Both</em></td>
+</tr>
+</tbody>
+</table>
 <h2 id="run-the-demo">Run the demo</h2>
 <ol>
 <li>Open <code>Assets/Axiom FPS/Scenes/Firing Range.unity</code>.</li>
@@ -100,7 +180,7 @@ and the example weapons.</li>
 <code>Assets/Axiom FPS/Presets/</code>. To adjust a system:</p>
 <ol>
 <li>Browse to the relevant preset (e.g. <code>Presets/Movement/Sprint</code>, or
-<code>Presets/Weapon System/Weapons/AK-47/Recoil Settings</code>).</li>
+<code>Presets/Weapon System/Weapons/Assault Rifle/Recoil Settings</code>).</li>
 <li>Edit the values in the Inspector.</li>
 <li>Enter Play mode to feel the change — no code changes required.</li>
 </ol>

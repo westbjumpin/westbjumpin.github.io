@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class GrapplingHook ">
     
-    <meta name="description" content="High-velocity, momentum-driven grapple On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the anchor with an eased &amp;quot;windup&amp;quot; pull that ramps to full force, and is constrained to an inextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular swing force for player-driven arcs. The rope conserves and compounds kinetic energy, so releasing slingshots the player forward with the accumulated momentum. Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past it), looks too far away from the anchor, or drives face-on into a solid obstacle. The grapple is released by letting go of the button All physics is applied through  forces — the transform is never moved directly — and both Update and FixedUpdate are written to avoid managed allocations (no Debug.Log, no allocating physics queries, struct-only math).">
+    <meta name="description" content="High-velocity, momentum-driven grapple On press a ray sets a fixed world-space anchor. While held, the Rigidbody is reeled toward the anchor with an eased &amp;quot;windup&amp;quot; pull that ramps to full force, and is constrained to an inextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular swing force for player-driven arcs. The rope conserves and compounds kinetic energy, so releasing slingshots the player forward with the accumulated momentum. Anchors may be movable: hooking a non-kinematic  reels both ends toward each other and splits the rope between them by mass, so a crate flies to the player while a boulder pulls the player instead. See  for the split and  for how each rope term is shared. Static geometry, kinematic bodies and anything past the mass ceiling behave exactly as before, and the rope end tracks a moving anchor so the LineRenderer stays glued to it. Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past it), looks too far away from the anchor, drives face-on into a solid obstacle, loses line of sight along the rope for long enough that it would be running through a wall, or the anchor body is destroyed mid-swing. The grapple is released by letting go of the button All physics is applied through  forces — the transform is never moved directly — and both Update and FixedUpdate are written to avoid managed allocations (no Debug.Log, no allocating physics queries, struct-only math). Every tuning value lives on an  preset, so the whole feel of the grapple swaps with one asset. Only the per-instance references — the rope LineRenderer and the SFX containers — stay on the component.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -77,12 +77,22 @@ anchor with an eased &quot;windup&quot; pull that ramps to full force, and is co
 inextensible, ratcheting rope so it swings as a pendulum; movement input adds perpendicular
 swing force for player-driven arcs. The rope conserves and compounds kinetic energy, so
 releasing slingshots the player forward with the accumulated momentum.</p>
+<p>Anchors may be movable: hooking a non-kinematic <span class="xref">UnityEngine.Rigidbody</span> reels both ends toward
+each other and splits the rope between them by mass, so a crate flies to the player while a
+boulder pulls the player instead. See <span class="xref">AFPS.GrapplingHook.BindAnchor(in UnityEngine.RaycastHit)</span> for the split and
+<span class="xref">AFPS.GrapplingHook.ApplyRopeForcePair(UnityEngine.Vector3, UnityEngine.ForceMode)</span> for how each rope term is shared. Static geometry, kinematic
+bodies and anything past the mass ceiling behave exactly as before, and the rope end tracks a
+moving anchor so the LineRenderer stays glued to it.</p>
 <p>Auto-detaches when the player crouches, is reeled all the way to the anchor (slingshotting past
-it), looks too far away from the anchor, or drives face-on into a solid obstacle. The grapple is
-released by letting go of the button</p>
+it), looks too far away from the anchor, drives face-on into a solid obstacle, loses line of sight
+along the rope for long enough that it would be running through a wall, or the anchor body is
+destroyed mid-swing. The grapple is released by letting go of the button</p>
 <p>All physics is applied through <span class="xref">UnityEngine.Rigidbody</span> forces — the transform is never moved
 directly — and both <code>Update</code> and <code>FixedUpdate</code> are written to avoid managed
 allocations (no Debug.Log, no allocating physics queries, struct-only math).</p>
+<p>Every tuning value lives on an <a class="xref" href="AFPS.AFPS_GrapplingHookSettings.html">AFPS_GrapplingHookSettings</a> preset, so the whole feel
+of the grapple swaps with one asset. Only the per-instance references — the rope LineRenderer and
+the SFX containers — stay on the component.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -120,9 +130,6 @@ allocations (no Debug.Log, no allocating physics queries, struct-only math).</p>
     </div>
     <div>
       <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_input">AbilityBase.input</a>
-    </div>
-    <div>
-      <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_Awake">AbilityBase.Awake()</a>
     </div>
     <div>
       <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Single_">AbilityBase.ActivateAbility(float)</a>
@@ -562,7 +569,7 @@ public class GrapplingHook : AbilityBase</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook_ActivateAbility_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook.ActivateAbility(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L176">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L182">View Source</a>
   </span>
   <a id="AFPS_GrapplingHook_ActivateAbility_" data-uid="AFPS.GrapplingHook.ActivateAbility*"></a>
   <h4 id="AFPS_GrapplingHook_ActivateAbility_System_Boolean_" data-uid="AFPS.GrapplingHook.ActivateAbility(System.Boolean)">ActivateAbility(bool)</h4>
@@ -593,6 +600,112 @@ public class GrapplingHook : AbilityBase</code></pre>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Boolean_">AbilityBase.ActivateAbility(bool)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook_BindPlayer_AFPS_AFPS_Movement_.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook.BindPlayer(AFPS.AFPS_Movement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L133">View Source</a>
+  </span>
+  <a id="AFPS_GrapplingHook_BindPlayer_" data-uid="AFPS.GrapplingHook.BindPlayer*"></a>
+  <h4 id="AFPS_GrapplingHook_BindPlayer_AFPS_AFPS_Movement_" data-uid="AFPS.GrapplingHook.BindPlayer(AFPS.AFPS_Movement)">BindPlayer(AFPS_Movement)</h4>
+  <div class="markdown level1 summary"><p>Rebinds to a player handed over by <a class="xref" href="AFPS.AbilityFire.html">AbilityFire</a>, re-resolving the Rigidbody the rope pushes. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_">BindPlayer(AFPS_Movement)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void BindPlayer(AFPS_Movement newMovement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a></td>
+        <td><span class="parametername">newMovement</span></td>
+        <td><p>The player's movement component, or null to leave the grapple unbound.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_">AbilityBase.BindPlayer(AFPS_Movement)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook_CanActivate.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook.CanActivate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L143">View Source</a>
+  </span>
+  <a id="AFPS_GrapplingHook_CanActivate_" data-uid="AFPS.GrapplingHook.CanActivate*"></a>
+  <h4 id="AFPS_GrapplingHook_CanActivate" data-uid="AFPS.GrapplingHook.CanActivate">CanActivate()</h4>
+  <div class="markdown level1 summary"><p>Whether a grapple could start (or is already running) right now — false only while the post-release cooldown is still counting. Lets a weapon skip the recoil kick on an activation that would do nothing. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_CanActivate">CanActivate()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanActivate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_CanActivate">AbilityBase.CanActivate()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook_CancelGrapple.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook.CancelGrapple%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L336">View Source</a>
+  </span>
+  <a id="AFPS_GrapplingHook_CancelGrapple_" data-uid="AFPS.GrapplingHook.CancelGrapple*"></a>
+  <h4 id="AFPS_GrapplingHook_CancelGrapple" data-uid="AFPS.GrapplingHook.CancelGrapple">CancelGrapple()</h4>
+  <div class="markdown level1 summary"><p>Hard-cancels an active grapple with none of <span class="xref">AFPS.GrapplingHook.Detach()</span>'s momentum slingshot: releases any
+anchor, clears the grapple flags, and hides the rope. Called on respawn (via <a class="xref" href="AFPS.GrapplingHook.html#AFPS_GrapplingHook_ResetAbility">ResetAbility()</a>)
+so the rope doesn't reappear drawn from the respawned player to a stale anchor. Safe to call when no
+grapple is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelGrapple()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook_ResetAbility.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook.ResetAbility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L351">View Source</a>
+  </span>
+  <a id="AFPS_GrapplingHook_ResetAbility_" data-uid="AFPS.GrapplingHook.ResetAbility*"></a>
+  <h4 id="AFPS_GrapplingHook_ResetAbility" data-uid="AFPS.GrapplingHook.ResetAbility">ResetAbility()</h4>
+  <div class="markdown level1 summary"><p>Cancels the grapple on respawn / forced interrupt. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ResetAbility">ResetAbility()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ResetAbility()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ResetAbility">AbilityBase.ResetAbility()</a></div>
 
 </article>
           </div>
@@ -605,7 +718,7 @@ public class GrapplingHook : AbilityBase</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_GrapplingHook.md&amp;value=---%0Auid%3A%20AFPS.GrapplingHook%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/GrapplingHook.cs/#L36" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

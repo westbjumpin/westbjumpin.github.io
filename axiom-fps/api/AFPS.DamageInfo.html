@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Struct DamageInfo ">
     
-    <meta name="description" content="Immutable payload passed to : positive amount = damage, negative = healing; carries type, instigator, and optional hit geometry.">
+    <meta name="description" content="Payload passed to : positive amount = damage, negative = healing; carries type, instigator, and optional hit geometry.  is an  asset (null = untyped). A value type passed by copy, and relays such as  and  deliberately mutate their local copy (scaling amount, tagging the hit) before forwarding it.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,7 @@
 
 
   <h1 id="AFPS_DamageInfo" data-uid="AFPS.DamageInfo" class="text-break">Struct DamageInfo</h1>
-  <div class="markdown level0 summary"><p>Immutable payload passed to <a class="xref" href="AFPS.IDamageable.html#AFPS_IDamageable_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry.</p>
+  <div class="markdown level0 summary"><p>Payload passed to <a class="xref" href="AFPS.IDamageable.html#AFPS_IDamageable_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a>: positive <code>amount</code> = damage, negative = healing; carries type, instigator, and optional hit geometry. <a class="xref" href="AFPS.DamageInfo.html#AFPS_DamageInfo_type">type</a> is an <a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a> asset (null = untyped). A value type passed by copy, and relays such as <a class="xref" href="AFPS.AFPS_Hitbox.html">AFPS_Hitbox</a> and <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> deliberately mutate their local copy (scaling <code>amount</code>, tagging the hit) before forwarding it.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -105,19 +105,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo__ctor_System_Single_AFPS_DamageType_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.%23ctor(System.Single%2CAFPS.DamageType%2CUnityEngine.GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo__ctor_System_Single_AFPS_AFPS_DamageType_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.%23ctor(System.Single%2CAFPS.AFPS_DamageType%2CUnityEngine.GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L36">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L23">View Source</a>
   </span>
   <a id="AFPS_DamageInfo__ctor_" data-uid="AFPS.DamageInfo.#ctor*"></a>
-  <h4 id="AFPS_DamageInfo__ctor_System_Single_AFPS_DamageType_UnityEngine_GameObject_" data-uid="AFPS.DamageInfo.#ctor(System.Single,AFPS.DamageType,UnityEngine.GameObject)">DamageInfo(float, DamageType, GameObject)</h4>
-  <div class="markdown level1 summary"><p>Convenience constructor; zeroes hit geometry fields and defaults <code>falloffFactor</code> to 1 (no falloff) and <code>ignoreResistance</code> to false. Use object-initializer syntax to set <code>hitPoint</code>/<code>hitNormal</code>/<code>hitBoneTag</code>/<code>falloffFactor</code> when needed.</p>
+  <h4 id="AFPS_DamageInfo__ctor_System_Single_AFPS_AFPS_DamageType_UnityEngine_GameObject_" data-uid="AFPS.DamageInfo.#ctor(System.Single,AFPS.AFPS_DamageType,UnityEngine.GameObject)">DamageInfo(float, AFPS_DamageType, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Convenience constructor; zeroes hit geometry fields, defaults <code>falloffFactor</code> to 1 (no falloff), <code>ignoreResistance</code> to false, and <code>applyStatusEffects</code> to true. Use object-initializer syntax to set <code>hitPoint</code>/<code>hitNormal</code>/<code>hitBoneTag</code>/<code>falloffFactor</code> when needed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DamageInfo(float amount, DamageType type = DamageType.Generic, GameObject instigator = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public DamageInfo(float amount, AFPS_DamageType type = null, GameObject instigator = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -135,7 +135,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="AFPS.DamageType.html">DamageType</a></td>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
         <td><span class="parametername">type</span></td>
         <td></td>
       </tr>
@@ -153,7 +153,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_amount.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.amount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L23">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L8">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_amount" data-uid="AFPS.DamageInfo.amount">amount</h4>
   <div class="markdown level1 summary"></div>
@@ -179,10 +179,40 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_applyStatusEffects.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.applyStatusEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L20">View Source</a>
+  </span>
+  <h4 id="AFPS_DamageInfo_applyStatusEffects" data-uid="AFPS.DamageInfo.applyStatusEffects">applyStatusEffects</h4>
+  <div class="markdown level1 summary"><p>When true (the default for a direct hit), <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a> applies the damage type's <a class="xref" href="AFPS.AFPS_DamageType.html#AFPS_AFPS_DamageType_applyOnHit">applyOnHit</a> status effects. Status-effect ticks build their <a class="xref" href="AFPS.DamageInfo.html">DamageInfo</a> with this false so a damage-over-time effect can't re-apply itself each tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool applyStatusEffects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_falloffFactor.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.falloffFactor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L31">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L16">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_falloffFactor" data-uid="AFPS.DamageInfo.falloffFactor">falloffFactor</h4>
   <div class="markdown level1 summary"><p>The 0..1 range-falloff factor the firing weapon already baked into <code>amount</code> (1 = no falloff). Lets a hitbox recover the weapon's pre-falloff base damage when <a class="xref" href="AFPS.AFPS_Hitbox.html">AFPS_Hitbox</a> is set to bypass falloff. Sources without falloff leave this at 1.</p>
@@ -212,7 +242,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_hitBoneTag.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.hitBoneTag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L28">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L13">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_hitBoneTag" data-uid="AFPS.DamageInfo.hitBoneTag">hitBoneTag</h4>
   <div class="markdown level1 summary"></div>
@@ -241,7 +271,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_hitNormal.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.hitNormal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L27">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L12">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_hitNormal" data-uid="AFPS.DamageInfo.hitNormal">hitNormal</h4>
   <div class="markdown level1 summary"></div>
@@ -270,7 +300,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_hitPoint.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.hitPoint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L26">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L11">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_hitPoint" data-uid="AFPS.DamageInfo.hitPoint">hitPoint</h4>
   <div class="markdown level1 summary"></div>
@@ -299,10 +329,10 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_ignoreResistance.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.ignoreResistance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L33">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L18">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_ignoreResistance" data-uid="AFPS.DamageInfo.ignoreResistance">ignoreResistance</h4>
-  <div class="markdown level1 summary"><p>When true, <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a> skips the per-<a class="xref" href="AFPS.DamageType.html">DamageType</a> resistance multiplier for this hit. Set by <a class="xref" href="AFPS.AFPS_Hitbox.html">AFPS_Hitbox</a> for body parts flagged to bypass resistance (e.g. headshots).</p>
+  <div class="markdown level1 summary"><p>When true, <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a> skips the per-<a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a> resistance multiplier for this hit. Set by <a class="xref" href="AFPS.AFPS_Hitbox.html">AFPS_Hitbox</a> for body parts flagged to bypass resistance (e.g. headshots).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -329,7 +359,7 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_instigator.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.instigator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L25">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L10">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_instigator" data-uid="AFPS.DamageInfo.instigator">instigator</h4>
   <div class="markdown level1 summary"></div>
@@ -358,14 +388,14 @@
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo_type.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo.type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L24">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L9">View Source</a>
   </span>
   <h4 id="AFPS_DamageInfo_type" data-uid="AFPS.DamageInfo.type">type</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DamageType type</code></pre>
+    <pre><code class="lang-csharp hljs">public AFPS_DamageType type</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -377,7 +407,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="AFPS.DamageType.html">DamageType</a></td>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -394,7 +424,7 @@
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_DamageInfo.md&amp;value=---%0Auid%3A%20AFPS.DamageInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L21" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/DamageInfo.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

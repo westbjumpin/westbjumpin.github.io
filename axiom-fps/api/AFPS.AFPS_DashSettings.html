@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_DashSettings </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_DashSettings ">
+    
+    <meta name="description" content="Dash preset: every tuning value for  — direction mode and force, the pre-dash velocity reset, the momentum the dash keeps afterwards, and the optional charge-up windup. Swap the asset to swap the whole feel of the dash. Only the SFX containers stay on the component, since those are per-instance rather than per-preset.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_DashSettings">
+
+
+
+  <h1 id="AFPS_AFPS_DashSettings" data-uid="AFPS.AFPS_DashSettings" class="text-break">Class AFPS_DashSettings</h1>
+  <div class="markdown level0 summary"><p>Dash preset: every tuning value for <a class="xref" href="AFPS.Dash.html">Dash</a> — direction mode and force, the pre-dash
+velocity reset, the momentum the dash keeps afterwards, and the optional charge-up windup.</p>
+<p>Swap the asset to swap the whole feel of the dash. Only the SFX containers stay on the component,
+since those are per-instance rather than per-preset.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Object</span></div>
+    <div class="level2"><span class="xref">ScriptableObject</span></div>
+    <div class="level3"><span class="xref">AFPS_DashSettings</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">ScriptableObject.SetDirty()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ScriptableObject.CreateInstance(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">ScriptableObject.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.CreateInstance&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetEntityId()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_DashSettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CreateAssetMenu(fileName = &quot;New Dash Settings&quot;, menuName = &quot;AFPS/Ability/Dash Settings&quot;, order = 2)]
+public class AFPS_DashSettings : ScriptableObject</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_airDashForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.airDashForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L58">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_airDashForce" data-uid="AFPS.AFPS_DashSettings.airDashForce">airDashForce</h4>
+  <div class="markdown level1 summary"><p>Impulse strength used when the dash fires while airborne, usually lower than <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_groundDashForce">groundDashForce</a> because there is no drag or ground friction to bleed it off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Dash Settings&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;The force applied when dashing in the air&quot;)]
+public float airDashForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_chargeUpLockInput.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.chargeUpLockInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L151">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_chargeUpLockInput" data-uid="AFPS.AFPS_DashSettings.chargeUpLockInput">chargeUpLockInput</h4>
+  <div class="markdown level1 summary"><p>When true, movement input is locked for the length of the windup via <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_DisableInput_System_Single_">DisableInput(float)</a>, so the player cannot accelerate back out of the slowdown. Aim is left free, and the dash direction is still sampled when the impulse fires.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Charge Up&quot;)]
+[ShowIf(&quot;useChargeUp&quot;)]
+[Tooltip(&quot;Lock movement input for the windup so the player can&#39;t accelerate out of the slowdown. Aiming stays free&quot;)]
+public bool chargeUpLockInput</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_chargeUpSlow.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.chargeUpSlow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L143">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_chargeUpSlow" data-uid="AFPS.AFPS_DashSettings.chargeUpSlow">chargeUpSlow</h4>
+  <div class="markdown level1 summary"><p>Share of the player's speed bled off across the whole windup: 0 leaves them moving untouched, 1 brings them to a dead stop by the moment the dash fires. Applied as a timestep-independent exponential decay, so the same value feels the same at any physics rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Charge Up&quot;)]
+[ShowIf(&quot;useChargeUp&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;Share of the player&#39;s speed bled off over the windup. 0 = no slowdown, 1 = a dead stop by the time the dash fires&quot;)]
+public float chargeUpSlow</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_chargeUpSuspendGravity.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.chargeUpSuspendGravity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L147">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_chargeUpSuspendGravity" data-uid="AFPS.AFPS_DashSettings.chargeUpSuspendGravity">chargeUpSuspendGravity</h4>
+  <div class="markdown level1 summary"><p>When true, an airborne windup suspends gravity and the hover float so the player hangs in place instead of sagging while charging. Grounded windups are unaffected — the float is what holds the player up there.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Charge Up&quot;)]
+[ShowIf(&quot;useChargeUp&quot;)]
+[Tooltip(&quot;Hang in place during an airborne windup by cancelling gravity and the hover float, instead of sagging while charging&quot;)]
+public bool chargeUpSuspendGravity</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_chargeUpTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.chargeUpTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L139">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_chargeUpTime" data-uid="AFPS.AFPS_DashSettings.chargeUpTime">chargeUpTime</h4>
+  <div class="markdown level1 summary"><p>Length of the windup in seconds. The dash fires automatically when it elapses; the windup cannot be cancelled, and the ability refuses re-activation while it runs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Charge Up&quot;)]
+[ShowIf(&quot;useChargeUp&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;Seconds of windup before the dash fires. The dash fires automatically at the end&quot;)]
+public float chargeUpTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_dashForwardWithoutInput.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.dashForwardWithoutInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L77">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_dashForwardWithoutInput" data-uid="AFPS.AFPS_DashSettings.dashForwardWithoutInput">dashForwardWithoutInput</h4>
+  <div class="markdown level1 summary"><p>When true, an <a class="xref" href="AFPS.DashMode.html#AFPS_DashMode_Input">Input</a> dash with no movement input falls back to the camera's
+flattened forward instead of doing nothing. When false, a no-input dash is refused outright —
+<a class="xref" href="AFPS.Dash.html#AFPS_Dash_CanActivate">CanActivate()</a> reports it, so no cooldown is burned and no weapon recoil is kicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Dash Settings&quot;)]
+[ShowIf(&quot;dashMode&quot;, DashMode.Input)]
+[Tooltip(&quot;With no movement input, dash along the camera&#39;s flattened forward instead of refusing the dash&quot;)]
+public bool dashForwardWithoutInput</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_dashMode.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.dashMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L50">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_dashMode" data-uid="AFPS.AFPS_DashSettings.dashMode">dashMode</h4>
+  <div class="markdown level1 summary"><p>Direction the dash impulse is fired along. See <a class="xref" href="AFPS.DashMode.html">DashMode</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Dash Settings&quot;)]
+[Tooltip(&quot;Direction the dash fires along: the camera&#39;s aim (pitch included), the player&#39;s movement input, or straight up&quot;)]
+public DashMode dashMode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.DashMode.html">DashMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_endPreserveOnJumpOrSlide.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.endPreserveOnJumpOrSlide%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L119">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_endPreserveOnJumpOrSlide" data-uid="AFPS.AFPS_DashSettings.endPreserveOnJumpOrSlide">endPreserveOnJumpOrSlide</h4>
+  <div class="markdown level1 summary"><p>When true, jumping or entering a slide ends the preservation window, handing drag back to whichever movement state the player just chose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[Tooltip(&quot;End the window early when the player jumps or starts a slide, so the dash doesn&#39;t override the drag those states want&quot;)]
+public bool endPreserveOnJumpOrSlide</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_endPreserveOnLand.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.endPreserveOnLand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L115">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_endPreserveOnLand" data-uid="AFPS.AFPS_DashSettings.endPreserveOnLand">endPreserveOnLand</h4>
+  <div class="markdown level1 summary"><p>When true, an airborne dash's preservation window ends the moment the player touches down, so a dash into the floor doesn't skate. Ground dashes are unaffected — they would otherwise cancel themselves on the very next physics step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[Tooltip(&quot;End the window early when an airborne dash lands, so dashing into the ground doesn&#39;t turn into a long skate&quot;)]
+public bool endPreserveOnLand</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_endPreserveOnOpposingInput.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.endPreserveOnOpposingInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L123">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_endPreserveOnOpposingInput" data-uid="AFPS.AFPS_DashSettings.endPreserveOnOpposingInput">endPreserveOnOpposingInput</h4>
+  <div class="markdown level1 summary"><p>When true, steering hard against the dash direction ends the preservation window, so a player who wants to stop gets their brakes back instead of sliding on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[Tooltip(&quot;End the window early when movement input opposes the dash, so the player can brake out of a dash instead of skating&quot;)]
+public bool endPreserveOnOpposingInput</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_floatDisableTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.floatDisableTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L69">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_floatDisableTime" data-uid="AFPS.AFPS_DashSettings.floatDisableTime">floatDisableTime</h4>
+  <div class="markdown level1 summary"><p>Seconds the player's hover float PID is suppressed after a <a class="xref" href="AFPS.DashMode.html#AFPS_DashMode_FromCamera">FromCamera</a> or
+<a class="xref" href="AFPS.DashMode.html#AFPS_DashMode_Upwards">Upwards</a> dash, via <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_SetFloatTimer_System_Single_">SetFloatTimer(float)</a>.</p>
+<p>Both of those modes can launch the player off the ground, and the PID's job is to hold a fixed
+hover height — left running it pushes back against the launch and clips the dash short. Needs to
+be long enough for the player to clear the float ray, not so long that landing feels like a drop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Dash Settings&quot;)]
+[HideIf(&quot;dashMode&quot;, DashMode.Input)]
+[MinValue(0)]
+[Tooltip(&quot;Seconds the hover float PID is suppressed after the dash, so it can&#39;t fight the launch. Only used by the From Camera and Upwards modes&quot;)]
+public float floatDisableTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_groundDashForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.groundDashForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L54">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_groundDashForce" data-uid="AFPS.AFPS_DashSettings.groundDashForce">groundDashForce</h4>
+  <div class="markdown level1 summary"><p>Impulse strength used when the dash fires while <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_grounded">grounded</a> is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Dash Settings&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;The force applied when dashing on the ground&quot;)]
+public float groundDashForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_momentumPreserveTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.momentumPreserveTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L111">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_momentumPreserveTime" data-uid="AFPS.AFPS_DashSettings.momentumPreserveTime">momentumPreserveTime</h4>
+  <div class="markdown level1 summary"><p>How long the drag suppression above lasts. The window can still be cut short by the end conditions below; zero disables preservation entirely.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;Seconds the preservation window lasts before normal drag returns. 0 = no preservation&quot;)]
+public float momentumPreserveTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_momentumPreserved.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.momentumPreserved%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L107">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_momentumPreserved" data-uid="AFPS.AFPS_DashSettings.momentumPreserved">momentumPreserved</h4>
+  <div class="markdown level1 summary"><p>How much of the dash's speed survives the seconds after it fires, as the share of the player's
+drag that is suppressed while the preservation window runs.</p>
+<p>The controller's ground/air acceleration only ever <em>adds</em> speed along the movement vector — it
+never brakes — so the one thing eating a dash is <span class="xref">UnityEngine.Rigidbody.linearDamping</span>, which
+<a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a> rewrites from its own state every frame. 0 hands drag straight back
+and the dash bleeds off at the authored ground/air rate (the original behaviour); 1 removes drag
+entirely for <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_momentumPreserveTime">momentumPreserveTime</a>, so the player keeps every bit of the dash and
+carries it into the next jump or slide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;Share of the player&#39;s drag suppressed after a dash. 0 = dash speed bleeds off at the normal rate, 1 = the dash keeps all of its speed for the window below&quot;)]
+public float momentumPreserved</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_opposingInputThreshold.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.opposingInputThreshold%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L127">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_opposingInputThreshold" data-uid="AFPS.AFPS_DashSettings.opposingInputThreshold">opposingInputThreshold</h4>
+  <div class="markdown level1 summary"><p>How directly opposed the input has to be to count, as the negated dot of the input direction against the dash direction: 0 ends the window on anything past a right angle, 1 demands a perfect reversal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum Preservation&quot;)]
+[ShowIf(&quot;endPreserveOnOpposingInput&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;How directly the input must oppose the dash to end the window (0 = anything past sideways, 1 = a perfect reversal)&quot;)]
+public float opposingInputThreshold</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_useChargeUp.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.useChargeUp%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L135">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_useChargeUp" data-uid="AFPS.AFPS_DashSettings.useChargeUp">useChargeUp</h4>
+  <div class="markdown level1 summary"><p>When true, activating the dash starts a windup — the player is slowed in place for <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_chargeUpTime">chargeUpTime</a> — and the impulse fires when the windup ends, instead of firing immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Charge Up&quot;)]
+[Tooltip(&quot;Slow the player in place for a windup before the dash fires, instead of dashing instantly&quot;)]
+public bool useChargeUp</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_velocityReset.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.velocityReset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L89">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_velocityReset" data-uid="AFPS.AFPS_DashSettings.velocityReset">velocityReset</h4>
+  <div class="markdown level1 summary"><p>Which velocity components <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_zeroVelocityBeforeDash">zeroVelocityBeforeDash</a> clears. See <a class="xref" href="AFPS.DashVelocityReset.html">DashVelocityReset</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Velocity Reset&quot;)]
+[ShowIf(&quot;zeroVelocityBeforeDash&quot;)]
+[Tooltip(&quot;Which velocity components to clear: everything, horizontal only (keeps a jump arc), or vertical only (kills a fall)&quot;)]
+public DashVelocityReset velocityReset</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.DashVelocityReset.html">DashVelocityReset</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings_zeroVelocityBeforeDash.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings.zeroVelocityBeforeDash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L85">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_DashSettings_zeroVelocityBeforeDash" data-uid="AFPS.AFPS_DashSettings.zeroVelocityBeforeDash">zeroVelocityBeforeDash</h4>
+  <div class="markdown level1 summary"><p>When true, the player's velocity is cleared the instant before the dash impulse is applied, so the dash always produces the same speed regardless of what the player was doing. Off leaves the dash stacking on top of existing momentum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Velocity Reset&quot;)]
+[Tooltip(&quot;Zero the player&#39;s velocity immediately before the dash impulse, so every dash reaches the same speed instead of stacking on existing momentum&quot;)]
+public bool zeroVelocityBeforeDash</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_DashSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_DashSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_DashSettings.cs/#L43" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -75,13 +75,21 @@ through ScriptableObject presets without touching code.</p>
 vault, climb, ladders, wall interaction, stamina, slopes, and explosion
 knockback.</li>
 <li><strong>Weapon System</strong> — hitscan &amp; projectile weapons with configurable recoil,
-spread, and weapon tilt; example weapons included (AK-47, RPG-7, Revolver,
-Sniper, Sawed-Off Shotgun).</li>
+spread, and weapon tilt; Mecanim weapon animation driven from the events
+weapons already raise; example weapons included (Assault Rifle, Rocket
+Launcher, Revolver, Sniper, Sawed-Off Shotgun, VSK Rifle).</li>
 <li><strong>Camera System</strong> — headbob, FOV effects, hit-bob, and movement-driven camera
 motion.</li>
-<li><strong>Ability System</strong> — modular abilities such as Dash and Grapple.</li>
+<li><strong>Ability System</strong> — modular, fully preset-driven abilities such as Dash and
+Grapple; weapons can fire an ability as their fire action.</li>
+<li><strong>Damage &amp; Status Effects</strong> — damage kinds as authorable assets, plus modular
+status effects covering damage over time, slows, knockback, control locks,
+screen overlays, and world-space VFX.</li>
+<li><strong>Death &amp; Respawn</strong> — death cameras, respawn strategies, death screens for
+both UI systems, and a kill record for killfeeds and scoring.</li>
 <li><strong>Health, Inventory, Interaction, Teams</strong> — damage/healing, UI Toolkit &amp; uGUI
-inventories, an interactable framework, and team/affiliation data.</li>
+inventories with world containers and loot tables, an interactable framework,
+and team/affiliation data.</li>
 <li><strong>UI &amp; Input</strong> — UI Toolkit HUD, full main/pause menu, and pre-configured
 Input Actions.</li>
 </ul>
@@ -92,7 +100,12 @@ feel and balance entirely from the Inspector.</p>
 <li><strong>Unity 6000.3 (Unity 6)</strong> or newer</li>
 <li><strong>Universal Render Pipeline (URP)</strong> — the asset ships URP materials, shaders,
 and render settings. It is not compatible with the Built-in pipeline or HDRP.</li>
+<li><strong>TextMeshPro</strong>, with the <strong>TMP Essential Resources</strong> imported
+(<em>Window ▸ TextMeshPro ▸ Import TMP Essential Resources</em>)</li>
+<li><strong>Input System</strong> and <strong>Visual Effect Graph</strong></li>
 </ul>
+<p>Set URP and TextMeshPro up <strong>before</strong> importing Axiom FPS — see
+<a href="docs/getting-started.html#prepare-your-project">Getting Started</a>.</p>
 <h2 id="where-to-next">Where to next</h2>
 <ul>
 <li><strong><a href="docs/getting-started.html">Getting Started</a></strong> — install, open the demo scene,
@@ -101,11 +114,12 @@ and play in a couple of minutes.</li>
 fit together.</li>
 <li><strong><a href="api/index.html">API Reference</a></strong> — generated reference for every public type
 in the <code>AFPS</code> namespace.</li>
+<li><strong><a href="docs/changelog.html">Changelog</a></strong> — what changed in the latest release.</li>
 </ul>
 <h2 id="support">Support</h2>
 <ul>
 <li>Discord: <a href="https://discord.gg/q97fmAYCRw">https://discord.gg/q97fmAYCRw</a></li>
-<li>Found a bug or have a feature request? Reach out on Discord and we'll take a
+<li>Found a bug or have a feature request? Reach out on Discord and I'll take a
 look.</li>
 </ul>
 

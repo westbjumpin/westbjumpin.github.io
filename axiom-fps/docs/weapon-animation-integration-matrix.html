@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Weapon Animation — Integration Matrix </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Weapon Animation — Integration Matrix ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="weapon-animation--integration-matrix">Weapon Animation — Integration Matrix</h1>
+
+<p>The clip system is additive: it never replaces the procedural pipeline, and it
+only stands a procedural layer down where the two would animate the same thing.
+This page is the exact behaviour of each layer, with and without a clip.</p>
+<h2 id="the-authority-rule">The authority rule</h2>
+<p><strong>Gameplay owns timing; animation adapts to it.</strong> Fire rate, <code>reloadDuration</code>,
+ammo refill moments and the de-equip wait stay owned by the existing systems.
+Clips change their playback <em>speed</em> to match — never the other way round. This
+is why a reload clip authored at 2.4 s still lands exactly on a 1.8 s
+<code>reloadDuration</code>, and why changing <code>reloadDuration</code> at runtime immediately
+retimes the next reload.</p>
+<h2 id="matrix">Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Procedural layer</th>
+<th>No clip in the matching slot</th>
+<th>Clip present</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Equip tween</strong> (<code>equipStartingPos/Rot</code>, LeanTween)</td>
+<td>Runs exactly as before.</td>
+<td>Suppressed for this weapon. <code>equipPos</code>/<code>equipQuaternion</code> are explicitly zeroed and the <strong>Equip</strong> clip owns the draw. The equip SFX still plays.</td>
+</tr>
+<tr>
+<td><strong>De-equip tween</strong> (<code>equipEndingPos/Rot</code>)</td>
+<td>Runs as before; the switch-out waits <code>max(posEndTime, rotEndTime)</code>.</td>
+<td>Suppressed. The switch-out instead waits <code>HolsterDuration</code> (clip length ÷ holster speed multiplier), so the model is never hidden mid-animation. The de-equip SFX still plays.</td>
+</tr>
+<tr>
+<td><strong>Reload tilt</strong> (<code>AFPS_WeaponTilt</code>, <code>enableReloadingTilt</code>)</td>
+<td>Runs as before on the basic locomotion stances.</td>
+<td>Stands down. The clip already animates the hands; tilting the root underneath would drag the authored pose off-centre. All other tilt stances are unaffected.</td>
+</tr>
+<tr>
+<td><strong>Weapon bob</strong></td>
+<td>Unchanged.</td>
+<td>Unchanged, except it is scaled by <code>Procedural ▸ Weight During Reload / Inspect</code> while those clips play (default 1 = untouched).</td>
+</tr>
+<tr>
+<td><strong>Weapon sway</strong></td>
+<td>Unchanged.</td>
+<td>As bob.</td>
+</tr>
+<tr>
+<td><strong>Movement tilt</strong> (non-reload stances)</td>
+<td>Unchanged.</td>
+<td>As bob.</td>
+</tr>
+<tr>
+<td><strong>Recoil</strong> (<code>AFPS_RecoilController</code>)</td>
+<td>Unchanged.</td>
+<td>Unchanged — recoil and the Fire clip are driven from the same emission moment, so they stay in sync by construction. Also scaled by the procedural weight.</td>
+</tr>
+<tr>
+<td><strong>Weapon bump</strong></td>
+<td>Unchanged.</td>
+<td>Unchanged. Never scaled — it is a collision response, not a flourish.</td>
+</tr>
+<tr>
+<td><strong>ADS</strong> (position, rotation, FOV, spread)</td>
+<td>Unchanged.</td>
+<td>Unchanged. Aiming additionally selects the <strong>Fire (ADS)</strong> clip over <strong>Fire</strong> when that slot is filled, feeds the <code>IsADS</code> parameter, and suppresses the Sprint / Slide / Wallrun states (see below).</td>
+</tr>
+<tr>
+<td><strong>Shared movement arms</strong> (<code>AFPS_ArmsController</code>)</td>
+<td>Unchanged.</td>
+<td>Unchanged, but the weapon rig's own arm renderers hide for exactly the window in which the movement arms are forced visible (climb / ledge hang / mantle), so you never see four arms.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>Procedural</code> weights are the one place the two systems deliberately
+interact. They ease <code>animationProceduralMultiplier</code> between 1 and the configured
+value over <code>Procedural Weight Blend Time</code>, and <code>AFPS_WeaponSystem</code> multiplies
+the grouped recoil + sway + bob + tilt term by it. Left at 1 — the default — the
+transform composition is bit-identical to a weapon without this component.</p>
+<h2 id="per-slot-behaviour">Per-slot behaviour</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Plays when</th>
+<th>Timing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idle</strong></td>
+<td>Base layer default; whenever nothing else drives locomotion.</td>
+<td>Loops at authored speed.</td>
+</tr>
+<tr>
+<td><strong>Walk</strong></td>
+<td><code>Speed</code> above 0.2 m/s.</td>
+<td>Loops; 0.15 s blend from Idle.</td>
+</tr>
+<tr>
+<td><strong>Sprint</strong></td>
+<td><code>IsSprinting</code> (MovementState.Sprinting) <strong>and not aiming</strong>.</td>
+<td>Loops; 0.15 s blend from Walk. Aiming mid-sprint blends straight back to Walk.</td>
+</tr>
+<tr>
+<td><strong>Slide</strong></td>
+<td><code>IsSliding</code> (MovementState.Sliding) <strong>and not aiming</strong>, from anywhere in the locomotion chain.</td>
+<td>Loops for the length of the slide; 0.15 s blend in, and out to whichever of Idle/Walk/Sprint the player lands in.</td>
+</tr>
+<tr>
+<td><strong>Wallrun</strong></td>
+<td><code>IsWallrunning</code> (MovementState.Wallrunning) <strong>and not aiming</strong>, from anywhere in the locomotion chain.</td>
+<td>As Slide. The Actions layer stays free, so firing and reloading animate normally mid-wallrun.</td>
+</tr>
+<tr>
+<td><strong>Swim Idle</strong></td>
+<td><code>IsSwimming</code> and no directional input — treading water.</td>
+<td>Loops. Also the fallback for any directional swim slot you leave empty.</td>
+</tr>
+<tr>
+<td><strong>Swim Forward</strong></td>
+<td><code>IsSwimming</code> and forward input.</td>
+<td>Loops; 0.15 s blend.</td>
+</tr>
+<tr>
+<td><strong>Swim Backward</strong></td>
+<td><code>IsSwimming</code> and backward input.</td>
+<td>Loops; 0.15 s blend.</td>
+</tr>
+<tr>
+<td><strong>Swim Up</strong></td>
+<td><code>IsSwimming</code> and the jump/ascend button held. Wins over forward/back.</td>
+<td>Loops; 0.15 s blend.</td>
+</tr>
+<tr>
+<td><strong>Swim Down</strong></td>
+<td><code>IsSwimming</code> and the crouch/descend button held. Wins over forward/back.</td>
+<td>Loops; 0.15 s blend.</td>
+</tr>
+<tr>
+<td><strong>Equip</strong></td>
+<td>Every draw: number key, cycle, scroll, last-weapon, holster-redraw, pickup-equip, and the legacy scene-child auto-equip.</td>
+<td>Authored speed, or squeezed into the weapon's equip settings times with <strong>Scale Equip To Settings</strong>.</td>
+</tr>
+<tr>
+<td><strong>Fire</strong></td>
+<td>Each actual shot emission — once per burst bullet, at the true moment for delayed fire scripts. Never on a dry fire.</td>
+<td>Restarts from frame 0 every shot, so a fire rate faster than the clip retriggers cleanly.</td>
+</tr>
+<tr>
+<td><strong>Fire (ADS)</strong></td>
+<td>As Fire, while the weapon's <code>ADS</code> script reports aiming.</td>
+<td>As Fire. Falls back to <strong>Fire</strong> when this slot is empty.</td>
+</tr>
+<tr>
+<td><strong>Reload</strong></td>
+<td>The designated ammo pool starts reloading.</td>
+<td>Speed = clip length ÷ <code>reloadDuration</code> when <strong>Sync Reload To Ammo Duration</strong> is on (default).</td>
+</tr>
+<tr>
+<td><strong>Reload (Empty Mag)</strong></td>
+<td>As Reload, when the mag is at 0.</td>
+<td>As Reload. Falls back to <strong>Reload</strong> when empty.</td>
+</tr>
+<tr>
+<td><strong>Inspect</strong></td>
+<td>After <code>Inspect After Idle Seconds</code> of genuine idle, via <code>PlayInspect()</code>, or via an <code>Inspect</code> input action if you add one.</td>
+<td>Authored speed. Interrupted by any fire, reload, aim or switch.</td>
+</tr>
+<tr>
+<td><strong>Holster</strong></td>
+<td>Every switch-out and the holster key.</td>
+<td>Plays at <strong>Holster Speed Multiplier</strong>; the switch-out wait matches.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="swimming">Swimming</h2>
+<p><code>IsSwimming</code> is set while the player is in a fluid volume whose <strong>Fluid Movement
+Type</strong> is <code>Default</code> or <code>Swim</code>. <code>NoSwim</code> volumes apply ordinary land movement
+(wading), so they animate as land movement — no swim state is entered.</p>
+<p>Which of the five poses plays is chosen from <strong>input</strong>, not velocity: buoyancy
+drifts the player up and down on its own, so a velocity-derived choice would
+flicker between ascending and descending while they float in place. Vertical
+intent wins over forward/back — holding ascend is a deliberate act and the more
+distinctive pose.</p>
+<p>The five states hang off Any State on <code>IsSwimming AND SwimDirection == n</code>, so
+changing direction needs no state-to-state transitions; the matching entry simply
+wins. Leaving a directional slot empty falls back to <strong>Swim Idle</strong> rather than
+popping into an empty state, and if Swim Idle is empty too the whole swim set is
+reported off and the land locomotion chain takes over.</p>
+<p>Firing, reloading and equipping all animate normally while swimming — those live
+on the Actions layer, which the Base layer never touches.</p>
+<h2 id="aiming-suppresses-the-whole-body-poses">Aiming suppresses the whole-body poses</h2>
+<p>Sprint, Slide and Wallrun all take the hands off the sights, so the Base layer
+will not enter them while the player is aiming — and aiming <em>during</em> one exits it
+back to Walk. Without this, a sprint clip would drop the weapon off the shoulder
+while the procedural ADS pose was still holding the root on target, and the two
+would visibly fight.</p>
+<p>Idle and Walk are unaffected: aiming while walking is normal, and a walk clip
+authored for an FPS keeps the weapon up.</p>
+<p>The <strong>swim</strong> states are deliberately <em>not</em> suppressed. Sprint, slide and wallrun
+are brief bursts where freezing to the aim pose reads fine; swimming is a
+sustained mode, and holding a land idle pose for the length of a swim while the
+player is visibly moving through water looks far worse. If you would rather it
+behaved like the others, add an <code>IsADS</code> condition to the Any State entries in
+your copy of the controller.</p>
+<p>This lives in the template graph, not in code — the conditions are the <code>IsADS</code>
+clauses on the Walk→Sprint, Any State→Slide and Any State→Wallrun transitions.
+If you have authored an aimed sprint or slide, delete those clauses in your own
+copy of the controller and the states become reachable again.</p>
+<h2 id="empty-locomotion-slots">Empty locomotion slots</h2>
+<p>Locomotion parameters are only reported for slots that actually hold a clip. A
+weapon with just an Idle clip reports <code>Speed</code> as 0 and never raises
+<code>IsSprinting</code>, <code>IsSliding</code>, <code>IsWallrunning</code> or <code>IsSwimming</code> — so it stays in Idle
+instead of transitioning into an empty state, which would snap the rig to its
+default pose.</p>
+<p>If you replaced those states' motions directly in a duplicated controller
+(a walk blend tree, say) rather than using the clip slots, turn off <strong>Locomotion
+▸ Gate Locomotion To Filled Slots</strong> so the raw values reach your graph.</p>
+<h2 id="weapons-this-does-not-change">Weapons this does not change</h2>
+<ul>
+<li>Weapons with no <code>AFPS_WeaponAnimator</code> at all.</li>
+<li>Weapons with the component but an empty override controller.</li>
+<li>AI-held weapons (no <code>AFPS_WeaponSystem</code>): fire and reload still animate;
+movement, ADS and arms-visibility inputs are simply absent and their
+parameters stay at their defaults.</li>
+<li>Old-style <code>useArms</code> weapons sharing the movement arms: fully supported. A
+weapon-only rig just has an empty arm-renderer list.</li>
+</ul>
+<h2 id="multiple-ammo-pools">Multiple ammo pools</h2>
+<p>A weapon with more than one <code>AFPS_WeaponAmmo</code> (e.g. an underbarrel launcher)
+drives the reload clip from <strong>one</strong> designated pool, chosen by <strong>Reload ▸ Reload
+Pool Index</strong> in component order. The other pools reload normally and animate
+nothing, which is deliberate: a launcher reload should not crossfade the rifle's
+hand animation. Per-pool clip mapping is a documented extension, not built in —
+see <a href="weapon-animation-extending.html">Extending the system</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/weapon-animation-integration-matrix.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -81,7 +81,8 @@ reset controls, and the interactive rebind flow. State lives in KeybindingsServi
 this view is presentation only.</p>
 </section>
       <h4><a class="xref" href="AFPS.MainMenu.GameSettings.html">GameSettings</a></h4>
-      <section></section>
+      <section><p>Persistent settings data bag: video (resolution, fullscreen, quality), audio volumes, gameplay (FOV, sensitivity), controller nav mode, and keybinding JSON blob.</p>
+</section>
       <h4><a class="xref" href="AFPS.MainMenu.KeybindingOverrideRecord.html">KeybindingOverrideRecord</a></h4>
       <section><p>Persisted binding override: action name, scheme group string, slot index, and override path.</p>
 </section>
@@ -95,9 +96,11 @@ AFPS_InputManager owns it. The Player map is the only rebindable scope; Inventor
 are excluded by design (menu plumbing).</p>
 </section>
       <h4><a class="xref" href="AFPS.MainMenu.LevelDatabase.html">LevelDatabase</a></h4>
-      <section></section>
+      <section><p>Ordered list of LevelEntry assets shown in the Level Select screen.</p>
+</section>
       <h4><a class="xref" href="AFPS.MainMenu.LevelEntry.html">LevelEntry</a></h4>
-      <section></section>
+      <section><p>Single selectable level: display name, description, thumbnail sprite, and scene reference for async load.</p>
+</section>
       <h4><a class="xref" href="AFPS.MainMenu.LevelLoader.html">LevelLoader</a></h4>
       <section><p>Stateless helper that async-loads a LevelEntry's scene via SceneManager.LoadSceneAsync.</p>
 </section>
@@ -105,7 +108,8 @@ are excluded by design (menu plumbing).</p>
       <section><p>Level-select view: procedurally builds a card grid from LevelDatabase; card clicks raise MenuEvents.RaiseLevel.</p>
 </section>
       <h4><a class="xref" href="AFPS.MainMenu.MainMenuController.html">MainMenuController</a></h4>
-      <section></section>
+      <section><p>Root main-menu coordinator: builds Main/LevelSelect/Options ViewStates, wires MenuEvents, and drives MenuStateMachine; NavigationCancel routes to Back.</p>
+</section>
       <h4><a class="xref" href="AFPS.MainMenu.MainView.html">MainView</a></h4>
       <section><p>Main-menu root view: wires Play, Options, and Exit buttons to MenuEvents; disposes subscriptions on Dispose.</p>
 </section>
@@ -126,7 +130,8 @@ Reuses OptionsPanel.uxml for parity with the main menu.</p>
       <section><p>Serializable scene pointer: stores SceneAsset in-editor, bakes path/name strings for runtime (build-safe, no SceneAsset dependency at runtime).</p>
 </section>
       <h4><a class="xref" href="AFPS.MainMenu.SettingsService.html">SettingsService</a></h4>
-      <section></section>
+      <section><p>Singleton service: loads/saves GameSettings to persistentDataPath JSON, applies video/audio/FOV/keybinding overrides, and survives scene transitions via DontDestroyOnLoad.</p>
+</section>
       <h4><a class="xref" href="AFPS.MainMenu.ViewState.html">ViewState</a></h4>
       <section><p>IMenuState backed by a VisualElement: toggles view--hidden/view--active USS classes on Enter/Exit and defers focus to the first selectable button.</p>
 </section>

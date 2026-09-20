@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Weapon Animation — Troubleshooting </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Weapon Animation — Troubleshooting ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="weapon-animation--troubleshooting">Weapon Animation — Troubleshooting</h1>
+
+<p>Symptom → cause → fix, for the failure modes this system is built around.</p>
+<h2 id="nothing-animates-at-all">Nothing animates at all</h2>
+<p><strong>The template hasn't been generated.</strong> Run <strong>Tools ▸ AFPS ▸ Generate Weapon
+Animator Template</strong> once per project, then press <strong>Set Up Animations</strong> on the
+weapon.</p>
+<p><strong>No override controller.</strong> The Animator is running the template directly, which
+has only placeholder clips. Press <strong>Set Up Animations</strong> — the validation box
+reports this as an error.</p>
+<p><strong>Every slot is empty.</strong> The inspector lists empty slots as <em>(procedural
+fallback)</em>. A clip dragged into a slot only counts if it is not one of the
+shipped placeholders; a clip you happen to have named <code>AFPS_Fire</code> is treated as
+empty by design.</p>
+<h2 id="the-weapon-jitters-drifts-or-fights-itself">The weapon jitters, drifts, or fights itself</h2>
+<p><strong>The Animator is on the weapon root.</strong> <code>AFPS_WeaponSystem</code> writes the root's
+local position and rotation every frame from the procedural channels, so an
+Animator there is in a tug of war with it. Move the Animator onto the weapon
+model child. The validation box reports this as an error.</p>
+<p><strong>Apply Root Motion is on.</strong> It drives the model's own transform out from under
+the root. Turn it off on the Animator (it is forced off at runtime, but fix the
+asset).</p>
+<p><strong>The clip translates the whole rig.</strong> Set <strong>Root Transform Position (Y and XZ)</strong>
+to <em>Bake Into Pose</em> on the FBX's Animation tab.</p>
+<h2 id="the-draw-shows-one-frame-of-t-pose--bind-pose">The draw shows one frame of T-pose / bind pose</h2>
+<p>That frame is the Animator rebinding as the model is re-activated. The shipped
+runtime already handles it (<code>Play</code> followed by <code>Animator.Update(0f)</code>), so if you
+still see it you are most likely entering the Equip state from your own code or
+from a trigger. Use <code>Play</code>/<code>CrossFade</code> and call <code>animator.Update(0f)</code> on the
+same frame.</p>
+<h2 id="the-equip-animation-sometimes-doesnt-play">The equip animation sometimes doesn't play</h2>
+<p><strong>A trigger was used somewhere.</strong> Weapon switching re-activates the model, which
+rebinds the Animator and clears its parameters — triggers set on that frame are
+dropped. Never use triggers in a weapon graph; see
+<a href="weapon-animation-extending.html">Extending the system</a>.</p>
+<h2 id="four-arms-during-climbing-mantling-or-ledge-hanging">Four arms during climbing, mantling or ledge hanging</h2>
+<p><strong>Use Arms is on.</strong> A full rig carries its own arms, so the shared movement arms
+get drawn on top. Turn <strong>Use Arms</strong> off on <code>AFPS_WeaponObject</code> (the validation
+box warns about this).</p>
+<p><strong>Arms Renderers is empty.</strong> The rig's arms can only be hidden for the
+movement-arms window if the system knows which renderers they are. Press <strong>Set
+Up Animations</strong> to auto-collect them, or assign them by hand.</p>
+<h2 id="floating-arms-after-dropping-a-weapon">Floating arms after dropping a weapon</h2>
+<p>Same cause: <strong>Arms Renderers</strong> is empty, so the rig's arms are never disabled.
+A dropped or world-pickup weapon also disables its Animator, so the arms freeze
+mid-pose — very visible. Assign the renderers.</p>
+<h2 id="the-reload-animation-finishes-before-or-after-the-reload">The reload animation finishes before (or after) the reload</h2>
+<p><strong>Sync Reload To Ammo Duration is off.</strong> Turn it on; the clip is then scaled to
+<code>AFPS_WeaponAmmo ▸ Reload ▸ Reload Duration</code> and the two always land together.
+The gameplay duration stays authoritative — the clip adapts, never the reverse.
+The validation box warns when a Reload clip is slotted with syncing off.</p>
+<p><strong>A different pool is reloading.</strong> On a multi-pool weapon only the pool at
+<strong>Reload Pool Index</strong> drives the clip. Check the index is the one you meant.</p>
+<h2 id="the-reload-animation-keeps-playing-after-the-reload-is-cancelled">The reload animation keeps playing after the reload is cancelled</h2>
+<p>Cancels arrive through the same event as completion, so this should not happen.
+If it does with a custom graph, check that your reload states have their
+auto-return transition to <code>None</code> (exit time 1, duration 0.1) and that you kept
+the state names <code>Reload</code> / <code>ReloadEmpty</code> — the runtime identifies the state to
+leave by those names.</p>
+<h2 id="the-weapon-disappears-before-the-holster-animation-finishes">The weapon disappears before the holster animation finishes</h2>
+<p><strong>The Holster slot is empty</strong>, so the switch-out is still timed by the de-equip
+tween settings. Fill the Holster slot and the wait re-times to the clip
+automatically.</p>
+<p>If you filled it and it still cuts short, check <strong>Holster Speed Multiplier</strong> —
+the wait is clip length ÷ multiplier, so a multiplier above 1 shortens both
+together and they cannot drift apart.</p>
+<h2 id="fast-weapons-only-play-part-of-the-fire-animation">Fast weapons only play part of the fire animation</h2>
+<p>That is correct behaviour. Each shot restarts the clip from frame 0, so a fire
+rate shorter than the clip shows the first part of it per shot. Author a shorter
+fire clip, or raise the fire rate interval.</p>
+<h2 id="no-fire-animation-on-the-last-round--when-out-of-ammo">No fire animation on the last round / when out of ammo</h2>
+<p>A dry fire emits no shot, so it raises no event and animates nothing. The last
+<em>real</em> round does animate — the fire check is captured before the round is
+consumed specifically so that shot isn't lost.</p>
+<h2 id="burst-weapons-animate-once-instead-of-per-bullet">Burst weapons animate once instead of per bullet</h2>
+<p>Each burst bullet raises its own emission, so each should retrigger the clip.
+If it doesn't, check that <strong>Fire Crossfade</strong> is small (0.02 is the default) — a
+long crossfade at a fast burst rate blends the restarts into each other.</p>
+<h2 id="the-rig-snaps-to-a-t-pose--default-pose-while-walking-or-sliding">The rig snaps to a T-pose / default pose while walking or sliding</h2>
+<p>The weapon is transitioning into a locomotion state whose slot is empty. Either
+fill the slot, or leave <strong>Locomotion ▸ Gate Locomotion To Filled Slots</strong> on —
+with it on, the runtime never reports a locomotion parameter for a slot that has
+no clip, so the state can't be entered.</p>
+<p>If you extended a duplicated controller and put motions on those states directly
+(rather than through the clip slots), the gate can't see them and will pin the
+parameters — turn it off in that case.</p>
+<h2 id="i-want-the-sprint-or-slide-animation-to-play-while-aiming">I want the sprint (or slide) animation to play while aiming</h2>
+<p>It is suppressed on purpose — those clips take the weapon off the sights and
+fight the procedural ADS pose. The rule lives in the template graph: remove the
+<code>IsADS</code> condition from the Walk→Sprint transition (and the <code>IsADS</code> exit out of
+Sprint) in your own copy of the controller.</p>
+<h2 id="the-swim-animation-never-plays">The swim animation never plays</h2>
+<p><strong>The fluid volume is set to NoSwim.</strong> That mode applies ordinary land movement,
+so it animates as land movement by design. Set <strong>Fluid Movement Type</strong> to
+<code>Default</code> or <code>Swim</code> on the <code>AFPS_FluidMovementSettings</code> asset.</p>
+<p><strong>Every swim slot is empty.</strong> With no Swim Idle to fall back on, the system
+reports <code>IsSwimming</code> false and leaves the land chain in charge. Fill at least
+<strong>Swim Idle</strong>.</p>
+<h2 id="only-the-swim-idle-animation-plays-while-swimming">Only the Swim Idle animation plays while swimming</h2>
+<p>That is the fallback for an empty directional slot. Fill Swim Forward / Backward
+/ Up / Down, or leave them empty and treading water is what you get.</p>
+<h2 id="swimming-up-plays-instead-of-swimming-forward">Swimming up plays instead of swimming forward</h2>
+<p>Vertical intent wins over forward and back on purpose — holding ascend is a
+deliberate act and the more distinctive pose. Swap the order in <code>ResolveSwim</code> if
+your game reads better the other way.</p>
+<h2 id="the-slide-or-wallrun-animation-restarts-every-frame">The slide or wallrun animation restarts every frame</h2>
+<p><em>Can Transition To Self</em> is on for the Any State transition into it. The
+condition holds for the whole slide, so the state re-enters itself continuously.
+The generated template has it off; check your copy.</p>
+<h2 id="the-weapon-animates-while-holstered-or-in-the-world">The weapon animates while holstered or in the world</h2>
+<p>The Animator is disabled whenever the weapon is not the current weapon, and
+re-enabled on equip. If you see otherwise, something else is setting
+<code>animator.enabled</code> — remove it and let <code>AFPS_WeaponAnimator</code> own that.</p>
+<h2 id="the-inspect-animation-never-plays">The Inspect animation never plays</h2>
+<p><strong>Inspect After Idle Seconds is 0</strong> (the default) — the idle timer is off. Set a
+value, call <code>PlayInspect()</code> yourself, or add an <code>Inspect</code> input action.</p>
+<p>The timer also resets on any firing, reloading, aiming, movement above walking
+speed, or a change of movement state, so it only fires from a genuine
+standstill.</p>
+<h2 id="animation-events-do-nothing">Animation events do nothing</h2>
+<p><strong>The receiver is on the wrong object.</strong> Unity dispatches animation events to
+components on the animated GameObject itself. <code>AFPS_WeaponAnimationEventReceiver</code>
+must be on the same GameObject as the Animator, not on the weapon root.</p>
+<p><strong>The key doesn't match.</strong> Keys are compared exactly, case-sensitive.</p>
+<h2 id="the-scoped-snipers-arms-vanish-when-fully-scoped">The scoped sniper's arms vanish when fully scoped</h2>
+<p>Expected. <code>ADS.ApplyScopedVisibility</code> hides the weapon model when the scope
+fades in, and the rig's arms are part of that model. If you want the arms to
+stay, remove them from the ADS script's <strong>Objects To Hide While Scoped</strong> list.</p>
+<h2 id="enter-play-mode-with-domain-reload-disabled-behaves-differently">Enter Play Mode with domain reload disabled behaves differently</h2>
+<p>It shouldn't — the system holds no mutable static state, and its hashes are pure
+computations. If you see a difference, check your own subclass or graph
+extensions for static fields that survive the reload.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/weapon-animation-troubleshooting.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

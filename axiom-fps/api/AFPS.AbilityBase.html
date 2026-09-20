@@ -782,7 +782,7 @@ public float triggerRate</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_ActivateAbility_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.ActivateAbility(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L60">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L91">View Source</a>
   </span>
   <a id="AFPS_AbilityBase_ActivateAbility_" data-uid="AFPS.AbilityBase.ActivateAbility*"></a>
   <h4 id="AFPS_AbilityBase_ActivateAbility_System_Boolean_" data-uid="AFPS.AbilityBase.ActivateAbility(System.Boolean)">ActivateAbility(bool)</h4>
@@ -815,7 +815,7 @@ public float triggerRate</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_ActivateAbility_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.ActivateAbility(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L66">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L97">View Source</a>
   </span>
   <a id="AFPS_AbilityBase_ActivateAbility_" data-uid="AFPS.AbilityBase.ActivateAbility*"></a>
   <h4 id="AFPS_AbilityBase_ActivateAbility_System_Single_" data-uid="AFPS.AbilityBase.ActivateAbility(System.Single)">ActivateAbility(float)</h4>
@@ -845,19 +845,98 @@ public float triggerRate</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_Awake.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.Awake%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.BindPlayer(AFPS.AFPS_Movement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L48">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L69">View Source</a>
   </span>
-  <a id="AFPS_AbilityBase_Awake_" data-uid="AFPS.AbilityBase.Awake*"></a>
-  <h4 id="AFPS_AbilityBase_Awake" data-uid="AFPS.AbilityBase.Awake">Awake()</h4>
-  <div class="markdown level1 summary"><p>Resolves <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_movement">movement</a>, <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_playerSoundManager">playerSoundManager</a>, and <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_input">input</a> by walking up the parent hierarchy.</p>
+  <a id="AFPS_AbilityBase_BindPlayer_" data-uid="AFPS.AbilityBase.BindPlayer*"></a>
+  <h4 id="AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_" data-uid="AFPS.AbilityBase.BindPlayer(AFPS.AFPS_Movement)">BindPlayer(AFPS_Movement)</h4>
+  <div class="markdown level1 summary"><p>Rebinds this ability to a player after <span class="xref">AFPS.AbilityBase.Awake()</span> has already run. The hierarchy walk
+above only works when the ability is authored under the player; an ability owned by a weapon is
+instantiated (or sitting in the world as a pickup) long before it belongs to anyone, so
+<a class="xref" href="AFPS.AbilityFire.html">AbilityFire</a> hands it the player at equip time instead.</p>
+<p>Override to re-resolve any player-derived references the subclass caches of its own — see
+<a class="xref" href="AFPS.GrapplingHook.html#AFPS_GrapplingHook_BindPlayer_AFPS_AFPS_Movement_">BindPlayer(AFPS_Movement)</a>, which re-resolves the Rigidbody it pushes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Awake()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void BindPlayer(AFPS_Movement newMovement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a></td>
+        <td><span class="parametername">newMovement</span></td>
+        <td><p>The player's movement component, or null to leave the ability unbound.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_CanActivate.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.CanActivate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L88">View Source</a>
+  </span>
+  <a id="AFPS_AbilityBase_CanActivate_" data-uid="AFPS.AbilityBase.CanActivate*"></a>
+  <h4 id="AFPS_AbilityBase_CanActivate" data-uid="AFPS.AbilityBase.CanActivate">CanActivate()</h4>
+  <div class="markdown level1 summary"><p>Whether the ability could do something meaningful if activated right now. Default is always true;
+override where the ability has its own validity rules (already active, no valid target, out of
+charges) so callers can skip a no-op activation.</p>
+<p>This is validity, not timing: cooldown belongs to whatever drives the ability
+(<a class="xref" href="AFPS.AFPS_AbilitySystem.html">AFPS_AbilitySystem</a>'s trigger rate, or the weapon's fire rate via
+<a class="xref" href="AFPS.AbilityFire.html">AbilityFire</a>), so an override should not re-implement a rate limit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanActivate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AbilityBase_ResetAbility.md&amp;value=---%0Auid%3A%20AFPS.AbilityBase.ResetAbility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/AbilityBase.cs/#L109">View Source</a>
+  </span>
+  <a id="AFPS_AbilityBase_ResetAbility_" data-uid="AFPS.AbilityBase.ResetAbility*"></a>
+  <h4 id="AFPS_AbilityBase_ResetAbility" data-uid="AFPS.AbilityBase.ResetAbility">ResetAbility()</h4>
+  <div class="markdown level1 summary"><p>Hard-resets the ability to its idle state, cancelling anything in progress with no side effects
+(no slingshot, no dash impulse). Called on player respawn via
+<a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_ClearTransientState">ClearTransientState()</a> so an ability that was mid-activation when the
+player died (e.g. a grapple with its rope still drawn) doesn't carry over to the respawned player.
+No-op in the base; override where an ability has ongoing state to tear down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ResetAbility()</code></pre>
   </div>
 
 </article>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace AFPS.EditorTools </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace AFPS.EditorTools ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.EditorTools">
+
+  <h1 id="AFPS_EditorTools" data-uid="AFPS.EditorTools" class="text-break">Namespace AFPS.EditorTools</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSEditor.html">AFPS_ADSEditor</a></h4>
+      <section><p>Adds the edit-mode ADS preview, the structural validation report and a play-mode state readout
+above the normal ADS inspector.</p>
+<p>Derives from NaughtyInspector rather than Editor on purpose: NaughtyAttributes registers itself for
+every UnityEngine.Object, so a plain Editor here would silently drop every BoxGroup/ShowIf/Required
+on ADS.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSPreviewOverlay.html">AFPS_ADSPreviewOverlay</a></h4>
+      <section><p>Scene view overlay for a running ADS preview. It exists because the preview outlives the selection:
+the moment you select anything other than the ADS component — a light, the aim point, a piece of
+level geometry — the inspector panel with the Stop button is gone, and the preview is still running
+with the cameras still zoomed. This gives it a home that doesn't depend on what's selected.</p>
+<p>Shows itself only while a preview is active, and hides again when it stops.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSPreviewSession.html">AFPS_ADSPreviewSession</a></h4>
+      <section><p>Drives the edit-mode ADS preview: stages a throwaway copy of a weapon under the scene's
+AFPS_WeaponSystem, poses it through <a class="xref" href="AFPS.AFPS_ADSPose.html">AFPS_ADSPose</a>, and drives the real main/weapon
+camera FOVs — which makes the GAME VIEW a true ADS render (the same two-camera composite as play
+mode, rather than a simulation of it).</p>
+<p>Nothing authored is mutated. The staged weapon is a plain clone flagged HideFlags.DontSave, so it
+can never be serialized into a scene or applied back to a prefab. The camera FOVs are the only
+writes to real components; they're cached and restored on every teardown path, and temporarily
+reverted around a scene save so a save taken mid-preview can't bake the aimed FOV.</p>
+<p>The preview stops (rather than trying to survive) on domain reload, play mode, scene change and
+editor quit — cheaper to re-toggle than to make cross-reload state correct.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSValidation.html">AFPS_ADSValidation</a></h4>
+      <section><p>Checks the structural assumptions the ADS aimed pose is built on. None of these produce an error
+at runtime — they all just make the sight quietly fail to land where the designer expects, which
+is the whole reason they're worth surfacing in the inspector.</p>
+<p>The aimed pose collapses to <code>weapon.localPosition = -adsPoint.localPosition</code> with identity
+rotation, which parks the aim point exactly on the weapon system's origin. Everything below is a
+precondition of that identity holding.</p>
+<p>Split into weapon-level and rig-level checks: a weapon prefab on its own can be checked for the
+first set, but the rig set needs a scene with a player in it.</p>
+</section>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSValidationWindow.html">AFPS_ADSValidationWindow</a></h4>
+      <section><p>Project-wide ADS setup audit. The per-weapon inspector only tells you about the weapon you happen
+to be looking at; this catches the weapons nobody re-checked after a rig change — which is the way
+these break in practice, since none of them produce a runtime error.</p>
+<p>Deliberately NOT an alignment report: the aimed sight position is fixed by the hierarchy (the aim
+point is parked on the weapon system's origin), so there is no per-weapon offset to measure. What
+varies, and what this checks, is whether each weapon still satisfies the structural preconditions
+that identity depends on.</p>
+</section>
+    <h3 id="structs">
+Structs
+</h3>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSIssue.html">AFPS_ADSIssue</a></h4>
+      <section><p>A single problem found by ADS setup validation: a severity and a human-readable message.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="AFPS.EditorTools.AFPS_ADSIssueSeverity.html">AFPS_ADSIssueSeverity</a></h4>
+      <section><p>Severity of an <a class="xref" href="AFPS.EditorTools.AFPS_ADSIssue.html">AFPS_ADSIssue</a> reported by ADS validation, from lowest to highest.</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

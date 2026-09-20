@@ -525,7 +525,7 @@ public class AFPS_Health : MonoBehaviour, IDamageable</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnDamaged.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnDamaged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L102">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L145">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnDamaged" data-uid="AFPS.AFPS_Health.OnDamaged">OnDamaged</h4>
   <div class="markdown level1 summary"></div>
@@ -555,7 +555,7 @@ public UnityEvent&lt;DamageInfo&gt; OnDamaged</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnDied.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnDied%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L106">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L149">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnDied" data-uid="AFPS.AFPS_Health.OnDied">OnDied</h4>
   <div class="markdown level1 summary"></div>
@@ -585,7 +585,7 @@ public UnityEvent&lt;AFPS_Health&gt; OnDied</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnHealed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnHealed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L104">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L147">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnHealed" data-uid="AFPS.AFPS_Health.OnHealed">OnHealed</h4>
   <div class="markdown level1 summary"></div>
@@ -612,10 +612,41 @@ public UnityEvent&lt;float&gt; OnHealed</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnKilled.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnKilled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L151">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_Health_OnKilled" data-uid="AFPS.AFPS_Health.OnKilled">OnKilled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Events&quot;)]
+[Tooltip(&quot;Fires once when this entity dies, carrying the resolved killer (who/what dealt the fatal blow). An empty hook for any death — player, AI, or prop — to drive killfeeds, scoring, on-death loot, aggro, etc. See also the static OnAnyKilled for a single global subscription.&quot;)]
+public UnityEvent&lt;AFPS_KillInfo&gt; OnKilled</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEvent</span>&lt;<a class="xref" href="AFPS.AFPS_KillInfo.html">AFPS_KillInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnStatusApplied.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnStatusApplied%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L108">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L153">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnStatusApplied" data-uid="AFPS.AFPS_Health.OnStatusApplied">OnStatusApplied</h4>
   <div class="markdown level1 summary"></div>
@@ -645,7 +676,7 @@ public UnityEvent&lt;StatusEffect&gt; OnStatusApplied</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnStatusExpired.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnStatusExpired%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L110">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L155">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnStatusExpired" data-uid="AFPS.AFPS_Health.OnStatusExpired">OnStatusExpired</h4>
   <div class="markdown level1 summary"></div>
@@ -675,7 +706,7 @@ public UnityEvent&lt;StatusEffect&gt; OnStatusExpired</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_currentHP.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.currentHP%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L83">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L123">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_currentHP" data-uid="AFPS.AFPS_Health.currentHP">currentHP</h4>
   <div class="markdown level1 summary"></div>
@@ -706,7 +737,7 @@ public float currentHP</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_currentHPNoOverheal.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.currentHPNoOverheal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L116">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L164">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_currentHPNoOverheal" data-uid="AFPS.AFPS_Health.currentHPNoOverheal">currentHPNoOverheal</h4>
   <div class="markdown level1 summary"></div>
@@ -736,7 +767,7 @@ public float currentHPNoOverheal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_currentOverhealHP.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.currentOverhealHP%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L118">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L166">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_currentOverhealHP" data-uid="AFPS.AFPS_Health.currentOverhealHP">currentOverhealHP</h4>
   <div class="markdown level1 summary"></div>
@@ -766,7 +797,7 @@ public float currentOverhealHP</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_currentStatusEffects.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.currentStatusEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L94">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L137">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_currentStatusEffects" data-uid="AFPS.AFPS_Health.currentStatusEffects">currentStatusEffects</h4>
   <div class="markdown level1 summary"></div>
@@ -795,7 +826,7 @@ public float currentOverhealHP</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_infiniteHealth.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.infiniteHealth%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L79">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L119">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_infiniteHealth" data-uid="AFPS.AFPS_Health.infiniteHealth">infiniteHealth</h4>
   <div class="markdown level1 summary"></div>
@@ -825,7 +856,7 @@ public bool infiniteHealth</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_isDead.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.isDead%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L120">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L168">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_isDead" data-uid="AFPS.AFPS_Health.isDead">isDead</h4>
   <div class="markdown level1 summary"></div>
@@ -855,7 +886,7 @@ public bool isDead</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_maxHpNoOverheal.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.maxHpNoOverheal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L87">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L127">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_maxHpNoOverheal" data-uid="AFPS.AFPS_Health.maxHpNoOverheal">maxHpNoOverheal</h4>
   <div class="markdown level1 summary"></div>
@@ -887,7 +918,7 @@ public float maxHpNoOverheal</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_maxOverhealHP.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.maxOverhealHP%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L89">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L129">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_maxOverhealHP" data-uid="AFPS.AFPS_Health.maxOverhealHP">maxOverhealHP</h4>
   <div class="markdown level1 summary"></div>
@@ -918,7 +949,7 @@ public float maxOverhealHP</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_resistances.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.resistances%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L92">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L132">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_resistances" data-uid="AFPS.AFPS_Health.resistances">resistances</h4>
   <div class="markdown level1 summary"></div>
@@ -945,14 +976,77 @@ public List&lt;DamageTypeResistance&gt; resistances</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_statusResistances.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.statusResistances%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L135">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_Health_statusResistances" data-uid="AFPS.AFPS_Health.statusResistances">statusResistances</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Resistances&quot;)]
+[HideIf(&quot;infiniteHealth&quot;)]
+[Tooltip(&quot;Per-status-effect resistances: block an effect, or scale its duration, per-tick HP impact, and behaviour strength. Effects not listed apply at full strength.&quot;)]
+public List&lt;StatusEffectResistance&gt; statusResistances</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.StatusEffectResistance.html">StatusEffectResistance</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
 </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_HasLastDamage.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.HasLastDamage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L187">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_HasLastDamage_" data-uid="AFPS.AFPS_Health.HasLastDamage*"></a>
+  <h4 id="AFPS_AFPS_Health_HasLastDamage" data-uid="AFPS.AFPS_Health.HasLastDamage">HasLastDamage</h4>
+  <div class="markdown level1 summary"><p>False until this entity has taken at least one damaging hit; guards <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_LastDamage">LastDamage</a> against being read as a real kill source after a fall/scripted death.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasLastDamage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_IsDead.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.IsDead%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L123">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L171">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_IsDead_" data-uid="AFPS.AFPS_Health.IsDead*"></a>
   <h4 id="AFPS_AFPS_Health_IsDead" data-uid="AFPS.AFPS_Health.IsDead">IsDead</h4>
@@ -980,10 +1074,75 @@ public List&lt;DamageTypeResistance&gt; resistances</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_LastDamage.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.LastDamage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L181">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_LastDamage_" data-uid="AFPS.AFPS_Health.LastDamage*"></a>
+  <h4 id="AFPS_AFPS_Health_LastDamage" data-uid="AFPS.AFPS_Health.LastDamage">LastDamage</h4>
+  <div class="markdown level1 summary"><p>The most recent damaging hit taken, with <code>amount</code> already scaled by resistances.
+Latched by <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a> so the death flow can report who/what killed this entity —
+status-effect ticks route through the same path, so &quot;died to Burn&quot; attributes correctly.
+Only meaningful when <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_HasLastDamage">HasLastDamage</a> is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DamageInfo LastDamage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.DamageInfo.html">DamageInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_LastDamageTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.LastDamageTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L184">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_LastDamageTime_" data-uid="AFPS.AFPS_Health.LastDamageTime*"></a>
+  <h4 id="AFPS_AFPS_Health_LastDamageTime" data-uid="AFPS.AFPS_Health.LastDamageTime">LastDamageTime</h4>
+  <div class="markdown level1 summary"><p><span class="xref">UnityEngine.Time.time</span> of the hit recorded in <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_LastDamage">LastDamage</a>, else -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float LastDamageTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_LastRespawnFrame.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.LastRespawnFrame%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L127">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L175">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_LastRespawnFrame_" data-uid="AFPS.AFPS_Health.LastRespawnFrame*"></a>
   <h4 id="AFPS_AFPS_Health_LastRespawnFrame" data-uid="AFPS.AFPS_Health.LastRespawnFrame">LastRespawnFrame</h4>
@@ -1017,7 +1176,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_AddOverheal_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.AddOverheal(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L353">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L648">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_AddOverheal_" data-uid="AFPS.AFPS_Health.AddOverheal*"></a>
   <h4 id="AFPS_AFPS_Health_AddOverheal_System_Single_" data-uid="AFPS.AFPS_Health.AddOverheal(System.Single)">AddOverheal(float)</h4>
@@ -1050,7 +1209,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.ApplyDamage(AFPS.DamageInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L294">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L568">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_ApplyDamage_" data-uid="AFPS.AFPS_Health.ApplyDamage*"></a>
   <h4 id="AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_" data-uid="AFPS.AFPS_Health.ApplyDamage(AFPS.DamageInfo)">ApplyDamage(DamageInfo)</h4>
@@ -1083,7 +1242,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_ApplyStatusEffects.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.ApplyStatusEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L203">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L451">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_ApplyStatusEffects_" data-uid="AFPS.AFPS_Health.ApplyStatusEffects*"></a>
   <h4 id="AFPS_AFPS_Health_ApplyStatusEffects" data-uid="AFPS.AFPS_Health.ApplyStatusEffects">ApplyStatusEffects()</h4>
@@ -1096,10 +1255,44 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_ClearDeathState.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.ClearDeathState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L724">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_ClearDeathState_" data-uid="AFPS.AFPS_Health.ClearDeathState*"></a>
+  <h4 id="AFPS_AFPS_Health_ClearDeathState" data-uid="AFPS.AFPS_Health.ClearDeathState">ClearDeathState()</h4>
+  <div class="markdown level1 summary"><p>Clears the death latch without touching HP, and stamps <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_LastRespawnFrame">LastRespawnFrame</a>.
+Used by <a class="xref" href="AFPS.IDeathSequence.html">IDeathSequence</a> owners that restore HP themselves (a checkpoint snapshot,
+a partial-health respawn) and must not have it overwritten by <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ResetHP">ResetHP()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearDeathState()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_ClearStatusEffects.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.ClearStatusEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L755">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_ClearStatusEffects_" data-uid="AFPS.AFPS_Health.ClearStatusEffects*"></a>
+  <h4 id="AFPS_AFPS_Health_ClearStatusEffects" data-uid="AFPS.AFPS_Health.ClearStatusEffects">ClearStatusEffects()</h4>
+  <div class="markdown level1 summary"><p>Drops every active status effect — call on respawn so the player doesn't reappear still burning. Routes through <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">RemoveStatusEffectAt(int, bool)</a> so each behaviour's <a class="xref" href="AFPS.AFPS_StatusBehaviour.html#AFPS_AFPS_StatusBehaviour_OnExpired_AFPS_AFPS_StatusContext_">OnExpired(AFPS_StatusContext)</a> runs (a Cold slow is lifted, not left stuck); the per-entry <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnStatusExpired">OnStatusExpired</a> event stays silent since this is a bulk teardown, not natural expiry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearStatusEffects()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_DestroyHPGameobject_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.DestroyHPGameobject(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L392">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L707">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_DestroyHPGameobject_" data-uid="AFPS.AFPS_Health.DestroyHPGameobject*"></a>
   <h4 id="AFPS_AFPS_Health_DestroyHPGameobject_System_Single_" data-uid="AFPS.AFPS_Health.DestroyHPGameobject(System.Single)">DestroyHPGameobject(float)</h4>
@@ -1132,11 +1325,16 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_Die.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.Die%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L364">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L666">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_Die_" data-uid="AFPS.AFPS_Health.Die*"></a>
   <h4 id="AFPS_AFPS_Health_Die" data-uid="AFPS.AFPS_Health.Die">Die()</h4>
-  <div class="markdown level1 summary"><p>Sets <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_isDead">isDead</a>, fires <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDied">OnDied</a>; for players, delegates respawn to <a class="xref" href="AFPS.AFPS_CheckpointManager.html#AFPS_AFPS_CheckpointManager_ResetToLastCheckpoint_AFPS_AFPS_Health_">ResetToLastCheckpoint(AFPS_Health)</a> and clears the death latch so subsequent play is unblocked.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_isDead">isDead</a>, fires <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDied">OnDied</a> and the kill-attribution hooks
+(<a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnKilled">OnKilled</a> + static <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnAnyKilled">OnAnyKilled</a>), then picks one of two paths:
+with an <a class="xref" href="AFPS.IDeathSequence.html">IDeathSequence</a> on this GameObject (e.g. <a class="xref" href="AFPS.AFPS_DeathController.html">AFPS_DeathController</a>)
+the entity stays latched dead and that component owns the camera/screen/respawn; without one,
+the legacy behaviour runs — players respawn instantly via
+<a class="xref" href="AFPS.AFPS_CheckpointManager.html#AFPS_AFPS_CheckpointManager_ResetToLastCheckpoint_AFPS_AFPS_Health_">ResetToLastCheckpoint(AFPS_Health)</a> and the death latch clears immediately.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1145,19 +1343,19 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect%2CUnityEngine.GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L164">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L243">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_GiveNewStatusEffect_" data-uid="AFPS.AFPS_Health.GiveNewStatusEffect*"></a>
-  <h4 id="AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_" data-uid="AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect)">GiveNewStatusEffect(AFPS_StatusEffect)</h4>
-  <div class="markdown level1 summary"><p>Instantiates a runtime <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> from <code class="paramref">statusEffect</code> and adds it to <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_currentStatusEffects">currentStatusEffects</a>, enforcing the source SO's stack cap. No-ops on dead targets or null input.</p>
+  <h4 id="AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_UnityEngine_GameObject_" data-uid="AFPS.AFPS_Health.GiveNewStatusEffect(AFPS.AFPS_StatusEffect,UnityEngine.GameObject)">GiveNewStatusEffect(AFPS_StatusEffect, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Instantiates a runtime <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> from <code class="paramref">statusEffect</code> and adds it to <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_currentStatusEffects">currentStatusEffects</a>, enforcing the source SO's stack cap. The target's matching <a class="xref" href="AFPS.StatusEffectResistance.html">StatusEffectResistance</a> can block it outright or scale its duration, per-tick HP impact, and behaviour strength. Pass <code class="paramref">instigator</code> (the shooter/exploder) so the effect's damage-over-time ticks credit them for damage numbers and kills; leave null for environmental/unattributed effects. No-ops on dead targets or null input.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void GiveNewStatusEffect(AFPS_StatusEffect statusEffect)</code></pre>
+    <pre><code class="lang-csharp hljs">public void GiveNewStatusEffect(AFPS_StatusEffect statusEffect, GameObject instigator = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1174,6 +1372,11 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
         <td><span class="parametername">statusEffect</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">instigator</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
@@ -1181,7 +1384,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_Heal_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.Heal(System.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L342">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L637">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_Heal_" data-uid="AFPS.AFPS_Health.Heal*"></a>
   <h4 id="AFPS_AFPS_Health_Heal_System_Single_" data-uid="AFPS.AFPS_Health.Heal(System.Single)">Heal(float)</h4>
@@ -1214,7 +1417,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_IncrementBuildUp_AFPS_AFPS_StatusEffect_System_Single_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.IncrementBuildUp(AFPS.AFPS_StatusEffect%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L191">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L434">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_IncrementBuildUp_" data-uid="AFPS.AFPS_Health.IncrementBuildUp*"></a>
   <h4 id="AFPS_AFPS_Health_IncrementBuildUp_AFPS_AFPS_StatusEffect_System_Single_" data-uid="AFPS.AFPS_Health.IncrementBuildUp(AFPS.AFPS_StatusEffect,System.Single)">IncrementBuildUp(AFPS_StatusEffect, float)</h4>
@@ -1249,10 +1452,84 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_RefreshHealthUI.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.RefreshHealthUI%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L789">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_RefreshHealthUI_" data-uid="AFPS.AFPS_Health.RefreshHealthUI*"></a>
+  <h4 id="AFPS_AFPS_Health_RefreshHealthUI" data-uid="AFPS.AFPS_Health.RefreshHealthUI">RefreshHealthUI()</h4>
+  <div class="markdown level1 summary"><p>Clamps the HP/overheal pools back into their valid ranges and pushes the current values to the
+health HUD. Call after any external HP restore (checkpoint reset, respawn strategy) so the display
+reflects the restored value — otherwise the sub-zero HP an overkill blow left behind (the HUD was
+last updated mid-lethal-hit, and <span class="xref">AFPS.AFPS_Health.Update()</span> doesn't run while dead to clamp it) stays on
+screen as e.g. &quot;-60&quot; after respawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RefreshHealthUI()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_RemoveStatusEffects_AFPS_AFPS_StatusEffect_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.RemoveStatusEffects(AFPS.AFPS_StatusEffect)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L740">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_RemoveStatusEffects_" data-uid="AFPS.AFPS_Health.RemoveStatusEffects*"></a>
+  <h4 id="AFPS_AFPS_Health_RemoveStatusEffects_AFPS_AFPS_StatusEffect_" data-uid="AFPS.AFPS_Health.RemoveStatusEffects(AFPS.AFPS_StatusEffect)">RemoveStatusEffects(AFPS_StatusEffect)</h4>
+  <div class="markdown level1 summary"><p>Removes every active effect that came from <code class="paramref">source</code> — the antidote / bandage
+case, where one item cures one named condition rather than everything at once.</p>
+<p>Routes through the same removal path as natural expiry, so each behaviour's
+<a class="xref" href="AFPS.AFPS_StatusBehaviour.html#AFPS_AFPS_StatusBehaviour_OnExpired_AFPS_AFPS_StatusContext_">OnExpired(AFPS_StatusContext)</a> runs (a Cold slow is lifted, not left stuck) and
+<a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnStatusExpired">OnStatusExpired</a> fires for each instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RemoveStatusEffects(AFPS_StatusEffect source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The status-effect asset to cure. Null is a no-op.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>How many instances were removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_ResetHP.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.ResetHP%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L398">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L713">View Source</a>
   </span>
   <a id="AFPS_AFPS_Health_ResetHP_" data-uid="AFPS.AFPS_Health.ResetHP*"></a>
   <h4 id="AFPS_AFPS_Health_ResetHP" data-uid="AFPS.AFPS_Health.ResetHP">ResetHP()</h4>
@@ -1263,14 +1540,93 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetHP()</code></pre>
   </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_RestoreFullHealth.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.RestoreFullHealth%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L773">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_RestoreFullHealth_" data-uid="AFPS.AFPS_Health.RestoreFullHealth*"></a>
+  <h4 id="AFPS_AFPS_Health_RestoreFullHealth" data-uid="AFPS.AFPS_Health.RestoreFullHealth">RestoreFullHealth()</h4>
+  <div class="markdown level1 summary"><p>Refills base HP to <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_maxHpNoOverheal">maxHpNoOverheal</a> directly, bypassing the <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_isDead">isDead</a>/heal-event path so it works while still latched dead (respawn restoration).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RestoreFullHealth()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_SetStatusEffects_System_Collections_Generic_List_AFPS_StatusEffect__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.SetStatusEffects(System.Collections.Generic.List%7BAFPS.StatusEffect%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L762">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Health_SetStatusEffects_" data-uid="AFPS.AFPS_Health.SetStatusEffects*"></a>
+  <h4 id="AFPS_AFPS_Health_SetStatusEffects_System_Collections_Generic_List_AFPS_StatusEffect__" data-uid="AFPS.AFPS_Health.SetStatusEffects(System.Collections.Generic.List{AFPS.StatusEffect})">SetStatusEffects(List&lt;StatusEffect&gt;)</h4>
+  <div class="markdown level1 summary"><p>Replaces the active status-effect list wholesale: tears down the outgoing effects' behaviours (<a class="xref" href="AFPS.AFPS_StatusBehaviour.html#AFPS_AFPS_StatusBehaviour_OnExpired_AFPS_AFPS_StatusContext_">OnExpired(AFPS_StatusContext)</a>) then initialises the incoming ones (<a class="xref" href="AFPS.AFPS_StatusBehaviour.html#AFPS_AFPS_StatusBehaviour_OnApplied_AFPS_AFPS_StatusContext_">OnApplied(AFPS_StatusContext)</a>). Used by checkpoint restore so a respawned entity's behaviours (slows, etc.) are correctly re-applied instead of the old ones leaking. Pass null to simply clear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStatusEffects(List&lt;StatusEffect&gt; newEffects)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a>&gt;</td>
+        <td><span class="parametername">newEffects</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="events">Events
 </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnAnyKilled.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnAnyKilled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L161">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_Health_OnAnyKilled" data-uid="AFPS.AFPS_Health.OnAnyKilled">OnAnyKilled</h4>
+  <div class="markdown level1 summary"><p>Static, fires once whenever ANY <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> in the scene dies, carrying the resolved <a class="xref" href="AFPS.AFPS_KillInfo.html">AFPS_KillInfo</a>. A single global hook for killfeeds, scoreboards, or announcers — no per-entity wiring. Empty by default. The per-entity <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnKilled">OnKilled</a> event fires alongside it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event Action&lt;AFPS_KillInfo&gt; OnAnyKilled</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="AFPS.AFPS_KillInfo.html">AFPS_KillInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health_OnDamageDealt.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health.OnDamageDealt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L113">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L158">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_Health_OnDamageDealt" data-uid="AFPS.AFPS_Health.OnDamageDealt">OnDamageDealt</h4>
   <div class="markdown level1 summary"><p>Static, fires once per resolved damage/heal that flows through <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_ApplyDamage_AFPS_DamageInfo_">ApplyDamage(DamageInfo)</a>, carrying the post-resistance magnitude and hit geometry. UI systems (e.g. floating damage numbers) subscribe here so <a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a> stays UI-agnostic. Distinct from <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_OnDamaged">OnDamaged</a>, which carries the pre-resistance <a class="xref" href="AFPS.DamageInfo.html">DamageInfo</a>.</p>
@@ -1311,7 +1667,7 @@ Lets same-frame knockback sources (e.g. explosions) skip flinging a player they 
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Health.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Health%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L74" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_Health.cs/#L114" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

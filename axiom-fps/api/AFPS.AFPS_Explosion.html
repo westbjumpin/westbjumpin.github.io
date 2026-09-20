@@ -558,8 +558,8 @@ public AFPS_Agent agent</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Explosion Damage&quot;)]
-[Tooltip(&quot;The type of damage being applied.&quot;)]
-public DamageType damageType</code></pre>
+[Tooltip(&quot;The type of damage being applied. Leave null for untyped.&quot;)]
+public AFPS_DamageType damageType</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -571,7 +571,7 @@ public DamageType damageType</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="AFPS.DamageType.html">DamageType</a></td>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -606,18 +606,117 @@ public AFPS_WeaponObject weaponObj</code></pre>
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Explosion_InstigatorObject.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Explosion.InstigatorObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_Explosion.cs/#L99">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Explosion_InstigatorObject_" data-uid="AFPS.AFPS_Explosion.InstigatorObject*"></a>
+  <h4 id="AFPS_AFPS_Explosion_InstigatorObject" data-uid="AFPS.AFPS_Explosion.InstigatorObject">InstigatorObject</h4>
+  <div class="markdown level1 summary"><p>The GameObject credited with this explosion: the explicit instigator when set, otherwise the agent's GameObject. Null for a fully anonymous blast.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject InstigatorObject { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Explosion_Detonate_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Explosion.Detonate(UnityEngine.GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_Explosion.cs/#L124">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Explosion_Detonate_" data-uid="AFPS.AFPS_Explosion.Detonate*"></a>
+  <h4 id="AFPS_AFPS_Explosion_Detonate_UnityEngine_GameObject_" data-uid="AFPS.AFPS_Explosion.Detonate(UnityEngine.GameObject)">Detonate(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Credits <code class="paramref">instigator</code> (via <a class="xref" href="AFPS.AFPS_Explosion.html#AFPS_AFPS_Explosion_SetInstigator_UnityEngine_GameObject_">SetInstigator(GameObject)</a>) and triggers the blast. Convenience for spawners such as <a class="xref" href="AFPS.AFPS_SpawnOnDeath.html">AFPS_SpawnOnDeath</a> that create an explosion and want it attributed in one call. Idempotent — the underlying explosion still resolves only once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Detonate(GameObject instigator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">instigator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Explosion_SetInstigator_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Explosion.SetInstigator(UnityEngine.GameObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_Explosion.cs/#L114">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_Explosion_SetInstigator_" data-uid="AFPS.AFPS_Explosion.SetInstigator*"></a>
+  <h4 id="AFPS_AFPS_Explosion_SetInstigator_UnityEngine_GameObject_" data-uid="AFPS.AFPS_Explosion.SetInstigator(UnityEngine.GameObject)">SetInstigator(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Sets the GameObject credited with this explosion's damage, kills, and applied status effects, resolving the friendly-fire <a class="xref" href="AFPS.AFPS_Explosion.html#AFPS_AFPS_Explosion_agent">agent</a> from it when one isn't already assigned. Call before the blast (e.g. from an exploding prop forwarding its killer). Safe to pass null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInstigator(GameObject instigator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">instigator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_Explosion_TriggerExplosion.md&amp;value=---%0Auid%3A%20AFPS.AFPS_Explosion.TriggerExplosion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_Explosion.cs/#L101">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Weapon System/AFPS_Explosion.cs/#L131">View Source</a>
   </span>
   <a id="AFPS_AFPS_Explosion_TriggerExplosion_" data-uid="AFPS.AFPS_Explosion.TriggerExplosion*"></a>
   <h4 id="AFPS_AFPS_Explosion_TriggerExplosion" data-uid="AFPS.AFPS_Explosion.TriggerExplosion">TriggerExplosion()</h4>
-  <div class="markdown level1 summary"><p>OverlapSphere at current position, applies damage+force per collider with LOS raycast gate, friendly-fire and self-damage checks.</p>
+  <div class="markdown level1 summary"><p>OverlapSphere at current position, applies damage+force per collider with LOS raycast gate, friendly-fire and self-damage checks. Resolves only once (guarded).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AFPS_StatusEffect ">
     
-    <meta name="description" content="ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, and optional chained effects. At runtime  instantiates a  from this template.">
+    <meta name="description" content="ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, non-HP behaviours, and an optional chained effect. At runtime  instantiates a  from this template.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,7 @@
 
 
   <h1 id="AFPS_AFPS_StatusEffect" data-uid="AFPS.AFPS_StatusEffect" class="text-break">Class AFPS_StatusEffect</h1>
-  <div class="markdown level0 summary"><p>ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, and optional chained effects. At runtime <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_">GiveNewStatusEffect(AFPS_StatusEffect)</a> instantiates a <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> from this template.</p>
+  <div class="markdown level0 summary"><p>ScriptableObject template for a status effect: defines build-up threshold, tick rate, HP/overheal delta, damage type, stack cap, non-HP behaviours, and an optional chained effect. At runtime <a class="xref" href="AFPS.AFPS_Health.html#AFPS_AFPS_Health_GiveNewStatusEffect_AFPS_AFPS_StatusEffect_UnityEngine_GameObject_">GiveNewStatusEffect(AFPS_StatusEffect, GameObject)</a> instantiates a <a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a> from this template.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -320,10 +320,41 @@ public class AFPS_StatusEffect : ScriptableObject</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_applySound.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.applySound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L31">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_applySound" data-uid="AFPS.AFPS_StatusEffect.applySound">applySound</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Audio&quot;)]
+[Tooltip(&quot;Played once at the target&#39;s position when the effect is applied (e.g. an ignite whoosh). Leave null for none.&quot;)]
+public AudioClip applySound</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AudioClip</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_applyTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.applyTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L15">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L16">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_applyTime" data-uid="AFPS.AFPS_StatusEffect.applyTime">applyTime</h4>
   <div class="markdown level1 summary"></div>
@@ -351,10 +382,41 @@ public float applyTime</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_behaviours.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.behaviours%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L28">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_behaviours" data-uid="AFPS.AFPS_StatusEffect.behaviours">behaviours</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Behaviours&quot;)]
+[Tooltip(&quot;Non-HP side effects (slow, freeze, VFX, …) driven alongside this effect&#39;s HP ticks. Applied when the effect starts, ticked each reapply, and undone when it ends. Leave empty for a pure HP-over-time effect.&quot;)]
+public List&lt;AFPS_StatusBehaviour&gt; behaviours</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_StatusBehaviour.html">AFPS_StatusBehaviour</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_buildUpMax.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.buildUpMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L11">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L12">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_buildUpMax" data-uid="AFPS.AFPS_StatusEffect.buildUpMax">buildUpMax</h4>
   <div class="markdown level1 summary"></div>
@@ -382,19 +444,19 @@ public float buildUpMax</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_damageType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.damageType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_cancelsDamageTypes.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.cancelsDamageTypes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L22">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L45">View Source</a>
   </span>
-  <h4 id="AFPS_AFPS_StatusEffect_damageType" data-uid="AFPS.AFPS_StatusEffect.damageType">damageType</h4>
+  <h4 id="AFPS_AFPS_StatusEffect_cancelsDamageTypes" data-uid="AFPS.AFPS_StatusEffect.cancelsDamageTypes">cancelsDamageTypes</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Impact&quot;)]
-[Tooltip(&quot;Damage type for resistance / vulnerability lookups on the target.&quot;)]
-public DamageType damageType</code></pre>
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Cancels&quot;)]
+[Tooltip(&quot;Same as Cancels Effects, but matched by an effect&#39;s Damage Type — a broad brush for &#39;water cancels ALL fire&#39; without naming each fire effect. Applying this clears active effects of these types and suppresses new ones while active.&quot;)]
+public List&lt;AFPS_DamageType&gt; cancelsDamageTypes</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -406,7 +468,100 @@ public DamageType damageType</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="AFPS.DamageType.html">DamageType</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_cancelsEffects.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.cancelsEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L43">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_cancelsEffects" data-uid="AFPS.AFPS_StatusEffect.cancelsEffects">cancelsEffects</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Cancels&quot;)]
+[Tooltip(&quot;When THIS effect is applied it removes any active effects sourced from one of these assets, and while it stays active those effects can&#39;t (re)apply — e.g. a Wet effect listing Burn to douse a fire and keep it from re-igniting. Matched per specific effect asset.&quot;)]
+public List&lt;AFPS_StatusEffect&gt; cancelsEffects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_damageType.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.damageType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L23">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_damageType" data-uid="AFPS.AFPS_StatusEffect.damageType">damageType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Impact&quot;)]
+[Tooltip(&quot;Damage type for resistance / vulnerability lookups on the target. Leave null for untyped.&quot;)]
+public AFPS_DamageType damageType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_DamageType.html">AFPS_DamageType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_endSound.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.endSound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L35">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_endSound" data-uid="AFPS.AFPS_StatusEffect.endSound">endSound</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Audio&quot;)]
+[Tooltip(&quot;Played once at the target&#39;s position when the effect ends — by timeout, chain, or being cleared. Leave null for none.&quot;)]
+public AudioClip endSound</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AudioClip</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -416,7 +571,7 @@ public DamageType damageType</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_healthImpact.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.healthImpact%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L18">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L19">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_healthImpact" data-uid="AFPS.AFPS_StatusEffect.healthImpact">healthImpact</h4>
   <div class="markdown level1 summary"></div>
@@ -447,7 +602,7 @@ public float healthImpact</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_maxStacks.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.maxStacks%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L24">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L25">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_maxStacks" data-uid="AFPS.AFPS_StatusEffect.maxStacks">maxStacks</h4>
   <div class="markdown level1 summary"></div>
@@ -478,7 +633,7 @@ public int maxStacks</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_nextStatusEffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.nextStatusEffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L30">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L40">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_nextStatusEffect" data-uid="AFPS.AFPS_StatusEffect.nextStatusEffect">nextStatusEffect</h4>
   <div class="markdown level1 summary"></div>
@@ -486,8 +641,8 @@ public int maxStacks</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Chained Effects&quot;)]
-[Tooltip(&quot;After the effect is finished, what effect to apply next&quot;)]
-public StatusEffect nextStatusEffect</code></pre>
+[Tooltip(&quot;Another status effect asset applied fresh when this one expires (e.g. Cold → Frozen). Leave null for none.&quot;)]
+public AFPS_StatusEffect nextStatusEffect</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -499,37 +654,7 @@ public StatusEffect nextStatusEffect</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="AFPS.StatusEffect.html">StatusEffect</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_otherEffects.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.otherEffects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L27">View Source</a>
-  </span>
-  <h4 id="AFPS_AFPS_StatusEffect_otherEffects" data-uid="AFPS.AFPS_StatusEffect.otherEffects">otherEffects</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Chained Effects&quot;)]
-public AFPS_StatusOtherEffect otherEffects</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AFPS.AFPS_StatusOtherEffect.html">AFPS_StatusOtherEffect</a></td>
+        <td><a class="xref" href="AFPS.AFPS_StatusEffect.html">AFPS_StatusEffect</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -539,7 +664,7 @@ public AFPS_StatusOtherEffect otherEffects</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_overhealImpact.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.overhealImpact%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L20">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L21">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_overhealImpact" data-uid="AFPS.AFPS_StatusEffect.overhealImpact">overhealImpact</h4>
   <div class="markdown level1 summary"></div>
@@ -567,10 +692,41 @@ public float overhealImpact</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_reapplySound.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.reapplySound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L33">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_reapplySound" data-uid="AFPS.AFPS_StatusEffect.reapplySound">reapplySound</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Audio&quot;)]
+[Tooltip(&quot;Played at the target&#39;s position on every reapply tick (e.g. a poison bloop). Leave null for none — beware short reapply times making it spammy.&quot;)]
+public AudioClip reapplySound</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AudioClip</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_reapplyTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.reapplyTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L13">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L14">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_StatusEffect_reapplyTime" data-uid="AFPS.AFPS_StatusEffect.reapplyTime">reapplyTime</h4>
   <div class="markdown level1 summary"></div>
@@ -580,6 +736,38 @@ public float overhealImpact</code></pre>
     <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Application&quot;)]
 [Tooltip(&quot;How long it takes to apply the effect over again; e.g. every [reapplyTime] seconds do this much damage&quot;)]
 public float reapplyTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect_soundVolume.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect.soundVolume%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L37">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_StatusEffect_soundVolume" data-uid="AFPS.AFPS_StatusEffect.soundVolume">soundVolume</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Audio&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;Volume for this effect&#39;s apply/reapply/end sounds.&quot;)]
+public float soundVolume</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -608,7 +796,7 @@ public float reapplyTime</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_StatusEffect.md&amp;value=---%0Auid%3A%20AFPS.AFPS_StatusEffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Health System/AFPS_StatusEffect.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

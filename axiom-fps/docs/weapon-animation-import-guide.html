@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Importing an Animation Pack </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Importing an Animation Pack ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="importing-an-animation-pack">Importing an Animation Pack</h1>
+
+<p>Axiom FPS expects the standard Asset Store FPS animation layout: <strong>one rig
+containing the arms and the weapon's moving parts, animated together in the same
+clips</strong>. Because the hands and the weapon are keyframed in the same take,
+hand-to-weapon contact is correct by construction — there is no runtime IK, no
+retargeting, and nothing to sync.</p>
+<p>The system itself is skeleton-agnostic. Any rig works as long as the clips were
+authored against it.</p>
+<h2 id="fbx-import-settings">FBX import settings</h2>
+<p>Select the FBX and set:</p>
+<p><strong>Model tab</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale Factor</td>
+<td>as authored (usually 1)</td>
+<td>A mismatched scale shows up as arms the wrong size relative to the weapon.</td>
+</tr>
+<tr>
+<td>Import Cameras / Lights</td>
+<td>off</td>
+<td>Nothing needs them.</td>
+</tr>
+<tr>
+<td>Optimize Game Objects</td>
+<td><strong>off</strong> by default</td>
+<td>Optimizing strips the bone hierarchy, which also removes the transforms you need addressable — muzzle sockets, shell-eject points, magazine objects. Turn it on only once the weapon is finished, and add every socket you use to <strong>Extra Transforms to Expose</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rig tab</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Animation Type</td>
+<td><strong>Generic</strong></td>
+<td>Weapon rigs are not humanoid, and Generic avoids the muscle-space retarget that would distort finger placement on the grip.</td>
+</tr>
+<tr>
+<td>Avatar Definition</td>
+<td><em>Create From This Model</em> on the mesh FBX; <em>Copy From Other Avatar</em> on clip-only FBXs</td>
+<td>One avatar shared by the mesh and every clip file keeps the bone mapping identical.</td>
+</tr>
+<tr>
+<td>Root node</td>
+<td>the rig's root bone</td>
+<td>Only matters if the pack authored root motion.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Animation tab</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import Animation</td>
+<td>on</td>
+<td></td>
+</tr>
+<tr>
+<td>Root Transform Position (Y/XZ), Rotation</td>
+<td><strong>Bake Into Pose</strong></td>
+<td>Prevents the clip from translating the model away from the weapon root that the procedural pipeline is positioning.</td>
+</tr>
+<tr>
+<td>Loop Time</td>
+<td>on for Idle / Walk / Sprint only</td>
+<td>The action clips are one-shots and return to <code>None</code> on exit time.</td>
+</tr>
+<tr>
+<td><strong>Apply Root Motion</strong> (on the Animator, not the importer)</td>
+<td><strong>off</strong></td>
+<td>Root motion would drive the model's transform and fight the weapon root. Forced off at runtime; the inspector flags it as an error.</td>
+</tr>
+</tbody>
+</table>
+<p>Also set the Animator's <strong>Culling Mode</strong> to <strong>Always Animate</strong>. A first-person
+weapon is never off-screen, and a culled Animator pops when it resumes. This is
+also forced at runtime and flagged by the inspector.</p>
+<h2 id="re-skinning-the-arms">Re-skinning the arms</h2>
+<p>Animation packs ship with their own arm meshes. To use your own:</p>
+<ol>
+<li>Keep the pack's <strong>skeleton</strong> — the clips are authored against it.</li>
+<li>Skin your arm mesh to that skeleton in your DCC tool and export it as part of
+the same FBX (or as a separate FBX using <em>Copy From Other Avatar</em>).</li>
+<li>Delete the pack's arm mesh from the prefab; leave the bones.</li>
+<li>Re-run <strong>Set Up Animations</strong>, or fix <strong>Arms Renderers</strong> by hand — it must
+list your arm meshes so they hide correctly when the weapon is dropped,
+holstered, or during climb and mantle.</li>
+</ol>
+<p>Sharing one arm mesh across several weapon FBXs is worth doing where the pack
+allows it: it keeps the player's hands visually consistent between weapons and
+saves memory.</p>
+<h2 id="building-the-weapon">Building the weapon</h2>
+<ol>
+<li>Drop the FBX into the weapon prefab as a child.</li>
+<li>Assign it to <strong>AFPS_WeaponObject ▸ Base ▸ Weapon Model</strong>.</li>
+<li>Turn <strong>Use Arms</strong> <em>off</em>. The rig carries its own arms; leaving it on draws
+the shared movement arms on top of them.</li>
+<li>Move the weapon's existing sockets — muzzle point, shell eject, <code>adsPoint</code> —
+onto the corresponding bones of the new rig, so they ride the animation.
+In particular, <code>ADS</code>'s <strong>ADS Point</strong> should be a child of the weapon body
+bone; the ADS system samples it once when you start aiming, so it follows the
+idle animation naturally.</li>
+<li>Add <strong>AFPS Weapon Animator</strong>, press <strong>Set Up Animations</strong>, and fill the slots.</li>
+</ol>
+<h2 id="splitting-clips">Splitting clips</h2>
+<p>If the pack ships one long take with a clip list, split it in the FBX's
+<strong>Animation</strong> tab as usual. Names do not matter to Axiom FPS — the <em>slot</em> you
+drag a clip into is what decides when it plays, so you can use the pack's own
+naming freely.</p>
+<h2 id="two-rigs-in-one-fbx">Two rigs in one FBX</h2>
+<p>Some packs export the arms and the weapon as two separate armatures inside one
+FBX, animated together. That works unchanged: it is still one Animator, one set
+of clips, and one model child.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/weapon-animation-import-guide.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

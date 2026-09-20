@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Weapon Animation — Quick Start </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Weapon Animation — Quick Start ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="weapon-animation--quick-start">Weapon Animation — Quick Start</h1>
+
+<p>Axiom FPS animates weapons in two layers that run at the same time:</p>
+<ul>
+<li>The <strong>procedural pipeline</strong> (equip tween, bob, sway, tilt, recoil, bump, ADS)
+moves the whole weapon around the camera. It has always been there and it
+keeps running.</li>
+<li>The <strong>clip system</strong> on this page plays authored animation clips on the
+weapon's own rig — arms and moving parts — underneath that.</li>
+</ul>
+<p>Every clip slot is optional. A weapon with no clips behaves exactly as it always
+has, so nothing you already built changes when you upgrade.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Before the first use in a fresh project, run
+<strong>Tools ▸ AFPS ▸ Generate Weapon Animator Template</strong> once. It creates the
+shared template controller and its placeholder clips.</p>
+</div>
+<h2 id="the-five-steps">The five steps</h2>
+<ol>
+<li><p><strong>Import an animated weapon FBX.</strong> The rig should contain the arms <em>and</em> the
+weapon's moving parts, animated together in the same clips — the standard
+layout for FPS animation packs on the Asset Store. Import settings are
+covered in <a href="weapon-animation-import-guide.html">Importing an animation pack</a>.</p>
+</li>
+<li><p><strong>Make it the weapon's model.</strong> Drop the FBX into a weapon prefab as a child
+and assign it to <strong>AFPS_WeaponObject ▸ Base ▸ Weapon Model</strong>. If the weapon
+already had a static model, replace it.</p>
+</li>
+<li><p><strong>Add the component and press the button.</strong> Add <strong>AFPS Weapon Animator</strong> to
+the weapon <strong>root</strong> (the object with <code>AFPS_WeaponObject</code> on it), then press
+<strong>Set Up Animations</strong>. That adds an Animator to the model if it needs one,
+creates a per-weapon <code>AnimatorOverrideController</code> from the shipped template,
+assigns it, and collects the rig's arm renderers.</p>
+</li>
+<li><p><strong>Drag clips into the slots.</strong> The component's inspector lists every slot:
+Idle, Walk, Sprint, Slide, Wallrun, Swim Idle, Swim Forward, Swim Backward,
+Swim Up, Swim Down, Equip, Fire, Fire (ADS), Reload, Reload (Empty Mag),
+Inspect, Holster. Fill the ones you have. Slots you leave empty
+are labelled <em>(procedural fallback)</em> and keep their existing behaviour — the
+weapon simply never enters that state.</p>
+</li>
+<li><p><strong>Press Play.</strong> Equip plays on draw, Fire plays per shot, Reload is
+speed-matched to the weapon's <code>reloadDuration</code>, the switch-out waits for the
+Holster clip, and the Speed / IsSprinting / IsADS parameters are fed for you.</p>
+</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Setting up a weapon without opening its prefab: <strong>Tools ▸ AFPS ▸ Weapon
+Animation Setup</strong> does the same thing from one window — drop the prefab in and
+use the same button and slot list.</p>
+</div>
+<h2 id="where-things-must-live">Where things must live</h2>
+<pre><code>Weapon prefab (root)          ← AFPS_WeaponSystem composes this transform
+├─ AFPS_WeaponObject
+├─ AFPS_WeaponAnimator        ← here, on the ROOT
+└─ Weapon Model (child)
+   └─ Animated rig from the FBX
+      ├─ Animator             ← here, NEVER on the root
+      ├─ AFPS_WeaponAnimationEventReceiver   (optional, for clip SFX/events)
+      └─ Renderers (arms + weapon parts)
+</code></pre>
+<p>The Animator must not sit on the weapon root. The weapon system rewrites the
+root's position and rotation every frame, and an Animator there would fight it.
+The inspector reports this as an error if it happens.</p>
+<h2 id="what-the-inspector-checks-for-you">What the inspector checks for you</h2>
+<p>The validation box at the bottom of <strong>AFPS Weapon Animator</strong> re-runs on every
+repaint and flags:</p>
+<ul>
+<li>an Animator on the weapon root, a missing override controller, or <strong>Apply Root
+Motion</strong> left on (errors — playback will be wrong);</li>
+<li>culling mode not set to <em>Always Animate</em>, <strong>Use Arms</strong> left on for a full rig
+(you would see four arms), no arm renderers assigned, or a Reload clip with
+duration syncing switched off (warnings);</li>
+<li>the list of slots still running procedurally (info).</li>
+</ul>
+<h2 id="sound-and-effects-from-clips">Sound and effects from clips</h2>
+<p>Add <strong>AFPS Weapon Animation Event Receiver</strong> to the same GameObject as the
+Animator, then add animation events to your clips calling <code>AnimEvent</code> with a
+string key (<code>MagOut</code>, <code>MagIn</code>, <code>BoltBack</code>…). Each key maps to an optional
+<code>AudioClip</code> and a <code>UnityEvent</code>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Animation events are <strong>cosmetic only</strong>. Never drive ammo, damage, or weapon
+state from them. Gameplay timing is owned by <code>AFPS_WeaponObject</code> and
+<code>AFPS_WeaponAmmo</code>, and clips get retimed, interrupted and speed-synced —
+anything gameplay-critical wired to a keyframe will desync.</p>
+</div>
+<h2 id="next">Next</h2>
+<ul>
+<li><a href="weapon-animation-integration-matrix.html">Integration matrix</a> — exactly what
+each procedural layer does with and without a clip.</li>
+<li><a href="weapon-animation-import-guide.html">Importing an animation pack</a></li>
+<li><a href="weapon-animation-extending.html">Extending the system</a></li>
+<li><a href="weapon-animation-troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Documentation/docs/weapon-animation-quick-start.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

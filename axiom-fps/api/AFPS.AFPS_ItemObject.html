@@ -556,7 +556,7 @@ public class AFPS_ItemObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_currentStackSize.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.currentStackSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L87">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L96">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_currentStackSize" data-uid="AFPS.AFPS_ItemObject.currentStackSize">currentStackSize</h4>
   <div class="markdown level1 summary"></div>
@@ -607,6 +607,40 @@ public AFPS_Item data</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="AFPS.AFPS_Item.html">AFPS_Item</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_dropTemplate.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.dropTemplate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_ItemObject_dropTemplate" data-uid="AFPS.AFPS_ItemObject.dropTemplate">dropTemplate</h4>
+  <div class="markdown level1 summary"><p>World pickup this item can clone a dropped counterpart from when it has no <a class="xref" href="AFPS.AFPS_ItemObject.html#AFPS_AFPS_ItemObject_connectedInteractable">connectedInteractable</a>
+of its own. Inherited automatically from the stack an item was split or spread off (and from a pickup that
+landed as several stacks), so those copies drop into the world with no per-item <a class="xref" href="AFPS.AFPS_Item.html#AFPS_AFPS_Item_worldPrefab">worldPrefab</a>
+needed. Used purely as an Instantiate template — never activated or consumed directly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public AFPS_PickupInteractable dropTemplate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_PickupInteractable.html">AFPS_PickupInteractable</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -706,7 +740,7 @@ public AFPS_InventorySystem inventorySystem</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_isCurrent.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.isCurrent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L75">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L84">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_isCurrent" data-uid="AFPS.AFPS_ItemObject.isCurrent">isCurrent</h4>
   <div class="markdown level1 summary"></div>
@@ -736,7 +770,7 @@ public bool isCurrent</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_isInSingleItemSlot.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.isInSingleItemSlot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L65">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L74">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_isInSingleItemSlot" data-uid="AFPS.AFPS_ItemObject.isInSingleItemSlot">isInSingleItemSlot</h4>
   <div class="markdown level1 summary"></div>
@@ -766,7 +800,7 @@ public bool isInSingleItemSlot</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_isRotated.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.isRotated%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L69">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L78">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_isRotated" data-uid="AFPS.AFPS_ItemObject.isRotated">isRotated</h4>
   <div class="markdown level1 summary"></div>
@@ -796,7 +830,7 @@ public bool isRotated</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_lastGrid.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.lastGrid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L78">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L87">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_lastGrid" data-uid="AFPS.AFPS_ItemObject.lastGrid">lastGrid</h4>
   <div class="markdown level1 summary"></div>
@@ -826,7 +860,7 @@ public AFPS_InventoryGrid lastGrid</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_onPlacedInEquipmentSlot.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.onPlacedInEquipmentSlot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L60">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L69">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_onPlacedInEquipmentSlot" data-uid="AFPS.AFPS_ItemObject.onPlacedInEquipmentSlot">onPlacedInEquipmentSlot</h4>
   <div class="markdown level1 summary"></div>
@@ -857,7 +891,7 @@ public EquipmentSlotEvent onPlacedInEquipmentSlot</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_onRemovedFromEquipmentSlot.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.onRemovedFromEquipmentSlot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L62">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L71">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_onRemovedFromEquipmentSlot" data-uid="AFPS.AFPS_ItemObject.onRemovedFromEquipmentSlot">onRemovedFromEquipmentSlot</h4>
   <div class="markdown level1 summary"></div>
@@ -918,7 +952,7 @@ public RectTransform rectTransform</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_rotateIndex.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.rotateIndex%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L71">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L80">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_rotateIndex" data-uid="AFPS.AFPS_ItemObject.rotateIndex">rotateIndex</h4>
   <div class="markdown level1 summary"></div>
@@ -948,7 +982,7 @@ public int rotateIndex</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_storedItems.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.storedItems%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L390">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L405">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_storedItems" data-uid="AFPS.AFPS_ItemObject.storedItems">storedItems</h4>
   <div class="markdown level1 summary"></div>
@@ -980,7 +1014,7 @@ public List&lt;AFPS_ItemObject&gt; storedItems</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_correctedSize.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.correctedSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L80">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L89">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_correctedSize_" data-uid="AFPS.AFPS_ItemObject.correctedSize*"></a>
   <h4 id="AFPS_AFPS_ItemObject_correctedSize" data-uid="AFPS.AFPS_ItemObject.correctedSize">correctedSize</h4>
@@ -1013,7 +1047,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_CanStore_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.CanStore(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L393">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L408">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_CanStore_" data-uid="AFPS.AFPS_ItemObject.CanStore*"></a>
   <h4 id="AFPS_AFPS_ItemObject_CanStore_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_ItemObject.CanStore(AFPS.AFPS_ItemObject)">CanStore(AFPS_ItemObject)</h4>
@@ -1061,7 +1095,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_GetDisplaySprite.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.GetDisplaySprite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L110">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L120">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_GetDisplaySprite_" data-uid="AFPS.AFPS_ItemObject.GetDisplaySprite*"></a>
   <h4 id="AFPS_AFPS_ItemObject_GetDisplaySprite" data-uid="AFPS.AFPS_ItemObject.GetDisplaySprite">GetDisplaySprite()</h4>
@@ -1089,10 +1123,41 @@ public Vector2Int correctedSize { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_GetDisplayTint.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.GetDisplayTint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L128">View Source</a>
+  </span>
+  <a id="AFPS_AFPS_ItemObject_GetDisplayTint_" data-uid="AFPS.AFPS_ItemObject.GetDisplayTint*"></a>
+  <h4 id="AFPS_AFPS_ItemObject_GetDisplayTint" data-uid="AFPS.AFPS_ItemObject.GetDisplayTint">GetDisplayTint()</h4>
+  <div class="markdown level1 summary"><p>Tint every renderer multiplies over <a class="xref" href="AFPS.AFPS_ItemObject.html#AFPS_AFPS_ItemObject_GetDisplaySprite">GetDisplaySprite()</a>. White when data is missing. All renderers must route through here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color GetDisplayTint()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_GetHudMagazineIcon.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.GetHudMagazineIcon%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L138">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L151">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_GetHudMagazineIcon_" data-uid="AFPS.AFPS_ItemObject.GetHudMagazineIcon*"></a>
   <h4 id="AFPS_AFPS_ItemObject_GetHudMagazineIcon" data-uid="AFPS.AFPS_ItemObject.GetHudMagazineIcon">GetHudMagazineIcon()</h4>
@@ -1123,7 +1188,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_GetStoreableAmount_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.GetStoreableAmount(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L426">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L441">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_GetStoreableAmount_" data-uid="AFPS.AFPS_ItemObject.GetStoreableAmount*"></a>
   <h4 id="AFPS_AFPS_ItemObject_GetStoreableAmount_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_ItemObject.GetStoreableAmount(AFPS.AFPS_ItemObject)">GetStoreableAmount(AFPS_ItemObject)</h4>
@@ -1171,7 +1236,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_GetTotalWeight.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.GetTotalWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L540">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L555">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_GetTotalWeight_" data-uid="AFPS.AFPS_ItemObject.GetTotalWeight*"></a>
   <h4 id="AFPS_AFPS_ItemObject_GetTotalWeight" data-uid="AFPS.AFPS_ItemObject.GetTotalWeight">GetTotalWeight()</h4>
@@ -1202,7 +1267,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_InitializeObject.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.InitializeObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L94">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L103">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_InitializeObject_" data-uid="AFPS.AFPS_ItemObject.InitializeObject*"></a>
   <h4 id="AFPS_AFPS_ItemObject_InitializeObject" data-uid="AFPS.AFPS_ItemObject.InitializeObject">InitializeObject()</h4>
@@ -1218,7 +1283,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnPlacedInEquipmentSlot_AFPS_AFPS_InventoryGrid_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnPlacedInEquipmentSlot(AFPS.AFPS_InventoryGrid)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L384">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L399">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_OnPlacedInEquipmentSlot_" data-uid="AFPS.AFPS_ItemObject.OnPlacedInEquipmentSlot*"></a>
   <h4 id="AFPS_AFPS_ItemObject_OnPlacedInEquipmentSlot_AFPS_AFPS_InventoryGrid_" data-uid="AFPS.AFPS_ItemObject.OnPlacedInEquipmentSlot(AFPS.AFPS_InventoryGrid)">OnPlacedInEquipmentSlot(AFPS_InventoryGrid)</h4>
@@ -1251,7 +1316,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnPointerEnter_UnityEngine_EventSystems_PointerEventData_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnPointerEnter(UnityEngine.EventSystems.PointerEventData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L354">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L369">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_OnPointerEnter_" data-uid="AFPS.AFPS_ItemObject.OnPointerEnter*"></a>
   <h4 id="AFPS_AFPS_ItemObject_OnPointerEnter_UnityEngine_EventSystems_PointerEventData_" data-uid="AFPS.AFPS_ItemObject.OnPointerEnter(UnityEngine.EventSystems.PointerEventData)">OnPointerEnter(PointerEventData)</h4>
@@ -1284,7 +1349,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnPointerExit_UnityEngine_EventSystems_PointerEventData_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnPointerExit(UnityEngine.EventSystems.PointerEventData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L363">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L378">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_OnPointerExit_" data-uid="AFPS.AFPS_ItemObject.OnPointerExit*"></a>
   <h4 id="AFPS_AFPS_ItemObject_OnPointerExit_UnityEngine_EventSystems_PointerEventData_" data-uid="AFPS.AFPS_ItemObject.OnPointerExit(UnityEngine.EventSystems.PointerEventData)">OnPointerExit(PointerEventData)</h4>
@@ -1317,7 +1382,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnPointerMove_UnityEngine_EventSystems_PointerEventData_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnPointerMove(UnityEngine.EventSystems.PointerEventData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L372">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L387">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_OnPointerMove_" data-uid="AFPS.AFPS_ItemObject.OnPointerMove*"></a>
   <h4 id="AFPS_AFPS_ItemObject_OnPointerMove_UnityEngine_EventSystems_PointerEventData_" data-uid="AFPS.AFPS_ItemObject.OnPointerMove(UnityEngine.EventSystems.PointerEventData)">OnPointerMove(PointerEventData)</h4>
@@ -1350,7 +1415,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnRemovedFromEquipmentSlot_AFPS_AFPS_InventoryGrid_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnRemovedFromEquipmentSlot(AFPS.AFPS_InventoryGrid)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L386">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L401">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_OnRemovedFromEquipmentSlot_" data-uid="AFPS.AFPS_ItemObject.OnRemovedFromEquipmentSlot*"></a>
   <h4 id="AFPS_AFPS_ItemObject_OnRemovedFromEquipmentSlot_AFPS_AFPS_InventoryGrid_" data-uid="AFPS.AFPS_ItemObject.OnRemovedFromEquipmentSlot(AFPS.AFPS_InventoryGrid)">OnRemovedFromEquipmentSlot(AFPS_InventoryGrid)</h4>
@@ -1383,7 +1448,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_RefreshSprite.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.RefreshSprite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L163">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L176">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_RefreshSprite_" data-uid="AFPS.AFPS_ItemObject.RefreshSprite*"></a>
   <h4 id="AFPS_AFPS_ItemObject_RefreshSprite" data-uid="AFPS.AFPS_ItemObject.RefreshSprite">RefreshSprite()</h4>
@@ -1399,7 +1464,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_ResetRotate.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.ResetRotate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L219">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L234">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_ResetRotate_" data-uid="AFPS.AFPS_ItemObject.ResetRotate*"></a>
   <h4 id="AFPS_AFPS_ItemObject_ResetRotate" data-uid="AFPS.AFPS_ItemObject.ResetRotate">ResetRotate()</h4>
@@ -1415,7 +1480,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_RetrieveStoredItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.RetrieveStoredItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L530">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L545">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_RetrieveStoredItem_" data-uid="AFPS.AFPS_ItemObject.RetrieveStoredItem*"></a>
   <h4 id="AFPS_AFPS_ItemObject_RetrieveStoredItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_ItemObject.RetrieveStoredItem(AFPS.AFPS_ItemObject)">RetrieveStoredItem(AFPS_ItemObject)</h4>
@@ -1448,7 +1513,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_Rotate_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.Rotate(System.Boolean%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L182">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L197">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_Rotate_" data-uid="AFPS.AFPS_ItemObject.Rotate*"></a>
   <h4 id="AFPS_AFPS_ItemObject_Rotate_System_Boolean_System_Boolean_" data-uid="AFPS.AFPS_ItemObject.Rotate(System.Boolean,System.Boolean)">Rotate(bool, bool)</h4>
@@ -1486,7 +1551,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_SetRaycastTargets_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.SetRaycastTargets(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L552">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L567">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_SetRaycastTargets_" data-uid="AFPS.AFPS_ItemObject.SetRaycastTargets*"></a>
   <h4 id="AFPS_AFPS_ItemObject_SetRaycastTargets_System_Boolean_" data-uid="AFPS.AFPS_ItemObject.SetRaycastTargets(System.Boolean)">SetRaycastTargets(bool)</h4>
@@ -1519,7 +1584,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_StoreItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.StoreItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L487">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L502">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_StoreItem_" data-uid="AFPS.AFPS_ItemObject.StoreItem*"></a>
   <h4 id="AFPS_AFPS_ItemObject_StoreItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.AFPS_ItemObject.StoreItem(AFPS.AFPS_ItemObject)">StoreItem(AFPS_ItemObject)</h4>
@@ -1552,7 +1617,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_TryGetStoredCountDisplay_System_Int32__.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.TryGetStoredCountDisplay(System.Int32%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L146">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L159">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_TryGetStoredCountDisplay_" data-uid="AFPS.AFPS_ItemObject.TryGetStoredCountDisplay*"></a>
   <h4 id="AFPS_AFPS_ItemObject_TryGetStoredCountDisplay_System_Int32__" data-uid="AFPS.AFPS_ItemObject.TryGetStoredCountDisplay(System.Int32@)">TryGetStoredCountDisplay(out int)</h4>
@@ -1600,7 +1665,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_UpdateRotation.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.UpdateRotation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L226">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L241">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_UpdateRotation_" data-uid="AFPS.AFPS_ItemObject.UpdateRotation*"></a>
   <h4 id="AFPS_AFPS_ItemObject_UpdateRotation" data-uid="AFPS.AFPS_ItemObject.UpdateRotation">UpdateRotation()</h4>
@@ -1616,7 +1681,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_UpdateRotationAnimationInstant.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.UpdateRotationAnimationInstant%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L267">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L282">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_UpdateRotationAnimationInstant_" data-uid="AFPS.AFPS_ItemObject.UpdateRotationAnimationInstant*"></a>
   <h4 id="AFPS_AFPS_ItemObject_UpdateRotationAnimationInstant" data-uid="AFPS.AFPS_ItemObject.UpdateRotationAnimationInstant">UpdateRotationAnimationInstant()</h4>
@@ -1632,7 +1697,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_UpdateStackingText.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.UpdateStackingText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L329">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L344">View Source</a>
   </span>
   <a id="AFPS_AFPS_ItemObject_UpdateStackingText_" data-uid="AFPS.AFPS_ItemObject.UpdateStackingText*"></a>
   <h4 id="AFPS_AFPS_ItemObject_UpdateStackingText" data-uid="AFPS.AFPS_ItemObject.UpdateStackingText">UpdateStackingText()</h4>
@@ -1650,7 +1715,7 @@ public Vector2Int correctedSize { get; }</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_ItemObject_OnDisplayRefreshed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_ItemObject.OnDisplayRefreshed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L160">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/AFPS_ItemObject.cs/#L173">View Source</a>
   </span>
   <h4 id="AFPS_AFPS_ItemObject_OnDisplayRefreshed" data-uid="AFPS.AFPS_ItemObject.OnDisplayRefreshed">OnDisplayRefreshed</h4>
   <div class="markdown level1 summary"><p>Fired at the end of <a class="xref" href="AFPS.AFPS_ItemObject.html#AFPS_AFPS_ItemObject_RefreshSprite">RefreshSprite()</a> — the shared call-in for all count-driven

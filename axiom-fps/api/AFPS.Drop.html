@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Drop ">
     
-    <meta name="description" content="Drops the item into the world: calls connectedInteractable.Drop(), clears inventory references, and destroys the UI GO.">
+    <meta name="description" content="Drops the item into the world and destroys its UI object. Routes through . An item that was picked up returns as its original world GameObject; a stack split or spread off a pickup (or the extra stacks of a pickup that filled several cells) clones that same pickup, so those need no setup. Only an item that never came from the world at all — rolled from a loot table or spawned straight into a grid — falls back to the item asset&#39;s . Items with none of those are left in place rather than deleted.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,13 @@
 
 
   <h1 id="AFPS_Drop" data-uid="AFPS.Drop" class="text-break">Class Drop</h1>
-  <div class="markdown level0 summary"><p>Drops the item into the world: calls connectedInteractable.Drop(), clears inventory references, and destroys the UI GO.</p>
+  <div class="markdown level0 summary"><p>Drops the item into the world and destroys its UI object.</p>
+<p>Routes through <a class="xref" href="AFPS.AFPS_InventorySystem.html#AFPS_AFPS_InventorySystem_DropItemToWorld_AFPS_AFPS_ItemObject_UnityEngine_Vector3_UnityEngine_Quaternion_">DropItemToWorld(AFPS_ItemObject, Vector3, Quaternion)</a>. An item that was picked up
+returns as its original world GameObject; a stack split or spread off a pickup (or the extra
+stacks of a pickup that filled several cells) clones that same pickup, so those need no setup.
+Only an item that never came from the world at all — rolled from a loot table or spawned straight
+into a grid — falls back to the item asset's <a class="xref" href="AFPS.AFPS_Item.html#AFPS_AFPS_Item_worldPrefab">worldPrefab</a>. Items with none
+of those are left in place rather than deleted.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -100,6 +106,12 @@
     </div>
     <div>
       <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_">ItemMenuButtonBase.SetItem(AFPS_ItemObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_ResolvePlayerHealth">ItemMenuButtonBase.ResolvePlayerHealth()</a>
+    </div>
+    <div>
+      <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SpendStack_System_Int32_">ItemMenuButtonBase.SpendStack(int)</a>
     </div>
     <div>
       <span class="xref">MonoBehaviour.IsInvoking()</span>
@@ -529,6 +541,39 @@
     <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;AFPS/Inventory System/AFPS Drop&quot;)]
 public class Drop : ItemMenuButtonBase</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Drop_spawnOffset.md&amp;value=---%0Auid%3A%20AFPS.Drop.spawnOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Drop.cs/#L20">View Source</a>
+  </span>
+  <h4 id="AFPS_Drop_spawnOffset" data-uid="AFPS.Drop.spawnOffset">spawnOffset</h4>
+  <div class="markdown level1 summary"><p>Camera-local spawn offset for the worldPrefab fallback (+Z is forward). Unused when the item has its own world object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Where a worldPrefab-spawned drop appears when the item has no source object to fall back on. Camera-local: +Z is forward. Ignored for items that were picked up from the world (those use their own drop behaviour).&quot;)]
+public Vector3 spawnOffset</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -536,11 +581,11 @@ public class Drop : ItemMenuButtonBase</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Drop_OnPress.md&amp;value=---%0Auid%3A%20AFPS.Drop.OnPress%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Drop.cs/#L10">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Drop.cs/#L23">View Source</a>
   </span>
   <a id="AFPS_Drop_OnPress_" data-uid="AFPS.Drop.OnPress*"></a>
   <h4 id="AFPS_Drop_OnPress" data-uid="AFPS.Drop.OnPress">OnPress()</h4>
-  <div class="markdown level1 summary"><p>Calls base, triggers connectedInteractable.Drop(), clears grid refs, destroys item GO.</p>
+  <div class="markdown level1 summary"><p>Calls base, then hands the item to the inventory system's world-drop path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -561,7 +606,7 @@ public class Drop : ItemMenuButtonBase</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Drop.md&amp;value=---%0Auid%3A%20AFPS.Drop%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Drop.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/Drop.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AFPS_GrapplingHookSettings </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AFPS_GrapplingHookSettings ">
+    
+    <meta name="description" content="Grappling hook preset: every tuning value for  — attach rules, reel and momentum, pendulum tension, swing control, movable-anchor mass split, and the auto-detach conditions. Swap the asset to swap the whole feel of the grapple. Scene-bound references (the rope LineRenderer) and the SFX containers stay on the component, since those are per-instance rather than per-preset.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AFPS.AFPS_GrapplingHookSettings">
+
+
+
+  <h1 id="AFPS_AFPS_GrapplingHookSettings" data-uid="AFPS.AFPS_GrapplingHookSettings" class="text-break">Class AFPS_GrapplingHookSettings</h1>
+  <div class="markdown level0 summary"><p>Grappling hook preset: every tuning value for <a class="xref" href="AFPS.GrapplingHook.html">GrapplingHook</a> — attach rules, reel and
+momentum, pendulum tension, swing control, movable-anchor mass split, and the auto-detach conditions.</p>
+<p>Swap the asset to swap the whole feel of the grapple. Scene-bound references (the rope LineRenderer)
+and the SFX containers stay on the component, since those are per-instance rather than per-preset.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Object</span></div>
+    <div class="level2"><span class="xref">ScriptableObject</span></div>
+    <div class="level3"><span class="xref">AFPS_GrapplingHookSettings</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">ScriptableObject.SetDirty()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ScriptableObject.CreateInstance(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">ScriptableObject.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.CreateInstance&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetEntityId()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="AFPS.html">AFPS</a></h6>
+  <h6><strong>Assembly</strong>: AxiomFPS.Runtime.dll</h6>
+  <h5 id="AFPS_AFPS_GrapplingHookSettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CreateAssetMenu(fileName = &quot;New Grappling Hook Settings&quot;, menuName = &quot;AFPS/Ability/Grappling Hook Settings&quot;, order = 1)]
+public class AFPS_GrapplingHookSettings : ScriptableObject</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_detachOnCrouch.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.detachOnCrouch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L86">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_detachOnCrouch" data-uid="AFPS.AFPS_GrapplingHookSettings.detachOnCrouch">detachOnCrouch</h4>
+  <div class="markdown level1 summary"><p>When true, pressing the crouch/slide key detaches the grapple.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[Tooltip(&quot;Detach when the crouch/slide key is pressed&quot;)]
+public bool detachOnCrouch</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_detachOnObstacle.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.detachOnObstacle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L98">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_detachOnObstacle" data-uid="AFPS.AFPS_GrapplingHookSettings.detachOnObstacle">detachOnObstacle</h4>
+  <div class="markdown level1 summary"><p>When true, driving face-on into a solid surface along the travel direction detaches the grapple.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[Tooltip(&quot;Detach when the player hits a solid obstacle face-on&quot;)]
+public bool detachOnObstacle</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_detachOnReach.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.detachOnReach%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L94">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_detachOnReach" data-uid="AFPS.AFPS_GrapplingHookSettings.detachOnReach">detachOnReach</h4>
+  <div class="markdown level1 summary"><p>When true, the grapple auto-releases once the player is reeled within <a class="xref" href="AFPS.AFPS_GrapplingHookSettings.html#AFPS_AFPS_GrapplingHookSettings_minRopeLength">minRopeLength</a> of the anchor, slingshotting them past it instead of orbiting</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[Tooltip(&quot;Auto-release (and slingshot) once the player reaches the grapple point&quot;)]
+public bool detachOnReach</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_detachOnRopeBlocked.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.detachOnRopeBlocked%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L114">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_detachOnRopeBlocked" data-uid="AFPS.AFPS_GrapplingHookSettings.detachOnRopeBlocked">detachOnRopeBlocked</h4>
+  <div class="markdown level1 summary"><p>When true, losing line of sight along the rope — geometry coming between the hook origin and the anchor — releases the grapple, so the rope cannot pass through walls when the player swings behind cover.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[Tooltip(&quot;Detach when geometry comes between the player and the grapple point, so the rope can&#39;t pass through walls&quot;)]
+public bool detachOnRopeBlocked</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_exitMomentumMultiplier.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.exitMomentumMultiplier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L46">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_exitMomentumMultiplier" data-uid="AFPS.AFPS_GrapplingHookSettings.exitMomentumMultiplier">exitMomentumMultiplier</h4>
+  <div class="markdown level1 summary"><p>Multiplier applied to the player's velocity at the instant of release to slingshot accumulated momentum forward (1 = pure conservation, &gt;1 = compounding boost).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Velocity multiplier applied on release to slingshot momentum forward (&gt;=1)&quot;)]
+public float exitMomentumMultiplier</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_exitUpwardBoost.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.exitUpwardBoost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L50">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_exitUpwardBoost" data-uid="AFPS.AFPS_GrapplingHookSettings.exitUpwardBoost">exitUpwardBoost</h4>
+  <div class="markdown level1 summary"><p>Small upward velocity (m/s) added on release so a fast horizontal exit clears ledges instead of clipping the ground.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Upward velocity (m/s) added on release to clear ledges&quot;)]
+public float exitUpwardBoost</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_grappleMovableBodies.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.grappleMovableBodies%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L66">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_grappleMovableBodies" data-uid="AFPS.AFPS_GrapplingHookSettings.grappleMovableBodies">grappleMovableBodies</h4>
+  <div class="markdown level1 summary"><p>When true, hooking a non-kinematic Rigidbody reels that body and the player toward each other, split by mass. When false every anchor is treated as immovable world geometry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movable Anchors&quot;)]
+[Tooltip(&quot;Reel movable Rigidbodies toward the player instead of treating every anchor as immovable&quot;)]
+public bool grappleMovableBodies</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_grapplePullForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.grapplePullForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L30">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_grapplePullForce" data-uid="AFPS.AFPS_GrapplingHookSettings.grapplePullForce">grapplePullForce</h4>
+  <div class="markdown level1 summary"><p>Peak strength of the reel-in force that pulls the player toward the anchor (reached after the windup ramp).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Peak force reeling the player toward the grapple point&quot;)]
+public float grapplePullForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_grappleRaycastLength.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.grappleRaycastLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L22">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_grappleRaycastLength" data-uid="AFPS.AFPS_GrapplingHookSettings.grappleRaycastLength">grappleRaycastLength</h4>
+  <div class="markdown level1 summary"><p>Maximum distance the attach ray travels when searching for a grapple anchor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Grapple Settings&quot;)]
+[Tooltip(&quot;Maximum raycast distance for finding a grapple point&quot;)]
+public float grappleRaycastLength</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_grappleTimer.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.grappleTimer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L18">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_grappleTimer" data-uid="AFPS.AFPS_GrapplingHookSettings.grappleTimer">grappleTimer</h4>
+  <div class="markdown level1 summary"><p>Cooldown in seconds that must elapse after a release before another grapple can fire.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Grapple Settings&quot;)]
+[Tooltip(&quot;Cooldown (seconds) before another grapple can fire&quot;)]
+public float grappleTimer</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_grappleable.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.grappleable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L26">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_grappleable" data-uid="AFPS.AFPS_GrapplingHookSettings.grappleable">grappleable</h4>
+  <div class="markdown level1 summary"><p>Layers the attach ray treats as valid grapple surfaces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Grapple Settings&quot;)]
+[Tooltip(&quot;Layers that can be grappled&quot;)]
+public LayerMask grappleable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LayerMask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_maxAcceleration.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.maxAcceleration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L54">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_maxAcceleration" data-uid="AFPS.AFPS_GrapplingHookSettings.maxAcceleration">maxAcceleration</h4>
+  <div class="markdown level1 summary"><p>Upper clamp on the centripetal term of rope tension, preventing a short rope at high speed from spiking tension toward infinity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Pendulum Tension&quot;)]
+[Tooltip(&quot;Maximum centripetal acceleration clamp for rope tension&quot;)]
+public float maxAcceleration</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_maxGrappleSpeed.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.maxGrappleSpeed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L42">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_maxGrappleSpeed" data-uid="AFPS.AFPS_GrapplingHookSettings.maxGrappleSpeed">maxGrappleSpeed</h4>
+  <div class="markdown level1 summary"><p>Optional hard cap on grapple speed (m/s). Zero or below leaves speed uncapped so momentum can compound freely.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Optional max grapple speed (m/s). 0 = uncapped, lets momentum compound&quot;)]
+public float maxGrappleSpeed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_maxLookAwayAngle.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.maxLookAwayAngle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L90">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_maxLookAwayAngle" data-uid="AFPS.AFPS_GrapplingHookSettings.maxLookAwayAngle">maxLookAwayAngle</h4>
+  <div class="markdown level1 summary"><p>Maximum allowed angle (degrees) between the camera's forward direction and the direction from the camera to the anchor. Looking further away than this releases the grapple.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[Range(1, 179)]
+[Tooltip(&quot;Auto-detach when the camera looks further than this angle (degrees) away from the grapple point&quot;)]
+public float maxLookAwayAngle</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_maxMovableAnchorMass.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.maxMovableAnchorMass%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L70">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_maxMovableAnchorMass" data-uid="AFPS.AFPS_GrapplingHookSettings.maxMovableAnchorMass">maxMovableAnchorMass</h4>
+  <div class="markdown level1 summary"><p>Mass ceiling (kg): bodies at or above this are treated as immovable anchors, so heavy set dressing anchors the player instead of being dragged across the level. Zero or below removes the ceiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movable Anchors&quot;)]
+[ShowIf(&quot;grappleMovableBodies&quot;)]
+[Tooltip(&quot;Bodies at or above this mass (kg) are treated as immovable anchors. 0 = no ceiling, every dynamic body is movable&quot;)]
+public float maxMovableAnchorMass</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_minPlayerPullShare.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.minPlayerPullShare%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L74">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_minPlayerPullShare" data-uid="AFPS.AFPS_GrapplingHookSettings.minPlayerPullShare">minPlayerPullShare</h4>
+  <div class="markdown level1 summary"><p>Designer bias: floor on the player's share of the reel, so hooking something light still yanks the player instead of only the object. Applied on top of the mass split, which alone would give the player almost none of the pull against a light body.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movable Anchors&quot;)]
+[ShowIf(&quot;grappleMovableBodies&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;Minimum share of the reel the player receives, however light the anchor is. 0 = pure mass ratio, 1 = the anchor never moves&quot;)]
+public float minPlayerPullShare</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_minRopeLength.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.minRopeLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L38">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_minRopeLength" data-uid="AFPS.AFPS_GrapplingHookSettings.minRopeLength">minRopeLength</h4>
+  <div class="markdown level1 summary"><p>Distance from the anchor at which the reel-in pull stops, leaving only swing so the player does not jitter against the anchor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Distance from the anchor at which the reel-in pull stops&quot;)]
+public float minRopeLength</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_movableAnchorRopeGradient.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.movableAnchorRopeGradient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L82">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_movableAnchorRopeGradient" data-uid="AFPS.AFPS_GrapplingHookSettings.movableAnchorRopeGradient">movableAnchorRopeGradient</h4>
+  <div class="markdown level1 summary"><p>Rope gradient used while attached to a movable body. The gradient authored on the LineRenderer is cached at startup and restored on detach.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movable Anchors&quot;)]
+[ShowIf(EConditionOperator.And, new string[] { &quot;grappleMovableBodies&quot;, &quot;tintRopeOnMovableAnchor&quot; })]
+[Tooltip(&quot;Rope gradient used while attached to a movable body. The LineRenderer&#39;s authored gradient is restored on detach&quot;)]
+public Gradient movableAnchorRopeGradient</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Gradient</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_obstacleCheckDistance.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.obstacleCheckDistance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L106">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_obstacleCheckDistance" data-uid="AFPS.AFPS_GrapplingHookSettings.obstacleCheckDistance">obstacleCheckDistance</h4>
+  <div class="markdown level1 summary"><p>Distance (m) ahead of the player center the obstacle probe reaches when testing for a face-on impact.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnObstacle&quot;)]
+[Tooltip(&quot;Probe distance (m) ahead of the player for the obstacle check&quot;)]
+public float obstacleCheckDistance</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_obstacleFaceOnThreshold.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.obstacleFaceOnThreshold%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L110">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_obstacleFaceOnThreshold" data-uid="AFPS.AFPS_GrapplingHookSettings.obstacleFaceOnThreshold">obstacleFaceOnThreshold</h4>
+  <div class="markdown level1 summary"><p>How head-on an impact must be to count, as the dot of travel direction against the inward surface normal: 1 = perfectly perpendicular, 0 = glancing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnObstacle&quot;)]
+[Range(0, 1)]
+[Tooltip(&quot;How head-on an impact must be to detach (1 = perpendicular, 0 = glancing)&quot;)]
+public float obstacleFaceOnThreshold</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_obstacleLayers.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.obstacleLayers%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L102">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_obstacleLayers" data-uid="AFPS.AFPS_GrapplingHookSettings.obstacleLayers">obstacleLayers</h4>
+  <div class="markdown level1 summary"><p>Layers treated as solid obstacles for the face-on detach check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnObstacle&quot;)]
+[Tooltip(&quot;Layers treated as solid obstacles for face-on detach&quot;)]
+public LayerMask obstacleLayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LayerMask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_pullRampTime.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.pullRampTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L34">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_pullRampTime" data-uid="AFPS.AFPS_GrapplingHookSettings.pullRampTime">pullRampTime</h4>
+  <div class="markdown level1 summary"><p>Windup: time (seconds) over which the reel-in pull ramps from a gentle start to <a class="xref" href="AFPS.AFPS_GrapplingHookSettings.html#AFPS_AFPS_GrapplingHookSettings_grapplePullForce">grapplePullForce</a>, so the grapple eases in then yanks. Zero applies full force immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Momentum &amp; Pull&quot;)]
+[Tooltip(&quot;Windup time (seconds) over which the pull ramps up to full force. 0 = instant full pull&quot;)]
+public float pullRampTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_ropeBlockGrace.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.ropeBlockGrace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L122">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_ropeBlockGrace" data-uid="AFPS.AFPS_GrapplingHookSettings.ropeBlockGrace">ropeBlockGrace</h4>
+  <div class="markdown level1 summary"><p>How long (seconds) the rope must stay blocked before it releases. Stops a corner clipped for a single frame at speed from cutting a good swing short; the timer resets the moment line of sight returns. Zero releases on the first blocked frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnRopeBlocked&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;Seconds the rope must stay blocked before releasing. 0 = release on the first blocked frame&quot;)]
+public float ropeBlockGrace</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_ropeBlockLayers.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.ropeBlockLayers%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L118">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_ropeBlockLayers" data-uid="AFPS.AFPS_GrapplingHookSettings.ropeBlockLayers">ropeBlockLayers</h4>
+  <div class="markdown level1 summary"><p>Layers that block the rope. Deliberately separate from <a class="xref" href="AFPS.AFPS_GrapplingHookSettings.html#AFPS_AFPS_GrapplingHookSettings_obstacleLayers">obstacleLayers</a>: a railing or a grate can stop a body face-on while a rope should still pass it, so the two masks are tuned independently.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnRopeBlocked&quot;)]
+[Tooltip(&quot;Layers that block the rope. Kept separate from the obstacle mask so thin geometry can stop the player without cutting the rope&quot;)]
+public LayerMask ropeBlockLayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LayerMask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_ropeBlockPadding.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.ropeBlockPadding%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L126">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_ropeBlockPadding" data-uid="AFPS.AFPS_GrapplingHookSettings.ropeBlockPadding">ropeBlockPadding</h4>
+  <div class="markdown level1 summary"><p>Length (m) trimmed off each end of the rope before the occlusion probe runs, so the anchor's own surface and whatever the player is pressed against are not mistaken for blockers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Detach Conditions&quot;)]
+[ShowIf(&quot;detachOnRopeBlocked&quot;)]
+[MinValue(0)]
+[Tooltip(&quot;Metres trimmed off each end of the rope before the line-of-sight probe, so the anchor surface and geometry at the player aren&#39;t read as blockers&quot;)]
+public float ropeBlockPadding</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_swingForwardForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.swingForwardForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L62">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_swingForwardForce" data-uid="AFPS.AFPS_GrapplingHookSettings.swingForwardForce">swingForwardForce</h4>
+  <div class="markdown level1 summary"><p>Tangential swing force applied from forward/back input, letting the player pump the pendulum along the look direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Swing Control&quot;)]
+[Tooltip(&quot;Swing force added by forward/back input along the look direction&quot;)]
+public float swingForwardForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_swingStrafeForce.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.swingStrafeForce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L58">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_swingStrafeForce" data-uid="AFPS.AFPS_GrapplingHookSettings.swingStrafeForce">swingStrafeForce</h4>
+  <div class="markdown level1 summary"><p>Perpendicular swing force applied from lateral (strafe) input, letting the player pump the pendulum side to side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Swing Control&quot;)]
+[Tooltip(&quot;Perpendicular swing force added by lateral (strafe) input&quot;)]
+public float swingStrafeForce</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings_tintRopeOnMovableAnchor.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings.tintRopeOnMovableAnchor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L78">View Source</a>
+  </span>
+  <h4 id="AFPS_AFPS_GrapplingHookSettings_tintRopeOnMovableAnchor" data-uid="AFPS.AFPS_GrapplingHookSettings.tintRopeOnMovableAnchor">tintRopeOnMovableAnchor</h4>
+  <div class="markdown level1 summary"><p>When true, the rope switches to <a class="xref" href="AFPS.AFPS_GrapplingHookSettings.html#AFPS_AFPS_GrapplingHookSettings_movableAnchorRopeGradient">movableAnchorRopeGradient</a> while attached to a movable body, reading to the player as a promise that the anchor is the thing that will move.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BoxGroup(&quot;Movable Anchors&quot;)]
+[ShowIf(&quot;grappleMovableBodies&quot;)]
+[Tooltip(&quot;Tint the rope while it is attached to a movable body, as feedback that the anchor will move&quot;)]
+public bool tintRopeOnMovableAnchor</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_AFPS_GrapplingHookSettings.md&amp;value=---%0Auid%3A%20AFPS.AFPS_GrapplingHookSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Scriptable Objects/Ability System/AFPS_GrapplingHookSettings.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

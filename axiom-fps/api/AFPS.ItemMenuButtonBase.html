@@ -85,9 +85,12 @@
       <div class="level6"><a class="xref" href="AFPS.Consume.html">Consume</a></div>
       <div class="level6"><a class="xref" href="AFPS.Destroy.html">Destroy</a></div>
       <div class="level6"><a class="xref" href="AFPS.Drop.html">Drop</a></div>
+      <div class="level6"><a class="xref" href="AFPS.Equip.html">Equip</a></div>
       <div class="level6"><a class="xref" href="AFPS.RemoveStoredItem.html">RemoveStoredItem</a></div>
       <div class="level6"><a class="xref" href="AFPS.Split.html">Split</a></div>
       <div class="level6"><a class="xref" href="AFPS.Throw.html">Throw</a></div>
+      <div class="level6"><a class="xref" href="AFPS.Transfer.html">Transfer</a></div>
+      <div class="level6"><a class="xref" href="AFPS.Unload.html">Unload</a></div>
       <div class="level6"><a class="xref" href="AFPS.Use.html">Use</a></div>
   </div>
   <div class="inheritedMembers">
@@ -527,10 +530,11 @@ public class ItemMenuButtonBase : MonoBehaviour</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_disableAfterButtonPress.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.disableAfterButtonPress%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L10">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L11">View Source</a>
   </span>
   <h4 id="AFPS_ItemMenuButtonBase_disableAfterButtonPress" data-uid="AFPS.ItemMenuButtonBase.disableAfterButtonPress">disableAfterButtonPress</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Close the item menu after this button is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -557,10 +561,11 @@ public bool disableAfterButtonPress</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_interactionSystem.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.interactionSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L19">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L24">View Source</a>
   </span>
   <h4 id="AFPS_ItemMenuButtonBase_interactionSystem" data-uid="AFPS.ItemMenuButtonBase.interactionSystem">interactionSystem</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Optional interaction system reference; unused by the shipped buttons.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -587,10 +592,11 @@ public AFPS_InteractionSystem interactionSystem</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_inventory.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.inventory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L15">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L19">View Source</a>
   </span>
   <h4 id="AFPS_ItemMenuButtonBase_inventory" data-uid="AFPS.ItemMenuButtonBase.inventory">inventory</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The inventory that owns <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_item">item</a>. Cached by <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_">SetItem(AFPS_ItemObject)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -617,10 +623,11 @@ public AFPS_InventorySystem inventory</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_item.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.item%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L13">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L15">View Source</a>
   </span>
   <h4 id="AFPS_ItemMenuButtonBase_item" data-uid="AFPS.ItemMenuButtonBase.item">item</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The item this button acts on. Injected by <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_">SetItem(AFPS_ItemObject)</a> when the menu is built.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -649,7 +656,7 @@ public AFPS_ItemObject item</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_OnPress.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.OnPress%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L29">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L34">View Source</a>
   </span>
   <a id="AFPS_ItemMenuButtonBase_OnPress_" data-uid="AFPS.ItemMenuButtonBase.OnPress*"></a>
   <h4 id="AFPS_ItemMenuButtonBase_OnPress" data-uid="AFPS.ItemMenuButtonBase.OnPress">OnPress()</h4>
@@ -662,10 +669,46 @@ public AFPS_ItemObject item</code></pre>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_ResolvePlayerHealth.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.ResolvePlayerHealth%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L57">View Source</a>
+  </span>
+  <a id="AFPS_ItemMenuButtonBase_ResolvePlayerHealth_" data-uid="AFPS.ItemMenuButtonBase.ResolvePlayerHealth*"></a>
+  <h4 id="AFPS_ItemMenuButtonBase_ResolvePlayerHealth" data-uid="AFPS.ItemMenuButtonBase.ResolvePlayerHealth">ResolvePlayerHealth()</h4>
+  <div class="markdown level1 summary"><p>Finds the health component of the player whose inventory this menu belongs to. Menu buttons are
+runtime-instantiated prefabs and cannot hold scene references, so consumable-style buttons have
+to resolve the player at press time.</p>
+<p>Walks the cheapest routes first: the inventory's weapon system, then the inventory's own
+hierarchy, and only then a scene scan for the health flagged as the player. Null when none of
+those find one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected AFPS_Health ResolvePlayerHealth()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Health.html">AFPS_Health</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.SetItem(AFPS.AFPS_ItemObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L22">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L27">View Source</a>
   </span>
   <a id="AFPS_ItemMenuButtonBase_SetItem_" data-uid="AFPS.ItemMenuButtonBase.SetItem*"></a>
   <h4 id="AFPS_ItemMenuButtonBase_SetItem_AFPS_AFPS_ItemObject_" data-uid="AFPS.ItemMenuButtonBase.SetItem(AFPS.AFPS_ItemObject)">SetItem(AFPS_ItemObject)</h4>
@@ -690,6 +733,57 @@ public AFPS_ItemObject item</code></pre>
         <td><a class="xref" href="AFPS.AFPS_ItemObject.html">AFPS_ItemObject</a></td>
         <td><span class="parametername">_item</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_ItemMenuButtonBase_SpendStack_System_Int32_.md&amp;value=---%0Auid%3A%20AFPS.ItemMenuButtonBase.SpendStack(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Inventory System/ItemMenuButtonExamples/ItemMenuButtonBase.cs/#L92">View Source</a>
+  </span>
+  <a id="AFPS_ItemMenuButtonBase_SpendStack_" data-uid="AFPS.ItemMenuButtonBase.SpendStack*"></a>
+  <h4 id="AFPS_ItemMenuButtonBase_SpendStack_System_Int32_" data-uid="AFPS.ItemMenuButtonBase.SpendStack(System.Int32)">SpendStack(int)</h4>
+  <div class="markdown level1 summary"><p>Removes <code class="paramref">amount</code> units from <a class="xref" href="AFPS.ItemMenuButtonBase.html#AFPS_ItemMenuButtonBase_item">item</a>'s stack, destroying the item
+(and clearing its grid cells) when nothing is left. The shared tail of every button that spends
+the item it acted on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool SpendStack(int amount = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when the item was fully used up and destroyed.</p>
+</td>
       </tr>
     </tbody>
   </table>

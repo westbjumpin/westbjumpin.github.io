@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Dash ">
     
-    <meta name="description" content="Applies an impulse force along the player&#39;s current movement vector; magnitude differs based on  state.">
+    <meta name="description" content="Impulse dash with three direction modes, an optional charge-up windup, and a momentum window that decides how much of the dash the player keeps. The dash fires a single  along one of three directions — the camera&#39;s aim, the player&#39;s movement input, or straight up (see ) — scaled by a ground or air force. The two modes that can launch the player off the ground suppress &#39;s hover float for a moment, because the float PID holds a fixed hover height and would otherwise push back against the launch. Momentum preservation is a drag window rather than a force: the controller&#39;s ground and air acceleration only ever add speed along the movement vector, so nothing brakes a dash except , which  rewrites from its own state every frame. For  seconds after a dash this script re-applies a scaled-down damping on every physics step — reading the controller&#39;s authored value through  rather than the body&#39;s own, so several physics steps inside one frame can&#39;t compound the reduction. The window ends early when the player lands, jumps, slides, or steers hard against the dash, so it never fights the action the player just chose. The optional charge-up bleeds speed off in place for a windup and then fires automatically, hanging the player in the air (gravity and float cancelled) and locking movement input for the duration if the preset asks for it. Aim stays free throughout, and the dash direction is sampled when the impulse actually fires, so the player can steer a charged dash with the mouse. The windup is the ability&#39;s own, and is independent of the holder&#39;s trigger type: pairing it with a Charge-type holder gives the player a held charge followed by this windup, and the holder&#39;s trigger rate starts counting from the press rather than from the moment the impulse lands. Every tuning value lives on an  preset, so the whole feel of the dash swaps with one asset. Only the per-instance SFX containers stay on the component.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -71,7 +71,30 @@
 
 
   <h1 id="AFPS_Dash" data-uid="AFPS.Dash" class="text-break">Class Dash</h1>
-  <div class="markdown level0 summary"><p>Applies an impulse force along the player's current movement vector; magnitude differs based on <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_grounded">grounded</a> state.</p>
+  <div class="markdown level0 summary"><p>Impulse dash with three direction modes, an optional charge-up windup, and a momentum window that
+decides how much of the dash the player keeps.</p>
+<p>The dash fires a single <span class="xref">UnityEngine.ForceMode.Impulse</span> along one of three directions — the camera's
+aim, the player's movement input, or straight up (see <a class="xref" href="AFPS.DashMode.html">DashMode</a>) — scaled by a ground or
+air force. The two modes that can launch the player off the ground suppress
+<a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a>'s hover float for a moment, because the float PID holds a fixed hover
+height and would otherwise push back against the launch.</p>
+<p>Momentum preservation is a drag window rather than a force: the controller's ground and air
+acceleration only ever add speed along the movement vector, so nothing brakes a dash except
+<span class="xref">UnityEngine.Rigidbody.linearDamping</span>, which <a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a> rewrites from its own state
+every frame. For <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_momentumPreserveTime">momentumPreserveTime</a> seconds after a dash this script
+re-applies a scaled-down damping on every physics step — reading the controller's authored value
+through <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_CurrentDrag">CurrentDrag</a> rather than the body's own, so several physics steps
+inside one frame can't compound the reduction. The window ends early when the player lands, jumps,
+slides, or steers hard against the dash, so it never fights the action the player just chose.</p>
+<p>The optional charge-up bleeds speed off in place for a windup and then fires automatically, hanging
+the player in the air (gravity and float cancelled) and locking movement input for the duration if
+the preset asks for it. Aim stays free throughout, and the dash direction is sampled when the impulse
+actually fires, so the player can steer a charged dash with the mouse.</p>
+<p>The windup is the ability's own, and is independent of the holder's trigger type: pairing it with a
+Charge-type holder gives the player a held charge followed by this windup, and the holder's trigger
+rate starts counting from the press rather than from the moment the impulse lands.</p>
+<p>Every tuning value lives on an <a class="xref" href="AFPS.AFPS_DashSettings.html">AFPS_DashSettings</a> preset, so the whole feel of the dash
+swaps with one asset. Only the per-instance SFX containers stay on the component.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -109,9 +132,6 @@
     </div>
     <div>
       <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_input">AbilityBase.input</a>
-    </div>
-    <div>
-      <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_Awake">AbilityBase.Awake()</a>
     </div>
     <div>
       <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Single_">AbilityBase.ActivateAbility(float)</a>
@@ -551,11 +571,11 @@ public class Dash : AbilityBase</code></pre>
     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Dash_ActivateAbility_System_Boolean_.md&amp;value=---%0Auid%3A%20AFPS.Dash.ActivateAbility(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L31">View Source</a>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L175">View Source</a>
   </span>
   <a id="AFPS_Dash_ActivateAbility_" data-uid="AFPS.Dash.ActivateAbility*"></a>
   <h4 id="AFPS_Dash_ActivateAbility_System_Boolean_" data-uid="AFPS.Dash.ActivateAbility(System.Boolean)">ActivateAbility(bool)</h4>
-  <div class="markdown level1 summary"><p>Fires an impulse on the Rigidbody along <a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_movementVector">movementVector</a>; ground vs. air state selects the force scalar.</p>
+  <div class="markdown level1 summary"><p>Fires the dash, or starts its windup when the preset asks for one. The release half of a press/release trigger is swallowed, since a dash is a one-shot. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Boolean_">ActivateAbility(bool)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -575,12 +595,108 @@ public class Dash : AbilityBase</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">pressed</span></td>
-        <td></td>
+        <td><p>True on button press; false (release) is ignored so the dash cannot fire twice per trigger pull.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ActivateAbility_System_Boolean_">AbilityBase.ActivateAbility(bool)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Dash_BindPlayer_AFPS_AFPS_Movement_.md&amp;value=---%0Auid%3A%20AFPS.Dash.BindPlayer(AFPS.AFPS_Movement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L118">View Source</a>
+  </span>
+  <a id="AFPS_Dash_BindPlayer_" data-uid="AFPS.Dash.BindPlayer*"></a>
+  <h4 id="AFPS_Dash_BindPlayer_AFPS_AFPS_Movement_" data-uid="AFPS.Dash.BindPlayer(AFPS.AFPS_Movement)">BindPlayer(AFPS_Movement)</h4>
+  <div class="markdown level1 summary"><p>Rebinds to a player handed over by <a class="xref" href="AFPS.AbilityFire.html">AbilityFire</a>, re-resolving the Rigidbody the dash pushes. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_">BindPlayer(AFPS_Movement)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void BindPlayer(AFPS_Movement newMovement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AFPS.AFPS_Movement.html">AFPS_Movement</a></td>
+        <td><span class="parametername">newMovement</span></td>
+        <td><p>The player's movement component, or null to leave the dash unbound.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_BindPlayer_AFPS_AFPS_Movement_">AbilityBase.BindPlayer(AFPS_Movement)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Dash_CanActivate.md&amp;value=---%0Auid%3A%20AFPS.Dash.CanActivate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L139">View Source</a>
+  </span>
+  <a id="AFPS_Dash_CanActivate_" data-uid="AFPS.Dash.CanActivate*"></a>
+  <h4 id="AFPS_Dash_CanActivate" data-uid="AFPS.Dash.CanActivate">CanActivate()</h4>
+  <div class="markdown level1 summary"><p>Whether a dash would actually do something right now: the ability has to be bound and configured,
+no windup can be running, and the current mode has to resolve to a real direction — an
+<a class="xref" href="AFPS.DashMode.html#AFPS_DashMode_Input">Input</a> preset with <a class="xref" href="AFPS.AFPS_DashSettings.html#AFPS_AFPS_DashSettings_dashForwardWithoutInput">dashForwardWithoutInput</a>
+off has nowhere to dash when the player is standing still. Lets a weapon skip the recoil kick on
+an activation that would do nothing. Overrides <a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_CanActivate">CanActivate()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanActivate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_CanActivate">AbilityBase.CanActivate()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Dash_ResetAbility.md&amp;value=---%0Auid%3A%20AFPS.Dash.ResetAbility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L456">View Source</a>
+  </span>
+  <a id="AFPS_Dash_ResetAbility_" data-uid="AFPS.Dash.ResetAbility*"></a>
+  <h4 id="AFPS_Dash_ResetAbility" data-uid="AFPS.Dash.ResetAbility">ResetAbility()</h4>
+  <div class="markdown level1 summary"><p>Hard-resets the dash on respawn / forced interrupt: cancels any charge-up windup and closes the
+momentum-preservation window, handing drag back to the controller. Called via
+<a class="xref" href="AFPS.AFPS_Movement.html#AFPS_AFPS_Movement_ClearTransientState">ClearTransientState()</a> so a dash that was mid-windup or still inside its
+drag window when the player died doesn't carry over to the respawned player. Overrides
+<a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ResetAbility">ResetAbility()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ResetAbility()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AFPS.AbilityBase.html#AFPS_AbilityBase_ResetAbility">AbilityBase.ResetAbility()</a></div>
 
 </article>
           </div>
@@ -593,7 +709,7 @@ public class Dash : AbilityBase</code></pre>
                     <a href="https://github.com/westbjumpin/Movement-FPS-Asset/new/main/apiSpec/new?filename=AFPS_Dash.md&amp;value=---%0Auid%3A%20AFPS.Dash%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/westbjumpin/Movement-FPS-Asset/blob/main/Assets/Axiom FPS/Scripts/Ability System/Dash.cs/#L38" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
